@@ -240,7 +240,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CheatTroopCountLimitModel.cs" />
     <Compile Include="Extensions\Reflection.cs" />
     <Compile Include="Extensions\Keys.cs" />
     <Compile Include="Models\CheatBattleRewardModel.cs" />
