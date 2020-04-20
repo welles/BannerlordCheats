@@ -254,6 +254,7 @@
     <Compile Include="Models\CheatPartySpeedCalculatingModel.cs" />
     <Compile Include="Models\CheatClanTierModel.cs" />
     <Compile Include="Models\CheatPartySizeLimitModel.cs" />
+    <Compile Include="Patches\MoneyCheatPatch.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

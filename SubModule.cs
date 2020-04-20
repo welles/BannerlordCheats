@@ -101,13 +101,6 @@ namespace BannerlordCheats
                 }
             }*/
 
-            /*if (ScreenManager.TopScreen is InventoryGauntletScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
-            {
-                Hero.MainHero.ChangeHeroGold(1000);
-
-                InformationManager.DisplayMessage(new InformationMessage($"{DateTime.Now:HH:mm:ss}: Added 1000 gold.", Color.White));
-            }*/
-
             /*if (ScreenManager.TopScreen is GauntletClanScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
             {
                 Hero.MainHero.AddInfluenceWithKingdom(1000);
