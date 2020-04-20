@@ -1,5 +1,6 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Models;
+using HarmonyLib;
 using SandBox.GauntletUI;
 using System;
 using System.Linq;
@@ -113,6 +114,15 @@ namespace BannerlordCheats
 
                 InformationManager.DisplayMessage(new InformationMessage($"{DateTime.Now:HH:mm:ss}: Added 1000 influence.", Color.White));
             }*/
+        }
+
+        protected override void OnSubModuleLoad()
+        {
+            base.OnSubModuleLoad();
+
+            var harmony = new Harmony("BannerlordCheats");
+
+            harmony.PatchAll();
         }
     }
 }
