@@ -24,6 +24,10 @@ namespace BannerlordCheats.Settings
         [SettingProperty(displayName: "Map Speed Factor", minValue: 1f, maxValue: 100f, editableMinValue: 1f, editableMaxValue: 100f, requireRestart: false, hintText: "Factor by which the speed of the player on the map is multiplied. A factor of 1 means default speed.")]
         public float MapSpeedFactor { get; set; } = 1.0f;
 
+        [SettingPropertyGroup("Map")]
+        [SettingProperty(displayName: "Map Visibility Factor", minValue: 1f, maxValue: 10f, editableMinValue: 1f, editableMaxValue: 10f, requireRestart: false, hintText: "Factor by which the visibility range of the player on the map is multiplied. A factor of 1 means default visibility. WARNING: Will negatively affect performance!")]
+        public float MapVisibilityFactor { get; set; } = 1.0f;
+
         #endregion Map
 
         #region Combat

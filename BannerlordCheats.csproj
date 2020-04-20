@@ -247,7 +247,6 @@
     <Compile Include="Models\CheatBuildingConstructionModel.cs" />
     <Compile Include="Models\CheatCharacterDevelopmentModel.cs" />
     <Compile Include="Models\CheatHeroDeathProbabilityCalculationModel.cs" />
-    <Compile Include="Models\CheatMapVisibilityModel.cs" />
     <Compile Include="Models\CheatPartyMoraleModel.cs" />
     <Compile Include="Models\CheatSmithingModel.cs" />
     <Compile Include="Models\CheatSiegeEventModel.cs" />
@@ -256,6 +255,7 @@
     <Compile Include="Patches\CharacterAttributesCheatPatch.cs" />
     <Compile Include="Patches\DefaultGenericXpModelPatch.cs" />
     <Compile Include="Patches\DefaultInventoryCapacityModelPatch.cs" />
+    <Compile Include="Patches\DefaultMapVisibilityModelPatch.cs" />
     <Compile Include="Patches\DefaultPartySpeedCalculatingModelPatch.cs" />
     <Compile Include="Patches\InfluenceCheatPatch.cs" />
     <Compile Include="Patches\MoneyCheatPatch.cs" />
