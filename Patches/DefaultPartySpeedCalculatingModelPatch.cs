@@ -6,7 +6,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 namespace BannerlordCheats.Patches
 {
     [HarmonyPatch(typeof(DefaultPartySpeedCalculatingModel), "CalculateFinalSpeed")]
-    public class DefaultPartySpeedCalculatingModelPatch
+    public static class DefaultPartySpeedCalculatingModelPatch
     {
         [HarmonyPostfix]
         public static void CalculateFinalSpeed(MobileParty mobileParty, float baseSpeed, StatExplainer explanation, ref float __result)
@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches
 
             if (mobileParty?.IsMainParty ?? false)
             {
-                __result = __result * multiplier;
+                __result *= multiplier;
             }
         }
     }
