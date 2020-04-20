@@ -245,13 +245,13 @@
     <Compile Include="Extensions\Keys.cs" />
     <Compile Include="Models\CheatBattleRewardModel.cs" />
     <Compile Include="Models\CheatBuildingConstructionModel.cs" />
-    <Compile Include="Models\CheatCharacterDevelopmentModel.cs" />
     <Compile Include="Models\CheatHeroDeathProbabilityCalculationModel.cs" />
     <Compile Include="Models\CheatPartyMoraleModel.cs" />
     <Compile Include="Models\CheatSmithingModel.cs" />
     <Compile Include="Models\CheatSiegeEventModel.cs" />
     <Compile Include="Models\CheatClanTierModel.cs" />
     <Compile Include="Patches\CharacterAttributesCheatPatch.cs" />
+    <Compile Include="Patches\DefaultCharacterDevelopmentModelPatch.cs" />
     <Compile Include="Patches\DefaultGenericXpModelPatch.cs" />
     <Compile Include="Patches\DefaultInventoryCapacityModelPatch.cs" />
     <Compile Include="Patches\DefaultMapVisibilityModelPatch.cs" />

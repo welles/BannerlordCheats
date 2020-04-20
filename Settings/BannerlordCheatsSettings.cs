@@ -64,6 +64,10 @@ namespace BannerlordCheats.Settings
         [SettingProperty(displayName: "Experience Multiplier", minValue: 1, maxValue: 10000, editableMinValue: 1, editableMaxValue: 10000, requireRestart: false, hintText: "Factor by which the experience gain of the player is multiplied. A factor of 1 means default experience.")]
         public float ExperienceMultiplier { get; set; } = 1.0f;
 
+        [SettingPropertyGroup("Experience")]
+        [SettingProperty(displayName: "Learning Rate Multiplier", minValue: 1, maxValue: 10000, editableMinValue: 1, editableMaxValue: 10000, requireRestart: false, hintText: "Factor by which the learning rate of the player is multiplied. A factor of 1 means default learning.")]
+        public float LearningRateMultiplier { get; set; } = 1.0f;
+
         #endregion Experience
     }
 }
