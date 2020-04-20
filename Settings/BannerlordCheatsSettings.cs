@@ -16,11 +16,21 @@ namespace BannerlordCheats.Settings
 
         #endregion Base
 
+        #region Map
+
+        [SettingPropertyGroup("Map")]
         [SettingProperty(displayName: "Map Speed Factor", minValue: 1f, maxValue: 100f, editableMinValue: 1f, editableMaxValue: 100f, requireRestart: false, hintText: "Factor by which the speed of the player on the map is multiplied. A factor of 1 means default speed.")]
         public float MapSpeedFactor { get; set; } = 1.0f;
 
+        #endregion Map
+
+        #region Combat
+
+        [SettingPropertyGroup("Combat")]
         [SettingProperty(displayName: "Invincible", requireRestart: false, hintText: "Disables all damage to the player character.")]
         public bool Invincible { get; set; } = false;
+
+        #endregion Combat
 
         #region Inventory
 
