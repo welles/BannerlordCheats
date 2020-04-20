@@ -45,22 +45,6 @@ namespace BannerlordCheats
         {
             base.OnApplicationTick(dt);
 
-            /*if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A))
-            {
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Control, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Cunning, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Endurance, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Intelligence, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Social, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Vigor, 10);
-
-                var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
-
-                charVM.RefreshValues();
-
-                InformationManager.DisplayMessage(new InformationMessage($"{DateTime.Now:HH:mm:ss}: Set attributes of {Hero.MainHero.Name}.", Color.White));
-            }*/
-
             /*if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
             {
                 var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
