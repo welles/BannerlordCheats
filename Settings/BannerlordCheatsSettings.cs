@@ -35,12 +35,8 @@ namespace BannerlordCheats.Settings
         #region Inventory
 
         [SettingPropertyGroup("Inventory")]
-        [SettingProperty(displayName: "Modify Inventory Capacity", requireRestart: false, hintText: "Enable to set the capacity of the inventory.")]
-        public bool ModifyInventoryCapacity { get; set; } = false;
-        
-        [SettingPropertyGroup("Inventory")]
-        [SettingProperty(displayName: "Inventory Capacity", minValue: 0, maxValue: 1000000, editableMinValue: 0, editableMaxValue: 1000000, requireRestart: false, hintText: "The inventory capacity.")]
-        public int InventoryCapacity { get; set; } = 10000;
+        [SettingProperty(displayName: "Extra Inventory Capacity", minValue: 0, maxValue: 1000000, editableMinValue: 0, editableMaxValue: 1000000, requireRestart: false, hintText: "Extra inventory capacity for the player party.")]
+        public int ExtraInventoryCapacity { get; set; } = 0;
 
         #endregion Inventory
 
