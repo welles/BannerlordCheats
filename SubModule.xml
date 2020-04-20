@@ -1,0 +1,23 @@
+﻿<Module>
+  <Name value="Cheats"/>
+  <Id value="Cheats"/>
+  <Version value="v1.0.0"/>
+  <SingleplayerModule value="true"/>
+  <MultiplayerModule value="false"/>
+  <Official value="false"/>
+  <DependedModules>
+    <DependedModule Id="Native"/>
+    <DependedModule Id="SandBoxCore"/>
+    <DependedModule Id="Sandbox"/>
+    <DependedModule Id="CustomBattle"/>
+    <DependedModule Id="StoryMode" />
+  </DependedModules>
+  <SubModules>
+    <SubModule>
+      <Name value="BannerlordCheats"/>
+      <DLLName value="BannerlordCheats.dll"/>
+      <SubModuleClassType value="BannerlordCheats.SubModule"/>
+    </SubModule>
+  </SubModules>
+  <Xmls/>
+</Module>
