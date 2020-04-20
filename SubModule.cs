@@ -100,13 +100,6 @@ namespace BannerlordCheats
                     InformationManager.DisplayMessage(new InformationMessage($"{DateTime.Now:HH:mm:ss}: Added 1 troop to {selectedCharacter.Name}.", Color.White));
                 }
             }*/
-
-            /*if (ScreenManager.TopScreen is GauntletClanScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
-            {
-                Hero.MainHero.AddInfluenceWithKingdom(1000);
-
-                InformationManager.DisplayMessage(new InformationMessage($"{DateTime.Now:HH:mm:ss}: Added 1000 influence.", Color.White));
-            }*/
         }
 
         protected override void OnSubModuleLoad()
