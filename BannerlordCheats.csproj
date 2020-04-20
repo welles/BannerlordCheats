@@ -250,13 +250,13 @@
     <Compile Include="Models\CheatMapVisibilityModel.cs" />
     <Compile Include="Models\CheatPartyMoraleModel.cs" />
     <Compile Include="Models\CheatSmithingModel.cs" />
-    <Compile Include="Models\CheatInventoryCapacityModel.cs" />
     <Compile Include="Models\CheatGenericXpModel.cs" />
     <Compile Include="Models\CheatAgentApplyDamageModel.cs" />
     <Compile Include="Models\CheatSiegeEventModel.cs" />
     <Compile Include="Models\CheatClanTierModel.cs" />
     <Compile Include="Models\CheatPartySizeLimitModel.cs" />
     <Compile Include="Patches\CharacterAttributesCheatPatch.cs" />
+    <Compile Include="Patches\DefaultInventoryCapacityModelPatch.cs" />
     <Compile Include="Patches\DefaultPartySpeedCalculatingModelPatch.cs" />
     <Compile Include="Patches\InfluenceCheatPatch.cs" />
     <Compile Include="Patches\MoneyCheatPatch.cs" />
