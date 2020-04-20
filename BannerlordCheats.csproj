@@ -256,7 +256,7 @@
     <Compile Include="Patches\DefaultGenericXpModelPatch.cs" />
     <Compile Include="Patches\DefaultInventoryCapacityModelPatch.cs" />
     <Compile Include="Patches\DefaultMapVisibilityModelPatch.cs" />
-    <Compile Include="Patches\DefaultPartySizeLimitModelPatch.cs" />
+    <Compile Include="Patches\PartyMemberSizeLimitPatch.cs" />
     <Compile Include="Patches\DefaultPartySpeedCalculatingModelPatch.cs" />
     <Compile Include="Patches\InfluenceCheatPatch.cs" />
     <Compile Include="Patches\MoneyCheatPatch.cs" />
