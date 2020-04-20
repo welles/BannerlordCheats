@@ -250,7 +250,6 @@
     <Compile Include="Models\CheatMapVisibilityModel.cs" />
     <Compile Include="Models\CheatPartyMoraleModel.cs" />
     <Compile Include="Models\CheatSmithingModel.cs" />
-    <Compile Include="Models\CheatAgentApplyDamageModel.cs" />
     <Compile Include="Models\CheatSiegeEventModel.cs" />
     <Compile Include="Models\CheatClanTierModel.cs" />
     <Compile Include="Models\CheatPartySizeLimitModel.cs" />
@@ -260,6 +259,7 @@
     <Compile Include="Patches\DefaultPartySpeedCalculatingModelPatch.cs" />
     <Compile Include="Patches\InfluenceCheatPatch.cs" />
     <Compile Include="Patches\MoneyCheatPatch.cs" />
+    <Compile Include="Patches\SandboxAgentApplyDamageModelPatch.cs" />
     <Compile Include="Patches\TroopCountCheatPatch.cs" />
     <Compile Include="Patches\TroopExperienceCheatPatch.cs" />
     <Compile Include="Settings\BannerlordCheatsSettings.cs" />
