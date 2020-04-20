@@ -257,6 +257,7 @@
     <Compile Include="Patches\CharacterAttributesCheatPatch.cs" />
     <Compile Include="Patches\InfluenceCheatPatch.cs" />
     <Compile Include="Patches\MoneyCheatPatch.cs" />
+    <Compile Include="Patches\TroopCountCheatPatch.cs" />
     <Compile Include="Patches\TroopExperienceCheatPatch.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

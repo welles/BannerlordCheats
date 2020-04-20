@@ -44,26 +44,6 @@ namespace BannerlordCheats
         protected override void OnApplicationTick(float dt)
         {
             base.OnApplicationTick(dt);
-
-            /*if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
-            {
-                var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
-
-                var partyVM = partyScreen.GetViewModel<PartyVM>();
-
-                var selectedCharacter = partyVM.CurrentCharacter;
-
-                var selectedTroops = selectedCharacter.Troops;
-
-                if (!selectedCharacter.IsHero)
-                {
-                    selectedTroops.AddToCountsAtIndex(selectedCharacter.Index, 1);
-
-                    partyVM.InitializeTroopLists();
-
-                    InformationManager.DisplayMessage(new InformationMessage($"{DateTime.Now:HH:mm:ss}: Added 1 troop to {selectedCharacter.Name}.", Color.White));
-                }
-            }*/
         }
 
         protected override void OnSubModuleLoad()
