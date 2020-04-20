@@ -8,7 +8,9 @@ namespace BannerlordCheats.Settings
     {
         #region Base
 
-        public override string Id { get; set; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}";
+        private const int SettingsVersion = 1;
+
+        public override string Id { get; set; } = $"BannerlordCheats_v{SettingsVersion}";
 
         public override string ModuleFolderName => "Cheats";
 
