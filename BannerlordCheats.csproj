@@ -262,6 +262,7 @@
     <Compile Include="Patches\MoneyCheatPatch.cs" />
     <Compile Include="Patches\TroopCountCheatPatch.cs" />
     <Compile Include="Patches\TroopExperienceCheatPatch.cs" />
+    <Compile Include="Settings\BannerlordCheatsSettings.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
