@@ -69,5 +69,13 @@ namespace BannerlordCheats.Settings
         public float LearningRateMultiplier { get; set; } = 1.0f;
 
         #endregion Experience
+
+        #region Sieges
+
+        [SettingPropertyGroup("Sieges")]
+        [SettingProperty(displayName: "Siege Building Speed Multiplier", minValue: 1f, maxValue: 100f, editableMinValue: 1f, editableMaxValue: 100f, requireRestart: false, hintText: "Factor by which the speed of siege engine construction on the player party's side is multiplied. A factor of 1 means default build speed.")]
+        public float SiegeBuildingSpeedMultiplier { get; set; } = 1.0f;
+
+        #endregion Sieges
     }
 }
