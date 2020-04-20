@@ -33,5 +33,13 @@ namespace BannerlordCheats.Settings
         public int InventoryCapacity { get; set; } = 10000;
 
         #endregion Inventory
+
+        #region Experience
+
+        [SettingPropertyGroup("Experience")]
+        [SettingProperty(displayName: "Experience Multiplier", minValue: 1, maxValue: 10000, editableMinValue: 1, editableMaxValue: 10000, requireRestart: false, hintText: "Factor by which the experience gain of the player is multiplied. A factor of 1 means default experience.")]
+        public float ExperienceMultiplier { get; set; } = 1.0f;
+
+        #endregion Experience
     }
 }
