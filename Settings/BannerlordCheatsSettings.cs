@@ -46,6 +46,14 @@ namespace BannerlordCheats.Settings
 
         #endregion Inventory
 
+        #region Party
+
+        [SettingPropertyGroup("Party")]
+        [SettingProperty(displayName: "Extra Party Member Size", minValue: 0, maxValue: 10000, editableMinValue: 0, editableMaxValue: 10000, requireRestart: false, hintText: "Increase the maximum size for the player party.")]
+        public int ExtraPartyMemberSize { get; set; } = 0;
+
+        #endregion
+
         #region Experience
 
         [SettingPropertyGroup("Experience")]
