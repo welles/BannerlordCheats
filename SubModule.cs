@@ -61,26 +61,6 @@ namespace BannerlordCheats
                 InformationManager.DisplayMessage(new InformationMessage($"{DateTime.Now:HH:mm:ss}: Set attributes of {Hero.MainHero.Name}.", Color.White));
             }*/
 
-            /*if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
-            {
-                var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
-
-                var partyVM = partyScreen.GetViewModel<PartyVM>();
-
-                var selectedCharacter = partyVM.CurrentCharacter;
-
-                var selectedTroops = selectedCharacter.Troops;
-
-                if (selectedCharacter.IsUpgrade1Exists || selectedCharacter.IsUpgrade2Exists)
-                {
-                    selectedTroops.SetElementXp(selectedCharacter.Index, selectedCharacter.MaxXP * selectedCharacter.Number);
-
-                    partyVM.InitializeTroopLists();
-
-                    InformationManager.DisplayMessage(new InformationMessage($"{DateTime.Now:HH:mm:ss}: Added XP to {selectedCharacter.Name}.", Color.White));
-                }
-            }*/
-
             /*if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
             {
                 var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
