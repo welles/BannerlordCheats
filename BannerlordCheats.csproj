@@ -252,6 +252,7 @@
     <Compile Include="Patches\CompanionLimitPatch.cs" />
     <Compile Include="Patches\DailyConstructionPowerPatch.cs" />
     <Compile Include="Patches\DailyConstructionPowerWithoutBoostPatch.cs" />
+    <Compile Include="Patches\DamageDealtPatch.cs" />
     <Compile Include="Patches\DefaultCharacterDevelopmentModelPatch.cs" />
     <Compile Include="Patches\DefaultGenericXpModelPatch.cs" />
     <Compile Include="Patches\DefaultInventoryCapacityModelPatch.cs" />
