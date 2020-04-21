@@ -242,7 +242,6 @@
   <ItemGroup>
     <Compile Include="Extensions\Reflection.cs" />
     <Compile Include="Extensions\Keys.cs" />
-    <Compile Include="Models\CheatSmithingModel.cs" />
     <Compile Include="Patches\BattleInfluenceGainPatch.cs" />
     <Compile Include="Patches\BattleRenownGainPatch.cs" />
     <Compile Include="Patches\CharacterAttributesCheatPatch.cs" />
@@ -262,7 +261,10 @@
     <Compile Include="Patches\MoneyCheatPatch.cs" />
     <Compile Include="Patches\PartyMoralePatch.cs" />
     <Compile Include="Patches\PartyPrisonerSizeLimitPatch.cs" />
+    <Compile Include="Patches\RefiningEnergyCostPatch.cs" />
     <Compile Include="Patches\SandboxAgentApplyDamageModelPatch.cs" />
+    <Compile Include="Patches\SmeltingEnergyCostPatch.cs" />
+    <Compile Include="Patches\SmithingEnergyCostPatch.cs" />
     <Compile Include="Patches\TroopCountCheatPatch.cs" />
     <Compile Include="Patches\TroopExperienceCheatPatch.cs" />
     <Compile Include="Settings\BannerlordCheatsSettings.cs" />

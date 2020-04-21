@@ -120,5 +120,13 @@ namespace BannerlordCheats.Settings
         public int ConstructionPowerMultiplier { get; set; } = 1;
 
         #endregion Fiefs
+
+        #region Smithing
+
+        [SettingPropertyGroup("Smithing")]
+        [SettingProperty(displayName: "No Energy Cost", requireRestart: false, hintText: "Disable energy cost for smithing, smelting or refining.")]
+        public bool NoSmithingEnergyCost { get; set; } = false;
+
+        #endregion Smithing
     }
 }
