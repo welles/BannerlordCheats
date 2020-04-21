@@ -1,4 +1,5 @@
 ﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
@@ -17,7 +18,7 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A))
+            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
                 Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Control, 10);
                 Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Cunning, 10);

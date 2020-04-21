@@ -1,4 +1,5 @@
 ﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
@@ -16,7 +17,7 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
+            if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
                 var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
 

@@ -18,6 +18,14 @@ namespace BannerlordCheats.Settings
 
         #endregion Base
 
+        #region Hotkeys
+
+        [SettingPropertyGroup("Hotkeys")]
+        [SettingProperty(displayName: "Enable Hotkeys", requireRestart: false, hintText: "Enable cheat hotkeys in inventory, character, etc. screens.")]
+        public bool EnableHotkeys { get; set; } = false;
+
+        #endregion Hotkeys
+
         #region Map
 
         [SettingPropertyGroup("Map")]
