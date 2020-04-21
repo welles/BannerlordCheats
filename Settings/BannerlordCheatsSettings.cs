@@ -75,6 +75,10 @@ namespace BannerlordCheats.Settings
         [SettingProperty(displayName: "Extra Party Prisoner Size", minValue: 0, maxValue: 10000, editableMinValue: 0, editableMaxValue: 10000, requireRestart: false, hintText: "Increase the maximum amount of prisoners travelling with the party.")]
         public int ExtraPartyPrisonerSize { get; set; } = 0;
 
+        [SettingPropertyGroup("Party")]
+        [SettingProperty(displayName: "Extra Party Morale", minValue: 0, maxValue: 100, editableMinValue: 0, editableMaxValue: 100, requireRestart: false, hintText: "Increase morale of the player party.")]
+        public int ExtraPartyMorale { get; set; } = 0;
+
         #endregion
 
         #region Clan
