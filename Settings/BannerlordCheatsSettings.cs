@@ -73,6 +73,18 @@ namespace BannerlordCheats.Settings
 
         #endregion
 
+        #region Clan
+
+        [SettingPropertyGroup("Clan")]
+        [SettingProperty(displayName: "Extra Companion Limit", minValue: 0, maxValue: 100, editableMinValue: 0, editableMaxValue: 100, requireRestart: false, hintText: "Increase the maximum amount of companions in your clan.")]
+        public int ExtraCompanionLimit { get; set; } = 0;
+
+        [SettingPropertyGroup("Clan")]
+        [SettingProperty(displayName: "Extra Clan Party Limit", minValue: 0, maxValue: 100, editableMinValue: 0, editableMaxValue: 100, requireRestart: false, hintText: "Increase the maximum amount of parties in your clan.")]
+        public int ExtraClanPartyLimit { get; set; } = 0;
+
+        #endregion Clan
+
         #region Experience
 
         [SettingPropertyGroup("Experience")]
