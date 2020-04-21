@@ -85,5 +85,13 @@ namespace BannerlordCheats.Settings
         public float SiegeBuildingSpeedMultiplier { get; set; } = 1.0f;
 
         #endregion Sieges
+
+        #region Fiefs
+
+        [SettingPropertyGroup("Fiefs")]
+        [SettingProperty(displayName: "Construction Power Multiplier", minValue: 1, maxValue: 1000, editableMinValue: 1, editableMaxValue: 1000, requireRestart: false, hintText: "Factor by which the 'construction power' of player owned fiefs is multiplied. A factor of 1 means default construction power.")]
+        public int ConstructionPowerMultiplier { get; set; } = 1;
+
+        #endregion Fiefs
     }
 }
