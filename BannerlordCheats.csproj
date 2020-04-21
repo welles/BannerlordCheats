@@ -247,6 +247,8 @@
     <Compile Include="Models\CheatPartyMoraleModel.cs" />
     <Compile Include="Models\CheatSmithingModel.cs" />
     <Compile Include="Models\CheatClanTierModel.cs" />
+    <Compile Include="Patches\BattleInfluenceGainPatch.cs" />
+    <Compile Include="Patches\BattleRenownGainPatch.cs" />
     <Compile Include="Patches\CharacterAttributesCheatPatch.cs" />
     <Compile Include="Patches\DailyConstructionPowerPatch.cs" />
     <Compile Include="Patches\DailyConstructionPowerWithoutBoostPatch.cs" />

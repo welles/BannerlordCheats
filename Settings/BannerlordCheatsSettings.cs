@@ -1,6 +1,5 @@
 ﻿using MBOptionScreen.Attributes;
 using MBOptionScreen.Settings;
-using System.Reflection;
 
 namespace BannerlordCheats.Settings
 {
@@ -43,6 +42,14 @@ namespace BannerlordCheats.Settings
         [SettingPropertyGroup("Combat")]
         [SettingProperty(displayName: "Invincible", requireRestart: false, hintText: "Disables all damage to the player character.")]
         public bool Invincible { get; set; } = false;
+
+        [SettingPropertyGroup("Combat")]
+        [SettingProperty(displayName: "Renown Reward Multiplier", minValue: 1f, maxValue: 1000f, editableMinValue: 1f, editableMaxValue: 1000f, requireRestart: false, hintText: "Factor by which the renown reward after a won battle is multiplied. A factor of 1 means default renown.")]
+        public float RenownRewardMultiplier { get; set; } = 1.0f;
+
+        [SettingPropertyGroup("Combat")]
+        [SettingProperty(displayName: "Influence Reward Multiplier", minValue: 1f, maxValue: 1000f, editableMinValue: 1f, editableMaxValue: 1000f, requireRestart: false, hintText: "Factor by which the influence reward after a won battle is multiplied. A factor of 1 means default influence.")]
+        public float InfluenceRewardMultiplier { get; set; } = 1.0f;
 
         #endregion Combat
 
