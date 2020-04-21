@@ -242,7 +242,6 @@
   <ItemGroup>
     <Compile Include="Extensions\Reflection.cs" />
     <Compile Include="Extensions\Keys.cs" />
-    <Compile Include="Models\CheatHeroDeathProbabilityCalculationModel.cs" />
     <Compile Include="Models\CheatSmithingModel.cs" />
     <Compile Include="Patches\BattleInfluenceGainPatch.cs" />
     <Compile Include="Patches\BattleRenownGainPatch.cs" />
