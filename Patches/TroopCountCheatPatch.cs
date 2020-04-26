@@ -17,24 +17,33 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
+            if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
+                AddTroops(10);
+            }
+            else if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
+            {
+                AddTroops(1);
+            }
+        }
 
-                var partyVM = partyScreen.GetViewModel<PartyVM>();
+        private static void AddTroops(int count)
+        {
+            var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
 
-                var selectedCharacter = partyVM.CurrentCharacter;
+            var partyVM = partyScreen.GetViewModel<PartyVM>();
 
-                var selectedTroops = selectedCharacter.Troops;
+            var selectedCharacter = partyVM.CurrentCharacter;
 
-                if (!selectedCharacter.IsHero)
-                {
-                    selectedTroops.AddToCountsAtIndex(selectedCharacter.Index, 1);
+            var selectedTroops = selectedCharacter.Troops;
 
-                    partyVM.InitializeTroopLists();
+            if (!selectedCharacter.IsHero)
+            {
+                selectedTroops.AddToCountsAtIndex(selectedCharacter.Index, count);
 
-                    InformationManager.DisplayMessage(new InformationMessage($"Added 1 troop to {selectedCharacter.Name}.", Color.White));
-                }
+                partyVM.InitializeTroopLists();
+
+                InformationManager.DisplayMessage(new InformationMessage($"Added {count} {(count > 1 ? "troops" : "troop")} to {selectedCharacter.Name}.", Color.White));
             }
         }
     }
