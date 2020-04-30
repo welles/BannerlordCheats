@@ -44,8 +44,8 @@ namespace BannerlordCheats.Settings
         public bool Invincible { get; set; } = false;
 
         [SettingPropertyGroup("Combat")]
-        [SettingProperty(displayName: "Damage Multiplier", minValue: 1, maxValue: 1000, editableMinValue: 1, editableMaxValue: 1000, requireRestart: false, hintText: "Factor by which the damage dealt by the player character in battle is multiplied. A factor of 1 means default damage.")]
-        public int DamageMultiplier { get; set; } = 1;
+        [SettingProperty(displayName: "One Hit Kill", requireRestart: false, hintText: "Kill enemies with one hit.")]
+        public bool OneHitKill { get; set; } = false;
 
         [SettingPropertyGroup("Combat")]
         [SettingProperty(displayName: "Renown Reward Multiplier", minValue: 1f, maxValue: 1000f, editableMinValue: 1f, editableMaxValue: 1000f, requireRestart: false, hintText: "Factor by which the renown reward after a won battle is multiplied. A factor of 1 means default renown.")]
