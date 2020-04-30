@@ -23,7 +23,7 @@ namespace BannerlordCheats.Patches
 
                 if (playerTeam != targetTeam)
                 {
-                    __result = target.HitPoints;
+                    __result = affectedBasicCharacter.HitPoints;
                 }
             }
         }
