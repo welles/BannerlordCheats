@@ -44,6 +44,10 @@ namespace BannerlordCheats.Settings
         public bool Invincible { get; set; } = false;
 
         [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "Party Invincible", RequireRestart = false, HintText = "Disables all damage to members of the player's party.")]
+        public bool PartyInvincible { get; set; } = false;
+
+        [SettingPropertyGroup("Combat")]
         [SettingPropertyBool(displayName: "One Hit Kill", RequireRestart = false, HintText = "Kill enemies with one hit.")]
         public bool OneHitKill { get; set; } = false;
 

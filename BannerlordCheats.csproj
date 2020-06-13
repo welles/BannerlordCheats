@@ -253,6 +253,7 @@
     <Compile Include="Patches\CompanionLimitPatch.cs" />
     <Compile Include="Patches\DailyConstructionPowerPatch.cs" />
     <Compile Include="Patches\DailyConstructionPowerWithoutBoostPatch.cs" />
+    <Compile Include="Patches\PartyInvincibilityCheatPatch.cs" />
     <Compile Include="Patches\OneHitKillPatch.cs" />
     <Compile Include="Patches\DefaultCharacterDevelopmentModelPatch.cs" />
     <Compile Include="Patches\DefaultGenericXpModelPatch.cs" />
