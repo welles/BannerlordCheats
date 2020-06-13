@@ -11,20 +11,14 @@ namespace BannerlordCheats.Patches
     public static class OneHitKillPatch
     {
         [HarmonyPostfix]
-        public static void CalculateDamage(BasicCharacterObject affectorBasicCharacter, BasicCharacterObject affectedBasicCharacter, MissionWeapon offHandItem, bool isHeadShot, bool isAffectedAgentMount, bool isAffectedAgentHuman, bool hasAffectorAgentMount, bool isAffectedAgentNull, bool isAffectorAgentHuman, AttackCollisionData collisionData, WeaponComponentData weapon, ref int __result)
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref int __result)
         {
-            if (Mission.Current != null
-                && (affectorBasicCharacter?.IsPlayerCharacter ?? false)
-                && affectedBasicCharacter != null
+            if ((attackInformation.AttackerAgentCharacter?.IsPlayerCharacter ?? false)
+                && !attackInformation.IsFriendlyFire
+                && attackInformation.IsVictimAgentHuman
                 && BannerlordCheatsSettings.Instance.OneHitKill)
             {
-                var playerTeam = Mission.Current.Teams.Single(team => team.ActiveAgents.Any(agent => agent.Character == affectorBasicCharacter));
-                var targetTeam = Mission.Current.Teams.Single(team => team.ActiveAgents.Any(agent => agent.Character == affectedBasicCharacter));
-
-                if (playerTeam != targetTeam)
-                {
-                    __result = affectedBasicCharacter.HitPoints;
-                }
+                __result = attackInformation.VictimAgentCharacter.HitPoints;
             }
         }
     }

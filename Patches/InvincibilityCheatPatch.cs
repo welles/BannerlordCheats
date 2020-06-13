@@ -10,9 +10,11 @@ namespace BannerlordCheats.Patches
     public static class InvincibilityCheatPatch
     {
         [HarmonyPostfix]
-        public static void CalculateDamage(BasicCharacterObject affectorBasicCharacter, BasicCharacterObject affectedBasicCharacter, MissionWeapon offHandItem, bool isHeadShot, bool isAffectedAgentMount, bool isAffectedAgentHuman, bool hasAffectorAgentMount, bool isAffectedAgentNull, bool isAffectorAgentHuman, AttackCollisionData collisionData, WeaponComponentData weapon, ref int __result)
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref int __result)
         {
-            if ((affectedBasicCharacter?.IsPlayerCharacter ?? false) && BannerlordCheatsSettings.Instance.Invincible)
+            if (((attackInformation.VictimAgentCharacter?.IsPlayerCharacter ?? false)
+                || attackInformation.IsVictimAgentMount && attackInformation.IsVictimAgentRiderAgentMine)
+                && BannerlordCheatsSettings.Instance.Invincible)
             {
                 __result = 0;
             }
