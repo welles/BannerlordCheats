@@ -1,7 +1,5 @@
 # BannerlordCheats
-Adds various cheats to Mount &amp; Blade: Bannerlord. Everything is configurable through a menu using [MBOptionScreen](https://github.com/Aragas/Bannerlord.MBOptionScreen).
-
-# Cheats
+Adds various cheats to Mount &amp; Blade: Bannerlord. Everything is configurable through a menu using [MBOptionScreen](https://github.com/Aragas/Bannerlord.MBOptionScreen). All options are instantly applied without a restart. The mod can be safely installed/uninstalled in existing save games, but you should always backup your saves anyways when changing mods.
 
 ## Hotkeys
 
