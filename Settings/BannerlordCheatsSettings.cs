@@ -1,20 +1,19 @@
-﻿using MBOptionScreen.Attributes;
-using MBOptionScreen.Attributes.v2;
-using MBOptionScreen.Settings;
+﻿using MCM.Abstractions.Attributes;
+using MCM.Abstractions.Attributes.v2;
 
 namespace BannerlordCheats.Settings
 {
-    public class BannerlordCheatsSettings : AttributeSettings<BannerlordCheatsSettings>
+    public class BannerlordCheatsSettings : MCM.Abstractions.Settings.Base.Global.AttributeGlobalSettings<BannerlordCheatsSettings>
     {
         #region Base
 
         private const int SettingsVersion = 1;
 
-        public override string Id { get; set; } = $"BannerlordCheats_v{SettingsVersion}";
+        public override string Id { get; } = $"BannerlordCheats_v{SettingsVersion}";
 
-        public override string ModuleFolderName => "Cheats";
+        public override string FolderName => "Cheats";
 
-        public override string ModName => "Cheats";
+        public override string DisplayName => "Cheats";
 
         #endregion Base
 
