@@ -71,6 +71,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "Always Win Battle Simulation", RequireRestart = false, HintText = "Enemies do no damage to the player party in combat simulations.")]
         public bool AlwaysWinBattleSimulation { get; set; } = false;
 
+        [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "No Troop Sacrifice", RequireRestart = false, HintText = "No troop sacrifice when running from an enemy or breaking a siege.")]
+        public bool NoTroopSacrifice { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory

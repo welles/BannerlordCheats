@@ -257,6 +257,7 @@
     <Compile Include="Patches\DisguiseAlwaysWorksPatch.cs" />
     <Compile Include="Patches\FreeTroopUpgradesPatch.cs" />
     <Compile Include="Patches\NoFoodConsumptionPatch.cs" />
+    <Compile Include="Patches\NoTroopSacrificePatch.cs" />
     <Compile Include="Patches\NoTroopWagesPatch.cs" />
     <Compile Include="Patches\PartyOneHitKillPatch.cs" />
     <Compile Include="Patches\PartyInvincibilityCheatPatch.cs" />
