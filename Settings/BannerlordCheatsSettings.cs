@@ -104,7 +104,7 @@ namespace BannerlordCheats.Settings
         public bool NoTroopWages { get; set; } = false;
 
         [SettingPropertyGroup("Party")]
-        [SettingPropertyBool(displayName: "Free Troop Uprades", RequireRestart = false, HintText = "Player party troop upgrades are free.")]
+        [SettingPropertyBool(displayName: "Free Troop Upgrades", RequireRestart = false, HintText = "Player party troop upgrades are free.")]
         public bool FreeTroopUpgrades { get; set; } = false;
 
         #endregion
