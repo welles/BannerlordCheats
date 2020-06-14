@@ -95,6 +95,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyInteger(displayName: "Extra Party Morale", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Increase morale of the player party.")]
         public int ExtraPartyMorale { get; set; } = 0;
 
+        [SettingPropertyGroup("Party")]
+        [SettingPropertyBool(displayName: "No Food Consumption", RequireRestart = false, HintText = "Player party does not need food.")]
+        public bool NoFoodConsumption { get; set; } = false;
+
         #endregion
 
         #region Clan

@@ -254,6 +254,7 @@
     <Compile Include="Patches\CompanionLimitPatch.cs" />
     <Compile Include="Patches\DailyConstructionPowerPatch.cs" />
     <Compile Include="Patches\DailyConstructionPowerWithoutBoostPatch.cs" />
+    <Compile Include="Patches\NoFoodConsumptionPatch.cs" />
     <Compile Include="Patches\PartyOneHitKillPatch.cs" />
     <Compile Include="Patches\PartyInvincibilityCheatPatch.cs" />
     <Compile Include="Patches\OneHitKillPatch.cs" />
