@@ -147,6 +147,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyInteger(displayName: "Construction Power Multiplier", minValue: 1, maxValue: 1000, RequireRestart = false, HintText = "Factor by which the 'construction power' of player owned fiefs is multiplied. A factor of 1 means default construction power.")]
         public int ConstructionPowerMultiplier { get; set; } = 1;
 
+        [SettingPropertyGroup("Settlements")]
+        [SettingPropertyBool(displayName: "Disguise Always Works", RequireRestart = false, HintText = "Sneaking into settlements always succeeds.")]
+        public bool DisguiseAlwaysWorks { get; set; } = false;
+
         #endregion Settlements
 
         #region Smithing
