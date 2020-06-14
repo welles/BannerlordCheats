@@ -75,6 +75,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "No Troop Sacrifice", RequireRestart = false, HintText = "No troop sacrifice when running from an enemy or breaking a siege.")]
         public bool NoTroopSacrifice { get; set; } = false;
 
+        [SettingPropertyGroup("Combat")]
+        [SettingPropertyInteger(displayName: "Extra Bandit Hideout Troops", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Additional troops that can join the player in hideout battles. A value of 0 means default troop limit.")]
+        public int BanditHideoutTroopLimit { get; set; } = 0;
+
         #endregion Combat
 
         #region Inventory

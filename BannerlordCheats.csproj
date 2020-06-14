@@ -247,6 +247,7 @@
     <Compile Include="Extensions\Reflection.cs" />
     <Compile Include="Extensions\Keys.cs" />
     <Compile Include="Patches\AlwaysWinBattleSimulationPatch.cs" />
+    <Compile Include="Patches\BanditHideoutTroopLimitPatch.cs" />
     <Compile Include="Patches\BattleInfluenceGainPatch.cs" />
     <Compile Include="Patches\BattleRenownGainPatch.cs" />
     <Compile Include="Patches\CharacterAttributesCheatPatch.cs" />
