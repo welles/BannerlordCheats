@@ -56,6 +56,10 @@ namespace BannerlordCheats.Settings
         public bool PartyOneHitKill { get; set; } = false;
 
         [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "Party Only Knockout", RequireRestart = false, HintText = "Party members are never killed, only knocked unconcious.")]
+        public bool PartyOnlyKnockout { get; set; } = false;
+
+        [SettingPropertyGroup("Combat")]
         [SettingPropertyFloatingInteger(displayName: "Renown Reward Multiplier", minValue: 1f, maxValue: 1000f, RequireRestart = false, HintText = "Factor by which the renown reward after a won battle is multiplied. A factor of 1 means default renown.")]
         public float RenownRewardMultiplier { get; set; } = 1.0f;
 

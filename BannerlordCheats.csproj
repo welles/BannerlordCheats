@@ -266,6 +266,7 @@
     <Compile Include="Patches\InfluenceCheatPatch.cs" />
     <Compile Include="Patches\MoneyCheatPatch.cs" />
     <Compile Include="Patches\PartyMoralePatch.cs" />
+    <Compile Include="Patches\PartyOnlyKnockoutPatch.cs" />
     <Compile Include="Patches\PartyPrisonerSizeLimitPatch.cs" />
     <Compile Include="Patches\RefiningEnergyCostPatch.cs" />
     <Compile Include="Patches\InvincibilityCheatPatch.cs" />
