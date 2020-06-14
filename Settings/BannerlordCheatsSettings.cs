@@ -67,6 +67,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyFloatingInteger(displayName: "Influence Reward Multiplier", minValue: 1f, maxValue: 1000f, RequireRestart = false, HintText = "Factor by which the influence reward after a won battle is multiplied. A factor of 1 means default influence.")]
         public float InfluenceRewardMultiplier { get; set; } = 1.0f;
 
+        [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "Always Win Battle Simulation", RequireRestart = false, HintText = "Enemies do no damage to the player party in combat simulations.")]
+        public bool AlwaysWinBattleSimulation { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory
