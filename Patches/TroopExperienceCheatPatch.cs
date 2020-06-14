@@ -27,6 +27,14 @@ namespace BannerlordCheats.Patches
 
                 var selectedTroops = selectedCharacter.Troops;
 
+                // Catch outdated troop index error
+                if (selectedCharacter.Index >= selectedTroops.Count)
+                {
+                    partyVM.InitializeTroopLists();
+
+                    return;
+                }
+
                 if (selectedCharacter.IsUpgrade1Exists || selectedCharacter.IsUpgrade2Exists)
                 {
                     selectedTroops.SetElementXp(selectedCharacter.Index, selectedCharacter.MaxXP * selectedCharacter.Number);

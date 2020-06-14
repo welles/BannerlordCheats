@@ -37,6 +37,14 @@ namespace BannerlordCheats.Patches
 
             var selectedTroops = selectedCharacter.Troops;
 
+            // Catch outdated troop index error
+            if (selectedCharacter.Index >= selectedTroops.Count)
+            {
+                partyVM.InitializeTroopLists();
+
+                return;
+            }
+
             if (!selectedCharacter.IsHero)
             {
                 selectedTroops.AddToCountsAtIndex(selectedCharacter.Index, count);
