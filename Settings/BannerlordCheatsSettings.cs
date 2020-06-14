@@ -99,6 +99,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "No Food Consumption", RequireRestart = false, HintText = "Player party does not need food.")]
         public bool NoFoodConsumption { get; set; } = false;
 
+        [SettingPropertyGroup("Party")]
+        [SettingPropertyBool(displayName: "No Troop Wages", RequireRestart = false, HintText = "Player party troops are unpaid.")]
+        public bool NoTroopWages { get; set; } = false;
+
         #endregion
 
         #region Clan
