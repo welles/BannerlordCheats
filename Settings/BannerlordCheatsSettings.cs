@@ -159,6 +159,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "Disguise Always Works", RequireRestart = false, HintText = "Sneaking into settlements always succeeds.")]
         public bool DisguiseAlwaysWorks { get; set; } = false;
 
+        [SettingPropertyGroup("Settlements")]
+        [SettingPropertyBool(displayName: "One Day Construction", RequireRestart = false, HintText = "Buildings in player settlements are constructed in one day.")]
+        public bool OneDayConstruction { get; set; } = false;
+
         #endregion Settlements
 
         #region Smithing
