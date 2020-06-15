@@ -115,6 +115,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "Free Troop Upgrades", RequireRestart = false, HintText = "Player party troop upgrades are free.")]
         public bool FreeTroopUpgrades { get; set; } = false;
 
+        [SettingPropertyGroup("Party")]
+        [SettingPropertyBool(displayName: "Instant Prisoner Recruitment", RequireRestart = false, HintText = "Prisoners can be instantly recruited.")]
+        public bool InstantPrisonerRecruitment { get; set; } = false;
+
         #endregion
 
         #region Clan
