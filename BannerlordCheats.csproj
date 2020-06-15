@@ -253,8 +253,6 @@
     <Compile Include="Patches\CharacterAttributesCheatPatch.cs" />
     <Compile Include="Patches\ClanPartyLimitPatch.cs" />
     <Compile Include="Patches\CompanionLimitPatch.cs" />
-    <Compile Include="Patches\DailyConstructionPowerPatch.cs" />
-    <Compile Include="Patches\DailyConstructionPowerWithoutBoostPatch.cs" />
     <Compile Include="Patches\DisguiseAlwaysWorksPatch.cs" />
     <Compile Include="Patches\FreeTroopUpgradesPatch.cs" />
     <Compile Include="Patches\NoFoodConsumptionPatch.cs" />
