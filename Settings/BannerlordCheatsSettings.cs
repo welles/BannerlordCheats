@@ -171,6 +171,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "No Energy Cost", RequireRestart = false, HintText = "Disable energy cost for smithing, smelting or refining.")]
         public bool NoSmithingEnergyCost { get; set; } = false;
 
+        [SettingPropertyGroup("Smithing")]
+        [SettingPropertyBool(displayName: "Unlock All Parts", RequireRestart = false, HintText = "All smithing parts are unlocked.")]
+        public bool UnlockAllParts { get; set; } = false;
+
         #endregion Smithing
     }
 }
