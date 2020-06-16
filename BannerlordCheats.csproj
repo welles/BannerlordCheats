@@ -281,6 +281,7 @@
     <Compile Include="Patches\InvincibilityCheatPatch.cs" />
     <Compile Include="Patches\SmeltingEnergyCostPatch.cs" />
     <Compile Include="Patches\SmithingEnergyCostPatch.cs" />
+    <Compile Include="Patches\SmithingMaterialsPatch.cs" />
     <Compile Include="Patches\TroopCountCheatPatch.cs" />
     <Compile Include="Patches\TroopExperienceCheatPatch.cs" />
     <Compile Include="Settings\BannerlordCheatsSettings.cs" />

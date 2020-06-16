@@ -179,6 +179,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "No Smithing Difficulty", RequireRestart = false, HintText = "Smithing difficulty is zero for every design.")]
         public bool NoSmithingDifficulty { get; set; } = false;
 
+        [SettingPropertyGroup("Smithing")]
+        [SettingPropertyBool(displayName: "No Materials Cost", RequireRestart = false, HintText = "Smithing materials cost is zero for every design.")]
+        public bool NoSmithingCost { get; set; } = false;
+
         #endregion Smithing
     }
 }
