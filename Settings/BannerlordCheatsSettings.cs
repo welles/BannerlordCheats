@@ -175,6 +175,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "Unlock All Parts", RequireRestart = false, HintText = "All smithing parts are unlocked.")]
         public bool UnlockAllParts { get; set; } = false;
 
+        [SettingPropertyGroup("Smithing")]
+        [SettingPropertyBool(displayName: "No Smithing Difficulty", RequireRestart = false, HintText = "Smithing difficulty is zero for every design.")]
+        public bool NoSmithingDifficulty { get; set; } = false;
+
         #endregion Smithing
     }
 }
