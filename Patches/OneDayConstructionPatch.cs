@@ -11,9 +11,10 @@ namespace BannerlordCheats.Patches
         public static void Construction(ref Town __instance, ref float __result)
         {
             if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false)
+                && !__instance.CurrentBuilding.IsCurrentlyDefault
                 && BannerlordCheatsSettings.Instance.OneDayConstruction)
             {
-                __result = float.MaxValue;
+                __result = __instance.CurrentBuilding.GetConstructionCost();
             }
         }
     }
