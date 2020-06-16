@@ -116,6 +116,10 @@ namespace BannerlordCheats.Settings
         public bool FreeTroopUpgrades { get; set; } = false;
 
         [SettingPropertyGroup("Party")]
+        [SettingPropertyBool(displayName: "Free Companion Hiring", RequireRestart = false, HintText = "Companions require no hiring fee.")]
+        public bool FreeCompanionHiring { get; set; } = false;
+
+        [SettingPropertyGroup("Party")]
         [SettingPropertyBool(displayName: "Instant Prisoner Recruitment", RequireRestart = false, HintText = "Prisoners can be instantly recruited.")]
         public bool InstantPrisonerRecruitment { get; set; } = false;
 
