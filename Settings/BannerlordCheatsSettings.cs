@@ -123,6 +123,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "Instant Prisoner Recruitment", RequireRestart = false, HintText = "Prisoners can be instantly recruited.")]
         public bool InstantPrisonerRecruitment { get; set; } = false;
 
+        [SettingPropertyGroup("Party")]
+        [SettingPropertyBool(displayName: "No Prisoner Escape", RequireRestart = false, HintText = "Prisoners cannot escape from captivity.")]
+        public bool NoPrisonerEscape { get; set; } = false;
+
         #endregion
 
         #region Clan
