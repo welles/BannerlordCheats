@@ -76,6 +76,10 @@ namespace BannerlordCheats.Settings
         public bool NoTroopSacrifice { get; set; } = false;
 
         [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "No Running Away", RequireRestart = false, HintText = "Troops in the player's party do not run away during combat.")]
+        public bool NoRunningAway { get; set; } = false;
+
+        [SettingPropertyGroup("Combat")]
         [SettingPropertyInteger(displayName: "Extra Bandit Hideout Troops", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Additional troops that can join the player in hideout battles. A value of 0 means default troop limit.")]
         public int BanditHideoutTroopLimit { get; set; } = 0;
 
