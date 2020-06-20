@@ -246,6 +246,7 @@
   <ItemGroup>
     <Compile Include="Extensions\Reflection.cs" />
     <Compile Include="Extensions\Keys.cs" />
+    <Compile Include="Patches\Combat\AlwaysCrushThrough.cs" />
     <Compile Include="Patches\Combat\EnemiesNoRunningAwayPatch.cs" />
     <Compile Include="Patches\Combat\NoRunningAwayPatch.cs" />
     <Compile Include="Patches\Experience\TroopExperienceMultiplierPatch.cs" />

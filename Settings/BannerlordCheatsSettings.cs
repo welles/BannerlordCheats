@@ -87,6 +87,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyInteger(displayName: "Extra Bandit Hideout Troops", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Additional troops that can join the player in hideout battles. A value of 0 means default troop limit.")]
         public int BanditHideoutTroopLimit { get; set; } = 0;
 
+        [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "Always Crush Through Shields", RequireRestart = false, HintText = "Your strikes always crush through enemy shields.")]
+        public bool AlwaysCrushThroughShields { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory
