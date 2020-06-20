@@ -6,7 +6,7 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), "CalculateDamage")]
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class InvincibilityCheatPatch
     {
         [HarmonyPostfix]

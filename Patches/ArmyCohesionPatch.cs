@@ -6,7 +6,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultArmyManagementCalculationModel), "CalculateCohesionChange")]
+    [HarmonyPatch(typeof(DefaultArmyManagementCalculationModel), nameof(DefaultArmyManagementCalculationModel.CalculateCohesionChange))]
     public static class ArmyCohesionPatch
     {
         [HarmonyPostfix]

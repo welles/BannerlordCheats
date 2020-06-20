@@ -4,7 +4,7 @@ using TaleWorlds.CampaignSystem;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(Town), "Construction", MethodType.Getter)]
+    [HarmonyPatch(typeof(Town), nameof(Town.Construction), MethodType.Getter)]
     public static class OneDayConstructionPatch
     {
         [HarmonyPostfix]

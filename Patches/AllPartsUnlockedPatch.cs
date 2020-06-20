@@ -5,7 +5,7 @@ using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(CraftingCampaignBehavior), "IsOpened")]
+    [HarmonyPatch(typeof(CraftingCampaignBehavior), nameof(CraftingCampaignBehavior.IsOpened))]
     public static class AllPartsUnlockedPatch
     {
         [HarmonyPostfix]

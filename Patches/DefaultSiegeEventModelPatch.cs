@@ -7,7 +7,7 @@ using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultSiegeEventModel), "GetConstructionProgressPerHour")]
+    [HarmonyPatch(typeof(DefaultSiegeEventModel), nameof(DefaultSiegeEventModel.GetConstructionProgressPerHour))]
     public static class DefaultSiegeEventModelPatch
     {
         [HarmonyPostfix]

@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(PrisonerEscapeCampaignBehavior), "DailyHeroTick")]
+    [HarmonyPatch(typeof(PrisonerEscapeCampaignBehavior), nameof(PrisonerEscapeCampaignBehavior.DailyHeroTick))]
     public static class NoPrisonerEscapePatch
     {
         [HarmonyPrefix]

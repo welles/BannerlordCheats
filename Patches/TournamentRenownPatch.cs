@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultTournamentModel), "GetRenownReward")]
+    [HarmonyPatch(typeof(DefaultTournamentModel), nameof(DefaultTournamentModel.GetRenownReward))]
     public static class TournamentRenownPatch
     {
         [HarmonyPostfix]

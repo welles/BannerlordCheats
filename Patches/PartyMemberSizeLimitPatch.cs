@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultPartySizeLimitModel), "GetPartyMemberSizeLimit")]
+    [HarmonyPatch(typeof(DefaultPartySizeLimitModel), nameof(DefaultPartySizeLimitModel.GetPartyMemberSizeLimit))]
     public static class PartyMemberSizeLimitPatch
     {
         [HarmonyPostfix]

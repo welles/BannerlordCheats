@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultPartyMoraleModel), "GetEffectivePartyMorale")]
+    [HarmonyPatch(typeof(DefaultPartyMoraleModel), nameof(DefaultPartyMoraleModel.GetEffectivePartyMorale))]
     public static class PartyMoralePatch
     {
         [HarmonyPostfix]

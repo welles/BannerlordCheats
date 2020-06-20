@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultInventoryCapacityModel), "CalculateInventoryCapacity")]
+    [HarmonyPatch(typeof(DefaultInventoryCapacityModel), nameof(DefaultInventoryCapacityModel.CalculateInventoryCapacity))]
     public static class DefaultInventoryCapacityModelPatch
     {
         [HarmonyPostfix]

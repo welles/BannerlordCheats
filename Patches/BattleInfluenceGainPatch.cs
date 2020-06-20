@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultBattleRewardModel), "CalculateInfluenceGain")]
+    [HarmonyPatch(typeof(DefaultBattleRewardModel), nameof(DefaultBattleRewardModel.CalculateInfluenceGain))]
     public static class BattleInfluenceGainPatch
     {
         [HarmonyPostfix]

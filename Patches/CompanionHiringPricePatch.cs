@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultCompanionHiringPriceCalculationModel), "GetCompanionHiringPrice")]
+    [HarmonyPatch(typeof(DefaultCompanionHiringPriceCalculationModel), nameof(DefaultCompanionHiringPriceCalculationModel.GetCompanionHiringPrice))]
     public static class CompanionHiringPricePatch
     {
         [HarmonyPostfix]

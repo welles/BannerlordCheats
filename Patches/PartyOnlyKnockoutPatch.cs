@@ -7,7 +7,7 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultAgentDecideKilledOrUnconsciousModel), "GetAgentStateProbability")]
+    [HarmonyPatch(typeof(DefaultAgentDecideKilledOrUnconsciousModel), nameof(DefaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
     public static class PartyOnlyKnockoutPatch
     {
         [HarmonyPostfix]

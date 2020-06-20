@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(RecruitPrisonersCampaignBehavior), "GetRecruitableNumber")]
+    [HarmonyPatch(typeof(RecruitPrisonersCampaignBehavior), nameof(RecruitPrisonersCampaignBehavior.GetRecruitableNumber))]
     public static class RecruitPrisonersPatch
     {
         [HarmonyPostfix]

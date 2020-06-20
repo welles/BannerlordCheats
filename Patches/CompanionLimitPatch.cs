@@ -4,7 +4,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultClanTierModel), "GetCompanionLimitForTier")]
+    [HarmonyPatch(typeof(DefaultClanTierModel), nameof(DefaultClanTierModel.GetCompanionLimitForTier))]
     public static class CompanionLimitPatch
     {
         [HarmonyPostfix]

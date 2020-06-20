@@ -5,7 +5,7 @@ using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultSmithingModel), "GetSmithingCostsForWeaponDesign")]
+    [HarmonyPatch(typeof(DefaultSmithingModel), nameof(DefaultSmithingModel.GetSmithingCostsForWeaponDesign))]
     public static class SmithingMaterialsPatch
     {
         [HarmonyPostfix]

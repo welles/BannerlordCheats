@@ -4,7 +4,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultTroopCountLimitModel), "GetHideoutBattlePlayerMaxTroopCount")]
+    [HarmonyPatch(typeof(DefaultTroopCountLimitModel), nameof(DefaultTroopCountLimitModel.GetHideoutBattlePlayerMaxTroopCount))]
     public static class BanditHideoutTroopLimitPatch
     {
         [HarmonyPostfix]

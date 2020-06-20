@@ -6,7 +6,7 @@ using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), "CalculateLearningRate", new[] { typeof(Hero), typeof(SkillObject), typeof(StatExplainer) })]
+    [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), nameof(DefaultCharacterDevelopmentModel.CalculateLearningRate), new[] { typeof(Hero), typeof(SkillObject), typeof(StatExplainer) })]
     public static class DefaultCharacterDevelopmentModelPatch
     {
         [HarmonyPostfix]

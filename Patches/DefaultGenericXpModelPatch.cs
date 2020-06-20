@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultGenericXpModel), "GetXpMultiplier")]
+    [HarmonyPatch(typeof(DefaultGenericXpModel), nameof(DefaultGenericXpModel.GetXpMultiplier))]
     public static class DefaultGenericXpModelPatch
     {
         [HarmonyPostfix]

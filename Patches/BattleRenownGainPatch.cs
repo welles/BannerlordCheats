@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultBattleRewardModel), "CalculateRenownGain")]
+    [HarmonyPatch(typeof(DefaultBattleRewardModel), nameof(DefaultBattleRewardModel.CalculateRenownGain))]
     public static class BattleRenownGainPatch
     {
         [HarmonyPostfix]

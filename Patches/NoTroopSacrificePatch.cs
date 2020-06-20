@@ -6,7 +6,7 @@ using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultTroopSacrificeModel), "GetNumberOfTroopsSacrificedForTryingToGetAway")]
+    [HarmonyPatch(typeof(DefaultTroopSacrificeModel), nameof(DefaultTroopSacrificeModel.GetNumberOfTroopsSacrificedForTryingToGetAway))]
     public static class NoTroopSacrificePatchRunaway
     {
         [HarmonyPostfix]
@@ -20,7 +20,7 @@ namespace BannerlordCheats.Patches
         }
     }
 
-    [HarmonyPatch(typeof(DefaultTroopSacrificeModel), "GetLostTroopCountForBreakingInBesiegedSettlement")]
+    [HarmonyPatch(typeof(DefaultTroopSacrificeModel), nameof(DefaultTroopSacrificeModel.GetLostTroopCountForBreakingInBesiegedSettlement))]
     public static class NoTroopSacrificePatchBreakIn
     {
         [HarmonyPostfix]
@@ -34,7 +34,7 @@ namespace BannerlordCheats.Patches
         }
     }
 
-    [HarmonyPatch(typeof(DefaultTroopSacrificeModel), "GetLostTroopCountForBreakingOutOfBesiegedSettlement")]
+    [HarmonyPatch(typeof(DefaultTroopSacrificeModel), nameof(DefaultTroopSacrificeModel.GetLostTroopCountForBreakingOutOfBesiegedSettlement))]
     public static class NoTroopSacrificePatchBreakOut
     {
         [HarmonyPostfix]

@@ -5,7 +5,7 @@ using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultSmithingModel), "GetCraftingPartDifficulty")]
+    [HarmonyPatch(typeof(DefaultSmithingModel), nameof(DefaultSmithingModel.GetCraftingPartDifficulty))]
     public static class NoSmithingDifficultyPatch
     {
         [HarmonyPostfix]

@@ -6,7 +6,7 @@ using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultSmithingModel), "GetEnergyCostForRefining")]
+    [HarmonyPatch(typeof(DefaultSmithingModel), nameof(DefaultSmithingModel.GetEnergyCostForRefining))]
     public static class RefiningEnergyCostPatch
     {
         [HarmonyPostfix]

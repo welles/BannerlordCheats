@@ -6,7 +6,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultPartyWageModel), "GetGoldCostForUpgrade")]
+    [HarmonyPatch(typeof(DefaultPartyWageModel), nameof(DefaultPartyWageModel.GetGoldCostForUpgrade))]
     public static class FreeTroopUpgradesPatch
     {
         [HarmonyPostfix]
