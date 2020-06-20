@@ -159,6 +159,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "Always Win Kingdom Votes", RequireRestart = false, HintText = "The choice the player has voted for in a kingdom decision always wins.")]
         public bool ForceKingdomDecision { get; set; } = false;
 
+        [SettingPropertyGroup("Kingdom")]
+        [SettingPropertyBool(displayName: "No Relationship Loss On Decision", RequireRestart = false, HintText = "Do not lose relationship points with people on the opposing side of the player's vote.")]
+        public bool NoRelationshipLossOnDecision { get; set; } = false;
+
         #endregion Kingdom
 
         #region Experience
