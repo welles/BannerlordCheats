@@ -165,6 +165,14 @@ namespace BannerlordCheats.Settings
 
         #endregion Sieges
 
+        #region Army
+
+        [SettingPropertyGroup("Army")]
+        [SettingPropertyBool(displayName: "No Cohesion Loss", RequireRestart = false, HintText = "Cohesion of the army the player has joined is frozen.")]
+        public bool NoArmyCohesionLoss { get; set; } = false;
+
+        #endregion Army
+
         #region Settlements
 
         [SettingPropertyGroup("Settlements")]

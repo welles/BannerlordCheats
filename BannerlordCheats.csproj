@@ -248,6 +248,7 @@
     <Compile Include="Extensions\Keys.cs" />
     <Compile Include="Patches\AllPartsUnlockedPatch.cs" />
     <Compile Include="Patches\AlwaysWinBattleSimulationPatch.cs" />
+    <Compile Include="Patches\ArmyCohesionPatch.cs" />
     <Compile Include="Patches\BanditHideoutTroopLimitPatch.cs" />
     <Compile Include="Patches\BattleInfluenceGainPatch.cs" />
     <Compile Include="Patches\BattleRenownGainPatch.cs" />
