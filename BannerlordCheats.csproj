@@ -258,6 +258,7 @@
     <Compile Include="Patches\CompanionLimitPatch.cs" />
     <Compile Include="Patches\DisguiseAlwaysWorksPatch.cs" />
     <Compile Include="Patches\FreeTroopUpgradesPatch.cs" />
+    <Compile Include="Patches\NoArmyFoodConsumptionPatch.cs" />
     <Compile Include="Patches\NoFoodConsumptionPatch.cs" />
     <Compile Include="Patches\NoPrisonerEscapePatch.cs" />
     <Compile Include="Patches\NoSmithingDifficultyPatch.cs" />

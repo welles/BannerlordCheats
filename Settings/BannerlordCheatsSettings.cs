@@ -171,6 +171,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "No Cohesion Loss", RequireRestart = false, HintText = "Cohesion of the army the player has joined is frozen.")]
         public bool NoArmyCohesionLoss { get; set; } = false;
 
+        [SettingPropertyGroup("Army")]
+        [SettingPropertyBool(displayName: "No Food Consumption", RequireRestart = false, HintText = "All parties in the army the player has joined do not need food.")]
+        public bool NoArmyFoodConsumption { get; set; } = false;
+
         #endregion Army
 
         #region Settlements
