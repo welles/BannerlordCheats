@@ -250,7 +250,9 @@
     <Compile Include="Patches\Combat\NoRunningAwayPatch.cs" />
     <Compile Include="Patches\Experience\TroopExperienceMultiplierPatch.cs" />
     <Compile Include="Patches\Kingdom\ForceKingdomDecisionPatch.cs" />
+    <Compile Include="Patches\Kingdom\NoRelationshipLossOnArmyDisband.cs" />
     <Compile Include="Patches\Kingdom\NoRelationshipLossOnDecisionPatch.cs" />
+    <Compile Include="Patches\Kingdom\NoRelationshipLossOnExpellingClan.cs" />
     <Compile Include="Patches\Smithing\AllPartsUnlockedPatch.cs" />
     <Compile Include="Patches\Combat\AlwaysWinBattleSimulationPatch.cs" />
     <Compile Include="Patches\Army\ArmyCohesionPatch.cs" />
