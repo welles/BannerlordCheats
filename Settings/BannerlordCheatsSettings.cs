@@ -163,6 +163,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyFloatingInteger(displayName: "Learning Rate Multiplier", minValue: 1, maxValue: 10000, RequireRestart = false, HintText = "Factor by which the learning rate of the player is multiplied. A factor of 1 means default learning.")]
         public float LearningRateMultiplier { get; set; } = 1.0f;
 
+        [SettingPropertyGroup("Experience")]
+        [SettingPropertyInteger(displayName: "Troop Experience Multiplier", minValue: 1, maxValue: 1000, RequireRestart = false, HintText = "Factor by which the experience gain of the player's troops is multiplied. A factor of 1 means default experience.")]
+        public int TroopExperienceMultiplier { get; set; } = 1;
+
         #endregion Experience
 
         #region Sieges
