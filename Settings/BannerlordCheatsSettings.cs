@@ -80,6 +80,10 @@ namespace BannerlordCheats.Settings
         public bool NoRunningAway { get; set; } = false;
 
         [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "Enemies Never Run Away", RequireRestart = false, HintText = "Enemies never run away during combat.")]
+        public bool EnemiesNoRunningAway { get; set; } = false;
+
+        [SettingPropertyGroup("Combat")]
         [SettingPropertyInteger(displayName: "Extra Bandit Hideout Troops", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Additional troops that can join the player in hideout battles. A value of 0 means default troop limit.")]
         public int BanditHideoutTroopLimit { get; set; } = 0;
 
