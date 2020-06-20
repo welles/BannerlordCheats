@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultClanTierModel), nameof(DefaultClanTierModel.GetPartyLimitForTier)]
+    [HarmonyPatch(typeof(DefaultClanTierModel), nameof(DefaultClanTierModel.GetPartyLimitForTier))]
     public static class ClanPartyLimitPatch
     {
         [HarmonyPostfix]
