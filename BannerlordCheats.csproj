@@ -263,6 +263,7 @@
     <Compile Include="Patches\NoTroopSacrificePatch.cs" />
     <Compile Include="Patches\NoTroopWagesPatch.cs" />
     <Compile Include="Patches\OneDayConstructionPatch.cs" />
+    <Compile Include="Patches\PartyHealingPatch.cs" />
     <Compile Include="Patches\PartyOneHitKillPatch.cs" />
     <Compile Include="Patches\PartyInvincibilityCheatPatch.cs" />
     <Compile Include="Patches\OneHitKillPatch.cs" />

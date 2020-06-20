@@ -127,6 +127,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "No Prisoner Escape", RequireRestart = false, HintText = "Prisoners cannot escape from captivity.")]
         public bool NoPrisonerEscape { get; set; } = false;
 
+        [SettingPropertyGroup("Party")]
+        [SettingPropertyFloatingInteger(displayName: "Party Healing Multiplier", minValue: 1.0f, maxValue:100.0f, RequireRestart = false, HintText = "Factor by which the party healing rate is multiplied. A factor of 1 means default healing.")]
+        public float PartyHealingMultiplier { get; set; } = 1.0f;
+
         #endregion
 
         #region Clan
