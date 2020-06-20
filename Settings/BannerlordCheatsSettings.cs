@@ -235,6 +235,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "No Materials Cost", RequireRestart = false, HintText = "Smithing materials cost is zero for every design.")]
         public bool NoSmithingCost { get; set; } = false;
 
+        [SettingPropertyGroup("Smithing")]
+        [SettingPropertyInteger(displayName: "Creafted Weapon Values Bonus", minValue: 0, maxValue: 200, RequireRestart = false, HintText = "Bonus that is applied to the values (speed, damage, handling) of any weapon the player crafts.")]
+        public int CreaftedWeaponValuesBonus { get; set; } = 0;
+
         #endregion Smithing
     }
 }

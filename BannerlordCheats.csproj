@@ -298,6 +298,7 @@
     <Compile Include="Patches\Combat\TournamentRenownPatch.cs" />
     <Compile Include="Patches\Hotkeys\TroopCountCheatPatch.cs" />
     <Compile Include="Patches\Hotkeys\TroopExperienceCheatPatch.cs" />
+    <Compile Include="Patches\Smithing\SmithPerfectWeapons.cs" />
     <Compile Include="Settings\BannerlordCheatsSettings.cs" />
     <Compile Include="SubModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
