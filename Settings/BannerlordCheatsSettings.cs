@@ -153,6 +153,14 @@ namespace BannerlordCheats.Settings
 
         #endregion Clan
 
+        #region Kingdom
+
+        [SettingPropertyGroup("Kingdom")]
+        [SettingPropertyBool(displayName: "Always Win Kingdom Votes", RequireRestart = false, HintText = "The choice the player has voted for in a kingdom decision always wins.")]
+        public bool ForceKingdomDecision { get; set; } = false;
+
+        #endregion Kingdom
+
         #region Experience
 
         [SettingPropertyGroup("Experience")]
