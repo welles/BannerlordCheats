@@ -7,20 +7,16 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
+    [HarmonyPatch(typeof(Agent), nameof(Agent.Invulnerable), MethodType.Getter)]
     public static class PartyInvincibilityCheatPatch
     {
         [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref int __result)
+        public static void Invulnerable(ref Agent __instance, ref bool __result)
         {
-            var playerTeam = Mission.Current?.Teams.SingleOrDefault(x => x.IsPlayerTeam)?.ActiveAgents.Select(x => x.Character);
-
-            if (playerTeam != null
-                && attackInformation.VictimAgentCharacter != null
-                && playerTeam.Contains(attackInformation.VictimAgentCharacter)
+            if ((__instance?.Team?.IsPlayerTeam ?? false)
                 && BannerlordCheatsSettings.Instance.PartyInvincible)
             {
-                __result = 0;
+                __result = true;
             }
         }
     }
