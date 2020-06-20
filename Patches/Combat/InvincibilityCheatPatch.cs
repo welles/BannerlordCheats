@@ -12,8 +12,7 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref int __result)
         {
-            if (((attackInformation.VictimAgentCharacter?.IsPlayerCharacter ?? false)
-                || attackInformation.IsVictimAgentMount && attackInformation.IsVictimAgentRiderAgentMine)
+            if ((attackInformation.IsVictimAgentMine || (attackInformation.IsVictimAgentMount && attackInformation.IsVictimAgentRiderAgentMine))
                 && BannerlordCheatsSettings.Instance.Invincible)
             {
                 __result = 0;
