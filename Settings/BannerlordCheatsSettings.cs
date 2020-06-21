@@ -76,8 +76,20 @@ namespace BannerlordCheats.Settings
         public bool NoTroopSacrifice { get; set; } = false;
 
         [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "No Running Away", RequireRestart = false, HintText = "Troops in the player's party do not run away during combat.")]
+        public bool NoRunningAway { get; set; } = false;
+
+        [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "Enemies Never Run Away", RequireRestart = false, HintText = "Enemies never run away during combat.")]
+        public bool EnemiesNoRunningAway { get; set; } = false;
+
+        [SettingPropertyGroup("Combat")]
         [SettingPropertyInteger(displayName: "Extra Bandit Hideout Troops", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Additional troops that can join the player in hideout battles. A value of 0 means default troop limit.")]
         public int BanditHideoutTroopLimit { get; set; } = 0;
+
+        [SettingPropertyGroup("Combat")]
+        [SettingPropertyBool(displayName: "Always Crush Through Shields", RequireRestart = false, HintText = "Your strikes always crush through enemy shields.")]
+        public bool AlwaysCrushThroughShields { get; set; } = false;
 
         #endregion Combat
 
@@ -123,6 +135,14 @@ namespace BannerlordCheats.Settings
         [SettingPropertyBool(displayName: "Instant Prisoner Recruitment", RequireRestart = false, HintText = "Prisoners can be instantly recruited.")]
         public bool InstantPrisonerRecruitment { get; set; } = false;
 
+        [SettingPropertyGroup("Party")]
+        [SettingPropertyBool(displayName: "No Prisoner Escape", RequireRestart = false, HintText = "Prisoners cannot escape from captivity.")]
+        public bool NoPrisonerEscape { get; set; } = false;
+
+        [SettingPropertyGroup("Party")]
+        [SettingPropertyFloatingInteger(displayName: "Party Healing Multiplier", minValue: 1.0f, maxValue:100.0f, RequireRestart = false, HintText = "Factor by which the party healing rate is multiplied. A factor of 1 means default healing.")]
+        public float PartyHealingMultiplier { get; set; } = 1.0f;
+
         #endregion
 
         #region Clan
@@ -137,6 +157,18 @@ namespace BannerlordCheats.Settings
 
         #endregion Clan
 
+        #region Kingdom
+
+        [SettingPropertyGroup("Kingdom")]
+        [SettingPropertyBool(displayName: "Always Win Kingdom Votes", RequireRestart = false, HintText = "The choice the player has voted for in a kingdom decision always wins.")]
+        public bool ForceKingdomDecision { get; set; } = false;
+
+        [SettingPropertyGroup("Kingdom")]
+        [SettingPropertyBool(displayName: "No Relationship Loss On Decision", RequireRestart = false, HintText = "Do not lose relationship points with people on the opposing side of the player's vote.")]
+        public bool NoRelationshipLossOnDecision { get; set; } = false;
+
+        #endregion Kingdom
+
         #region Experience
 
         [SettingPropertyGroup("Experience")]
@@ -147,6 +179,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyFloatingInteger(displayName: "Learning Rate Multiplier", minValue: 1, maxValue: 10000, RequireRestart = false, HintText = "Factor by which the learning rate of the player is multiplied. A factor of 1 means default learning.")]
         public float LearningRateMultiplier { get; set; } = 1.0f;
 
+        [SettingPropertyGroup("Experience")]
+        [SettingPropertyInteger(displayName: "Troop Experience Multiplier", minValue: 1, maxValue: 1000, RequireRestart = false, HintText = "Factor by which the experience gain of the player's troops is multiplied. A factor of 1 means default experience.")]
+        public int TroopExperienceMultiplier { get; set; } = 1;
+
         #endregion Experience
 
         #region Sieges
@@ -156,6 +192,18 @@ namespace BannerlordCheats.Settings
         public float SiegeBuildingSpeedMultiplier { get; set; } = 1.0f;
 
         #endregion Sieges
+
+        #region Army
+
+        [SettingPropertyGroup("Army")]
+        [SettingPropertyBool(displayName: "No Cohesion Loss", RequireRestart = false, HintText = "Cohesion of the army the player has joined is frozen.")]
+        public bool NoArmyCohesionLoss { get; set; } = false;
+
+        [SettingPropertyGroup("Army")]
+        [SettingPropertyBool(displayName: "No Food Consumption", RequireRestart = false, HintText = "All parties in the army the player has joined do not need food.")]
+        public bool NoArmyFoodConsumption { get; set; } = false;
+
+        #endregion Army
 
         #region Settlements
 
@@ -186,6 +234,10 @@ namespace BannerlordCheats.Settings
         [SettingPropertyGroup("Smithing")]
         [SettingPropertyBool(displayName: "No Materials Cost", RequireRestart = false, HintText = "Smithing materials cost is zero for every design.")]
         public bool NoSmithingCost { get; set; } = false;
+
+        [SettingPropertyGroup("Smithing")]
+        [SettingPropertyInteger(displayName: "Creafted Weapon Values Bonus", minValue: 0, maxValue: 200, RequireRestart = false, HintText = "Bonus that is applied to the values (speed, damage, handling) of any weapon the player crafts.")]
+        public int CreaftedWeaponValuesBonus { get; set; } = 0;
 
         #endregion Smithing
     }
