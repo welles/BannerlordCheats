@@ -465,4 +465,10 @@
   <data name="NoBarterCooldown_Name" xml:space="preserve">
     <value>No Barter Cooldown</value>
   </data>
+  <data name="PartyInvisibleOnMap_Desc" xml:space="preserve">
+    <value>Hostile parties will not track or attack the player party on the map.</value>
+  </data>
+  <data name="PartyInvisibleOnMap_Name" xml:space="preserve">
+    <value>Party Invisible On Map</value>
+  </data>
 </root>

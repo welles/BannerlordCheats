@@ -57,6 +57,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyFloatingInteger(nameof(MapVisibilityFactor), minValue: 1, maxValue: 10)]
         public float MapVisibilityFactor { get; set; } = 1;
 
+        [LocalizedSettingPropertyGroup(MapGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyInvisibleOnMap))]
+        public bool PartyInvisibleOnMap { get; set; } = false;
+
         #endregion Map
 
         #region Combat
