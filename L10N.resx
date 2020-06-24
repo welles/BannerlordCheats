@@ -453,4 +453,10 @@
   <data name="BarterOfferAlwaysAccepted_Name" xml:space="preserve">
     <value>Barter Offer Always Accepted</value>
   </data>
+  <data name="NoBarterCooldown_Desc" xml:space="preserve">
+    <value>No cooldown between bartering attempts with a character.</value>
+  </data>
+  <data name="NoBarterCooldown_Name" xml:space="preserve">
+    <value>No Barter Cooldown</value>
+  </data>
 </root>
