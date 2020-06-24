@@ -176,6 +176,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(ExtraClanPartyLimit), minValue: 0, maxValue: 100)]
         public int ExtraClanPartyLimit { get; set; } = 0;
 
+        [LocalizedSettingPropertyGroup(ClanGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PerfectRelationships))]
+        public bool PerfectRelationships { get; set; } = false;
+
         #endregion Clan
 
         #region Kingdom
