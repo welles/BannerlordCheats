@@ -1,4 +1,5 @@
 ﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
@@ -32,7 +33,9 @@ namespace BannerlordCheats.Patches
 
                 charVM.RefreshValues();
 
-                InformationManager.DisplayMessage(new InformationMessage($"Set attributes of {Hero.MainHero.Name} to 10.", Color.White));
+                var message = string.Format(L10N.GetText("SetAllAttributesMessage"), Hero.MainHero.Name);
+
+                InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
             }
 
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1) && BannerlordCheatsSettings.Instance.EnableHotkeys)
@@ -78,7 +81,9 @@ namespace BannerlordCheats.Patches
 
             charVM.RefreshValues();
 
-            InformationManager.DisplayMessage(new InformationMessage($"Added 1 point to {Enum.GetName(typeof(CharacterAttributesEnum), type)}.", Color.White));
+            var message = string.Format(L10N.GetText("AddAttributePointMessage"), Enum.GetName(typeof(CharacterAttributesEnum), type));
+
+            InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
         }
     }
 }

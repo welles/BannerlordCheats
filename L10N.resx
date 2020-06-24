@@ -420,4 +420,22 @@
   <data name="CreaftedWeaponValuesBonus_Desc" xml:space="preserve">
     <value>Bonus that is applied to the values (speed, damage, handling) of any weapon the player crafts.</value>
   </data>
+  <data name="AddAttributePointMessage" xml:space="preserve">
+    <value>Added 1 point to {0}.</value>
+  </data>
+  <data name="AddGoldMessage" xml:space="preserve">
+    <value>Added 1000 gold.</value>
+  </data>
+  <data name="AddInfluenceMessage" xml:space="preserve">
+    <value>Added 1000 influence.</value>
+  </data>
+  <data name="AddTroopsMessage" xml:space="preserve">
+    <value>Added {0} troop(s) to {1}.</value>
+  </data>
+  <data name="AddTroopXpMessage" xml:space="preserve">
+    <value>Added XP to {0}.</value>
+  </data>
+  <data name="SetAllAttributesMessage" xml:space="preserve">
+    <value>Set attributes of {0} to 10.</value>
+  </data>
 </root>
