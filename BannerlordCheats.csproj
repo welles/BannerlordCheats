@@ -254,6 +254,7 @@
     <Compile Include="Localization\LocalizedSettingPropertyBool.cs" />
     <Compile Include="Localization\LocalizedSettingPropertyGroup.cs" />
     <Compile Include="Patches\Characters\BarterOfferAlwaysAccepted.cs" />
+    <Compile Include="Patches\Characters\ConversationAlwaysSuccessful.cs" />
     <Compile Include="Patches\Characters\NoBarterCooldown.cs" />
     <Compile Include="Patches\Characters\PerfectRelationships.cs" />
     <Compile Include="Patches\Combat\AlwaysCrushThrough.cs" />

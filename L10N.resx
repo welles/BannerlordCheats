@@ -453,6 +453,12 @@
   <data name="BarterOfferAlwaysAccepted_Name" xml:space="preserve">
     <value>Barter Offer Always Accepted</value>
   </data>
+  <data name="ConversationAlwaysSuccessful_Desc" xml:space="preserve">
+    <value>Conversation and persuasion attempts always succeed.</value>
+  </data>
+  <data name="ConversationAlwaysSuccessful_Name" xml:space="preserve">
+    <value>Conversation Always Successful</value>
+  </data>
   <data name="NoBarterCooldown_Desc" xml:space="preserve">
     <value>No cooldown between bartering attempts with a character.</value>
   </data>

@@ -193,6 +193,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(NoBarterCooldown))]
         public bool NoBarterCooldown { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyBool(nameof(ConversationAlwaysSuccessful))]
+        public bool ConversationAlwaysSuccessful { get; set; } = false;
+
         #endregion Characters
 
         #region Kingdom
