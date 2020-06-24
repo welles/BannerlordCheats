@@ -447,4 +447,10 @@
   <data name="Characters_GroupName" xml:space="preserve">
     <value>Characters</value>
   </data>
+  <data name="BarterOfferAlwaysAccepted_Desc" xml:space="preserve">
+    <value>Barter offers are always acceptable to other characters.</value>
+  </data>
+  <data name="BarterOfferAlwaysAccepted_Name" xml:space="preserve">
+    <value>Barter Offer Always Accepted</value>
+  </data>
 </root>

@@ -185,6 +185,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(PerfectRelationships))]
         public bool PerfectRelationships { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyBool(nameof(BarterOfferAlwaysAccepted))]
+        public bool BarterOfferAlwaysAccepted { get; set; } = false;
+
         #endregion Characters
 
         #region Kingdom
