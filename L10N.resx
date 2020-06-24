@@ -444,4 +444,7 @@
   <data name="PerfectRelationships_Name" xml:space="preserve">
     <value>Perfect Relationships</value>
   </data>
+  <data name="Characters_GroupName" xml:space="preserve">
+    <value>Characters</value>
+  </data>
 </root>

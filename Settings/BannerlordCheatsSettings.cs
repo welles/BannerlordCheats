@@ -22,6 +22,7 @@ namespace BannerlordCheats.Settings
         private const string ArmyGroupName = "Army";
         private const string SmithingGroupName = "Smithing";
         private const string SettlementsGroupName = "Settlements";
+        private const string CharactersGroupName = "Characters";
 
         public override string Id { get; } = $"BannerlordCheats_v{SettingsVersion}";
 
@@ -176,11 +177,15 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(ExtraClanPartyLimit), minValue: 0, maxValue: 100)]
         public int ExtraClanPartyLimit { get; set; } = 0;
 
-        [LocalizedSettingPropertyGroup(ClanGroupName)]
+        #endregion Clan
+
+        #region Characters
+
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(PerfectRelationships))]
         public bool PerfectRelationships { get; set; } = false;
 
-        #endregion Clan
+        #endregion Characters
 
         #region Kingdom
 

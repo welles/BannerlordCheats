@@ -2,7 +2,7 @@
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 
-namespace BannerlordCheats.Patches.Clan
+namespace BannerlordCheats.Patches.Characters
 {
     [HarmonyPatch(typeof(Hero), nameof(Hero.GetRelation))]
     public static class PerfectRelationships
