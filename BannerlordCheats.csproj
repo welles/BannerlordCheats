@@ -244,8 +244,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization\L10N.cs" />
     <Compile Include="Extensions\Reflection.cs" />
     <Compile Include="Extensions\Keys.cs" />
+    <Compile Include="Localization\LocalizedSettingProperty.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyFloatingInteger.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyPercent.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyInteger.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyBool.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyGroup.cs" />
     <Compile Include="Patches\Combat\AlwaysCrushThrough.cs" />
     <Compile Include="Patches\Combat\EnemiesNoRunningAwayPatch.cs" />
     <Compile Include="Patches\Combat\NoRunningAwayPatch.cs" />
@@ -304,6 +311,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="L10N.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="SubModule.xml" />
   </ItemGroup>
   <ItemGroup>

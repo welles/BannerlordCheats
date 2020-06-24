@@ -1,4 +1,4 @@
-﻿using MCM.Abstractions.Attributes;
+﻿using BannerlordCheats.Localization;
 using MCM.Abstractions.Attributes.v2;
 
 namespace BannerlordCheats.Settings
@@ -9,234 +9,255 @@ namespace BannerlordCheats.Settings
 
         private const int SettingsVersion = 1;
 
+        private const string ModName = "ModName";
+        private const string CombatGroupName = "Combat";
+        private const string HotkeysGroupName = "Hotkeys";
+        private const string MapGroupName = "Map";
+        private const string InventoryGroupName = "Inventory";
+        private const string PartyGroupName = "Party";
+        private const string ClanGroupName = "Clan";
+        private const string KingdomGroupName = "Kingdom";
+        private const string ExperienceGroupName = "Experience";
+        private const string SiegesGroupName = "Sieges";
+        private const string ArmyGroupName = "Army";
+        private const string SmithingGroupName = "Smithing";
+        private const string SettlementsGroupName = "Settlements";
+
         public override string Id { get; } = $"BannerlordCheats_v{SettingsVersion}";
 
         public override string FolderName => "Cheats";
 
-        public override string DisplayName => "Cheats";
+        public override string DisplayName
+        {
+            get
+            {
+                try { return L10N.GetText(ModName); }
+                catch { return "Cheats"; }
+            }
+        }
 
         #endregion Base
 
         #region Hotkeys
 
-        [SettingPropertyGroup("Hotkeys")]
-        [SettingPropertyBool("Enable Hotkeys", RequireRestart = false, HintText = "Enable cheat hotkeys in inventory screen, party screen, clan screen etc.")]
+        [LocalizedSettingPropertyGroup(HotkeysGroupName)]
+        [LocalizedSettingPropertyBool(nameof(EnableHotkeys))]
         public bool EnableHotkeys { get; set; } = false;
 
         #endregion Hotkeys
 
         #region Map
 
-        [SettingPropertyGroup("Map")]
-        [SettingPropertyFloatingInteger(displayName: "Map Speed Factor", minValue: 1f, maxValue: 100f, RequireRestart = false, HintText = "Factor by which the speed of the player on the map is multiplied. A factor of 1 means default speed.")]
-        public float MapSpeedFactor { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(MapGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(MapSpeedFactor), minValue: 1, maxValue: 100)]
+        public float MapSpeedFactor { get; set; } = 1;
 
-        [SettingPropertyGroup("Map")]
-        [SettingPropertyFloatingInteger(displayName: "Map Visibility Factor", minValue: 1f, maxValue: 10f, RequireRestart = false, HintText = "Factor by which the visibility range of the player on the map is multiplied. A factor of 1 means default visibility. WARNING: Will negatively affect performance!")]
-        public float MapVisibilityFactor { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(MapGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(MapVisibilityFactor), minValue: 1, maxValue: 10)]
+        public float MapVisibilityFactor { get; set; } = 1;
 
         #endregion Map
 
         #region Combat
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "Invincible", RequireRestart = false, HintText = "Disables all damage to the player character.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(Invincible))]
         public bool Invincible { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "Party Invincible", RequireRestart = false, HintText = "Disables all damage to members of the player's party.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyInvincible))]
         public bool PartyInvincible { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "One Hit Kill", RequireRestart = false, HintText = "Kill enemies with one hit.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(OneHitKill))]
         public bool OneHitKill { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "Party One Hit Kill", RequireRestart = false, HintText = "Party members kill enemies with one hit.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyOneHitKill))]
         public bool PartyOneHitKill { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "Party Only Knockout", RequireRestart = false, HintText = "Party members are never killed, only knocked unconcious.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyOnlyKnockout))]
         public bool PartyOnlyKnockout { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyFloatingInteger(displayName: "Renown Reward Multiplier", minValue: 1f, maxValue: 1000f, RequireRestart = false, HintText = "Factor by which the renown reward after a won battle or tournament is multiplied. A factor of 1 means default renown.")]
-        public float RenownRewardMultiplier { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(RenownRewardMultiplier), minValue: 1, maxValue: 1000)]
+        public float RenownRewardMultiplier { get; set; } = 1;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyFloatingInteger(displayName: "Influence Reward Multiplier", minValue: 1f, maxValue: 1000f, RequireRestart = false, HintText = "Factor by which the influence reward after a won battle is multiplied. A factor of 1 means default influence.")]
-        public float InfluenceRewardMultiplier { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(InfluenceRewardMultiplier), minValue: 1, maxValue: 1000)]
+        public float InfluenceRewardMultiplier { get; set; } = 1;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "Always Win Battle Simulation", RequireRestart = false, HintText = "Enemies do no damage to the player party in combat simulations.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(AlwaysWinBattleSimulation))]
         public bool AlwaysWinBattleSimulation { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "No Troop Sacrifice", RequireRestart = false, HintText = "No troop sacrifice when running from an enemy or breaking a siege.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoTroopSacrifice))]
         public bool NoTroopSacrifice { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "No Running Away", RequireRestart = false, HintText = "Troops in the player's party do not run away during combat.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoRunningAway))]
         public bool NoRunningAway { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "Enemies Never Run Away", RequireRestart = false, HintText = "Enemies never run away during combat.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(EnemiesNoRunningAway))]
         public bool EnemiesNoRunningAway { get; set; } = false;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyInteger(displayName: "Extra Bandit Hideout Troops", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Additional troops that can join the player in hideout battles. A value of 0 means default troop limit.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(BanditHideoutTroopLimit), minValue: 0, maxValue: 100)]
         public int BanditHideoutTroopLimit { get; set; } = 0;
 
-        [SettingPropertyGroup("Combat")]
-        [SettingPropertyBool(displayName: "Always Crush Through Shields", RequireRestart = false, HintText = "Your strikes always crush through enemy shields.")]
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(AlwaysCrushThroughShields))]
         public bool AlwaysCrushThroughShields { get; set; } = false;
 
         #endregion Combat
 
         #region Inventory
 
-        [SettingPropertyGroup("Inventory")]
-        [SettingPropertyInteger(displayName: "Extra Inventory Capacity", minValue: 0, maxValue: 1000000, RequireRestart = false, HintText = "Extra inventory capacity for the player party.")]
+        [LocalizedSettingPropertyGroup(InventoryGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(ExtraInventoryCapacity), minValue: 0, maxValue: 1000000)]
         public int ExtraInventoryCapacity { get; set; } = 0;
 
         #endregion Inventory
 
         #region Party
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyInteger(displayName: "Extra Party Member Size", minValue: 0, maxValue: 10000, RequireRestart = false, HintText = "Increase the maximum size for the player party.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(ExtraPartyMemberSize), minValue: 0, maxValue: 10000)]
         public int ExtraPartyMemberSize { get; set; } = 0;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyInteger(displayName: "Extra Party Prisoner Size", minValue: 0, maxValue: 10000, RequireRestart = false, HintText = "Increase the maximum amount of prisoners travelling with the party.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(ExtraPartyPrisonerSize), minValue: 0, maxValue: 10000)]
         public int ExtraPartyPrisonerSize { get; set; } = 0;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyInteger(displayName: "Extra Party Morale", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Increase morale of the player party.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(ExtraPartyMorale), minValue: 0, maxValue: 100)]
         public int ExtraPartyMorale { get; set; } = 0;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyBool(displayName: "No Food Consumption", RequireRestart = false, HintText = "Player party does not need food.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoFoodConsumption))]
         public bool NoFoodConsumption { get; set; } = false;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyBool(displayName: "No Troop Wages", RequireRestart = false, HintText = "Player party troops are unpaid.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoTroopWages))]
         public bool NoTroopWages { get; set; } = false;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyBool(displayName: "Free Troop Upgrades", RequireRestart = false, HintText = "Player party troop upgrades are free.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(FreeTroopUpgrades))]
         public bool FreeTroopUpgrades { get; set; } = false;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyBool(displayName: "Free Companion Hiring", RequireRestart = false, HintText = "Companions require no hiring fee.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(FreeCompanionHiring))]
         public bool FreeCompanionHiring { get; set; } = false;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyBool(displayName: "Instant Prisoner Recruitment", RequireRestart = false, HintText = "Prisoners can be instantly recruited.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(InstantPrisonerRecruitment))]
         public bool InstantPrisonerRecruitment { get; set; } = false;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyBool(displayName: "No Prisoner Escape", RequireRestart = false, HintText = "Prisoners cannot escape from captivity.")]
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoPrisonerEscape))]
         public bool NoPrisonerEscape { get; set; } = false;
 
-        [SettingPropertyGroup("Party")]
-        [SettingPropertyFloatingInteger(displayName: "Party Healing Multiplier", minValue: 1.0f, maxValue:100.0f, RequireRestart = false, HintText = "Factor by which the party healing rate is multiplied. A factor of 1 means default healing.")]
-        public float PartyHealingMultiplier { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(PartyHealingMultiplier), minValue: 1, maxValue: 100)]
+        public float PartyHealingMultiplier { get; set; } = 1;
 
         #endregion
 
         #region Clan
 
-        [SettingPropertyGroup("Clan")]
-        [SettingPropertyInteger(displayName: "Extra Companion Limit", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Increase the maximum amount of companions in your clan.")]
+        [LocalizedSettingPropertyGroup(ClanGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(ExtraCompanionLimit), minValue: 0, maxValue: 100)]
         public int ExtraCompanionLimit { get; set; } = 0;
 
-        [SettingPropertyGroup("Clan")]
-        [SettingPropertyInteger(displayName: "Extra Clan Party Limit", minValue: 0, maxValue: 100, RequireRestart = false, HintText = "Increase the maximum amount of parties in your clan.")]
+        [LocalizedSettingPropertyGroup(ClanGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(ExtraClanPartyLimit), minValue: 0, maxValue: 100)]
         public int ExtraClanPartyLimit { get; set; } = 0;
 
         #endregion Clan
 
         #region Kingdom
 
-        [SettingPropertyGroup("Kingdom")]
-        [SettingPropertyBool(displayName: "Always Win Kingdom Votes", RequireRestart = false, HintText = "The choice the player has voted for in a kingdom decision always wins.")]
+        [LocalizedSettingPropertyGroup(KingdomGroupName)]
+        [LocalizedSettingPropertyBool(nameof(ForceKingdomDecision))]
         public bool ForceKingdomDecision { get; set; } = false;
 
-        [SettingPropertyGroup("Kingdom")]
-        [SettingPropertyBool(displayName: "No Relationship Loss On Decision", RequireRestart = false, HintText = "Do not lose relationship points with people on the opposing side of the player's vote.")]
+        [LocalizedSettingPropertyGroup(KingdomGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoRelationshipLossOnDecision))]
         public bool NoRelationshipLossOnDecision { get; set; } = false;
 
         #endregion Kingdom
 
         #region Experience
 
-        [SettingPropertyGroup("Experience")]
-        [SettingPropertyFloatingInteger(displayName: "Experience Multiplier", minValue: 1, maxValue: 10000, RequireRestart = false, HintText = "Factor by which the experience gain of the player is multiplied. A factor of 1 means default experience.")]
-        public float ExperienceMultiplier { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(ExperienceGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(ExperienceMultiplier), minValue: 1, maxValue: 1000)]
+        public float ExperienceMultiplier { get; set; } = 1;
 
-        [SettingPropertyGroup("Experience")]
-        [SettingPropertyFloatingInteger(displayName: "Learning Rate Multiplier", minValue: 1, maxValue: 10000, RequireRestart = false, HintText = "Factor by which the learning rate of the player is multiplied. A factor of 1 means default learning.")]
-        public float LearningRateMultiplier { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(ExperienceGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(LearningRateMultiplier), minValue: 1, maxValue: 1000)]
+        public float LearningRateMultiplier { get; set; } = 1;
 
-        [SettingPropertyGroup("Experience")]
-        [SettingPropertyInteger(displayName: "Troop Experience Multiplier", minValue: 1, maxValue: 1000, RequireRestart = false, HintText = "Factor by which the experience gain of the player's troops is multiplied. A factor of 1 means default experience.")]
+        [LocalizedSettingPropertyGroup(ExperienceGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(TroopExperienceMultiplier), minValue: 1, maxValue: 1000)]
         public int TroopExperienceMultiplier { get; set; } = 1;
 
         #endregion Experience
 
         #region Sieges
 
-        [SettingPropertyGroup("Sieges")]
-        [SettingPropertyFloatingInteger(displayName: "Siege Building Speed Multiplier", minValue: 1f, maxValue: 100f, RequireRestart = false, HintText = "Factor by which the speed of siege engine construction on the player party's side is multiplied. A factor of 1 means default build speed.")]
-        public float SiegeBuildingSpeedMultiplier { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(SiegesGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(SiegeBuildingSpeedMultiplier), minValue: 1, maxValue: 1000)]
+        public float SiegeBuildingSpeedMultiplier { get; set; } = 1;
 
         #endregion Sieges
 
         #region Army
 
-        [SettingPropertyGroup("Army")]
-        [SettingPropertyBool(displayName: "No Cohesion Loss", RequireRestart = false, HintText = "Cohesion of the army the player has joined is frozen.")]
+        [LocalizedSettingPropertyGroup(ArmyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoArmyCohesionLoss))]
         public bool NoArmyCohesionLoss { get; set; } = false;
 
-        [SettingPropertyGroup("Army")]
-        [SettingPropertyBool(displayName: "No Food Consumption", RequireRestart = false, HintText = "All parties in the army the player has joined do not need food.")]
+        [LocalizedSettingPropertyGroup(ArmyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoArmyFoodConsumption))]
         public bool NoArmyFoodConsumption { get; set; } = false;
 
         #endregion Army
 
         #region Settlements
 
-        [SettingPropertyGroup("Settlements")]
-        [SettingPropertyBool(displayName: "Disguise Always Works", RequireRestart = false, HintText = "Sneaking into settlements always succeeds.")]
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(DisguiseAlwaysWorks))]
         public bool DisguiseAlwaysWorks { get; set; } = false;
 
-        [SettingPropertyGroup("Settlements")]
-        [SettingPropertyBool(displayName: "One Day Construction", RequireRestart = false, HintText = "Buildings in player settlements are constructed in one day.")]
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(OneDayConstruction))]
         public bool OneDayConstruction { get; set; } = false;
 
         #endregion Settlements
 
         #region Smithing
 
-        [SettingPropertyGroup("Smithing")]
-        [SettingPropertyBool(displayName: "No Energy Cost", RequireRestart = false, HintText = "Disable energy cost for smithing, smelting or refining.")]
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoSmithingEnergyCost))]
         public bool NoSmithingEnergyCost { get; set; } = false;
 
-        [SettingPropertyGroup("Smithing")]
-        [SettingPropertyBool(displayName: "Unlock All Parts", RequireRestart = false, HintText = "All smithing parts are unlocked.")]
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyBool(nameof(UnlockAllParts))]
         public bool UnlockAllParts { get; set; } = false;
 
-        [SettingPropertyGroup("Smithing")]
-        [SettingPropertyBool(displayName: "No Smithing Difficulty", RequireRestart = false, HintText = "Smithing difficulty is zero for every design.")]
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoSmithingDifficulty))]
         public bool NoSmithingDifficulty { get; set; } = false;
 
-        [SettingPropertyGroup("Smithing")]
-        [SettingPropertyBool(displayName: "No Materials Cost", RequireRestart = false, HintText = "Smithing materials cost is zero for every design.")]
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoSmithingCost))]
         public bool NoSmithingCost { get; set; } = false;
 
-        [SettingPropertyGroup("Smithing")]
-        [SettingPropertyInteger(displayName: "Creafted Weapon Values Bonus", minValue: 0, maxValue: 200, RequireRestart = false, HintText = "Bonus that is applied to the values (speed, damage, handling) of any weapon the player crafts.")]
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CreaftedWeaponValuesBonus), minValue: 0, maxValue: 200)]
         public int CreaftedWeaponValuesBonus { get; set; } = 0;
 
         #endregion Smithing
