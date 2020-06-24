@@ -1,0 +1,423 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ModName" xml:space="preserve">
+    <value>Cheats</value>
+  </data>
+  <data name="Combat_GroupName" xml:space="preserve">
+    <value>Combat</value>
+  </data>
+  <data name="Party_GroupName" xml:space="preserve">
+    <value>Party</value>
+  </data>
+  <data name="Smithing_GroupName" xml:space="preserve">
+    <value>Smithing</value>
+  </data>
+  <data name="Settlements_GroupName" xml:space="preserve">
+    <value>Settlements</value>
+  </data>
+  <data name="Clan_GroupName" xml:space="preserve">
+    <value>Clan</value>
+  </data>
+  <data name="Kingdom_GroupName" xml:space="preserve">
+    <value>Kingdom</value>
+  </data>
+  <data name="Experience_GroupName" xml:space="preserve">
+    <value>Experience</value>
+  </data>
+  <data name="Map_GroupName" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="Hotkeys_GroupName" xml:space="preserve">
+    <value>Hotkeys</value>
+  </data>
+  <data name="Inventory_GroupName" xml:space="preserve">
+    <value>Inventory</value>
+  </data>
+  <data name="Sieges_GroupName" xml:space="preserve">
+    <value>Sieges</value>
+  </data>
+  <data name="Army_GroupName" xml:space="preserve">
+    <value>Army</value>
+  </data>
+  <data name="Invincible_Name" xml:space="preserve">
+    <value>Invincible</value>
+  </data>
+  <data name="Invincible_Desc" xml:space="preserve">
+    <value>Disables all damage to the player character.</value>
+  </data>
+  <data name="EnableHotkeys_Name" xml:space="preserve">
+    <value>Enable Hotkeys</value>
+  </data>
+  <data name="EnableHotkeys_Desc" xml:space="preserve">
+    <value>Enable cheat hotkeys in inventory screen, party screen, clan screen etc.</value>
+  </data>
+  <data name="MapSpeedFactor_Name" xml:space="preserve">
+    <value>Map Speed Factor</value>
+  </data>
+  <data name="MapSpeedFactor_Desc" xml:space="preserve">
+    <value>Factor by which the speed of the player on the map is multiplied. A factor of 1 means default speed.</value>
+  </data>
+  <data name="ExtraInventoryCapacity_Name" xml:space="preserve">
+    <value>Extra Inventory Capacity</value>
+  </data>
+  <data name="ExtraInventoryCapacity_Desc" xml:space="preserve">
+    <value>Extra inventory capacity for the player party.</value>
+  </data>
+  <data name="MapVisibilityFactor_Name" xml:space="preserve">
+    <value>Map Visibility Factor</value>
+  </data>
+  <data name="MapVisibilityFactor_Desc" xml:space="preserve">
+    <value>Factor by which the visibility range of the player on the map is multiplied. A factor of 1 means default visibility. WARNING: Will negatively affect performance!</value>
+  </data>
+  <data name="PartyInvincible_Name" xml:space="preserve">
+    <value>Party Invincible</value>
+  </data>
+  <data name="PartyInvincible_Desc" xml:space="preserve">
+    <value>Disables all damage to members of the player's party.</value>
+  </data>
+  <data name="OneHitKill_Name" xml:space="preserve">
+    <value>One Hit Kill</value>
+  </data>
+  <data name="OneHitKill_Desc" xml:space="preserve">
+    <value>Kill enemies with one hit.</value>
+  </data>
+  <data name="PartyOneHitKill_Name" xml:space="preserve">
+    <value>Party One Hit Kill</value>
+  </data>
+  <data name="PartyOneHitKill_Desc" xml:space="preserve">
+    <value>Party members kill enemies with one hit.</value>
+  </data>
+  <data name="PartyOnlyKnockout_Name" xml:space="preserve">
+    <value>Party Only Knockout</value>
+  </data>
+  <data name="PartyOnlyKnockout_Desc" xml:space="preserve">
+    <value>Party members are never killed, only knocked unconcious.</value>
+  </data>
+  <data name="RenownRewardMultiplier_Name" xml:space="preserve">
+    <value>Renown Reward Multiplier</value>
+  </data>
+  <data name="RenownRewardMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the renown reward after a won battle or tournament is multiplied. A factor of 1 means default renown.</value>
+  </data>
+  <data name="InfluenceRewardMultiplier_Name" xml:space="preserve">
+    <value>Influence Reward Multiplier</value>
+  </data>
+  <data name="InfluenceRewardMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the influence reward after a won battle is multiplied. A factor of 1 means default influence.</value>
+  </data>
+  <data name="AlwaysWinBattleSimulation_Name" xml:space="preserve">
+    <value>Always Win Battle Simulation</value>
+  </data>
+  <data name="AlwaysWinBattleSimulation_Desc" xml:space="preserve">
+    <value>Enemies do no damage to the player party in combat simulations.</value>
+  </data>
+  <data name="NoTroopSacrifice_Name" xml:space="preserve">
+    <value>No Troop Sacrifice</value>
+  </data>
+  <data name="NoTroopSacrifice_Desc" xml:space="preserve">
+    <value>No troop sacrifice when running from an enemy or breaking a siege.</value>
+  </data>
+  <data name="NoRunningAway_Name" xml:space="preserve">
+    <value>No Running Away</value>
+  </data>
+  <data name="NoRunningAway_Desc" xml:space="preserve">
+    <value>Troops in the player's party do not run away during combat.</value>
+  </data>
+  <data name="EnemiesNoRunningAway_Name" xml:space="preserve">
+    <value>Enemies Never Run Away</value>
+  </data>
+  <data name="EnemiesNoRunningAway_Desc" xml:space="preserve">
+    <value>Enemies never run away during combat.</value>
+  </data>
+  <data name="BanditHideoutTroopLimit_Name" xml:space="preserve">
+    <value>Extra Bandit Hideout Troops</value>
+  </data>
+  <data name="BanditHideoutTroopLimit_Desc" xml:space="preserve">
+    <value>Additional troops that can join the player in hideout battles. A value of 0 means default troop limit.</value>
+  </data>
+  <data name="AlwaysCrushThroughShields_Name" xml:space="preserve">
+    <value>Always Crush Through Shields</value>
+  </data>
+  <data name="AlwaysCrushThroughShields_Desc" xml:space="preserve">
+    <value>Your strikes always crush through enemy shields.</value>
+  </data>
+  <data name="ExtraPartyMemberSize_Name" xml:space="preserve">
+    <value>Extra Party Member Size</value>
+  </data>
+  <data name="ExtraPartyMemberSize_Desc" xml:space="preserve">
+    <value>Increase the maximum size for the player party.</value>
+  </data>
+  <data name="ExtraPartyPrisonerSize_Name" xml:space="preserve">
+    <value>Extra Party Prisoner Size</value>
+  </data>
+  <data name="ExtraPartyPrisonerSize_Desc" xml:space="preserve">
+    <value>Increase the maximum amount of prisoners travelling with the party.</value>
+  </data>
+  <data name="ExtraPartyMorale_Name" xml:space="preserve">
+    <value>Extra Party Morale</value>
+  </data>
+  <data name="ExtraPartyMorale_Desc" xml:space="preserve">
+    <value>Increase morale of the player party.</value>
+  </data>
+  <data name="NoFoodConsumption_Name" xml:space="preserve">
+    <value>No Food Consumption</value>
+  </data>
+  <data name="NoFoodConsumption_Desc" xml:space="preserve">
+    <value>Player party does not need food.</value>
+  </data>
+  <data name="NoTroopWages_Name" xml:space="preserve">
+    <value>No Troop Wages</value>
+  </data>
+  <data name="NoTroopWages_Desc" xml:space="preserve">
+    <value>Player party troops are unpaid.</value>
+  </data>
+  <data name="FreeTroopUpgrades_Name" xml:space="preserve">
+    <value>Free Troop Upgrades</value>
+  </data>
+  <data name="FreeTroopUpgrades_Desc" xml:space="preserve">
+    <value>Player party troop upgrades are free.</value>
+  </data>
+  <data name="FreeCompanionHiring_Name" xml:space="preserve">
+    <value>Free Companion Hiring</value>
+  </data>
+  <data name="FreeCompanionHiring_Desc" xml:space="preserve">
+    <value>Companions require no hiring fee.</value>
+  </data>
+  <data name="InstantPrisonerRecruitment_Name" xml:space="preserve">
+    <value>Instant Prisoner Recruitment</value>
+  </data>
+  <data name="InstantPrisonerRecruitment_Desc" xml:space="preserve">
+    <value>Prisoners can be instantly recruited.</value>
+  </data>
+  <data name="NoPrisonerEscape_Name" xml:space="preserve">
+    <value>No Prisoner Escape</value>
+  </data>
+  <data name="NoPrisonerEscape_Desc" xml:space="preserve">
+    <value>Prisoners cannot escape from captivity.</value>
+  </data>
+  <data name="PartyHealingMultiplier_Name" xml:space="preserve">
+    <value>Party Healing Multiplier</value>
+  </data>
+  <data name="PartyHealingMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the party healing rate is multiplied. A factor of 1 means default healing.</value>
+  </data>
+  <data name="ExtraCompanionLimit_Name" xml:space="preserve">
+    <value>Extra Companion Limit</value>
+  </data>
+  <data name="ExtraCompanionLimit_Desc" xml:space="preserve">
+    <value>Increase the maximum amount of companions in your clan.</value>
+  </data>
+  <data name="ExtraClanPartyLimit_Name" xml:space="preserve">
+    <value>Extra Clan Party Limit</value>
+  </data>
+  <data name="ExtraClanPartyLimit_Desc" xml:space="preserve">
+    <value>Increase the maximum amount of parties in your clan.</value>
+  </data>
+  <data name="ForceKingdomDecision_Name" xml:space="preserve">
+    <value>Always Win Kingdom Votes</value>
+  </data>
+  <data name="ForceKingdomDecision_Desc" xml:space="preserve">
+    <value>The choice the player has voted for in a kingdom decision always wins.</value>
+  </data>
+  <data name="NoRelationshipLossOnDecision_Name" xml:space="preserve">
+    <value>No Relationship Loss On Decision</value>
+  </data>
+  <data name="NoRelationshipLossOnDecision_Desc" xml:space="preserve">
+    <value>Do not lose relationship points with people on the opposing side of the player's vote.</value>
+  </data>
+  <data name="ExperienceMultiplier_Name" xml:space="preserve">
+    <value>Experience Multiplier</value>
+  </data>
+  <data name="ExperienceMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the experience gain of the player is multiplied. A factor of 1 means default experience.</value>
+  </data>
+  <data name="LearningRateMultiplier_Name" xml:space="preserve">
+    <value>Learning Rate Multiplier</value>
+  </data>
+  <data name="LearningRateMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the learning rate of the player is multiplied. A factor of 1 means default learning.</value>
+  </data>
+  <data name="TroopExperienceMultiplier_Name" xml:space="preserve">
+    <value>Troop Experience Multiplier</value>
+  </data>
+  <data name="TroopExperienceMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the experience gain of the player's troops is multiplied. A factor of 1 means default experience.</value>
+  </data>
+  <data name="SiegeBuildingSpeedMultiplier_Name" xml:space="preserve">
+    <value>Siege Building Speed Multiplier</value>
+  </data>
+  <data name="SiegeBuildingSpeedMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the speed of siege engine construction on the player party's side is multiplied. A factor of 1 means default build speed.</value>
+  </data>
+  <data name="NoArmyCohesionLoss_Name" xml:space="preserve">
+    <value>No Cohesion Loss</value>
+  </data>
+  <data name="NoArmyCohesionLoss_Desc" xml:space="preserve">
+    <value>Cohesion of the army the player has joined is frozen.</value>
+  </data>
+  <data name="NoArmyFoodConsumption_Name" xml:space="preserve">
+    <value>No Food Consumption</value>
+  </data>
+  <data name="NoArmyFoodConsumption_Desc" xml:space="preserve">
+    <value>All parties in the army the player has joined do not need food.</value>
+  </data>
+  <data name="DisguiseAlwaysWorks_Name" xml:space="preserve">
+    <value>Disguise Always Works</value>
+  </data>
+  <data name="DisguiseAlwaysWorks_Desc" xml:space="preserve">
+    <value>Sneaking into settlements always succeeds.</value>
+  </data>
+  <data name="OneDayConstruction_Name" xml:space="preserve">
+    <value>One Day Construction</value>
+  </data>
+  <data name="OneDayConstruction_Desc" xml:space="preserve">
+    <value>Buildings in player settlements are constructed in one day.</value>
+  </data>
+  <data name="NoSmithingEnergyCost_Name" xml:space="preserve">
+    <value>No Energy Cost</value>
+  </data>
+  <data name="NoSmithingEnergyCost_Desc" xml:space="preserve">
+    <value>Disable energy cost for smithing, smelting or refining.</value>
+  </data>
+  <data name="UnlockAllParts_Name" xml:space="preserve">
+    <value>Unlock All Parts</value>
+  </data>
+  <data name="UnlockAllParts_Desc" xml:space="preserve">
+    <value>All smithing parts are unlocked.</value>
+  </data>
+  <data name="NoSmithingDifficulty_Name" xml:space="preserve">
+    <value>No Smithing Difficulty</value>
+  </data>
+  <data name="NoSmithingDifficulty_Desc" xml:space="preserve">
+    <value>Smithing difficulty is zero for every design.</value>
+  </data>
+  <data name="NoSmithingCost_Name" xml:space="preserve">
+    <value>No Materials Cost</value>
+  </data>
+  <data name="NoSmithingCost_Desc" xml:space="preserve">
+    <value>Smithing materials cost is zero for every design.</value>
+  </data>
+  <data name="CreaftedWeaponValuesBonus_Name" xml:space="preserve">
+    <value>Creafted Weapon Values Bonus</value>
+  </data>
+  <data name="CreaftedWeaponValuesBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the values (speed, damage, handling) of any weapon the player crafts.</value>
+  </data>
+</root>
