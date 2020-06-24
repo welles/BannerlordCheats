@@ -58,6 +58,10 @@ namespace BannerlordCheats.Settings
         public float MapVisibilityFactor { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
+        public int NpcMapSpeedPercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvisibleOnMap))]
         public bool PartyInvisibleOnMap { get; set; } = false;
 

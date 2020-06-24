@@ -471,6 +471,12 @@
   <data name="NoBarterCooldown_Name" xml:space="preserve">
     <value>No Barter Cooldown</value>
   </data>
+  <data name="NpcMapSpeedPercentage_Desc" xml:space="preserve">
+    <value>Slow down NPC parties on the map to a percentage of their original speed. A value of 100% means default speed, 50% means half speed, 0% means they cannot move.</value>
+  </data>
+  <data name="NpcMapSpeedPercentage_Name" xml:space="preserve">
+    <value>NPC Party Speed</value>
+  </data>
   <data name="PartyInvisibleOnMap_Desc" xml:space="preserve">
     <value>Hostile parties will not track or attack the player party on the map.</value>
   </data>
