@@ -267,6 +267,7 @@
     <Compile Include="Patches\Kingdom\NoRelationshipLossOnExpellingClan.cs" />
     <Compile Include="Patches\Map\PartyInvisibleOnMap.cs" />
     <Compile Include="Patches\Map\SlowDownPartiesOnMap.cs" />
+    <Compile Include="Patches\Party\InstantEscape.cs" />
     <Compile Include="Patches\Settlements\FreeTroopRecruitment.cs" />
     <Compile Include="Patches\Smithing\AllPartsUnlockedPatch.cs" />
     <Compile Include="Patches\Combat\AlwaysWinBattleSimulationPatch.cs" />

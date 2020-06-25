@@ -146,6 +146,10 @@ namespace BannerlordCheats.Settings
         public int ExtraPartyMorale { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(InstantEscape))]
+        public bool InstantEscape { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoFoodConsumption))]
         public bool NoFoodConsumption { get; set; } = false;
 
