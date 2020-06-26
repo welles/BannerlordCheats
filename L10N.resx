@@ -489,4 +489,10 @@
   <data name="InstantEscape_Name" xml:space="preserve">
     <value>Instant Escape</value>
   </data>
+  <data name="HealthRegeneration_Desc" xml:space="preserve">
+    <value>The player character regenerates the set percentage of his total health every second during combat. A value of 0% means no regeneration.</value>
+  </data>
+  <data name="HealthRegeneration_Name" xml:space="preserve">
+    <value>Health Regeneration</value>
+  </data>
 </root>

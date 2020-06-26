@@ -121,6 +121,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(AlwaysCrushThroughShields))]
         public bool AlwaysCrushThroughShields { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(HealthRegeneration))]
+        public int HealthRegeneration { get; set; } = 0;
+
         #endregion Combat
 
         #region Inventory
