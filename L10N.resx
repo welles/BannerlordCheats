@@ -495,4 +495,10 @@
   <data name="HealthRegeneration_Name" xml:space="preserve">
     <value>Health Regeneration</value>
   </data>
+  <data name="InfiniteAmmo_Desc" xml:space="preserve">
+    <value>Ranged and thrown weapons have infinite ammunition.</value>
+  </data>
+  <data name="InfiniteAmmo_Name" xml:space="preserve">
+    <value>Infinite Ammo</value>
+  </data>
 </root>

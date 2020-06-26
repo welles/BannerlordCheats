@@ -125,6 +125,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(HealthRegeneration))]
         public int HealthRegeneration { get; set; } = 0;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
+        public bool InfiniteAmmo { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory
