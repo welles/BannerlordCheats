@@ -48,12 +48,12 @@ namespace BannerlordCheats.Settings
         #region Map
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(MapSpeedFactor), minValue: 1, maxValue: 100)]
-        public float MapSpeedFactor { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(MapSpeedFactor), minValue: 1, maxValue: 100)]
+        public int MapSpeedFactor { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(MapVisibilityFactor), minValue: 1, maxValue: 10)]
-        public float MapVisibilityFactor { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(MapVisibilityFactor), minValue: 1, maxValue: 10)]
+        public int MapVisibilityFactor { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
@@ -92,12 +92,12 @@ namespace BannerlordCheats.Settings
         public bool EnemyOnlyKnockout { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(RenownRewardMultiplier), minValue: 1, maxValue: 1000)]
-        public float RenownRewardMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(RenownRewardMultiplier), minValue: 1, maxValue: 1000)]
+        public int RenownRewardMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(InfluenceRewardMultiplier), minValue: 1, maxValue: 1000)]
-        public float InfluenceRewardMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(InfluenceRewardMultiplier), minValue: 1, maxValue: 1000)]
+        public int InfluenceRewardMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(AlwaysWinBattleSimulation))]
@@ -200,8 +200,8 @@ namespace BannerlordCheats.Settings
         public bool NoPrisonerEscape { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(PartyHealingMultiplier), minValue: 1, maxValue: 100)]
-        public float PartyHealingMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(PartyHealingMultiplier), minValue: 1, maxValue: 100)]
+        public int PartyHealingMultiplier { get; set; } = 1;
 
         #endregion
 
@@ -252,12 +252,12 @@ namespace BannerlordCheats.Settings
         #region Experience
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(ExperienceMultiplier), minValue: 1, maxValue: 1000)]
-        public float ExperienceMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(ExperienceMultiplier), minValue: 1, maxValue: 1000)]
+        public int ExperienceMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(LearningRateMultiplier), minValue: 1, maxValue: 1000)]
-        public float LearningRateMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(LearningRateMultiplier), minValue: 1, maxValue: 1000)]
+        public int LearningRateMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
         [LocalizedSettingPropertyInteger(nameof(TroopExperienceMultiplier), minValue: 1, maxValue: 1000)]
@@ -268,8 +268,8 @@ namespace BannerlordCheats.Settings
         #region Sieges
 
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(SiegeBuildingSpeedMultiplier), minValue: 1, maxValue: 1000)]
-        public float SiegeBuildingSpeedMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(SiegeBuildingSpeedMultiplier), minValue: 1, maxValue: 1000)]
+        public int SiegeBuildingSpeedMultiplier { get; set; } = 1;
         
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoEnemySiegeBuilding))]
