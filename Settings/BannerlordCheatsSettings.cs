@@ -311,6 +311,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(ItemTradingCostPercentage))]
         public int ItemTradingCostPercentage { get; set; } = 100;
 
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(SellingPriceMultiplier), minValue: 1, maxValue: 1000)]
+        public int SellingPriceMultiplier { get; set; } = 1;
+
         #endregion Settlements
 
         #region Smithing

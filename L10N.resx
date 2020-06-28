@@ -549,4 +549,10 @@
   <data name="ItemTradingCostPercentage_Name" xml:space="preserve">
     <value>Item Trading Cost Percentage</value>
   </data>
+  <data name="SellingPriceMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the price of items sold by the player is increased. A factor of 1 means default price.</value>
+  </data>
+  <data name="SellingPriceMultiplier_Name" xml:space="preserve">
+    <value>Selling Price Multiplier</value>
+  </data>
 </root>
