@@ -68,6 +68,10 @@ namespace BannerlordCheats.Settings
         #region Combat
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(DamageTakenPercentage))]
+        public int DamageTakenPercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(Invincible))]
         public bool Invincible { get; set; } = false;
 
