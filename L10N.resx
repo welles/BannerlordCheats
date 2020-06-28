@@ -531,4 +531,10 @@
   <data name="PartyDamageMultiplier_Name" xml:space="preserve">
     <value>Party Damage Multiplier</value>
   </data>
+  <data name="PartyInfiniteAmmo_Desc" xml:space="preserve">
+    <value>Ranged and thrown weapons of player party members have infinite ammunition.</value>
+  </data>
+  <data name="PartyInfiniteAmmo_Name" xml:space="preserve">
+    <value>Party Infinite Ammo</value>
+  </data>
 </root>
