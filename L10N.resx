@@ -502,7 +502,7 @@
     <value>Infinite Ammo</value>
   </data>
   <data name="NoEnemySiegeBuilding_Desc" xml:space="preserve">
-    <value>Settlements that the player is besieging cannot build defenses.</value>
+    <value>The opposing side in sieges cannot build siege engines or wall defenses.</value>
   </data>
   <data name="NoEnemySiegeBuilding_Name" xml:space="preserve">
     <value>No Enemy Siege Building</value>

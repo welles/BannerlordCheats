@@ -13,8 +13,20 @@ namespace BannerlordCheats.Patches.Sieges
         [HarmonyPostfix]
         public static void GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side, StatExplainer explanation, ref float __result)
         {
-            if ((siegeEvent?.BesiegerCamp?.SiegeParties.Any(x => x.Leader?.IsPlayerCharacter ?? false) ?? false)
-                && (!side?.SiegeParties.Any(x => x.Leader?.IsPlayerCharacter ?? false) ?? false)
+            BattleSideEnum otherSide;
+            switch (side.BattleSide)
+            {
+                case BattleSideEnum.Attacker:
+                    otherSide = BattleSideEnum.Defender;
+                    break;
+                case BattleSideEnum.Defender:
+                    otherSide = BattleSideEnum.Attacker;
+                    break;
+                default:
+                    return;
+            }
+
+            if ((siegeEvent.GetSiegeEventSide(otherSide)?.SiegeParties.Any(x => x.Leader?.IsPlayerCharacter ?? false) ?? false)
                 && BannerlordCheatsSettings.Instance.NoEnemySiegeBuilding)
             {
                 __result = 0;
