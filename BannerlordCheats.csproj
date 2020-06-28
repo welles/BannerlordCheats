@@ -277,6 +277,7 @@
     <Compile Include="Patches\Map\SlowDownPartiesOnMap.cs" />
     <Compile Include="Patches\Party\InstantEscape.cs" />
     <Compile Include="Patches\Settlements\FreeTroopRecruitment.cs" />
+    <Compile Include="Patches\Settlements\TradeCostPercentage.cs" />
     <Compile Include="Patches\Sieges\EnemySiegeBuildSpeed.cs" />
     <Compile Include="Patches\Smithing\AllPartsUnlockedPatch.cs" />
     <Compile Include="Patches\Combat\AlwaysWinBattleSimulationPatch.cs" />

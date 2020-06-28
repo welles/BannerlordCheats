@@ -543,4 +543,10 @@
   <data name="DamageTakenPercentage_Name" xml:space="preserve">
     <value>Damage Taken Percentage</value>
   </data>
+  <data name="ItemTradingCostPercentage_Desc" xml:space="preserve">
+    <value>How much items cost to buy from traders. 100% means full price, 50% means half price, and 0% means everything is free.</value>
+  </data>
+  <data name="ItemTradingCostPercentage_Name" xml:space="preserve">
+    <value>Item Trading Cost Percentage</value>
+  </data>
 </root>

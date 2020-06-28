@@ -307,6 +307,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
         public bool FreeTroopRecruitment { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(ItemTradingCostPercentage))]
+        public int ItemTradingCostPercentage { get; set; } = 100;
+
         #endregion Settlements
 
         #region Smithing
