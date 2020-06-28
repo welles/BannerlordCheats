@@ -244,16 +244,42 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Localization\L10N.cs" />
     <Compile Include="Extensions\Reflection.cs" />
     <Compile Include="Extensions\Keys.cs" />
+    <Compile Include="Localization\LocalizedSettingProperty.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyFloatingInteger.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyPercent.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyInteger.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyBool.cs" />
+    <Compile Include="Localization\LocalizedSettingPropertyGroup.cs" />
+    <Compile Include="Patches\Characters\BarterOfferAlwaysAccepted.cs" />
+    <Compile Include="Patches\Characters\ConversationAlwaysSuccessful.cs" />
+    <Compile Include="Patches\Characters\NoBarterCooldown.cs" />
+    <Compile Include="Patches\Characters\PerfectRelationships.cs" />
     <Compile Include="Patches\Combat\AlwaysCrushThrough.cs" />
+    <Compile Include="Patches\Combat\DamageMultiplier.cs" />
+    <Compile Include="Patches\Combat\DamageTakenPercentage.cs" />
     <Compile Include="Patches\Combat\EnemiesNoRunningAwayPatch.cs" />
+    <Compile Include="Patches\Combat\EnemyOnlyKnockout.cs" />
+    <Compile Include="Patches\Combat\HealthRegen.cs" />
+    <Compile Include="Patches\Combat\InfiniteAmmo.cs" />
+    <Compile Include="Patches\Combat\NoFriendlyFire.cs" />
     <Compile Include="Patches\Combat\NoRunningAwayPatch.cs" />
+    <Compile Include="Patches\Combat\PartyDamageMultiplier.cs" />
+    <Compile Include="Patches\Combat\PartyInfiniteAmmo.cs" />
     <Compile Include="Patches\Experience\TroopExperienceMultiplierPatch.cs" />
     <Compile Include="Patches\Kingdom\ForceKingdomDecisionPatch.cs" />
     <Compile Include="Patches\Kingdom\NoRelationshipLossOnArmyDisband.cs" />
     <Compile Include="Patches\Kingdom\NoRelationshipLossOnDecisionPatch.cs" />
     <Compile Include="Patches\Kingdom\NoRelationshipLossOnExpellingClan.cs" />
+    <Compile Include="Patches\Map\PartyInvisibleOnMap.cs" />
+    <Compile Include="Patches\Map\SlowDownPartiesOnMap.cs" />
+    <Compile Include="Patches\Party\InstantEscape.cs" />
+    <Compile Include="Patches\Settlements\FreeTroopRecruitment.cs" />
+    <Compile Include="Patches\Settlements\SellingPriceMultiplier.cs" />
+    <Compile Include="Patches\Settlements\TradeCostPercentage.cs" />
+    <Compile Include="Patches\Sieges\EnemySiegeBuildSpeed.cs" />
     <Compile Include="Patches\Smithing\AllPartsUnlockedPatch.cs" />
     <Compile Include="Patches\Combat\AlwaysWinBattleSimulationPatch.cs" />
     <Compile Include="Patches\Army\ArmyCohesionPatch.cs" />
@@ -311,6 +337,12 @@
     <None Include="LICENSE" />
     <None Include="packages.config" />
     <None Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="L10N.resx">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

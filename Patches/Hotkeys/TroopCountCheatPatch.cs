@@ -1,4 +1,5 @@
 ﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
@@ -51,7 +52,9 @@ namespace BannerlordCheats.Patches
 
                 partyVM.InitializeTroopLists();
 
-                InformationManager.DisplayMessage(new InformationMessage($"Added {count} {(count > 1 ? "troops" : "troop")} to {selectedCharacter.Name}.", Color.White));
+                var message = string.Format(L10N.GetText("AddTroopsMessage"), count, selectedCharacter.Name);
+
+                InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
@@ -21,7 +22,7 @@ namespace BannerlordCheats.Patches
             {
                 Hero.MainHero.AddInfluenceWithKingdom(1000);
 
-                InformationManager.DisplayMessage(new InformationMessage($"Added 1000 influence.", Color.White));
+                InformationManager.DisplayMessage(new InformationMessage(L10N.GetText("AddInfluenceMessage"), Color.White));
             }
         }
     }

@@ -1,4 +1,5 @@
 ﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
@@ -41,7 +42,9 @@ namespace BannerlordCheats.Patches
 
                     partyVM.InitializeTroopLists();
 
-                    InformationManager.DisplayMessage(new InformationMessage($"Added XP to {selectedCharacter.Name}.", Color.White));
+                    var message = string.Format(L10N.GetText("AddTroopXpMessage"), selectedCharacter.Name);
+
+                    InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
                 }
             }
         }
