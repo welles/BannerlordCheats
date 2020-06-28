@@ -88,6 +88,10 @@ namespace BannerlordCheats.Settings
         public bool PartyOnlyKnockout { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(EnemyOnlyKnockout))]
+        public bool EnemyOnlyKnockout { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(RenownRewardMultiplier), minValue: 1, maxValue: 1000)]
         public float RenownRewardMultiplier { get; set; } = 1;
 

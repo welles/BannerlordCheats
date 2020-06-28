@@ -513,6 +513,12 @@
   <data name="DamageMultiplier_Name" xml:space="preserve">
     <value>Damage Multiplier</value>
   </data>
+  <data name="EnemyOnlyKnockout_Desc" xml:space="preserve">
+    <value>Enemies are never killed, only knocked unconcious.</value>
+  </data>
+  <data name="EnemyOnlyKnockout_Name" xml:space="preserve">
+    <value>Enemy Only Knockout</value>
+  </data>
   <data name="NoFriendlyFire_Desc" xml:space="preserve">
     <value>Completely disable friendly fire for the player party.</value>
   </data>
