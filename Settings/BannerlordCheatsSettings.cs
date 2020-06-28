@@ -1,13 +1,11 @@
 ﻿using BannerlordCheats.Localization;
-using MCM.Abstractions.Attributes.v2;
+using System.Reflection;
 
 namespace BannerlordCheats.Settings
 {
     public class BannerlordCheatsSettings : MCM.Abstractions.Settings.Base.Global.AttributeGlobalSettings<BannerlordCheatsSettings>
     {
         #region Base
-
-        private const int SettingsVersion = 1;
 
         private const string ModName = "ModName";
         private const string CombatGroupName = "Combat";
@@ -24,7 +22,7 @@ namespace BannerlordCheats.Settings
         private const string SettlementsGroupName = "Settlements";
         private const string CharactersGroupName = "Characters";
 
-        public override string Id { get; } = $"BannerlordCheats_v{SettingsVersion}";
+        public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version}";
 
         public override string FolderName => "Cheats";
 
