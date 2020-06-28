@@ -127,6 +127,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
         public bool InfiniteAmmo { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DamageMultiplier), minValue: 1, maxValue: 100)]
+        public int DamageMultiplier { get; set; } = 1;
+
         #endregion Combat
 
         #region Inventory
