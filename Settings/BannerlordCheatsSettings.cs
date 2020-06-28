@@ -250,6 +250,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(SiegeBuildingSpeedMultiplier), minValue: 1, maxValue: 1000)]
         public float SiegeBuildingSpeedMultiplier { get; set; } = 1;
+        
+        [LocalizedSettingPropertyGroup(SiegesGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoEnemySiegeBuilding))]
+        public bool NoEnemySiegeBuilding { get; set; } = false;
 
         #endregion Sieges
 
