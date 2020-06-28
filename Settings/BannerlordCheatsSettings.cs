@@ -135,6 +135,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(PartyDamageMultiplier), minValue: 1, maxValue: 100)]
         public int PartyDamageMultiplier { get; set; } = 1;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoFriendlyFire))]
+        public bool NoFriendlyFire { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory
