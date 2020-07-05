@@ -63,6 +63,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(PartyInvisibleOnMap))]
         public bool PartyInvisibleOnMap { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(MapGroupName)]
+        [LocalizedSettingPropertyBool(nameof(BiggerNpcParties))]
+        public bool BiggerNpcParties { get; set; } = false;
+
         #endregion Map
 
         #region Combat
