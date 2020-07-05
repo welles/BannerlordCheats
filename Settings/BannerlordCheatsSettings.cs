@@ -80,6 +80,10 @@ namespace BannerlordCheats.Settings
         public bool PartyInvincible { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(PartyDamageTakenPercentage))]
+        public int PartyDamageTakenPercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(OneHitKill))]
         public bool OneHitKill { get; set; } = false;
 

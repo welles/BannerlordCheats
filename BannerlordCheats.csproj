@@ -267,6 +267,7 @@
     <Compile Include="Patches\Combat\NoFriendlyFire.cs" />
     <Compile Include="Patches\Combat\NoRunningAwayPatch.cs" />
     <Compile Include="Patches\Combat\PartyDamageMultiplier.cs" />
+    <Compile Include="Patches\Combat\PartyDamageTakenPercentage.cs" />
     <Compile Include="Patches\Combat\PartyInfiniteAmmo.cs" />
     <Compile Include="Patches\Experience\TroopExperienceMultiplierPatch.cs" />
     <Compile Include="Patches\Kingdom\ForceKingdomDecisionPatch.cs" />

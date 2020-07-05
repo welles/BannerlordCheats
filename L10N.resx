@@ -555,4 +555,10 @@
   <data name="SellingPriceMultiplier_Name" xml:space="preserve">
     <value>Selling Price Multiplier</value>
   </data>
+  <data name="PartyDamageTakenPercentage_Desc" xml:space="preserve">
+    <value>How much damage player party members take on each hit. 100% means full damage, 50% means half damage, and 0% makes them invincible.</value>
+  </data>
+  <data name="PartyDamageTakenPercentage_Name" xml:space="preserve">
+    <value>Party Damage Taken Percentage</value>
+  </data>
 </root>
