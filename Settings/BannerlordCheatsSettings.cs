@@ -188,8 +188,8 @@ namespace BannerlordCheats.Settings
         public bool InstantEscape { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoFoodConsumption))]
-        public bool NoFoodConsumption { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(FoodConsumptionPercentage))]
+        public int FoodConsumptionPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoTroopWages))]

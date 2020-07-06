@@ -276,11 +276,11 @@
   <data name="ExtraPartyMorale_Desc" xml:space="preserve">
     <value>Increase morale of the player party.</value>
   </data>
-  <data name="NoFoodConsumption_Name" xml:space="preserve">
-    <value>No Food Consumption</value>
+  <data name="FoodConsumptionPercentage_Name" xml:space="preserve">
+    <value>Food Consumption Percentage</value>
   </data>
-  <data name="NoFoodConsumption_Desc" xml:space="preserve">
-    <value>Player party does not need food.</value>
+  <data name="FoodConsumptionPercentage_Desc" xml:space="preserve">
+    <value>How much food the player party needs. 100% means full food consumption, 0% means no food consumption.</value>
   </data>
   <data name="NoTroopWages_Name" xml:space="preserve">
     <value>No Troop Wages</value>

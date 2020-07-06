@@ -11,29 +11,19 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void CalculateDailyFoodConsumptionf(MobileParty party, StatExplainer explainer, ref float __result)
         {
-            if ((party?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.NoFoodConsumption)
+            if (party?.IsMainParty ?? false)
             {
-                __result = 0.0f;
+                var factor = BannerlordCheatsSettings.Instance.FoodConsumptionPercentage / 100f;
+
+                __result *= factor;
 
                 if (explainer != null)
                 {
-                    explainer.Lines.Clear();
+                    foreach (var line in explainer.Lines)
+                    {
+                        line.Number *= factor;
+                    }
                 }
-            }
-        }
-    }
-
-    [HarmonyPatch(typeof(MobileParty), nameof(MobileParty.GetNumDaysForFoodToLast))]
-    public static class NoFoodConsumptionPatchText
-    {
-        [HarmonyPostfix]
-        public static void GetNumDaysForFoodToLast(ref MobileParty __instance, ref int __result)
-        {
-            if (__instance?.IsMainParty ?? false
-                && BannerlordCheatsSettings.Instance.NoFoodConsumption)
-            {
-                __result = 1;
             }
         }
     }
