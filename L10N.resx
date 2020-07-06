@@ -372,11 +372,11 @@
   <data name="NoArmyCohesionLoss_Desc" xml:space="preserve">
     <value>Cohesion of the army the player has joined is frozen.</value>
   </data>
-  <data name="NoArmyFoodConsumption_Name" xml:space="preserve">
-    <value>No Food Consumption</value>
+  <data name="ArmyFoodConsumptionPercentage_Name" xml:space="preserve">
+    <value>Food Consumption Percentage</value>
   </data>
-  <data name="NoArmyFoodConsumption_Desc" xml:space="preserve">
-    <value>All parties in the army the player has joined do not need food.</value>
+  <data name="ArmyFoodConsumptionPercentage_Desc" xml:space="preserve">
+    <value>How much food the the army the player party has joined needs. 100% means full food consumption, 0% means no food consumption.</value>
   </data>
   <data name="DisguiseAlwaysWorks_Name" xml:space="preserve">
     <value>Disguise Always Works</value>

@@ -296,8 +296,8 @@ namespace BannerlordCheats.Settings
         public bool NoArmyCohesionLoss { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoArmyFoodConsumption))]
-        public bool NoArmyFoodConsumption { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(ArmyFoodConsumptionPercentage))]
+        public int ArmyFoodConsumptionPercentage { get; set; } = 100;
 
         #endregion Army
 
