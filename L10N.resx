@@ -366,11 +366,11 @@
   <data name="SiegeBuildingSpeedMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the speed of siege engine construction on the player party's side is multiplied. A factor of 1 means default build speed.</value>
   </data>
-  <data name="NoArmyCohesionLoss_Name" xml:space="preserve">
-    <value>No Cohesion Loss</value>
+  <data name="ArmyCohesionLossPercentage_Name" xml:space="preserve">
+    <value>Cohesion Loss Percentage</value>
   </data>
-  <data name="NoArmyCohesionLoss_Desc" xml:space="preserve">
-    <value>Cohesion of the army the player has joined is frozen.</value>
+  <data name="ArmyCohesionLossPercentage_Desc" xml:space="preserve">
+    <value>How much cohesion the army the player party has joined loses. 100% means full cohesion loss, 0% means cohesion is frozen.</value>
   </data>
   <data name="ArmyFoodConsumptionPercentage_Name" xml:space="preserve">
     <value>Food Consumption Percentage</value>

@@ -292,8 +292,8 @@ namespace BannerlordCheats.Settings
         #region Army
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoArmyCohesionLoss))]
-        public bool NoArmyCohesionLoss { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(ArmyCohesionLossPercentage))]
+        public int ArmyCohesionLossPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
         [LocalizedSettingPropertyPercent(nameof(ArmyFoodConsumptionPercentage))]

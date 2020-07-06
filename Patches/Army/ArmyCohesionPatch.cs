@@ -13,14 +13,18 @@ namespace BannerlordCheats.Patches
         public static void CalculateCohesionChange(Army army, StatExplainer explanation, ref float __result)
         {
             if (army != null
-                && army.Parties.Any(x => x?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.NoArmyCohesionLoss)
+                && army.Parties.Any(x => x?.IsMainParty ?? false))
             {
-                __result = 0.0f;
+                var factor = BannerlordCheatsSettings.Instance.ArmyCohesionLossPercentage / 100f;
+
+                __result *= factor;
 
                 if (explanation != null)
                 {
-                    explanation.Lines.Clear();
+                    foreach (var line in explanation.Lines)
+                    {
+                        line.Number *= factor;
+                    }
                 }
             }
         }
