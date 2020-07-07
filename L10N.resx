@@ -282,11 +282,11 @@
   <data name="FoodConsumptionPercentage_Desc" xml:space="preserve">
     <value>How much food the player party needs. 100% means full food consumption, 0% means no food consumption.</value>
   </data>
-  <data name="NoTroopWages_Name" xml:space="preserve">
-    <value>No Troop Wages</value>
+  <data name="TroopWagesPercentage_Name" xml:space="preserve">
+    <value>Troop Wages Percentage</value>
   </data>
-  <data name="NoTroopWages_Desc" xml:space="preserve">
-    <value>Player party troops are unpaid.</value>
+  <data name="TroopWagesPercentage_Desc" xml:space="preserve">
+    <value>Percentage of the original troop wages that the player must pay. 100% means full wages, 0% means no troop wages.</value>
   </data>
   <data name="FreeTroopUpgrades_Name" xml:space="preserve">
     <value>Free Troop Upgrades</value>

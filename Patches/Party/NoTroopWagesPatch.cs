@@ -1,5 +1,6 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
+using System;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
 
@@ -12,9 +13,21 @@ namespace BannerlordCheats.Patches
         public static void GetTotalWage(MobileParty mobileParty, StatExplainer explanation, ref int __result)
         {
             if ((mobileParty?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.NoTroopWages)
+                && BannerlordCheatsSettings.Instance.TroopWagesPercentage < 100)
             {
-                __result = 0;
+                var factor = BannerlordCheatsSettings.Instance.TroopWagesPercentage / 100f;
+
+                var newValue = (int)Math.Round(__result * factor);
+
+                __result = newValue;
+
+                if (explanation != null)
+                {
+                    foreach (var line in explanation.Lines)
+                    {
+                        line.Number *= factor;
+                    }
+                }
             }
         }
     }
