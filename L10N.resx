@@ -414,11 +414,35 @@
   <data name="NoSmithingCost_Desc" xml:space="preserve">
     <value>Smithing materials cost is zero for every design.</value>
   </data>
-  <data name="CreaftedWeaponValuesBonus_Name" xml:space="preserve">
-    <value>Creafted Weapon Values Bonus</value>
+  <data name="CraftedWeaponHandlingBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Handling Bonus</value>
   </data>
-  <data name="CreaftedWeaponValuesBonus_Desc" xml:space="preserve">
-    <value>Bonus that is applied to the values (speed, damage, handling) of any weapon the player crafts.</value>
+  <data name="CraftedWeaponHandlingBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Handling value of any weapon the player crafts.</value>
+  </data>
+  <data name="CraftedWeaponSwingDamageBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Swing Damage Bonus</value>
+  </data>
+  <data name="CraftedWeaponSwingDamageBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Swing Damage value of any weapon the player crafts.</value>
+  </data>
+  <data name="CraftedWeaponSwingSpeedBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Swing Speed Bonus</value>
+  </data>
+  <data name="CraftedWeaponSwingSpeedBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Swing Speed value of any weapon the player crafts.</value>
+  </data>
+  <data name="CraftedWeaponThrustDamageBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Thrust Damage Bonus</value>
+  </data>
+  <data name="CraftedWeaponThrustDamageBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Thrust Damage value of any weapon the player crafts.</value>
+  </data>
+  <data name="CraftedWeaponThrustSpeedBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Thrust Speed Bonus</value>
+  </data>
+  <data name="CraftedWeaponThrustSpeedBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Thrust Speed value of any weapon the player crafts.</value>
   </data>
   <data name="AddAttributePointMessage" xml:space="preserve">
     <value>Added 1 point to {0}.</value>

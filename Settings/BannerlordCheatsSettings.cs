@@ -344,8 +344,24 @@ namespace BannerlordCheats.Settings
         public bool NoSmithingCost { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(CreaftedWeaponValuesBonus), minValue: 0, maxValue: 200)]
-        public int CreaftedWeaponValuesBonus { get; set; } = 0;
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponHandlingBonus), minValue: 0, maxValue: 200)]
+        public int CraftedWeaponHandlingBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponSwingDamageBonus), minValue: 0, maxValue: 200)]
+        public int CraftedWeaponSwingDamageBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponSwingSpeedBonus), minValue: 0, maxValue: 200)]
+        public int CraftedWeaponSwingSpeedBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponThrustDamageBonus), minValue: 0, maxValue: 200)]
+        public int CraftedWeaponThrustDamageBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponThrustSpeedBonus), minValue: 0, maxValue: 200)]
+        public int CraftedWeaponThrustSpeedBonus { get; set; } = 0;
 
         #endregion Smithing
     }
