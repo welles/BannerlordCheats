@@ -402,11 +402,11 @@
   <data name="UnlockAllParts_Desc" xml:space="preserve">
     <value>All smithing parts are unlocked.</value>
   </data>
-  <data name="NoSmithingDifficulty_Name" xml:space="preserve">
-    <value>No Smithing Difficulty</value>
+  <data name="SmithingDifficultyPercentage_Name" xml:space="preserve">
+    <value>Difficulty Percentage</value>
   </data>
-  <data name="NoSmithingDifficulty_Desc" xml:space="preserve">
-    <value>Smithing difficulty is zero for every design.</value>
+  <data name="SmithingDifficultyPercentage_Desc" xml:space="preserve">
+    <value>How difficult a weapon design is. 100% means full difficulty, 0% means no difficulty.</value>
   </data>
   <data name="SmithingCostPercentage_Name" xml:space="preserve">
     <value>Materials Cost Percentage</value>

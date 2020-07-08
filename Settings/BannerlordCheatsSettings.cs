@@ -336,8 +336,8 @@ namespace BannerlordCheats.Settings
         public bool UnlockAllParts { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoSmithingDifficulty))]
-        public bool NoSmithingDifficulty { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(SmithingDifficultyPercentage))]
+        public int SmithingDifficultyPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyPercent(nameof(SmithingCostPercentage))]
