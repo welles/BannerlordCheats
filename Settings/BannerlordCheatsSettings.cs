@@ -328,8 +328,8 @@ namespace BannerlordCheats.Settings
         #region Smithing
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoSmithingEnergyCost))]
-        public bool NoSmithingEnergyCost { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(SmithingEnergyCostPercentage))]
+        public int SmithingEnergyCostPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyBool(nameof(UnlockAllParts))]

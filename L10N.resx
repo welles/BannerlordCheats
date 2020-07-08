@@ -390,11 +390,11 @@
   <data name="OneDayConstruction_Desc" xml:space="preserve">
     <value>Buildings in player settlements are constructed in one day.</value>
   </data>
-  <data name="NoSmithingEnergyCost_Name" xml:space="preserve">
-    <value>No Energy Cost</value>
+  <data name="SmithingEnergyCostPercentage_Name" xml:space="preserve">
+    <value>Energy Cost Percentage</value>
   </data>
-  <data name="NoSmithingEnergyCost_Desc" xml:space="preserve">
-    <value>Disable energy cost for smithing, smelting or refining.</value>
+  <data name="SmithingEnergyCostPercentage_Desc" xml:space="preserve">
+    <value>How much energy smithing, smelting or refining costs. 100% means full energy cost, 0% means no energys cost.</value>
   </data>
   <data name="UnlockAllParts_Name" xml:space="preserve">
     <value>Unlock All Parts</value>
