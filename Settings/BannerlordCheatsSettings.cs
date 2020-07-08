@@ -284,8 +284,8 @@ namespace BannerlordCheats.Settings
         public int SiegeBuildingSpeedMultiplier { get; set; } = 1;
         
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoEnemySiegeBuilding))]
-        public bool NoEnemySiegeBuilding { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(EnemySiegeBuildingSpeedPercentage))]
+        public int EnemySiegeBuildingSpeedPercentage { get; set; } = 100;
 
         #endregion Sieges
 
