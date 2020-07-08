@@ -330,11 +330,11 @@
   <data name="ExtraClanPartyLimit_Desc" xml:space="preserve">
     <value>Increase the maximum amount of parties in your clan.</value>
   </data>
-  <data name="ForceKingdomDecision_Name" xml:space="preserve">
-    <value>Always Win Kingdom Votes</value>
+  <data name="KingdomDecisionWeightMultiplier_Name" xml:space="preserve">
+    <value>Kingdom Vote Weight Multiplier</value>
   </data>
-  <data name="ForceKingdomDecision_Desc" xml:space="preserve">
-    <value>The choice the player has voted for in a kingdom decision always wins.</value>
+  <data name="KingdomDecisionWeightMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the likelihood to win ('weight') of the kingdom decision vote the player supports is increased.</value>
   </data>
   <data name="NoRelationshipLossOnDecision_Name" xml:space="preserve">
     <value>No Relationship Loss On Decision</value>

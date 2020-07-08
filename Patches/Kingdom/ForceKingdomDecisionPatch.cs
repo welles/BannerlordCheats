@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Kingdom
         public static void Getter(ref DecisionOutcome __instance, ref float __result)
         {
             if (__instance.SupporterList.Any(x => x.IsPlayer)
-                && BannerlordCheatsSettings.Instance.ForceKingdomDecision)
+                && BannerlordCheatsSettings.Instance.KingdomDecisionWeightMultiplier > 1)
             {
-                __result = 10000;
+                __result *= BannerlordCheatsSettings.Instance.KingdomDecisionWeightMultiplier;
             }
         }
     }

@@ -252,8 +252,8 @@ namespace BannerlordCheats.Settings
         #region Kingdom
 
         [LocalizedSettingPropertyGroup(KingdomGroupName)]
-        [LocalizedSettingPropertyBool(nameof(ForceKingdomDecision))]
-        public bool ForceKingdomDecision { get; set; } = false;
+        [LocalizedSettingPropertyInteger(nameof(KingdomDecisionWeightMultiplier), minValue: 1, maxValue: 1000)]
+        public int KingdomDecisionWeightMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(KingdomGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoRelationshipLossOnDecision))]
