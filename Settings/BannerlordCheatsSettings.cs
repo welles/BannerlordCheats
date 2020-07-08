@@ -340,8 +340,8 @@ namespace BannerlordCheats.Settings
         public bool NoSmithingDifficulty { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoSmithingCost))]
-        public bool NoSmithingCost { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(SmithingCostPercentage))]
+        public int SmithingCostPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyInteger(nameof(CraftedWeaponHandlingBonus), minValue: 0, maxValue: 100)]

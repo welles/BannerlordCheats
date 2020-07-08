@@ -408,11 +408,11 @@
   <data name="NoSmithingDifficulty_Desc" xml:space="preserve">
     <value>Smithing difficulty is zero for every design.</value>
   </data>
-  <data name="NoSmithingCost_Name" xml:space="preserve">
-    <value>No Materials Cost</value>
+  <data name="SmithingCostPercentage_Name" xml:space="preserve">
+    <value>Materials Cost Percentage</value>
   </data>
-  <data name="NoSmithingCost_Desc" xml:space="preserve">
-    <value>Smithing materials cost is zero for every design.</value>
+  <data name="SmithingCostPercentage_Desc" xml:space="preserve">
+    <value>How much material crafting a weapon costs. 100% means full material cost, 0% means no materials cost.</value>
   </data>
   <data name="CraftedWeaponHandlingBonus_Name" xml:space="preserve">
     <value>Crafted Weapon Handling Bonus</value>
