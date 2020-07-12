@@ -323,6 +323,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(SellingPriceMultiplier), minValue: 1, maxValue: 1000)]
         public int SellingPriceMultiplier { get; set; } = 1;
 
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(SettlementFoodUsagePercentage))]
+        public int SettlementFoodUsagePercentage { get; set; } = 100;
+
         #endregion Settlements
 
         #region Smithing

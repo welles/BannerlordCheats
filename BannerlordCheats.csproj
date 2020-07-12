@@ -280,6 +280,7 @@
     <Compile Include="Patches\Party\InstantEscape.cs" />
     <Compile Include="Patches\Settlements\FreeTroopRecruitment.cs" />
     <Compile Include="Patches\Settlements\SellingPriceMultiplier.cs" />
+    <Compile Include="Patches\Settlements\SettlementFoodStocksPatch.cs" />
     <Compile Include="Patches\Settlements\TradeCostPercentage.cs" />
     <Compile Include="Patches\Sieges\EnemySiegeBuildSpeed.cs" />
     <Compile Include="Patches\Smithing\AllPartsUnlockedPatch.cs" />

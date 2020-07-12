@@ -591,4 +591,10 @@
   <data name="PartyDamageTakenPercentage_Name" xml:space="preserve">
     <value>Party Damage Taken Percentage</value>
   </data>
+  <data name="SettlementFoodUsagePercentage_Desc" xml:space="preserve">
+    <value>How much food a player owned settlements need. 100% means full food consumption, 0% means no food consumption.</value>
+  </data>
+  <data name="SettlementFoodUsagePercentage_Name" xml:space="preserve">
+    <value>Settlement Food Usage Percentage</value>
+  </data>
 </root>
