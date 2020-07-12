@@ -579,12 +579,6 @@
   <data name="SellingPriceMultiplier_Name" xml:space="preserve">
     <value>Selling Price Multiplier</value>
   </data>
-  <data name="BiggerNpcParties_Desc" xml:space="preserve">
-    <value>Allows NPC characters to lead armies of greater size. Does not have an effect instantly, but allows them to keep recruiting beyond normal limits.</value>
-  </data>
-  <data name="BiggerNpcParties_Name" xml:space="preserve">
-    <value>Bigger NPC Parties</value>
-  </data>
   <data name="PartyDamageTakenPercentage_Desc" xml:space="preserve">
     <value>How much damage player party members take on each hit. 100% means full damage, 50% means half damage, and 0% makes them invincible.</value>
   </data>
