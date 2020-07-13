@@ -328,11 +328,11 @@ namespace BannerlordCheats.Settings
         public int DailyFoodBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailyGarrisonBonus), minValue: 1, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailyGarrisonBonus), minValue: 0, maxValue: 1000)]
         public int DailyGarrisonBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailyMilitiaBonus), minValue: 1, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailyMilitiaBonus), minValue: 0, maxValue: 1000)]
         public int DailyMilitiaBonus { get; set; } = 0;
 
         #endregion Settlements
