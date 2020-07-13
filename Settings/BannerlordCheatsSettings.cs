@@ -324,8 +324,8 @@ namespace BannerlordCheats.Settings
         public int SellingPriceMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(SettlementFoodUsagePercentage))]
-        public int SettlementFoodUsagePercentage { get; set; } = 100;
+        [LocalizedSettingPropertyInteger(nameof(DailyFoodBonus), minValue: 0, maxValue: 1000)]
+        public int DailyFoodBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyInteger(nameof(DailyGarrisonBonus), minValue: 1, maxValue: 1000)]
