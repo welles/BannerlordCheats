@@ -597,6 +597,12 @@
   <data name="DailyGarrisonBonus_Name" xml:space="preserve">
     <value>Daily Garrison Bonus</value>
   </data>
+  <data name="DailyMilitiaBonus_Desc" xml:space="preserve">
+    <value>The militia in player owned villages and cities grows by the configured value every day.</value>
+  </data>
+  <data name="DailyMilitiaBonus_Name" xml:space="preserve">
+    <value>Daily Militia Bonus</value>
+  </data>
   <data name="PartyHealthRegeneration_Desc" xml:space="preserve">
     <value>Player party members regenerate the set percentage of their total health every second during combat. A value of 0% means no regeneration.</value>
   </data>
