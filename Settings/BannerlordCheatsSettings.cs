@@ -136,6 +136,10 @@ namespace BannerlordCheats.Settings
         public int HealthRegeneration { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(PartyHealthRegeneration))]
+        public int PartyHealthRegeneration { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
         public bool InfiniteAmmo { get; set; } = false;
 
