@@ -327,6 +327,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(SettlementFoodUsagePercentage))]
         public int SettlementFoodUsagePercentage { get; set; } = 100;
 
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailyGarrisonBonus), minValue: 1, maxValue: 1000)]
+        public int DailyGarrisonBonus { get; set; } = 0;
+
         #endregion Settlements
 
         #region Smithing

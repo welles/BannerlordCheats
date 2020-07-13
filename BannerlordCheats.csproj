@@ -279,6 +279,7 @@
     <Compile Include="Patches\Map\SlowDownPartiesOnMap.cs" />
     <Compile Include="Patches\Party\InstantEscape.cs" />
     <Compile Include="Patches\Settlements\FreeTroopRecruitment.cs" />
+    <Compile Include="Patches\Settlements\GarrisonGrowthPatch.cs" />
     <Compile Include="Patches\Settlements\SellingPriceMultiplier.cs" />
     <Compile Include="Patches\Settlements\SettlementFoodStocksPatch.cs" />
     <Compile Include="Patches\Settlements\TradeCostPercentage.cs" />
