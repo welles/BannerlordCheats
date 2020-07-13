@@ -603,6 +603,12 @@
   <data name="DailyMilitiaBonus_Name" xml:space="preserve">
     <value>Daily Militia Bonus</value>
   </data>
+  <data name="GarrisonWagesPercentage_Desc" xml:space="preserve">
+    <value>Garrison Wages Percentage</value>
+  </data>
+  <data name="GarrisonWagesPercentage_Name" xml:space="preserve">
+    <value>Percentage of the original garrison wages that the player must pay. 100% means full wages, 0% means no troop wages.</value>
+  </data>
   <data name="PartyHealthRegeneration_Desc" xml:space="preserve">
     <value>Player party members regenerate the set percentage of their total health every second during combat. A value of 0% means no regeneration.</value>
   </data>
