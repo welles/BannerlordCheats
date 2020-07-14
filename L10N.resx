@@ -627,4 +627,10 @@
   <data name="DailyProsperityBonus_Name" xml:space="preserve">
     <value>Daily Prosperity Bonus</value>
   </data>
+  <data name="DailySecurityBonus_Desc" xml:space="preserve">
+    <value>The security in player owned castles and cities grows by the configured value every day.</value>
+  </data>
+  <data name="DailySecurityBonus_Name" xml:space="preserve">
+    <value>Daily Security Bonus</value>
+  </data>
 </root>

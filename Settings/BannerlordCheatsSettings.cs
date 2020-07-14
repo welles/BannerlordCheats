@@ -344,6 +344,10 @@ namespace BannerlordCheats.Settings
         public int DailyLoyaltyBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailySecurityBonus), minValue: 0, maxValue: 1000)]
+        public int DailySecurityBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
         public int GarrisonWagesPercentage { get; set; } = 100;
 

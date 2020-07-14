@@ -284,6 +284,7 @@
     <Compile Include="Patches\Settlements\LoyaltyPatch.cs" />
     <Compile Include="Patches\Settlements\MilitiaGrowthPatch.cs" />
     <Compile Include="Patches\Settlements\ProsperityPatch.cs" />
+    <Compile Include="Patches\Settlements\SecurityPatch.cs" />
     <Compile Include="Patches\Settlements\SellingPriceMultiplier.cs" />
     <Compile Include="Patches\Settlements\SettlementFoodStocksPatch.cs" />
     <Compile Include="Patches\Settlements\TradeCostPercentage.cs" />
