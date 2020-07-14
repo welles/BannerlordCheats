@@ -615,6 +615,12 @@
   <data name="PartyHealthRegeneration_Name" xml:space="preserve">
     <value>Party Health Regeneration</value>
   </data>
+  <data name="DailyLoyaltyBonus_Desc" xml:space="preserve">
+    <value>The loyalty in player owned castles and cities grows by the configured value every day.</value>
+  </data>
+  <data name="DailyLoyaltyBonus_Name" xml:space="preserve">
+    <value>Daily Loyalty Bonus</value>
+  </data>
   <data name="DailyProsperityBonus_Desc" xml:space="preserve">
     <value>The prosperity in player owned castles and cities grows by the configured value every day.</value>
   </data>
