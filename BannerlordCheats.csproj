@@ -281,6 +281,7 @@
     <Compile Include="Patches\Settlements\FreeTroopRecruitment.cs" />
     <Compile Include="Patches\Settlements\GarrisonGrowthPatch.cs" />
     <Compile Include="Patches\Settlements\GarrisonWagesPatch.cs" />
+    <Compile Include="Patches\Settlements\HearthsPatch.cs" />
     <Compile Include="Patches\Settlements\LoyaltyPatch.cs" />
     <Compile Include="Patches\Settlements\MilitiaGrowthPatch.cs" />
     <Compile Include="Patches\Settlements\ProsperityPatch.cs" />
