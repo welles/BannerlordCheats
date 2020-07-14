@@ -282,6 +282,7 @@
     <Compile Include="Patches\Settlements\GarrisonGrowthPatch.cs" />
     <Compile Include="Patches\Settlements\GarrisonWagesPatch.cs" />
     <Compile Include="Patches\Settlements\MilitiaGrowthPatch.cs" />
+    <Compile Include="Patches\Settlements\ProsperityPatch.cs" />
     <Compile Include="Patches\Settlements\SellingPriceMultiplier.cs" />
     <Compile Include="Patches\Settlements\SettlementFoodStocksPatch.cs" />
     <Compile Include="Patches\Settlements\TradeCostPercentage.cs" />
