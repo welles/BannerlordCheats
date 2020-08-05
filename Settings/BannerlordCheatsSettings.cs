@@ -80,6 +80,10 @@ namespace BannerlordCheats.Settings
         public bool PartyInvincible { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(PartyDamageTakenPercentage))]
+        public int PartyDamageTakenPercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(OneHitKill))]
         public bool OneHitKill { get; set; } = false;
 
@@ -132,6 +136,10 @@ namespace BannerlordCheats.Settings
         public int HealthRegeneration { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(PartyHealthRegeneration))]
+        public int PartyHealthRegeneration { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
         public bool InfiniteAmmo { get; set; } = false;
 
@@ -180,12 +188,12 @@ namespace BannerlordCheats.Settings
         public bool InstantEscape { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoFoodConsumption))]
-        public bool NoFoodConsumption { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(FoodConsumptionPercentage))]
+        public int FoodConsumptionPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoTroopWages))]
-        public bool NoTroopWages { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(TroopWagesPercentage))]
+        public int TroopWagesPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(FreeTroopUpgrades))]
@@ -244,8 +252,8 @@ namespace BannerlordCheats.Settings
         #region Kingdom
 
         [LocalizedSettingPropertyGroup(KingdomGroupName)]
-        [LocalizedSettingPropertyBool(nameof(ForceKingdomDecision))]
-        public bool ForceKingdomDecision { get; set; } = false;
+        [LocalizedSettingPropertyInteger(nameof(KingdomDecisionWeightMultiplier), minValue: 1, maxValue: 1000)]
+        public int KingdomDecisionWeightMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(KingdomGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoRelationshipLossOnDecision))]
@@ -276,20 +284,20 @@ namespace BannerlordCheats.Settings
         public int SiegeBuildingSpeedMultiplier { get; set; } = 1;
         
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoEnemySiegeBuilding))]
-        public bool NoEnemySiegeBuilding { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(EnemySiegeBuildingSpeedPercentage))]
+        public int EnemySiegeBuildingSpeedPercentage { get; set; } = 100;
 
         #endregion Sieges
 
         #region Army
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoArmyCohesionLoss))]
-        public bool NoArmyCohesionLoss { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(ArmyCohesionLossPercentage))]
+        public int ArmyCohesionLossPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoArmyFoodConsumption))]
-        public bool NoArmyFoodConsumption { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(ArmyFoodConsumptionPercentage))]
+        public int ArmyFoodConsumptionPercentage { get; set; } = 100;
 
         #endregion Army
 
@@ -315,29 +323,77 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(SellingPriceMultiplier), minValue: 1, maxValue: 1000)]
         public int SellingPriceMultiplier { get; set; } = 1;
 
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailyFoodBonus), minValue: 0, maxValue: 1000)]
+        public int DailyFoodBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailyGarrisonBonus), minValue: 0, maxValue: 1000)]
+        public int DailyGarrisonBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailyMilitiaBonus), minValue: 0, maxValue: 1000)]
+        public int DailyMilitiaBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailyProsperityBonus), minValue: 0, maxValue: 1000)]
+        public int DailyProsperityBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailyLoyaltyBonus), minValue: 0, maxValue: 1000)]
+        public int DailyLoyaltyBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailySecurityBonus), minValue: 0, maxValue: 1000)]
+        public int DailySecurityBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(DailyHearthsBonus), minValue: 0, maxValue: 1000)]
+        public int DailyHearthsBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
+        public int GarrisonWagesPercentage { get; set; } = 100;
+
         #endregion Settlements
 
         #region Smithing
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoSmithingEnergyCost))]
-        public bool NoSmithingEnergyCost { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(SmithingEnergyCostPercentage))]
+        public int SmithingEnergyCostPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyBool(nameof(UnlockAllParts))]
         public bool UnlockAllParts { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoSmithingDifficulty))]
-        public bool NoSmithingDifficulty { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(SmithingDifficultyPercentage))]
+        public int SmithingDifficultyPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoSmithingCost))]
-        public bool NoSmithingCost { get; set; } = false;
+        [LocalizedSettingPropertyPercent(nameof(SmithingCostPercentage))]
+        public int SmithingCostPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(CreaftedWeaponValuesBonus), minValue: 0, maxValue: 200)]
-        public int CreaftedWeaponValuesBonus { get; set; } = 0;
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponHandlingBonus), minValue: 0, maxValue: 100)]
+        public int CraftedWeaponHandlingBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponSwingDamageBonus), minValue: 0, maxValue: 100)]
+        public int CraftedWeaponSwingDamageBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponSwingSpeedBonus), minValue: 0, maxValue: 100)]
+        public int CraftedWeaponSwingSpeedBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponThrustDamageBonus), minValue: 0, maxValue: 100)]
+        public int CraftedWeaponThrustDamageBonus { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(SmithingGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CraftedWeaponThrustSpeedBonus), minValue: 0, maxValue: 100)]
+        public int CraftedWeaponThrustSpeedBonus { get; set; } = 0;
 
         #endregion Smithing
     }

@@ -276,17 +276,17 @@
   <data name="ExtraPartyMorale_Desc" xml:space="preserve">
     <value>Increase morale of the player party.</value>
   </data>
-  <data name="NoFoodConsumption_Name" xml:space="preserve">
-    <value>No Food Consumption</value>
+  <data name="FoodConsumptionPercentage_Name" xml:space="preserve">
+    <value>Food Consumption Percentage</value>
   </data>
-  <data name="NoFoodConsumption_Desc" xml:space="preserve">
-    <value>Player party does not need food.</value>
+  <data name="FoodConsumptionPercentage_Desc" xml:space="preserve">
+    <value>How much food the player party needs. 100% means full food consumption, 0% means no food consumption.</value>
   </data>
-  <data name="NoTroopWages_Name" xml:space="preserve">
-    <value>No Troop Wages</value>
+  <data name="TroopWagesPercentage_Name" xml:space="preserve">
+    <value>Troop Wages Percentage</value>
   </data>
-  <data name="NoTroopWages_Desc" xml:space="preserve">
-    <value>Player party troops are unpaid.</value>
+  <data name="TroopWagesPercentage_Desc" xml:space="preserve">
+    <value>Percentage of the original troop wages that the player must pay. 100% means full wages, 0% means no troop wages.</value>
   </data>
   <data name="FreeTroopUpgrades_Name" xml:space="preserve">
     <value>Free Troop Upgrades</value>
@@ -330,11 +330,11 @@
   <data name="ExtraClanPartyLimit_Desc" xml:space="preserve">
     <value>Increase the maximum amount of parties in your clan.</value>
   </data>
-  <data name="ForceKingdomDecision_Name" xml:space="preserve">
-    <value>Always Win Kingdom Votes</value>
+  <data name="KingdomDecisionWeightMultiplier_Name" xml:space="preserve">
+    <value>Kingdom Vote Weight Multiplier</value>
   </data>
-  <data name="ForceKingdomDecision_Desc" xml:space="preserve">
-    <value>The choice the player has voted for in a kingdom decision always wins.</value>
+  <data name="KingdomDecisionWeightMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the likelihood to win ('weight') of the kingdom decision vote the player supports is increased.</value>
   </data>
   <data name="NoRelationshipLossOnDecision_Name" xml:space="preserve">
     <value>No Relationship Loss On Decision</value>
@@ -366,17 +366,17 @@
   <data name="SiegeBuildingSpeedMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the speed of siege engine construction on the player party's side is multiplied. A factor of 1 means default build speed.</value>
   </data>
-  <data name="NoArmyCohesionLoss_Name" xml:space="preserve">
-    <value>No Cohesion Loss</value>
+  <data name="ArmyCohesionLossPercentage_Name" xml:space="preserve">
+    <value>Cohesion Loss Percentage</value>
   </data>
-  <data name="NoArmyCohesionLoss_Desc" xml:space="preserve">
-    <value>Cohesion of the army the player has joined is frozen.</value>
+  <data name="ArmyCohesionLossPercentage_Desc" xml:space="preserve">
+    <value>How much cohesion the army the player party has joined loses. 100% means full cohesion loss, 0% means cohesion is frozen.</value>
   </data>
-  <data name="NoArmyFoodConsumption_Name" xml:space="preserve">
-    <value>No Food Consumption</value>
+  <data name="ArmyFoodConsumptionPercentage_Name" xml:space="preserve">
+    <value>Food Consumption Percentage</value>
   </data>
-  <data name="NoArmyFoodConsumption_Desc" xml:space="preserve">
-    <value>All parties in the army the player has joined do not need food.</value>
+  <data name="ArmyFoodConsumptionPercentage_Desc" xml:space="preserve">
+    <value>How much food the the army the player party has joined needs. 100% means full food consumption, 0% means no food consumption.</value>
   </data>
   <data name="DisguiseAlwaysWorks_Name" xml:space="preserve">
     <value>Disguise Always Works</value>
@@ -390,11 +390,11 @@
   <data name="OneDayConstruction_Desc" xml:space="preserve">
     <value>Buildings in player settlements are constructed in one day.</value>
   </data>
-  <data name="NoSmithingEnergyCost_Name" xml:space="preserve">
-    <value>No Energy Cost</value>
+  <data name="SmithingEnergyCostPercentage_Name" xml:space="preserve">
+    <value>Energy Cost Percentage</value>
   </data>
-  <data name="NoSmithingEnergyCost_Desc" xml:space="preserve">
-    <value>Disable energy cost for smithing, smelting or refining.</value>
+  <data name="SmithingEnergyCostPercentage_Desc" xml:space="preserve">
+    <value>How much energy smithing, smelting or refining costs. 100% means full energy cost, 0% means no energys cost.</value>
   </data>
   <data name="UnlockAllParts_Name" xml:space="preserve">
     <value>Unlock All Parts</value>
@@ -402,23 +402,47 @@
   <data name="UnlockAllParts_Desc" xml:space="preserve">
     <value>All smithing parts are unlocked.</value>
   </data>
-  <data name="NoSmithingDifficulty_Name" xml:space="preserve">
-    <value>No Smithing Difficulty</value>
+  <data name="SmithingDifficultyPercentage_Name" xml:space="preserve">
+    <value>Difficulty Percentage</value>
   </data>
-  <data name="NoSmithingDifficulty_Desc" xml:space="preserve">
-    <value>Smithing difficulty is zero for every design.</value>
+  <data name="SmithingDifficultyPercentage_Desc" xml:space="preserve">
+    <value>How difficult a weapon design is. 100% means full difficulty, 0% means no difficulty.</value>
   </data>
-  <data name="NoSmithingCost_Name" xml:space="preserve">
-    <value>No Materials Cost</value>
+  <data name="SmithingCostPercentage_Name" xml:space="preserve">
+    <value>Materials Cost Percentage</value>
   </data>
-  <data name="NoSmithingCost_Desc" xml:space="preserve">
-    <value>Smithing materials cost is zero for every design.</value>
+  <data name="SmithingCostPercentage_Desc" xml:space="preserve">
+    <value>How much material crafting a weapon costs. 100% means full material cost, 0% means no materials cost.</value>
   </data>
-  <data name="CreaftedWeaponValuesBonus_Name" xml:space="preserve">
-    <value>Creafted Weapon Values Bonus</value>
+  <data name="CraftedWeaponHandlingBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Handling Bonus</value>
   </data>
-  <data name="CreaftedWeaponValuesBonus_Desc" xml:space="preserve">
-    <value>Bonus that is applied to the values (speed, damage, handling) of any weapon the player crafts.</value>
+  <data name="CraftedWeaponHandlingBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Handling value of any weapon the player crafts.</value>
+  </data>
+  <data name="CraftedWeaponSwingDamageBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Swing Damage Bonus</value>
+  </data>
+  <data name="CraftedWeaponSwingDamageBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Swing Damage value of any weapon the player crafts.</value>
+  </data>
+  <data name="CraftedWeaponSwingSpeedBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Swing Speed Bonus</value>
+  </data>
+  <data name="CraftedWeaponSwingSpeedBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Swing Speed value of any weapon the player crafts.</value>
+  </data>
+  <data name="CraftedWeaponThrustDamageBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Thrust Damage Bonus</value>
+  </data>
+  <data name="CraftedWeaponThrustDamageBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Thrust Damage value of any weapon the player crafts.</value>
+  </data>
+  <data name="CraftedWeaponThrustSpeedBonus_Name" xml:space="preserve">
+    <value>Crafted Weapon Thrust Speed Bonus</value>
+  </data>
+  <data name="CraftedWeaponThrustSpeedBonus_Desc" xml:space="preserve">
+    <value>Bonus that is applied to the Thrust Speed value of any weapon the player crafts.</value>
   </data>
   <data name="AddAttributePointMessage" xml:space="preserve">
     <value>Added 1 point to {0}.</value>
@@ -501,11 +525,11 @@
   <data name="InfiniteAmmo_Name" xml:space="preserve">
     <value>Infinite Ammo</value>
   </data>
-  <data name="NoEnemySiegeBuilding_Desc" xml:space="preserve">
-    <value>The opposing side in sieges cannot build siege engines or wall defenses.</value>
+  <data name="EnemySiegeBuildingSpeedPercentage_Desc" xml:space="preserve">
+    <value>How quickly the opposing side in sieges can build siege engines or wall defenses. 100% means full speed, 0% means no siege engines at all.</value>
   </data>
-  <data name="NoEnemySiegeBuilding_Name" xml:space="preserve">
-    <value>No Enemy Siege Building</value>
+  <data name="EnemySiegeBuildingSpeedPercentage_Name" xml:space="preserve">
+    <value>Enemy Siege Building Speed Percentage</value>
   </data>
   <data name="DamageMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the damage dealt by the player during combat is multiplied. A factor of 1 means default damage. If One Hit Kill is active, this has no effect.</value>
@@ -554,5 +578,65 @@
   </data>
   <data name="SellingPriceMultiplier_Name" xml:space="preserve">
     <value>Selling Price Multiplier</value>
+  </data>
+  <data name="PartyDamageTakenPercentage_Desc" xml:space="preserve">
+    <value>How much damage player party members take on each hit. 100% means full damage, 50% means half damage, and 0% makes them invincible.</value>
+  </data>
+  <data name="PartyDamageTakenPercentage_Name" xml:space="preserve">
+    <value>Party Damage Taken Percentage</value>
+  </data>
+  <data name="DailyFoodBonus_Desc" xml:space="preserve">
+    <value>The food stocks in player owned castles and cities grow by the configured value every day.</value>
+  </data>
+  <data name="DailyFoodBonus_Name" xml:space="preserve">
+    <value>Daily Food Bonus</value>
+  </data>
+  <data name="DailyGarrisonBonus_Desc" xml:space="preserve">
+    <value>The garrison in player owned castles and cities grows by the configured value every day.</value>
+  </data>
+  <data name="DailyGarrisonBonus_Name" xml:space="preserve">
+    <value>Daily Garrison Bonus</value>
+  </data>
+  <data name="DailyMilitiaBonus_Desc" xml:space="preserve">
+    <value>The militia in player owned villages and cities grows by the configured value every day.</value>
+  </data>
+  <data name="DailyMilitiaBonus_Name" xml:space="preserve">
+    <value>Daily Militia Bonus</value>
+  </data>
+  <data name="GarrisonWagesPercentage_Name" xml:space="preserve">
+    <value>Garrison Wages Percentage</value>
+  </data>
+  <data name="GarrisonWagesPercentage_Desc" xml:space="preserve">
+    <value>Percentage of the original garrison wages that the player must pay. 100% means full wages, 0% means no troop wages.</value>
+  </data>
+  <data name="PartyHealthRegeneration_Desc" xml:space="preserve">
+    <value>Player party members regenerate the set percentage of their total health every second during combat. A value of 0% means no regeneration.</value>
+  </data>
+  <data name="PartyHealthRegeneration_Name" xml:space="preserve">
+    <value>Party Health Regeneration</value>
+  </data>
+  <data name="DailyHearthsBonus_Desc" xml:space="preserve">
+    <value>The hearths in player owned villages grow by the configured value every day.</value>
+  </data>
+  <data name="DailyHearthsBonus_Name" xml:space="preserve">
+    <value>Daily Hearths Bonus</value>
+  </data>
+  <data name="DailyLoyaltyBonus_Desc" xml:space="preserve">
+    <value>The loyalty in player owned castles and cities grows by the configured value every day.</value>
+  </data>
+  <data name="DailyLoyaltyBonus_Name" xml:space="preserve">
+    <value>Daily Loyalty Bonus</value>
+  </data>
+  <data name="DailyProsperityBonus_Desc" xml:space="preserve">
+    <value>The prosperity in player owned castles and cities grows by the configured value every day.</value>
+  </data>
+  <data name="DailyProsperityBonus_Name" xml:space="preserve">
+    <value>Daily Prosperity Bonus</value>
+  </data>
+  <data name="DailySecurityBonus_Desc" xml:space="preserve">
+    <value>The security in player owned castles and cities grows by the configured value every day.</value>
+  </data>
+  <data name="DailySecurityBonus_Name" xml:space="preserve">
+    <value>Daily Security Bonus</value>
   </data>
 </root>

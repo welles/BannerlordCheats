@@ -1,5 +1,6 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
+using System;
 using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -27,9 +28,13 @@ namespace BannerlordCheats.Patches.Sieges
             }
 
             if ((siegeEvent.GetSiegeEventSide(otherSide)?.SiegeParties.Any(x => x.Leader?.IsPlayerCharacter ?? false) ?? false)
-                && BannerlordCheatsSettings.Instance.NoEnemySiegeBuilding)
+                && BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage < 100)
             {
-                __result = 0;
+                var factor = BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage / 100f;
+
+                var newValue = factor * __result;
+
+                __result = newValue;
             }
         }
     }

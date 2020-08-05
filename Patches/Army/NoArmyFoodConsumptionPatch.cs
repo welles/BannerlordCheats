@@ -14,14 +14,18 @@ namespace BannerlordCheats.Patches
         {
             if (party != null
                 && party.Army != null
-                && party.Army.Parties.Any(x => x?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.NoArmyFoodConsumption)
+                && party.Army.Parties.Any(x => x?.IsMainParty ?? false))
             {
-                __result = 0.0f;
+                var factor = BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage / 100f;
+
+                __result *= factor;
 
                 if (explainer != null)
                 {
-                    explainer.Lines.Clear();
+                    foreach (var line in explainer.Lines)
+                    {
+                        line.Number *= factor;
+                    }
                 }
             }
         }
