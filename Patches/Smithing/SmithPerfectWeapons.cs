@@ -11,11 +11,11 @@ namespace BannerlordCheats.Patches.Smithing
         [HarmonyPostfix]
         public static void GetModifierChanges(int modifierTier, ref OverrideData __result)
         {
-            __result.Handling += BannerlordCheatsSettings.Instance.CreaftedWeaponValuesBonus;
-            __result.SwingDamageOverriden += BannerlordCheatsSettings.Instance.CreaftedWeaponValuesBonus;
-            __result.SwingSpeedOverriden  += BannerlordCheatsSettings.Instance.CreaftedWeaponValuesBonus;
-            __result.ThrustDamageOverriden  += BannerlordCheatsSettings.Instance.CreaftedWeaponValuesBonus;
-            __result.ThrustSpeedOverriden  += BannerlordCheatsSettings.Instance.CreaftedWeaponValuesBonus;
+            __result.Handling += BannerlordCheatsSettings.Instance.CraftedWeaponHandlingBonus;
+            __result.SwingDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingDamageBonus;
+            __result.SwingSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingSpeedBonus;
+            __result.ThrustDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustDamageBonus;
+            __result.ThrustSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustSpeedBonus;
         }
     }
 }
