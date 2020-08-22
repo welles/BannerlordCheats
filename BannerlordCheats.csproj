@@ -201,9 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="L10N.resx">
-      <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <LastGenOutput>L10N.Designer.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
