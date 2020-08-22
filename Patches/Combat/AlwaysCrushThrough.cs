@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
+using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
@@ -9,7 +10,7 @@ namespace BannerlordCheats.Patches.Combat
     public class AlwaysCrushThrough
     {
         [HarmonyPostfix]
-        public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, float defenderStunPeriod, float impactPoint, ref bool __result)
+        public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isCouchedLanceHit, ref bool __result)
         {
             if ((attackerAgent?.IsPlayerControlled ?? false)
                 && BannerlordCheatsSettings.Instance.AlwaysCrushThroughShields)
