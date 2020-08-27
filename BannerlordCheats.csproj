@@ -1,13 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-    </PropertyGroup>
-
     <ItemGroup>
-      <PackageReference Include="Bannerlord.MCM" Version="4.0.0" />
-      <PackageReference Include="Bannerlord.ReferenceAssemblies.EarlyAccess" Version="1.5.0.*" />
-      <PackageReference Include="Lib.Harmony" Version="2.0.2" />
+      <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion)" />
+      <PackageReference Include="Bannerlord.ReferenceAssemblies.EarlyAccess" Version="$(GameVersion).*" />
+      <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" />
     </ItemGroup>
 
 </Project>
