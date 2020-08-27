@@ -1,10 +1,10 @@
 <Project>
     <Target Name="PostBuildEvent">
         <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='if not exist "$(GameFolder)" mkdir "$(GameFolder)"' />
-        <Exec WorkingDirectory="$(GameFolder)" ContinueOnError="false" Command='rmdir /s /q "Modules\Cheats"' />
-        <Exec WorkingDirectory="$(GameFolder)" ContinueOnError="false" Command='mkdir "Modules\Cheats\bin\Win64_Shipping_Client"' />
-        <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "SubModule.xml" "$(GameFolder)\Modules\Cheats"' />
-        <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "L10N.resx" "$(GameFolder)\Modules\Cheats\bin\Win64_Shipping_Client"' />
-        <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "*.dll" "$(GameFolder)\Modules\Cheats\bin\Win64_Shipping_Client"' />
+        <Exec WorkingDirectory="$(GameFolder)" ContinueOnError="false" Command='rmdir /s /q "Cheats"' />
+        <Exec WorkingDirectory="$(GameFolder)" ContinueOnError="false" Command='mkdir "Cheats\bin\Win64_Shipping_Client"' />
+        <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "SubModule.xml" "$(GameFolder)\Cheats"' />
+        <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "L10N.resx" "$(GameFolder)\Cheats\bin\Win64_Shipping_Client"' />
+        <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "*.dll" "$(GameFolder)\Cheats\bin\Win64_Shipping_Client"' />
     </Target>
 </Project>
