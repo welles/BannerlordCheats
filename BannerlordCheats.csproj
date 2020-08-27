@@ -6,4 +6,14 @@
       <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="SubModule.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+      <EmbeddedResource Remove="L10N.resx" />
+      <None Include="L10N.resx">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
