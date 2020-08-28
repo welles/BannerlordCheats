@@ -28,7 +28,7 @@ jobs:
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
           
       - name: Set build version
-        run: Get-Content .\Directory.Build.props | % { $_ -replace "<Version>(\d+)\.(\d+)\.(\d+)\.0<\/Version>", "<Version>`$1.`$2.`$3.$GITHUB_RUN_NUMBER</Version>" } | Out-File .\Directory.Build.props
+        run: Get-Content .\Directory.Build.props | % { $_ -replace "<Version>(\d+)\.(\d+)\.(\d+)\.0<\/Version>", "<Version>`$1.`$2.`$3.${{github.run_number}}</Version>" } | Out-File .\Directory.Build.props
 
       - name: Build BannerlordCheats
         run: dotnet build BannerlordCheats.csproj  --configuration Release -p:GameFolder="$PWD\game"
