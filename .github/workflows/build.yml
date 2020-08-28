@@ -40,7 +40,7 @@ jobs:
           echo "::set-output name=mod_version::$ModVersion"
           $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
           echo "::set-output name=game_version::$GameVersion"
-          $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>([\d.]+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
+          $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>(\w+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
           echo "::set-output name=game_branch::$GameBranch"
 
       - name: Package Mod Files
