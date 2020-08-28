@@ -4,6 +4,7 @@
         <Exec WorkingDirectory="$(GameFolder)" ContinueOnError="false" Command='rmdir /s /q "Cheats"' />
         <Exec WorkingDirectory="$(GameFolder)" ContinueOnError="false" Command='mkdir "Cheats\bin\Win64_Shipping_Client"' />
         <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "SubModule.xml" "$(GameFolder)\Cheats"' />
+        <Exec WorkingDirectory="$(TargetDir)" Command='for /f "delims=" %%i in (&apos;type "$(GameFolder)\Cheats\SubModule.xml" ^&amp; break ^> "$(GameFolder)\Cheats\SubModule.xml" &apos;) do ( set "line=%%i" &amp; setlocal enabledelayedexpansion &amp; >>"$(GameFolder)\Cheats\SubModule.xml" echo(!line:vX.X.X.X=v$(Version)! &amp; endlocal )' />
         <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "L10N.resx" "$(GameFolder)\Cheats\bin\Win64_Shipping_Client"' />
         <Exec WorkingDirectory="$(TargetDir)" ContinueOnError="false" Command='xcopy "*.dll" "$(GameFolder)\Cheats\bin\Win64_Shipping_Client"' />
     </Target>
