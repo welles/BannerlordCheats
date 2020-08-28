@@ -32,12 +32,18 @@ jobs:
         env:
           DOTNET_NOLOGO: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
+          
+      - name: Get Versions
+        id: versions
+        run: |
+          $Version = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
+          echo "::set-output name=mod_version::$Version"
 
       - name: Package Mod Files
-        run: 7z a -tzip BannerlordCheats.zip ./game/*
+        run: 7z a -tzip BannerlordCheats-${{steps.versions.outputs.mod_version}}.zip ./game/*
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: BannerlordCheats
+          name: BannerlordCheats-${{steps.versions.outputs.mod_version}}
           path: ./game/*
