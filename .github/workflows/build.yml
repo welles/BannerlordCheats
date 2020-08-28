@@ -36,14 +36,18 @@ jobs:
       - name: Get Versions
         id: versions
         run: |
-          $Version = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
-          echo "::set-output name=mod_version::$Version"
+          $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
+          echo "::set-output name=mod_version::$ModVersion"
+          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
+          echo "::set-output name=game_version::$GameVersion"
+          $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>([\d.]+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
+          echo "::set-output name=game_branch::$GameBranch"
 
       - name: Package Mod Files
-        run: 7z a -tzip BannerlordCheats-${{steps.versions.outputs.mod_version}}.zip ./game/*
+        run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/*
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: BannerlordCheats-${{steps.versions.outputs.mod_version}}
+          name: BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}
           path: ./game/*
