@@ -37,6 +37,7 @@ jobs:
         id: versions
         run: |
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
+          $ModVersion = $ModVersion.TrimEnd(".0")
           echo "::set-output name=mod_version::$ModVersion"
           $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
           echo "::set-output name=game_version::$GameVersion"
