@@ -12,8 +12,6 @@
     <DependedModule Id="CustomBattle"/>
     <DependedModule Id="StoryMode" />
     <DependedModule Id="Bannerlord.MBOptionScreen"/>
-    <DependedModule Id="Bannerlord.MBOptionScreen.MBO"/>
-    <DependedModule Id="Bannerlord.MBOptionScreen.ModLib"/>
   </DependedModules>
   <SubModules>
     <SubModule>
