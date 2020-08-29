@@ -1,7 +1,7 @@
 ﻿<Module>
   <Name value="Cheats"/>
   <Id value="Cheats"/>
-  <Version value="v2.0.0.0"/>
+  <Version value="vX.X.X.X"/>
   <SingleplayerModule value="true"/>
   <MultiplayerModule value="false"/>
   <Official value="false"/>
@@ -12,8 +12,6 @@
     <DependedModule Id="CustomBattle"/>
     <DependedModule Id="StoryMode" />
     <DependedModule Id="Bannerlord.MBOptionScreen"/>
-    <DependedModule Id="Bannerlord.MBOptionScreen.MBO"/>
-    <DependedModule Id="Bannerlord.MBOptionScreen.ModLib"/>
   </DependedModules>
   <SubModules>
     <SubModule>
