@@ -49,12 +49,15 @@ jobs:
           echo "::set-output name=game_branch::$GameBranch"
           $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
           echo "::set-output name=additional_info::$AdditionalInfo"
+          $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "."
+          If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "$AdditionalInfoEscaped." }
+          echo "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
 
       - name: Package Mod Files
-        run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/*
+        run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/*
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}
+          name: BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}
           path: ./game/*
