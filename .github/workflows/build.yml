@@ -47,6 +47,8 @@ jobs:
           echo "::set-output name=game_version::$GameVersion"
           $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>(.+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
           echo "::set-output name=game_branch::$GameBranch"
+          $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
+          echo "::set-output name=additional_info::$AdditionalInfo"
 
       - name: Package Mod Files
         run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/*
