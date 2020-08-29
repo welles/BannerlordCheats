@@ -1,6 +1,6 @@
 <Project>
   <PropertyGroup>
-    <Version>2.0.0.0</Version>
+    <Version>1.6.2.0</Version>
     <GameVersion>1.5.1</GameVersion>
     <GameBranch>Beta.MCM.Integrated</GameBranch>
     <HarmonyVersion>2.0.2</HarmonyVersion>
