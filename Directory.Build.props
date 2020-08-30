@@ -1,8 +1,9 @@
 <Project>
   <PropertyGroup>
-    <Version>1.6.2.0</Version>
+    <Version>1.6.3.0</Version>
     <GameVersion>1.5.0</GameVersion>
-    <GameBranch>Main.MCM.Integrated</GameBranch>
+    <GameBranch>Main</GameBranch>
+    <AdditionalInfo>MCM Integrated</AdditionalInfo>
     <HarmonyVersion>2.0.2</HarmonyVersion>
     <MCMVersion>3.1.9</MCMVersion>
     <TargetFramework>net472</TargetFramework>
