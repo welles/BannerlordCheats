@@ -31,7 +31,7 @@ jobs:
 #       run: ((Get-Content .\Directory.Build.props -Raw) -replace "<Version>(\d+)\.(\d+)\.(\d+)\.0<\/Version>", "<Version>`$1.`$2.`$3.${{github.run_number}}</Version>") | Set-Content .\Directory.Build.props
 
       - name: Build BannerlordCheats
-        run: dotnet build BannerlordCheats.csproj  --configuration Release -p:GameFolder="$PWD\game\Modules"
+        run: dotnet build BannerlordCheats.csproj  --configuration Release -p:GameFolder="$PWD\game"
         env:
           DOTNET_NOLOGO: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
