@@ -1,7 +1,9 @@
 ﻿using System;
 using System.IO;
 using System.Reflection;
+using System.Text;
 using HarmonyLib;
+using TaleWorlds.DotNet;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats
@@ -30,7 +32,13 @@ namespace BannerlordCheats
 
                     var errorFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), errorFileName);
 
-                    File.WriteAllText(errorFilePath, e.ToString());
+                    var errorMessage = new StringBuilder();
+                    errorMessage.AppendLine("Installed Modules:");
+                    errorMessage.AppendLine(Managed.GetModulesVersionStr());
+                    errorMessage.AppendLine("Exception Message:");
+                    errorMessage.AppendLine(e.ToString());
+
+                    File.WriteAllText(errorFilePath, errorMessage.ToString());
                 }
                 catch { }
             }
