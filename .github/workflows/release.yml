@@ -62,13 +62,13 @@ jobs:
           echo "::set-output name=repo_branch::$RepoBranch"
 
       - name: Package Mod Files
-        run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/*
+        run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/Modules/*
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}
-          path: ./game/*
+          path: ./game/Modules/*
 
       - name: Create Release
         uses: actions/create-release@v1
