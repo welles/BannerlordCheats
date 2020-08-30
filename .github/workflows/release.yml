@@ -1,6 +1,8 @@
-name: Build
+name: Release
 
-on: push
+on:
+  push:
+    branches: [ master, beta, integrated, beta-integrated ]
 
 jobs:
   build:
@@ -66,3 +68,25 @@ jobs:
         with:
           name: BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}
           path: ./game/*
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        id: create_release
+        with:
+          tag_name: v${{steps.versions.outputs.mod_version}}${{steps.versions.outputs.repo_branch}}
+          release_name: Release v${{steps.versions.outputs.mod_version}}${{steps.versions.outputs.additional_info}} for ${{steps.versions.outputs.game_branch}} e${{steps.versions.outputs.game_version}}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Upload Release Asset
+        id: upload_release_asset
+        uses: actions/upload-release-asset@v1
+        with:
+          upload_url: ${{steps.create_release.outputs.upload_url}}
+          asset_path: ./BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip
+          asset_name: BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip
+          asset_content_type: application/zip
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
