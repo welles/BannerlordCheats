@@ -1,20 +1,20 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.Actions;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(PrisonerEscapeCampaignBehavior), nameof(PrisonerEscapeCampaignBehavior.DailyHeroTick))]
+    [HarmonyPatch(typeof(EndCaptivityAction), nameof(EndCaptivityAction.ApplyByEscape))]
     public static class NoPrisonerEscapePatch
     {
         [HarmonyPrefix]
-        public static bool DailyHeroTick(Hero hero)
+        public static bool ApplyByEscape(Hero character, Hero facilitator)
         {
-            if (hero != null
-                && hero.IsPrisoner
-                && hero.PartyBelongedToAsPrisoner != null
-                && hero.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction
+            if (character != null
+                && character.IsPrisoner
+                && character.PartyBelongedToAsPrisoner != null
+                && character.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction
                 && BannerlordCheatsSettings.Instance.NoPrisonerEscape)
             {
                 return false;
