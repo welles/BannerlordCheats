@@ -43,7 +43,7 @@ jobs:
         run: |
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
           $ModVersion = $ModVersion.TrimEnd(".0")	
-          If ($ModVersion -notcontains ".") { $ModVersion = "$ModVersion.0" }
+          If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
           echo "::set-output name=mod_version::$ModVersion"
           $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
           echo "::set-output name=game_version::$GameVersion"
@@ -56,6 +56,7 @@ jobs:
           If ($AdditionalInfo) { $AdditionalInfo = " $AdditionalInfo" }
           echo "::set-output name=additional_info::$AdditionalInfo"
           $RepoBranch = "${{github.ref}}"
+          $RepoBranch = $RepoBranch.Split("/")[-1]
           If ($RepoBranch -eq "master") { $RepoBranch = "" }
           If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
           echo "::set-output name=repo_branch::$RepoBranch"
