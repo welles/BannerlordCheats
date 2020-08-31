@@ -68,7 +68,7 @@ jobs:
           Write-Host "::set-output name=tag_name::$TagName"
           Write-Host "TagName: ""$TagName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ReleaseTitle = "Release v$($ModVersion))$($AdditionalInfo) for $($GameBranch) e$($GameVersion)"
+          $ReleaseTitle = "Release v$($ModVersion)$($AdditionalInfo) for $($GameBranch) e$($GameVersion)"
           Write-Host "::set-output name=release_title::$ReleaseTitle"
           Write-Host "ReleaseTitle: ""$ReleaseTitle"""
 
