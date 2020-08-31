@@ -45,7 +45,7 @@ jobs:
           Write-Host "GameBranch: ""$GameBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
-          $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "."
+          $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "_"
           If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "_$AdditionalInfoEscaped" }
           If ($AdditionalInfo) { $AdditionalInfo = " ($AdditionalInfo)" }
           Write-Host "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
