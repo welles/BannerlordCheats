@@ -73,10 +73,10 @@ jobs:
           Write-Host "ReleaseTitle: ""$ReleaseTitle"""
 
       - name: Package Mod Files
-        run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/Modules/*
+        run: 7z a -tzip ${{steps.versions.outputs.zip_name}}.zip ./game/Modules/*
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}
+          name: ${{steps.versions.outputs.zip_name}}
           path: ./game/Modules/*
