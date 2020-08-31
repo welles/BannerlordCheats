@@ -8,6 +8,7 @@
     <option name="USE_MONO" value="0" />
     <option name="RUNTIME_ARGUMENTS" value="" />
     <method v="2">
+      <option name="CleanSolution" enabled="true" />
       <option name="Build Solution" enabled="true" />
     </method>
   </configuration>
