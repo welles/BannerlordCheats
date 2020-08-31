@@ -49,7 +49,7 @@ jobs:
           If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "$AdditionalInfoEscaped." }
           Write-Host "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
           Write-Host "AdditionalInfoEscaped: $AdditionalInfoEscaped"
-          If ($AdditionalInfo) { $AdditionalInfo = " $AdditionalInfo" }
+          If ($AdditionalInfo) { $AdditionalInfo = " ($AdditionalInfo)" }
           Write-Host "::set-output name=additional_info::$AdditionalInfo"
           Write-Host "AdditionalInfo: $AdditionalInfo"
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
