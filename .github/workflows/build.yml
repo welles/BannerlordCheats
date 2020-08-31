@@ -26,7 +26,7 @@ jobs:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           DOTNET_NOLOGO: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
-          
+
 #     - name: Set build version
 #       run: ((Get-Content .\Directory.Build.props -Raw) -replace "<Version>(\d+)\.(\d+)\.(\d+)\.0<\/Version>", "<Version>`$1.`$2.`$3.${{github.run_number}}</Version>") | Set-Content .\Directory.Build.props
 
@@ -35,12 +35,12 @@ jobs:
         env:
           DOTNET_NOLOGO: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
-          
+
       - name: Get Versions
         id: versions
         run: |
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
-          $ModVersion = $ModVersion.TrimEnd(".0")	
+          $ModVersion = $ModVersion.TrimEnd(".0")
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
           echo "::set-output name=mod_version::$ModVersion"
           $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
