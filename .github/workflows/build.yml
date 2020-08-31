@@ -34,21 +34,28 @@ jobs:
           $ModVersion = $ModVersion.TrimEnd(".0")
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
           Write-Host "::set-output name=mod_version::$ModVersion"
+          Write-Host "ModVersion: $ModVersion"
           $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
           Write-Host "::set-output name=game_version::$GameVersion"
+          Write-Host "GameVersion: $GameVersion"
           $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>(.+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
           Write-Host "::set-output name=game_branch::$GameBranch"
+          Write-Host "GameBranch: $GameBranch"
           $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
+          Write-Host "AdditionalInfo: $AdditionalInfo"
           $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "."
           If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "$AdditionalInfoEscaped." }
           Write-Host "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
+          Write-Host "AdditionalInfoEscaped: $AdditionalInfoEscaped"
           If ($AdditionalInfo) { $AdditionalInfo = " $AdditionalInfo" }
           Write-Host "::set-output name=additional_info::$AdditionalInfo"
+          Write-Host "AdditionalInfo: $AdditionalInfo"
           $RepoBranch = "${{github.ref}}"
           $RepoBranch = $RepoBranch.Split("/")[-1]
           If ($RepoBranch -eq "master") { $RepoBranch = "" }
           If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
           Write-Host "::set-output name=repo_branch::$RepoBranch"
+          Write-Host "RepoBranch: $RepoBranch"
 
       - name: Package Mod Files
         run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/Modules/*
