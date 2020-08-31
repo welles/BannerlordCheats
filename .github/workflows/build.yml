@@ -63,6 +63,10 @@ jobs:
           $ZipName = "BannerlordCheats_v$($ModVersion)$($AdditionalInfoEscaped)_for_$($GameBranch)_e$($GameVersion)"
           Write-Host "::set-output name=zip_name::$ZipName"
           Write-Host "ZipName: ""$ZipName"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $TagName = "v$ModVersion$RepoBranch"
+          Write-Host "::set-output name=tag_name::$TagName"
+          Write-Host "TagName: ""$TagName"""
 
       - name: Package Mod Files
         run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/Modules/*
