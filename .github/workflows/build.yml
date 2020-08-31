@@ -35,6 +35,7 @@ jobs:
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
           Write-Host "::set-output name=mod_version::$ModVersion"
           Write-Host "ModVersion: $ModVersion"
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
           Write-Host "::set-output name=game_version::$GameVersion"
           Write-Host "GameVersion: $GameVersion"
