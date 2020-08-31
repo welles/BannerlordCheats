@@ -33,22 +33,22 @@ jobs:
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
           $ModVersion = $ModVersion.TrimEnd(".0")
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
-          echo "::set-output name=mod_version::$ModVersion"
+          Write-Host "::set-output name=mod_version::$ModVersion"
           $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
-          echo "::set-output name=game_version::$GameVersion"
+          Write-Host "::set-output name=game_version::$GameVersion"
           $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>(.+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
-          echo "::set-output name=game_branch::$GameBranch"
+          Write-Host "::set-output name=game_branch::$GameBranch"
           $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
           $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "."
           If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "$AdditionalInfoEscaped." }
-          echo "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
+          Write-Host "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
           If ($AdditionalInfo) { $AdditionalInfo = " $AdditionalInfo" }
-          echo "::set-output name=additional_info::$AdditionalInfo"
+          Write-Host "::set-output name=additional_info::$AdditionalInfo"
           $RepoBranch = "${{github.ref}}"
           $RepoBranch = $RepoBranch.Split("/")[-1]
           If ($RepoBranch -eq "master") { $RepoBranch = "" }
           If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
-          echo "::set-output name=repo_branch::$RepoBranch"
+          Write-Host "::set-output name=repo_branch::$RepoBranch"
 
       - name: Package Mod Files
         run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/Modules/*
