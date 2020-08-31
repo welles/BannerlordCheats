@@ -60,7 +60,7 @@ jobs:
           Write-Host "::set-output name=repo_branch::$RepoBranch"
           Write-Host "RepoBranch: ""$RepoBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ZipName = "BannerlordCheats_v$ModVersion$AdditionalInfoEscaped_for_$GameBranch_e$GameVersion"
+          $ZipName = "BannerlordCheats_v$($ModVersion)$($AdditionalInfoEscaped)_for_$($GameBranch)_e$($GameVersion)"
           Write-Host "::set-output name=zip_name::$ZipName"
           Write-Host "ZipName: ""$ZipName"""
 
