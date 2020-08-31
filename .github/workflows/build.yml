@@ -47,9 +47,9 @@ jobs:
           $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
           $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "."
           If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "$AdditionalInfoEscaped." }
+          If ($AdditionalInfo) { $AdditionalInfo = " ($AdditionalInfo)" }
           Write-Host "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
           Write-Host "AdditionalInfoEscaped: $AdditionalInfoEscaped"
-          If ($AdditionalInfo) { $AdditionalInfo = " ($AdditionalInfo)" }
           Write-Host "::set-output name=additional_info::$AdditionalInfo"
           Write-Host "AdditionalInfo: $AdditionalInfo"
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
