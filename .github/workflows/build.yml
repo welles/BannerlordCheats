@@ -59,6 +59,10 @@ jobs:
           If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
           Write-Host "::set-output name=repo_branch::$RepoBranch"
           Write-Host "RepoBranch: ""$RepoBranch"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $ZipName = "BannerlordCheats.v$ModVersion.$AdditionalInfoEscaped$GameBranch.e$GameVersion.zip"
+          Write-Host "::set-output name=zip_name::$ZipName"
+          Write-Host "ZipName: ""$ZipName"""
 
       - name: Package Mod Files
         run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/Modules/*
