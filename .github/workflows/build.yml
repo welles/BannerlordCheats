@@ -46,7 +46,7 @@ jobs:
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
           $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "."
-          If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "$AdditionalInfoEscaped." }
+          If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "_$AdditionalInfoEscaped" }
           If ($AdditionalInfo) { $AdditionalInfo = " ($AdditionalInfo)" }
           Write-Host "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
           Write-Host "AdditionalInfoEscaped: ""$AdditionalInfoEscaped"""
@@ -60,7 +60,7 @@ jobs:
           Write-Host "::set-output name=repo_branch::$RepoBranch"
           Write-Host "RepoBranch: ""$RepoBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ZipName = "BannerlordCheats.v$ModVersion.$AdditionalInfoEscaped$GameBranch.e$GameVersion.zip"
+          $ZipName = "BannerlordCheats_v$ModVersion$AdditionalInfoEscaped_for_$GameBranch_e$GameVersion"
           Write-Host "::set-output name=zip_name::$ZipName"
           Write-Host "ZipName: ""$ZipName"""
 
