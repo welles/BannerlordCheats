@@ -24,8 +24,8 @@
       </Tags>
     </SubModule>
     <SubModule>
-      <Name value="MCMv3 Integrated Loader"/>
-      <DLLName value="MCMv3.dll"/>
+      <Name value="MCMv4 Integrated Loader"/>
+      <DLLName value="MCMv4.dll"/>
       <SubModuleClassType value="MCM.IntegratedLoaderSubModule"/>
       <Tags>
         <Tag key="DedicatedServerType" value="none" />
