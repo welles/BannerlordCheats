@@ -26,7 +26,7 @@
     <SubModule>
       <Name value="MCMv4 Integrated Loader"/>
       <DLLName value="MCMv4.dll"/>
-      <SubModuleClassType value="MCM.IntegratedLoaderSubModule"/>
+      <SubModuleClassType value="MCM.MCMSubModule"/>
       <Tags>
         <Tag key="DedicatedServerType" value="none" />
         <Tag key="IsNoRenderModeElement" value="false" />
