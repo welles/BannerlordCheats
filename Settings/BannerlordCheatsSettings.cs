@@ -26,6 +26,8 @@ namespace BannerlordCheats.Settings
 
         public override string FolderName => "Cheats";
 
+        public override string FormatType { get; } = "json";
+
         public override string DisplayName
         {
             get
