@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches.Combat
             if ((__instance?.IsPlayerControlled ?? false)
                 && BannerlordCheatsSettings.Instance.InfiniteAmmo)
             {
-                var fullAmount = __instance.Equipment[slotIndex].MaxAmount;
+                var fullAmount = __instance.Equipment[slotIndex].MaxAmmo;
 
                 if (amount < fullAmount)
                 {
