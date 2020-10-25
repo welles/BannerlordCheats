@@ -24,20 +24,23 @@ namespace BannerlordCheats.Settings
 
         public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version}";
 
-        public override string FolderName => "Cheats";
+        public override string FolderName { get; } = "Cheats";
 
         public override string FormatType { get; } = "json";
 
-        public override string DisplayName
-        {
-            get
-            {
-                try { return L10N.GetText(ModName); }
-                catch { return "Cheats"; }
-            }
-        }
+        public override string DisplayName { get; }
 
         #endregion Base
+
+        public BannerlordCheatsSettings()
+        {
+            string modName;
+
+            try { modName = L10N.GetText(BannerlordCheatsSettings.ModName); }
+            catch { modName = "Cheats"; }
+
+            this.DisplayName = $"{modName} {Assembly.GetExecutingAssembly().GetName().Version}";
+        }
 
         #region Hotkeys
 
