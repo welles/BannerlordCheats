@@ -448,7 +448,7 @@
     <value>Added 1 point to {0}.</value>
   </data>
   <data name="AddGoldMessage" xml:space="preserve">
-    <value>Added 1000 gold.</value>
+    <value>Added {0} gold.</value>
   </data>
   <data name="AddInfluenceMessage" xml:space="preserve">
     <value>Added 1000 influence.</value>
