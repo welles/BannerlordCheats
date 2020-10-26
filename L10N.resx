@@ -639,4 +639,7 @@
   <data name="DailySecurityBonus_Name" xml:space="preserve">
     <value>Daily Security Bonus</value>
   </data>
+  <data name="AddItemsMessage" xml:space="preserve">
+    <value>Added {0} to {1}.</value>
+  </data>
 </root>

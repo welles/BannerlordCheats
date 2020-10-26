@@ -15,13 +15,6 @@ namespace BannerlordCheats.Extensions
             return (T)field.GetValue(screen);
         }
 
-        public static void RefreshPartyInformation(this PartyVM partyVM)
-        {
-            MethodInfo method = partyVM.GetType().GetMethod("RefreshPartyInformation", BindingFlags);
-
-            method.Invoke(partyVM, new object[0]);
-        }
-
         public static void InitializeTroopLists(this PartyVM partyVM)
         {
             MethodInfo method = partyVM.GetType().GetMethod("InitializeTroopLists", BindingFlags);
@@ -29,11 +22,11 @@ namespace BannerlordCheats.Extensions
             method.Invoke(partyVM, new object[0]);
         }
 
-        public static void RefreshValues(this CharacterDeveloperVM charVM)
+        public static SPItemVM GetSelectedItem(this SPInventoryVM inventoryVM)
         {
-            MethodInfo method = charVM.GetType().GetMethod("RefreshValues", BindingFlags);
+            FieldInfo field = inventoryVM.GetType().GetField("_selectedItem", BindingFlags);
 
-            method.Invoke(charVM, new object[0]);
+            return (SPItemVM) field.GetValue(inventoryVM);
         }
     }
 }
