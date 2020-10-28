@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches.Combat
                 && (Mission.Current?.PlayerTeam?.ActiveAgents.Contains(__instance) ?? false)
                 && BannerlordCheatsSettings.Instance.PartyInfiniteAmmo)
             {
-                var fullAmount = __instance.Equipment[slotIndex].MaxAmount;
+                var fullAmount = __instance.Equipment[slotIndex].MaxAmmo;
 
                 if (amount < fullAmount)
                 {

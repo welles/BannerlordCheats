@@ -4,6 +4,7 @@ on: push
 
 jobs:
   build:
+    name: Build
     runs-on: windows-latest
 
     steps:
@@ -14,56 +15,68 @@ jobs:
         uses: actions/setup-dotnet@master
         with:
           dotnet-version: 3.1.x
-        env:
-          DOTNET_NOLOGO: 1
-          DOTNET_CLI_TELEMETRY_OPTOUT: 1
-
-      - name: Setup BUTR GPR
-        uses: actions/setup-dotnet@master
-        with:
           source-url: https://nuget.pkg.github.com/BUTR/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
           DOTNET_NOLOGO: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
-          
-#     - name: Set build version
-#       run: ((Get-Content .\Directory.Build.props -Raw) -replace "<Version>(\d+)\.(\d+)\.(\d+)\.0<\/Version>", "<Version>`$1.`$2.`$3.${{github.run_number}}</Version>") | Set-Content .\Directory.Build.props
 
       - name: Build BannerlordCheats
         run: dotnet build BannerlordCheats.csproj  --configuration Release -p:GameFolder="$PWD\game"
         env:
           DOTNET_NOLOGO: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
-          
+
       - name: Get Versions
         id: versions
         run: |
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
-          $ModVersion = $ModVersion.TrimEnd(".0")	
+          $ModVersion = $ModVersion.TrimEnd(".0")
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
-          echo "::set-output name=mod_version::$ModVersion"
+          Write-Host "::set-output name=mod_version::$ModVersion"
+          Write-Host "ModVersion: ""$ModVersion"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
-          echo "::set-output name=game_version::$GameVersion"
+          Write-Host "::set-output name=game_version::$GameVersion"
+          Write-Host "GameVersion: ""$GameVersion"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>(.+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
-          echo "::set-output name=game_branch::$GameBranch"
+          Write-Host "::set-output name=game_branch::$GameBranch"
+          Write-Host "GameBranch: ""$GameBranch"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
-          $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "."
-          If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "$AdditionalInfoEscaped." }
-          echo "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
-          If ($AdditionalInfo) { $AdditionalInfo = " $AdditionalInfo" }
-          echo "::set-output name=additional_info::$AdditionalInfo"
+          $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "_"
+          If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "_$AdditionalInfoEscaped" }
+          If ($AdditionalInfo) { $AdditionalInfo = " ($AdditionalInfo)" }
+          Write-Host "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
+          Write-Host "AdditionalInfoEscaped: ""$AdditionalInfoEscaped"""
+          Write-Host "::set-output name=additional_info::$AdditionalInfo"
+          Write-Host "AdditionalInfo: ""$AdditionalInfo"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $RepoBranch = "${{github.ref}}"
           $RepoBranch = $RepoBranch.Split("/")[-1]
           If ($RepoBranch -eq "master") { $RepoBranch = "" }
           If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
-          echo "::set-output name=repo_branch::$RepoBranch"
+          Write-Host "::set-output name=repo_branch::$RepoBranch"
+          Write-Host "RepoBranch: ""$RepoBranch"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $ZipName = "BannerlordCheats_v$($ModVersion)$($AdditionalInfoEscaped)_for_$($GameBranch)_e$($GameVersion)"
+          Write-Host "::set-output name=zip_name::$ZipName"
+          Write-Host "ZipName: ""$ZipName"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $TagName = "v$ModVersion$RepoBranch"
+          Write-Host "::set-output name=tag_name::$TagName"
+          Write-Host "TagName: ""$TagName"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $ReleaseTitle = "Release v$($ModVersion)$($AdditionalInfo) for $($GameBranch) e$($GameVersion)"
+          Write-Host "::set-output name=release_title::$ReleaseTitle"
+          Write-Host "ReleaseTitle: ""$ReleaseTitle"""
 
       - name: Package Mod Files
-        run: 7z a -tzip BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}.zip ./game/*
+        run: 7z a -tzip ${{steps.versions.outputs.zip_name}}.zip ./game/Modules/*
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v2
         with:
-          name: BannerlordCheats.v${{steps.versions.outputs.mod_version}}.${{steps.versions.outputs.additional_info_escaped}}${{steps.versions.outputs.game_branch}}.e${{steps.versions.outputs.game_version}}
-          path: ./game/*
+          name: ${{steps.versions.outputs.zip_name}}
+          path: ./game/Modules/*
