@@ -642,4 +642,10 @@
   <data name="AddItemsMessage" xml:space="preserve">
     <value>Added {0} to {1}.</value>
   </data>
+  <data name="CombatZoomMultiplier_Name" xml:space="preserve">
+    <value>Combat Zoom Multiplier</value>
+  </data>
+  <data name="CombatZoomMultiplier_Desc" xml:space="preserve">
+    <value>Increase the zoom level during combat. 1 means default zoom.</value>
+  </data>
 </root>

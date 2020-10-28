@@ -164,6 +164,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(NoFriendlyFire))]
         public bool NoFriendlyFire { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CombatZoomMultiplier), minValue: 1, maxValue: 1000)]
+        public int CombatZoomMultiplier { get; set; } = 1;
+
         #endregion Combat
 
         #region Inventory
