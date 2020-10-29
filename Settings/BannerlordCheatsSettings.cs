@@ -168,6 +168,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(CombatZoomMultiplier), minValue: 1, maxValue: 1000)]
         public int CombatZoomMultiplier { get; set; } = 1;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(InstantCrossbowReload))]
+        public bool InstantCrossbowReload { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory
