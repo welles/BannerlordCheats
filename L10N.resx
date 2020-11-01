@@ -448,7 +448,7 @@
     <value>Added 1 point to {0}.</value>
   </data>
   <data name="AddGoldMessage" xml:space="preserve">
-    <value>Added 1000 gold.</value>
+    <value>Added {0} gold.</value>
   </data>
   <data name="AddInfluenceMessage" xml:space="preserve">
     <value>Added 1000 influence.</value>
@@ -638,5 +638,20 @@
   </data>
   <data name="DailySecurityBonus_Name" xml:space="preserve">
     <value>Daily Security Bonus</value>
+  </data>
+  <data name="AddItemsMessage" xml:space="preserve">
+    <value>Added {0} to {1}.</value>
+  </data>
+  <data name="CombatZoomMultiplier_Name" xml:space="preserve">
+    <value>Combat Zoom Multiplier</value>
+  </data>
+  <data name="CombatZoomMultiplier_Desc" xml:space="preserve">
+    <value>Increase the zoom level during combat. 1 means default zoom.</value>
+  </data>
+  <data name="InstantCrossbowReload_Name" xml:space="preserve">
+    <value>Instant Crossbow Reload</value>
+  </data>
+  <data name="InstantCrossbowReload_Desc" xml:space="preserve">
+    <value>If enabled crossbow reloading is almost instant.</value>
   </data>
 </root>

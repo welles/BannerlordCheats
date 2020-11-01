@@ -24,18 +24,23 @@ namespace BannerlordCheats.Settings
 
         public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version}";
 
-        public override string FolderName => "Cheats";
+        public override string FolderName { get; } = "Cheats";
 
-        public override string DisplayName
-        {
-            get
-            {
-                try { return L10N.GetText(ModName); }
-                catch { return "Cheats"; }
-            }
-        }
+        public override string FormatType { get; } = "json";
+
+        public override string DisplayName { get; }
 
         #endregion Base
+
+        public BannerlordCheatsSettings()
+        {
+            string modName;
+
+            try { modName = L10N.GetText(BannerlordCheatsSettings.ModName); }
+            catch { modName = "Cheats"; }
+
+            this.DisplayName = $"{modName} {Assembly.GetExecutingAssembly().GetName().Version}";
+        }
 
         #region Hotkeys
 
@@ -139,13 +144,13 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(PartyHealthRegeneration))]
         public int PartyHealthRegeneration { get; set; } = 0;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
-        public bool InfiniteAmmo { get; set; } = false;
+        // [LocalizedSettingPropertyGroup(CombatGroupName)]
+        // [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
+        // public bool InfiniteAmmo { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
-        public bool PartyInfiniteAmmo { get; set; } = false;
+        // [LocalizedSettingPropertyGroup(CombatGroupName)]
+        // [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
+        // public bool PartyInfiniteAmmo { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyInteger(nameof(DamageMultiplier), minValue: 1, maxValue: 100)]
@@ -158,6 +163,14 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoFriendlyFire))]
         public bool NoFriendlyFire { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(CombatZoomMultiplier), minValue: 1, maxValue: 1000)]
+        public int CombatZoomMultiplier { get; set; } = 1;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(InstantCrossbowReload))]
+        public bool InstantCrossbowReload { get; set; } = false;
 
         #endregion Combat
 
