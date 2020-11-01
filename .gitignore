@@ -3,3 +3,5 @@ obj/
 .vs/
 packages/
 .idea/
+
+*.sln.DotSettings.user

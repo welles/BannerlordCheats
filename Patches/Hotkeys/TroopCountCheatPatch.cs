@@ -3,6 +3,7 @@ using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
@@ -36,26 +37,23 @@ namespace BannerlordCheats.Patches
 
             var selectedCharacter = partyVM.CurrentCharacter;
 
-            var selectedTroops = selectedCharacter.Troops;
+            if (selectedCharacter.IsHero) { return; }
 
-            // Catch outdated troop index error
-            if (selectedCharacter.Index >= selectedTroops.Count)
-            {
-                partyVM.InitializeTroopLists();
+            var index = PartyBase.MainParty.MemberRoster.FindIndexOfTroop(selectedCharacter.Character);
 
-                return;
-            }
+            PartyBase.MainParty.AddToMemberRosterElementAtIndex(index, count);
 
-            if (!selectedCharacter.IsHero)
-            {
-                selectedTroops.AddToCountsAtIndex(selectedCharacter.Index, count);
+            var newTroop = selectedCharacter.Troop;
+            newTroop.Number += count;
+            selectedCharacter.Troop = newTroop;
 
-                partyVM.InitializeTroopLists();
+            selectedCharacter.UpdateTradeData();
 
-                var message = string.Format(L10N.GetText("AddTroopsMessage"), count, selectedCharacter.Name);
+            selectedCharacter.ThrowOnPropertyChanged();
 
-                InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
-            }
+            var message = string.Format(L10N.GetText("AddTroopsMessage"), count, selectedCharacter.Name);
+
+            InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
         }
     }
 }
