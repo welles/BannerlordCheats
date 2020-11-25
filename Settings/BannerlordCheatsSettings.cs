@@ -129,7 +129,7 @@ namespace BannerlordCheats.Settings
         public bool EnemiesNoRunningAway { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(BanditHideoutTroopLimit), minValue: 0, maxValue: 100)]
+        [LocalizedSettingPropertyInteger(nameof(BanditHideoutTroopLimit), minValue: 0, maxValue: 1000)]
         public int BanditHideoutTroopLimit { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
