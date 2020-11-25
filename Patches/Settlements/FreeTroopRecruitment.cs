@@ -14,7 +14,7 @@ namespace BannerlordCheats.Patches.Settlements
             if ((buyerHero?.IsHumanPlayerCharacter ?? false)
                 && BannerlordCheatsSettings.Instance.FreeTroopRecruitment)
             {
-                __result = 0;
+                __result = 1;
             }
         }
     }
