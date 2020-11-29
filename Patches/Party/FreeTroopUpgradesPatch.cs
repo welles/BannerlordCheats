@@ -1,22 +1,17 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
-using System.Linq;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
+using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(DefaultPartyWageModel), nameof(DefaultPartyWageModel.GetGoldCostForUpgrade))]
+    [HarmonyPatch(typeof(DefaultPartyTroopUpgradeModel), nameof(DefaultPartyTroopUpgradeModel.GetGoldCostForUpgrade))]
     public static class FreeTroopUpgradesPatch
     {
         [HarmonyPostfix]
-        public static void GetGoldCostForUpgrade(CharacterObject characterObject, CharacterObject upgradeTarget, ref int __result)
+        public static void GetGoldCostForUpgrade(ref PartyBase party, ref CharacterObject characterObject, ref CharacterObject upgradeTarget, ref int __result)
         {
-            var playerTeam = PartyBase.MainParty?.MemberRoster?.Select(x => x.Character?.Id).ToArray();
-
-            if (playerTeam != null
-                && characterObject?.Id != null
-                && (playerTeam.Contains(characterObject?.Id))
+            if ((party?.Leader?.IsPlayerCharacter ?? false)
                 && BannerlordCheatsSettings.Instance.FreeTroopUpgrades)
             {
                 __result = 0;
