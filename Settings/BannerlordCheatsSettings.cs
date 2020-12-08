@@ -368,6 +368,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
         public int GarrisonWagesPercentage { get; set; } = 100;
 
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(NeverRequireCivilianEquipment))]
+        public bool NeverRequireCivilianEquipment { get; set; } = false;
+
         #endregion Settlements
 
         #region Smithing
