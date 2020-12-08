@@ -1,6 +1,10 @@
 name: Build
 
-on: push
+on:
+  push:
+  workflow_dispatch:
+  schedule:
+    - cron:  '0 5 * * *'
 
 jobs:
   build:

@@ -144,9 +144,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(PartyHealthRegeneration))]
         public int PartyHealthRegeneration { get; set; } = 0;
 
-        // [LocalizedSettingPropertyGroup(CombatGroupName)]
-        // [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
-        // public bool InfiniteAmmo { get; set; } = false;
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
+        public bool InfiniteAmmo { get; set; } = false;
 
         // [LocalizedSettingPropertyGroup(CombatGroupName)]
         // [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
@@ -367,6 +367,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
         public int GarrisonWagesPercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(NeverRequireCivilianEquipment))]
+        public bool NeverRequireCivilianEquipment { get; set; } = false;
 
         #endregion Settlements
 

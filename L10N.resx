@@ -654,4 +654,10 @@
   <data name="InstantCrossbowReload_Desc" xml:space="preserve">
     <value>If enabled crossbow reloading is almost instant.</value>
   </data>
+  <data name="NeverRequireCivilianEquipment_Name" xml:space="preserve">
+    <value>Never Require Civilian Equipment</value>
+  </data>
+  <data name="NeverRequireCivilianEquipment_Desc" xml:space="preserve">
+    <value>Allows you to enter any mission with your battle gear.</value>
+  </data>
 </root>
