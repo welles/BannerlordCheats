@@ -660,4 +660,10 @@
   <data name="NeverRequireCivilianEquipment_Desc" xml:space="preserve">
     <value>Allows you to enter any mission with your battle gear.</value>
   </data>
+  <data name="FreeFocusPointAssignment_Name" xml:space="preserve">
+    <value>Free Focus Point Assignment</value>
+  </data>
+  <data name="FreeFocusPointAssignment_Desc" xml:space="preserve">
+    <value>Assigning focus levels to a skill does not cost focus points.</value>
+  </data>
 </root>
