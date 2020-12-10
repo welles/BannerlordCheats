@@ -288,6 +288,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(TroopExperienceMultiplier), minValue: 1, maxValue: 1000)]
         public int TroopExperienceMultiplier { get; set; } = 1;
 
+        [LocalizedSettingPropertyGroup(ExperienceGroupName)]
+        [LocalizedSettingPropertyBool(nameof(BannerlordCheatsSettings.FreeFocusPointAssignment))]
+        public bool FreeFocusPointAssignment { get; set; } = false;
+
         #endregion Experience
 
         #region Sieges

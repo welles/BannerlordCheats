@@ -22,18 +22,20 @@ namespace BannerlordCheats.Patches
         {
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Control, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Cunning, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Endurance, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Intelligence, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Social, 10);
-                Hero.MainHero.SetAttributeValue(CharacterAttributesEnum.Vigor, 10);
-
                 var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+
+                var currentHero = charVM.CurrentCharacter.Hero;
+
+                currentHero.SetAttributeValue(CharacterAttributesEnum.Control, 10);
+                currentHero.SetAttributeValue(CharacterAttributesEnum.Cunning, 10);
+                currentHero.SetAttributeValue(CharacterAttributesEnum.Endurance, 10);
+                currentHero.SetAttributeValue(CharacterAttributesEnum.Intelligence, 10);
+                currentHero.SetAttributeValue(CharacterAttributesEnum.Social, 10);
+                currentHero.SetAttributeValue(CharacterAttributesEnum.Vigor, 10);
 
                 charVM.RefreshValues();
 
-                var message = string.Format(L10N.GetText("SetAllAttributesMessage"), Hero.MainHero.Name);
+                var message = string.Format(L10N.GetText("SetAllAttributesMessage"), currentHero.Name);
 
                 InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
             }
@@ -71,17 +73,19 @@ namespace BannerlordCheats.Patches
 
         private static void AddPoint(CharacterAttributesEnum type)
         {
-            var oldValue = Hero.MainHero.GetAttributeValue(type);
+            var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+
+            var currentHero = charVM.CurrentCharacter.Hero;
+
+            var oldValue = currentHero.GetAttributeValue(type);
 
             if (oldValue >= 10) { return; }
 
-            Hero.MainHero.SetAttributeValue(type, oldValue + 1);
-
-            var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+            currentHero.SetAttributeValue(type, oldValue + 1);
 
             charVM.RefreshValues();
 
-            var message = string.Format(L10N.GetText("AddAttributePointMessage"), Enum.GetName(typeof(CharacterAttributesEnum), type));
+            var message = string.Format(L10N.GetText("AddAttributePointMessage"), Enum.GetName(typeof(CharacterAttributesEnum), type), currentHero.Name);
 
             InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
         }
