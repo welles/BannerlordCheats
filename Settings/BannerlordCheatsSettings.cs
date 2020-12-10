@@ -272,6 +272,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(NoRelationshipLossOnDecision))]
         public bool NoRelationshipLossOnDecision { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(KingdomGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoCrimeRatingForCrimes))]
+        public bool NoCrimeRatingForCrimes { get; set; } = false;
+
         #endregion Kingdom
 
         #region Experience
