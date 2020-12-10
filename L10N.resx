@@ -445,7 +445,7 @@
     <value>Bonus that is applied to the Thrust Speed value of any weapon the player crafts.</value>
   </data>
   <data name="AddAttributePointMessage" xml:space="preserve">
-    <value>Added 1 point to {0}.</value>
+    <value>Added 1 point to {0} for {1}.</value>
   </data>
   <data name="AddGoldMessage" xml:space="preserve">
     <value>Added {0} gold.</value>
