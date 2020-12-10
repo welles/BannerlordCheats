@@ -666,4 +666,10 @@
   <data name="FreeFocusPointAssignment_Desc" xml:space="preserve">
     <value>Assigning focus levels to a skill does not cost focus points.</value>
   </data>
+  <data name="AddUnspentFocusPointMessage" xml:space="preserve">
+    <value>Added 1 focus point for {0}.</value>
+  </data>
+  <data name="AddUnspentAttributePointMessage" xml:space="preserve">
+    <value>Added 1 attribute point for {0}.</value>
+  </data>
 </root>
