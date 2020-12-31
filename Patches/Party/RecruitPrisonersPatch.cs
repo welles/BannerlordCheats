@@ -1,18 +1,18 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches
 {
-    [HarmonyPatch(typeof(RecruitPrisonersCampaignBehavior), nameof(RecruitPrisonersCampaignBehavior.GetRecruitableNumber))]
+    [HarmonyPatch(typeof(DefaultPrisonerRecruitmentCalculationModel), nameof(DefaultPrisonerRecruitmentCalculationModel.CalculateRecruitableNumber))]
     public static class RecruitPrisonersPatch
     {
         [HarmonyPostfix]
-        public static void GetRecruitableNumber(CharacterObject character, ref int __result)
+        public static void  CalculateRecruitableNumber(ref PartyBase party, ref CharacterObject character, ref int __result)
         {
-            if (character != null
-                && !character.IsHero
+            if ((party?.MobileParty?.IsMainParty ?? false)
+                && (!character?.IsHero ?? false)
                 && BannerlordCheatsSettings.Instance.InstantPrisonerRecruitment)
             {
                 __result = MobileParty.MainParty.PrisonRoster.GetTroopCount(character);
