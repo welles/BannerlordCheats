@@ -11,7 +11,7 @@ namespace BannerlordCheats.Patches
     public static class OneHitKillPatch
     {
         [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref int __result)
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
             if ((attackInformation.AttackerAgentCharacter?.IsPlayerCharacter ?? false)
                 && !attackInformation.IsFriendlyFire
