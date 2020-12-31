@@ -42,7 +42,7 @@ namespace BannerlordCheats.Patches
 
             if (index < 0) { return; }
 
-            TaleWorlds.CampaignSystem.PartyBase.MainParty.ItemRoster.AddToCountsAtIndex(index, count);
+            TaleWorlds.CampaignSystem.PartyBase.MainParty.ItemRoster.AddToCounts(selectedItem.ItemRosterElement.EquipmentElement, count);
 
             selectedItem.ItemCount += count;
 
