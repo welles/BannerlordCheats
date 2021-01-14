@@ -8,6 +8,6 @@
     <MCMVersion>4.1.2</MCMVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
-    <GameFolder>C:\SteamCMD\mb2b_beta</GameFolder>
+    <GameFolder>C:\Program Files (x86)\SteamCMD\mb2b_beta</GameFolder>
   </PropertyGroup>
 </Project>
