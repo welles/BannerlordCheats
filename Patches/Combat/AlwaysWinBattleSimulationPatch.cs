@@ -9,9 +9,9 @@ namespace BannerlordCheats.Patches
     public static class AlwaysWinBattleSimulationPatch
     {
         [HarmonyPostfix]
-        public static void SimulateHit(CharacterObject strikerTroop, CharacterObject strikedTroop, PartyBase strikerParty, PartyBase strikedParty, float strikerAdvantage, MapEvent battle, ref int __result)
+        public static void SimulateHit(ref CharacterObject strikerTroop, ref CharacterObject struckTroop, ref PartyBase strikerParty, ref PartyBase struckParty, ref float strikerAdvantage, ref MapEvent battle, ref int __result)
         {
-            if ((strikedParty?.Leader?.IsPlayerCharacter ?? false)
+            if ((struckParty?.Leader?.IsPlayerCharacter ?? false)
                 && BannerlordCheatsSettings.Instance.AlwaysWinBattleSimulation)
             {
                 __result = 0;
