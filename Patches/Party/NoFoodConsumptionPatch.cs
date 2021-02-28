@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void CalculateDailyFoodConsumptionf(ref MobileParty party, ref bool includeDescription, ref ExplainedNumber __result)
         {
-            if (party?.IsMainParty ?? false)
+            if ((party?.IsMainParty ?? false)
+                && BannerlordCheatsSettings.Instance.FoodConsumptionPercentage < 100)
             {
                 var factor = BannerlordCheatsSettings.Instance.FoodConsumptionPercentage / 100f;
 

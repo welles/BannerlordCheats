@@ -12,7 +12,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPrefix]
         public static void GetPerkEffectsOnAgent(ref Agent agent, ref AgentDrivenProperties agentDrivenProperties, ref WeaponComponentData rightHandEquippedItem)
         {
-            if (agent != null && agent.IsMainAgent && BannerlordCheatsSettings.Instance.InstantCrossbowReload)
+            if (agent != null
+                && agent.IsMainAgent
+                && BannerlordCheatsSettings.Instance.InstantCrossbowReload)
             {
                 agentDrivenProperties.ReloadSpeed = 10f;
             }

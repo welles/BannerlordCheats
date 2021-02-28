@@ -12,7 +12,8 @@ namespace BannerlordCheats.Patches
         public static void GetXpMultiplier(Hero hero, ref float __result)
         {
             if ((hero?.IsHumanPlayerCharacter ?? false)
-                && (Campaign.Current?.GameStarted ?? false))
+                && (Campaign.Current?.GameStarted ?? false)
+                && BannerlordCheatsSettings.Instance.ExperienceMultiplier > 1)
             {
                 __result *= BannerlordCheatsSettings.Instance.ExperienceMultiplier;
             }

@@ -12,7 +12,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void CalculateLearningRate(ref Hero hero, SkillObject skill, ref float __result)
         {
-            if (hero?.IsHumanPlayerCharacter ?? false)
+            if ((hero?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.LearningRateMultiplier > 1)
             {
                 __result *= BannerlordCheatsSettings.Instance.LearningRateMultiplier;
             }

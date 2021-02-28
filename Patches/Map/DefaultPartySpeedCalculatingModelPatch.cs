@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
         {
-            if (mobileParty?.IsMainParty ?? false)
+            if ((mobileParty?.IsMainParty ?? false)
+                && BannerlordCheatsSettings.Instance.MapSpeedFactor > 1)
             {
                 __result.AddFactor(BannerlordCheatsSettings.Instance.MapSpeedFactor);
             }

@@ -11,11 +11,14 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
         {
-            var percentage = BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage / 100f;
-
-            if (!mobileParty.IsMainParty)
+            if (BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage < 100)
             {
-                __result.AddFactor(percentage);
+                var percentage = BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage / 100f;
+
+                if (!mobileParty.IsMainParty)
+                {
+                    __result.AddFactor(percentage);
+                }
             }
         }
     }

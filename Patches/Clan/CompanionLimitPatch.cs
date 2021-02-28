@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetCompanionLimit(ref Clan clan, ref int __result)
         {
-            if (clan?.Leader?.IsHumanPlayerCharacter ?? false)
+            if ((clan?.Leader?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.ExtraCompanionLimit > 0)
             {
                 __result += BannerlordCheatsSettings.Instance.ExtraCompanionLimit;
             }
