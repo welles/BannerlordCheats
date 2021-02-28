@@ -14,7 +14,8 @@ namespace BannerlordCheats.Patches.Combat
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
             if ((attackInformation.VictimFormation?.Team?.IsPlayerTeam ?? false)
-                && !BannerlordCheatsSettings.Instance.PartyInvincible)
+                && !BannerlordCheatsSettings.Instance.PartyInvincible
+                && BannerlordCheatsSettings.Instance.PartyDamageTakenPercentage < 100)
             {
                 var factor = BannerlordCheatsSettings.Instance.PartyDamageTakenPercentage / 100f;
 

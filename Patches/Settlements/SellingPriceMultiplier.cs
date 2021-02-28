@@ -13,7 +13,8 @@ namespace BannerlordCheats.Patches.Settlements
         public static void GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand, ref int __result)
         {
             if ((clientParty?.IsMainParty ?? false)
-                && isSelling)
+                && isSelling
+                && BannerlordCheatsSettings.Instance.SellingPriceMultiplier > 1)
             {
                 __result *= BannerlordCheatsSettings.Instance.SellingPriceMultiplier;
             }

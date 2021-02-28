@@ -11,11 +11,10 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetRenownReward(Hero winner, Town town, ref int __result)
         {
-            if (winner?.IsHumanPlayerCharacter ?? false)
+            if ((winner?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.RenownRewardMultiplier > 1)
             {
-                var multiplier = (int)BannerlordCheatsSettings.Instance.RenownRewardMultiplier;
-
-                __result *= multiplier;
+                __result *= BannerlordCheatsSettings.Instance.RenownRewardMultiplier;
             }
         }
     }

@@ -10,7 +10,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void MilitiaChange(ref Town __instance, ref float __result)
         {
-            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false))
+            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.DailyMilitiaBonus > 0)
             {
                 __result += BannerlordCheatsSettings.Instance.DailyMilitiaBonus;
             }
@@ -23,7 +24,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void MilitiaChange(ref Village __instance, ref float __result)
         {
-            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false))
+            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.DailyMilitiaBonus > 0)
             {
                 __result += BannerlordCheatsSettings.Instance.DailyMilitiaBonus;
             }

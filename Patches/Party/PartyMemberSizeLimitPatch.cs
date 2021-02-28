@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetPartyMemberSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (party?.Leader?.IsPlayerCharacter ?? false)
+            if ((party?.Leader?.IsPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.ExtraPartyMemberSize > 0)
             {
                 __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMemberSize);
             }

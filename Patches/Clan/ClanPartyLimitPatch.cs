@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetPartyLimitForTier(Clan clan, int clanTierToCheck, ref int __result)
         {
-            if (clan?.Leader?.IsHumanPlayerCharacter ?? false)
+            if ((clan?.Leader?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.ExtraClanPartyLimit > 0)
             {
                 __result += BannerlordCheatsSettings.Instance.ExtraClanPartyLimit;
             }

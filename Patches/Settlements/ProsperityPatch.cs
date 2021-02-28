@@ -10,7 +10,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void ProsperityChange(ref Town __instance, ref float __result)
         {
-            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false))
+            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.DailyProsperityBonus > 0)
             {
                 __result += BannerlordCheatsSettings.Instance.DailyProsperityBonus;
             }

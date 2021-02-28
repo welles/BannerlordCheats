@@ -14,7 +14,8 @@ namespace BannerlordCheats.Patches
         {
             if (party != null
                 && party.Army != null
-                && party.Army.Parties.Any(x => x?.IsMainParty ?? false))
+                && party.Army.Parties.Any(x => x?.IsMainParty ?? false)
+                && BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage < 100)
             {
                 var factor = BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage / 100f;
 
