@@ -9,11 +9,11 @@ namespace BannerlordCheats.Patches
     public static class PartyMoralePatch
     {
         [HarmonyPostfix]
-        public static void GetEffectivePartyMorale(MobileParty mobileParty, StatExplainer explanation, ref float __result)
+        public static void GetEffectivePartyMorale(ref MobileParty mobileParty, ref bool includeDescription, ref ExplainedNumber __result)
         {
             if (mobileParty?.IsMainParty ?? false)
             {
-                __result += BannerlordCheatsSettings.Instance.ExtraPartyMorale;
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMorale);
             }
         }
     }

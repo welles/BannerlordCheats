@@ -9,11 +9,11 @@ namespace BannerlordCheats.Patches
     public static class DefaultMapVisibilityModelPatch
     {
         [HarmonyPostfix]
-        public static void GetPartySpottingRange(MobileParty party, StatExplainer explainer, ref float __result)
+        public static void GetPartySpottingRange(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (party?.IsMainParty ?? false)
             {
-                __result *= BannerlordCheatsSettings.Instance.MapVisibilityFactor;
+                __result.AddFactor(BannerlordCheatsSettings.Instance.MapVisibilityFactor);
             }
         }
     }

@@ -10,24 +10,14 @@ namespace BannerlordCheats.Patches
     public static class NoTroopWagesPatch
     {
         [HarmonyPostfix]
-        public static void GetTotalWage(MobileParty mobileParty, StatExplainer explanation, ref int __result)
+        public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if ((mobileParty?.IsMainParty ?? false)
                 && BannerlordCheatsSettings.Instance.TroopWagesPercentage < 100)
             {
                 var factor = BannerlordCheatsSettings.Instance.TroopWagesPercentage / 100f;
 
-                var newValue = (int)Math.Round(__result * factor);
-
-                __result = newValue;
-
-                if (explanation != null)
-                {
-                    foreach (var line in explanation.Lines)
-                    {
-                        line.Number *= factor;
-                    }
-                }
+                __result.AddFactor(factor);
             }
         }
     }

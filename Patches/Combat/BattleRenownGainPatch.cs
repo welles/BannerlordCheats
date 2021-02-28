@@ -9,7 +9,7 @@ namespace BannerlordCheats.Patches
     public static class BattleRenownGainPatch
     {
         [HarmonyPostfix]
-        public static void CalculateRenownGain(PartyBase party, float renownValueOfBattle, float contributionShare, StatExplainer explanation, ref float __result)
+        public static void CalculateRenownGain(ref PartyBase party, ref float renownValueOfBattle, ref float contributionShare, ref ExplainedNumber result, ref float __result)
         {
             if (party?.Leader?.IsPlayerCharacter ?? false)
             {

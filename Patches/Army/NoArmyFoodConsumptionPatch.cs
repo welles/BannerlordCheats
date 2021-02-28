@@ -10,7 +10,7 @@ namespace BannerlordCheats.Patches
     public static class NoArmyFoodConsumptionPatch
     {
         [HarmonyPostfix]
-        public static void CalculateDailyFoodConsumptionf(MobileParty party, StatExplainer explainer, ref float __result)
+        public static void CalculateDailyFoodConsumptionf(ref MobileParty party, ref bool includeDescription, ref ExplainedNumber __result)
         {
             if (party != null
                 && party.Army != null
@@ -18,15 +18,7 @@ namespace BannerlordCheats.Patches
             {
                 var factor = BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage / 100f;
 
-                __result *= factor;
-
-                if (explainer != null)
-                {
-                    foreach (var line in explainer.Lines)
-                    {
-                        line.Number *= factor;
-                    }
-                }
+                __result.AddFactor(factor);
             }
         }
     }

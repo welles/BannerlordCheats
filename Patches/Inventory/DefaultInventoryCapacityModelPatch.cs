@@ -9,11 +9,11 @@ namespace BannerlordCheats.Patches
     public static class DefaultInventoryCapacityModelPatch
     {
         [HarmonyPostfix]
-        public static void CalculateInventoryCapacity(MobileParty mobileParty, StatExplainer explanation, int additionalTroops, int additionalSpareMounts, int additionalPackAnimals, bool includeFollowers, ref int __result)
+        public static void CalculateInventoryCapacity(ref MobileParty mobileParty, ref bool includeDescriptions, ref int additionalTroops, ref int additionalSpareMounts, ref int additionalPackAnimals, ref bool includeFollowers, ref ExplainedNumber __result)
         {
             if (mobileParty?.IsMainParty ?? false)
             {
-                __result += BannerlordCheatsSettings.Instance.ExtraInventoryCapacity;
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraInventoryCapacity);
             }
         }
     }
