@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text;
@@ -24,6 +25,8 @@ namespace BannerlordCheats
             }
             catch (Exception e)
             {
+                Debugger.Break();
+
                 try
                 {
                     var errorFileName = $"Error-{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.txt";
