@@ -9,11 +9,11 @@ namespace BannerlordCheats.Patches
     public static class PartyHealingPatchRegulars
     {
         [HarmonyPostfix]
-        public static void GetDailyHealingForRegulars(MobileParty party, StatExplainer explanation, ref float __result)
+        public static void GetDailyHealingForRegulars(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (party?.IsMainParty ?? false)
             {
-                __result *= BannerlordCheatsSettings.Instance.PartyHealingMultiplier;
+                __result.AddFactor(BannerlordCheatsSettings.Instance.PartyHealingMultiplier);
             }
         }
     }
@@ -22,11 +22,11 @@ namespace BannerlordCheats.Patches
     public static class PartyHealingPatchHeroes
     {
         [HarmonyPostfix]
-        public static void GetDailyHealingHpForHeroes(MobileParty party, StatExplainer explanation, ref float __result)
+        public static void GetDailyHealingHpForHeroes(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (party?.IsMainParty ?? false)
             {
-                __result *= BannerlordCheatsSettings.Instance.PartyHealingMultiplier;
+                __result.AddFactor(BannerlordCheatsSettings.Instance.PartyHealingMultiplier);
             }
         }
     }

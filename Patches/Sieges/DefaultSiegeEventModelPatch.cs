@@ -11,7 +11,7 @@ namespace BannerlordCheats.Patches
     public static class DefaultSiegeEventModelPatch
     {
         [HarmonyPostfix]
-        public static void GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side, StatExplainer explanation, ref float __result)
+        public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
         {
             if (side?.SiegeParties?.Any(x => x.Leader?.IsPlayerCharacter ?? false) ?? false)
             {

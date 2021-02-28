@@ -11,7 +11,7 @@ namespace BannerlordCheats.Patches.Combat
     public static class PartyDamageTakenPercentage
     {
         [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref int __result)
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
             if ((attackInformation.VictimFormation?.Team?.IsPlayerTeam ?? false)
                 && !BannerlordCheatsSettings.Instance.PartyInvincible)
