@@ -34,7 +34,7 @@ namespace BannerlordCheats
 
                     var errorMessage = new StringBuilder();
                     errorMessage.AppendLine("Installed Modules:");
-                    errorMessage.AppendLine(Managed.GetModulesVersionStr());
+                    errorMessage.AppendLine(Managed.GetModuleList());
                     errorMessage.AppendLine("Exception Message:");
                     errorMessage.AppendLine(e.ToString());
 
