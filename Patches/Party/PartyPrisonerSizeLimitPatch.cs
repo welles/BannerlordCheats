@@ -9,11 +9,11 @@ namespace BannerlordCheats.Patches
     public static class PartyPrisonerSizeLimitPatch
     {
         [HarmonyPostfix]
-        public static void GetPartyPrisonerSizeLimit(PartyBase party, StatExplainer explanation, ref int __result)
+        public static void GetPartyPrisonerSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (party?.Leader?.IsPlayerCharacter ?? false)
             {
-                __result += BannerlordCheatsSettings.Instance.ExtraPartyPrisonerSize;
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyPrisonerSize);
             }
         }
     }

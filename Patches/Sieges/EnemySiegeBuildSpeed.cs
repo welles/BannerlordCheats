@@ -12,7 +12,7 @@ namespace BannerlordCheats.Patches.Sieges
     public static class EnemySiegeBuildSpeed
     {
         [HarmonyPostfix]
-        public static void GetConstructionProgressPerHour(SiegeEngineType type, SiegeEvent siegeEvent, ISiegeEventSide side, StatExplainer explanation, ref float __result)
+        public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
         {
             BattleSideEnum otherSide;
             switch (side.BattleSide)

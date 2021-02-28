@@ -9,11 +9,11 @@ namespace BannerlordCheats.Patches
     public static class PartyMemberSizeLimitPatch
     {
         [HarmonyPostfix]
-        public static void GetPartyMemberSizeLimit(PartyBase party, StatExplainer explanation, ref int __result)
+        public static void GetPartyMemberSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (party?.Leader?.IsPlayerCharacter ?? false)
             {
-                __result += BannerlordCheatsSettings.Instance.ExtraPartyMemberSize;
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMemberSize);
             }
         }
     }

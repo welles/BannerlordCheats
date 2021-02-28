@@ -9,7 +9,7 @@ namespace BannerlordCheats.Patches
     public static class BattleInfluenceGainPatch
     {
         [HarmonyPostfix]
-        public static void CalculateInfluenceGain(PartyBase party, float influenceValueOfBattle, float contributionShare, StatExplainer explanation, ref float __result)
+        public static void CalculateInfluenceGain(ref PartyBase party, ref float influenceValueOfBattle, ref float contributionShare, ref ExplainedNumber result, ref float __result)
         {
             if (party?.Leader?.IsPlayerCharacter ?? false)
             {
