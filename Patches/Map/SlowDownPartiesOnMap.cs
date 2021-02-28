@@ -9,13 +9,13 @@ namespace BannerlordCheats.Patches.Map
     public static class SlowDownPartiesOnMap
     {
         [HarmonyPostfix]
-        public static void CalculateFinalSpeed(MobileParty mobileParty, float baseSpeed, StatExplainer explanation, ref float __result)
+        public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref float baseSpeed, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             var percentage = BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage / 100f;
 
             if (!mobileParty.IsMainParty)
             {
-                __result *= percentage;
+                __result.AddFactor(percentage);
             }
         }
     }
