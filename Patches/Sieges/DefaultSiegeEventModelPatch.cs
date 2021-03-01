@@ -13,7 +13,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
         {
-            if (side?.SiegeParties?.Any(x => x.Leader?.IsPlayerCharacter ?? false) ?? false)
+            if ((side?.SiegeParties?.Any(x => x.Leader?.IsPlayerCharacter ?? false) ?? false)
+                && BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier > 1)
             {
                 __result *= BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier;
             }

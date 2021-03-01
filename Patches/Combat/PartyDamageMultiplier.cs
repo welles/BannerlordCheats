@@ -14,7 +14,8 @@ namespace BannerlordCheats.Patches.Combat
         {
             if ((attackInformation.AttackerFormation?.Team?.IsPlayerTeam ?? false)
                 && !attackInformation.IsFriendlyFire
-                && !BannerlordCheatsSettings.Instance.PartyOneHitKill)
+                && !BannerlordCheatsSettings.Instance.PartyOneHitKill
+                && BannerlordCheatsSettings.Instance.PartyDamageMultiplier > 1)
             {
                 __result *= BannerlordCheatsSettings.Instance.PartyDamageMultiplier;
             }

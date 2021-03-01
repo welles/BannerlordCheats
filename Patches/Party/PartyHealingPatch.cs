@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
@@ -11,9 +12,10 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetDailyHealingForRegulars(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (party?.IsMainParty ?? false)
+            if ((party?.IsMainParty ?? false)
+                && BannerlordCheatsSettings.Instance.PartyHealingMultiplier > 1)
             {
-                __result.AddFactor(BannerlordCheatsSettings.Instance.PartyHealingMultiplier);
+                __result.AddMultiplier(BannerlordCheatsSettings.Instance.PartyHealingMultiplier);
             }
         }
     }
@@ -24,9 +26,10 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetDailyHealingHpForHeroes(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (party?.IsMainParty ?? false)
+            if ((party?.IsMainParty ?? false)
+                && BannerlordCheatsSettings.Instance.PartyHealingMultiplier > 1)
             {
-                __result.AddFactor(BannerlordCheatsSettings.Instance.PartyHealingMultiplier);
+                __result.AddMultiplier(BannerlordCheatsSettings.Instance.PartyHealingMultiplier);
             }
         }
     }

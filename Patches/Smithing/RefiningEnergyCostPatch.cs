@@ -13,7 +13,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero, ref int __result)
         {
-            if ((hero?.IsHumanPlayerCharacter ?? false) && BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage < 100)
+            if ((hero?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage < 100)
             {
                 var factor = BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage / 100f;
 

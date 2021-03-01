@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
 using System;
+using BannerlordCheats.Extensions;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
 
@@ -15,9 +16,7 @@ namespace BannerlordCheats.Patches
             if ((mobileParty?.IsMainParty ?? false)
                 && BannerlordCheatsSettings.Instance.TroopWagesPercentage < 100)
             {
-                var factor = BannerlordCheatsSettings.Instance.TroopWagesPercentage / 100f;
-
-                __result.AddFactor(factor);
+                __result.AddPercentage(BannerlordCheatsSettings.Instance.TroopWagesPercentage);
             }
         }
     }
