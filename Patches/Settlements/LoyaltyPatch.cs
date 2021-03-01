@@ -10,7 +10,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void LoyaltyChange(ref Town __instance, ref float __result)
         {
-            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false))
+            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false)
+                && BannerlordCheatsSettings.Instance.DailyLoyaltyBonus > 0)
             {
                 __result += BannerlordCheatsSettings.Instance.DailyLoyaltyBonus;
             }

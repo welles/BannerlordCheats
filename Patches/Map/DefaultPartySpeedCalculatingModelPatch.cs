@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
@@ -11,9 +12,10 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
         {
-            if (mobileParty?.IsMainParty ?? false)
+            if ((mobileParty?.IsMainParty ?? false)
+                && BannerlordCheatsSettings.Instance.MapSpeedFactor > 1)
             {
-                __result.AddFactor(BannerlordCheatsSettings.Instance.MapSpeedFactor);
+                __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapSpeedFactor);
             }
         }
     }

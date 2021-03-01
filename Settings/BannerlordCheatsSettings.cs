@@ -1,9 +1,10 @@
 ﻿using BannerlordCheats.Localization;
+using MCM.Abstractions.Settings.Base.Global;
 using System.Reflection;
 
 namespace BannerlordCheats.Settings
 {
-    public class BannerlordCheatsSettings : MCM.Abstractions.Settings.Base.Global.AttributeGlobalSettings<BannerlordCheatsSettings>
+    public class BannerlordCheatsSettings : AttributeGlobalSettings<BannerlordCheatsSettings>
     {
         #region Base
 
@@ -29,6 +30,8 @@ namespace BannerlordCheats.Settings
         public override string FormatType { get; } = "json";
 
         public override string DisplayName { get; }
+
+        public new static BannerlordCheatsSettings Instance => AttributeGlobalSettings<BannerlordCheatsSettings>.Instance;
 
         #endregion Base
 

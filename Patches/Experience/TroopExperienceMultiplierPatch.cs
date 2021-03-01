@@ -16,7 +16,8 @@ namespace BannerlordCheats.Patches.Experience
         {
             if (Mission.Current != null
                 && Mission.Current.PlayerTeam != null
-                && Mission.Current.PlayerTeam.ActiveAgents.Any(x => x?.Character == attackerTroop))
+                && Mission.Current.PlayerTeam.ActiveAgents.Any(x => x?.Character == attackerTroop)
+                && BannerlordCheatsSettings.Instance.TroopExperienceMultiplier > 1)
             {
                 xpAmount *= BannerlordCheatsSettings.Instance.TroopExperienceMultiplier;
             }
