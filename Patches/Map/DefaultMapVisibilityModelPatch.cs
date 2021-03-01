@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
@@ -14,7 +15,7 @@ namespace BannerlordCheats.Patches
             if ((party?.IsMainParty ?? false)
                 && BannerlordCheatsSettings.Instance.MapVisibilityFactor > 1)
             {
-                __result.AddFactor(BannerlordCheatsSettings.Instance.MapVisibilityFactor);
+                __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityFactor);
             }
         }
     }

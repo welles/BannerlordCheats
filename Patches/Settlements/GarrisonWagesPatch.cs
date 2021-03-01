@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
@@ -15,9 +16,7 @@ namespace BannerlordCheats.Patches.Settlements
                 && (mobileParty.Party?.Owner?.IsHumanPlayerCharacter ?? false)
                 && BannerlordCheatsSettings.Instance.GarrisonWagesPercentage < 100)
             {
-                var factor = BannerlordCheatsSettings.Instance.GarrisonWagesPercentage / 100f;
-
-                __result.AddFactor(factor);
+                __result.AddPercentage(BannerlordCheatsSettings.Instance.GarrisonWagesPercentage);
             }
         }
     }
