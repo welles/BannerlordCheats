@@ -678,4 +678,10 @@
   <data name="NoCrimeRatingForCrimes_Desc" xml:space="preserve">
     <value>Illegal actions do not result in a crime rating.</value>
   </data>
+  <data name="PartyHeroesInvincible_Desc" xml:space="preserve">
+    <value>Disables all damage to members of the player's party.</value>
+  </data>
+  <data name="PartyHeroesInvincible_Name" xml:space="preserve">
+    <value>Party Heroes Invincible</value>
+  </data>
 </root>
