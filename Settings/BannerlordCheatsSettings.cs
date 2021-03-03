@@ -247,6 +247,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(ExtraClanPartyLimit), minValue: 0, maxValue: 100)]
         public int ExtraClanPartyLimit { get; set; } = 0;
 
+        [LocalizedSettingPropertyGroup(ClanGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(ExtraClanPartySize), minValue: 0, maxValue: 10000)]
+        public int ExtraClanPartySize { get; set; } = 0;
+
         #endregion Clan
 
         #region Characters
