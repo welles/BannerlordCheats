@@ -12,7 +12,7 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if ((attackInformation.AttackerFormation?.Team?.IsPlayerTeam ?? false)
+            if ((attackInformation.AttackerAgentOrigin?.IsUnderPlayersCommand ?? false)
                 && attackInformation.IsFriendlyFire
                 && BannerlordCheatsSettings.Instance.NoFriendlyFire)
             {
