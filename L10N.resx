@@ -684,4 +684,10 @@
   <data name="PartyHeroesInvincible_Name" xml:space="preserve">
     <value>Party Heroes Invincible</value>
   </data>
+  <data name="ExtraClanPartySize_Name" xml:space="preserve">
+    <value>Extra Clan Party Size</value>
+  </data>
+  <data name="ExtraClanPartySize_Desc" xml:space="preserve">
+    <value>Increase the maximum amount of troops in parties of your clan.</value>
+  </data>
 </root>
