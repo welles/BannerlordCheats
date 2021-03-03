@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches
         public static void GetPartySpottingRange(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if ((party?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.MapVisibilityFactor > 1)
+                && BannerlordCheatsSettings.Instance.MapVisibilityMultiplier > 1)
             {
-                __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityFactor);
+                __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityMultiplier);
             }
         }
     }

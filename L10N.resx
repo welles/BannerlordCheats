@@ -168,10 +168,10 @@
   <data name="EnableHotkeys_Desc" xml:space="preserve">
     <value>Enable cheat hotkeys in inventory screen, party screen, clan screen etc.</value>
   </data>
-  <data name="MapSpeedFactor_Name" xml:space="preserve">
-    <value>Map Speed Factor</value>
+  <data name="MapSpeedMultiplier_Name" xml:space="preserve">
+    <value>Map Speed Multiplier</value>
   </data>
-  <data name="MapSpeedFactor_Desc" xml:space="preserve">
+  <data name="MapSpeedMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the speed of the player on the map is multiplied. A factor of 1 means default speed.</value>
   </data>
   <data name="ExtraInventoryCapacity_Name" xml:space="preserve">
@@ -180,10 +180,10 @@
   <data name="ExtraInventoryCapacity_Desc" xml:space="preserve">
     <value>Extra inventory capacity for the player party.</value>
   </data>
-  <data name="MapVisibilityFactor_Name" xml:space="preserve">
-    <value>Map Visibility Factor</value>
+  <data name="MapVisibilityMultiplier_Name" xml:space="preserve">
+    <value>Map Visibility Multiplier</value>
   </data>
-  <data name="MapVisibilityFactor_Desc" xml:space="preserve">
+  <data name="MapVisibilityMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the visibility range of the player on the map is multiplied. A factor of 1 means default visibility. WARNING: Will negatively affect performance!</value>
   </data>
   <data name="PartyInvincible_Name" xml:space="preserve">
