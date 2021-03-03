@@ -160,8 +160,8 @@ namespace BannerlordCheats.Settings
         // public bool PartyInfiniteAmmo { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DamageMultiplier), minValue: 1, maxValue: 100)]
-        public int DamageMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(DamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
+        public float DamageMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyInteger(nameof(PartyDamageMultiplier), minValue: 1, maxValue: 100)]
