@@ -108,6 +108,10 @@
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Localization.dll</HintPath>
         <Private>False</Private>
       </Reference>
+      <Reference Include="TaleWorlds.ModuleManager">
+        <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.ModuleManager.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
       <Reference Include="TaleWorlds.MountAndBlade">
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.dll</HintPath>
         <Private>False</Private>
