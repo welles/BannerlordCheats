@@ -22,6 +22,7 @@ namespace BannerlordCheats.Settings
         private const string SmithingGroupName = "Smithing";
         private const string SettlementsGroupName = "Settlements";
         private const string CharactersGroupName = "Characters";
+        private const string WorkshopsGroupName = "Workshops";
 
         public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version}";
 
