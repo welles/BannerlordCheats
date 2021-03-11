@@ -693,4 +693,10 @@
   <data name="Workshops_GroupName" xml:space="preserve">
     <value>Workshops</value>
   </data>
+  <data name="WorkshopDailyExpensePercentage_Name" xml:space="preserve">
+    <value>Daily Expense Percentage</value>
+  </data>
+  <data name="WorkshopDailyExpensePercentage_Desc" xml:space="preserve">
+    <value>Pecentage of daily workshop expense costs. 100% means full expenses, 0% means no expenses.</value>
+  </data>
 </root>
