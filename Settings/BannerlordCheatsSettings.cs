@@ -22,6 +22,7 @@ namespace BannerlordCheats.Settings
         private const string SmithingGroupName = "Smithing";
         private const string SettlementsGroupName = "Settlements";
         private const string CharactersGroupName = "Characters";
+        private const string WorkshopsGroupName = "Workshops";
 
         public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version}";
 
@@ -56,12 +57,12 @@ namespace BannerlordCheats.Settings
         #region Map
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(MapSpeedFactor), minValue: 1, maxValue: 100)]
-        public int MapSpeedFactor { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(MapSpeedMultiplier), minValue: 1, maxValue: 100)]
+        public int MapSpeedMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(MapVisibilityFactor), minValue: 1, maxValue: 10)]
-        public int MapVisibilityFactor { get; set; } = 1;
+        [LocalizedSettingPropertyInteger(nameof(MapVisibilityMultiplier), minValue: 1, maxValue: 10)]
+        public int MapVisibilityMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
@@ -86,6 +87,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvincible))]
         public bool PartyInvincible { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyHeroesInvincible))]
+        public bool PartyHeroesInvincible { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyPercent(nameof(PartyDamageTakenPercentage))]
@@ -156,12 +161,12 @@ namespace BannerlordCheats.Settings
         // public bool PartyInfiniteAmmo { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DamageMultiplier), minValue: 1, maxValue: 100)]
-        public int DamageMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(DamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
+        public float DamageMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(PartyDamageMultiplier), minValue: 1, maxValue: 100)]
-        public int PartyDamageMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(PartyDamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
+        public float PartyDamageMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoFriendlyFire))]
@@ -242,6 +247,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(ClanGroupName)]
         [LocalizedSettingPropertyInteger(nameof(ExtraClanPartyLimit), minValue: 0, maxValue: 100)]
         public int ExtraClanPartyLimit { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(ClanGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(ExtraClanPartySize), minValue: 0, maxValue: 10000)]
+        public int ExtraClanPartySize { get; set; } = 0;
 
         #endregion Clan
 
@@ -424,5 +433,25 @@ namespace BannerlordCheats.Settings
         public int CraftedWeaponThrustSpeedBonus { get; set; } = 0;
 
         #endregion Smithing
+
+        #region Workshops
+
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(WorkshopBuyingCostPercentage))]
+        public int WorkshopBuyingCostPercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(WorkshopDailyExpensePercentage))]
+        public int WorkshopDailyExpensePercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(WorkshopUpgradeCostPercentage))]
+        public int WorkshopUpgradeCostPercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(WorkshopSellingCostMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float WorkshopSellingCostMultiplier { get; set; } = 1.0f;
+
+        #endregion Workshops
     }
 }

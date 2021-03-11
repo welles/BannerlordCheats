@@ -14,7 +14,8 @@ namespace BannerlordCheats.Patches.Combat
         {
             if ((attackInformation.AttackerAgentCharacter?.IsPlayerCharacter ?? false)
                 && !attackInformation.IsFriendlyFire
-                && !BannerlordCheatsSettings.Instance.OneHitKill)
+                && !BannerlordCheatsSettings.Instance.OneHitKill
+                && BannerlordCheatsSettings.Instance.DamageMultiplier > 1)
             {
                 __result *= BannerlordCheatsSettings.Instance.DamageMultiplier;
             }
