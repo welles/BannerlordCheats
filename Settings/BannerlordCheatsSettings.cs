@@ -444,6 +444,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(WorkshopUpgradeCostPercentage))]
         public int WorkshopUpgradeCostPercentage { get; set; } = 100;
 
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(WorkshopSellingCostMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float WorkshopSellingCostMultiplier { get; set; } = 1.0f;
+
         #endregion Workshops
     }
 }
