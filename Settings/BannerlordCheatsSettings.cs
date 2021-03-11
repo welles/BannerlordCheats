@@ -440,6 +440,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(WorkshopDailyExpensePercentage))]
         public int WorkshopDailyExpensePercentage { get; set; } = 100;
 
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(WorkshopUpgradeCostPercentage))]
+        public int WorkshopUpgradeCostPercentage { get; set; } = 100;
+
         #endregion Workshops
     }
 }
