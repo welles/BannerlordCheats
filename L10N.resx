@@ -168,10 +168,10 @@
   <data name="EnableHotkeys_Desc" xml:space="preserve">
     <value>Enable cheat hotkeys in inventory screen, party screen, clan screen etc.</value>
   </data>
-  <data name="MapSpeedFactor_Name" xml:space="preserve">
-    <value>Map Speed Factor</value>
+  <data name="MapSpeedMultiplier_Name" xml:space="preserve">
+    <value>Map Speed Multiplier</value>
   </data>
-  <data name="MapSpeedFactor_Desc" xml:space="preserve">
+  <data name="MapSpeedMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the speed of the player on the map is multiplied. A factor of 1 means default speed.</value>
   </data>
   <data name="ExtraInventoryCapacity_Name" xml:space="preserve">
@@ -180,10 +180,10 @@
   <data name="ExtraInventoryCapacity_Desc" xml:space="preserve">
     <value>Extra inventory capacity for the player party.</value>
   </data>
-  <data name="MapVisibilityFactor_Name" xml:space="preserve">
-    <value>Map Visibility Factor</value>
+  <data name="MapVisibilityMultiplier_Name" xml:space="preserve">
+    <value>Map Visibility Multiplier</value>
   </data>
-  <data name="MapVisibilityFactor_Desc" xml:space="preserve">
+  <data name="MapVisibilityMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the visibility range of the player on the map is multiplied. A factor of 1 means default visibility. WARNING: Will negatively affect performance!</value>
   </data>
   <data name="PartyInvincible_Name" xml:space="preserve">
@@ -677,5 +677,44 @@
   </data>
   <data name="NoCrimeRatingForCrimes_Desc" xml:space="preserve">
     <value>Illegal actions do not result in a crime rating.</value>
+  </data>
+  <data name="PartyHeroesInvincible_Desc" xml:space="preserve">
+    <value>Disables all damage to hero members of the player's party. Does not affect normal troops.</value>
+  </data>
+  <data name="PartyHeroesInvincible_Name" xml:space="preserve">
+    <value>Party Heroes Invincible</value>
+  </data>
+  <data name="ExtraClanPartySize_Name" xml:space="preserve">
+    <value>Extra Clan Party Size</value>
+  </data>
+  <data name="ExtraClanPartySize_Desc" xml:space="preserve">
+    <value>Increase the maximum amount of troops in parties of your clan.</value>
+  </data>
+  <data name="Workshops_GroupName" xml:space="preserve">
+    <value>Workshops</value>
+  </data>
+  <data name="WorkshopDailyExpensePercentage_Name" xml:space="preserve">
+    <value>Daily Expense Percentage</value>
+  </data>
+  <data name="WorkshopDailyExpensePercentage_Desc" xml:space="preserve">
+    <value>Pecentage of daily workshop expense costs. 100% means full expenses, 0% means no expenses.</value>
+  </data>
+  <data name="WorkshopUpgradeCostPercentage_Name" xml:space="preserve">
+    <value>Workshop Upgrade Cost Percentage</value>
+  </data>
+  <data name="WorkshopUpgradeCostPercentage_Desc" xml:space="preserve">
+    <value>Pecentage of workshop upgrade costs. 100% means full cost, 0% means free upgrades.</value>
+  </data>
+  <data name="WorkshopSellingCostMultiplier_Name" xml:space="preserve">
+    <value>Selling Price Multiplier</value>
+  </data>
+  <data name="WorkshopSellingCostMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the money you get for selling a workshop is multiplied. A factor of 1 means default selling price.</value>
+  </data>
+  <data name="WorkshopBuyingCostPercentage_Name" xml:space="preserve">
+    <value>Buying Cost Percentage</value>
+  </data>
+  <data name="WorkshopBuyingCostPercentage_Desc" xml:space="preserve">
+    <value>Percentage of price for buying a workshop. 100% means full price, 0% means free workshops.</value>
   </data>
 </root>

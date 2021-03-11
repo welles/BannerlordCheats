@@ -1,13 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-      <PlatformTarget>x64</PlatformTarget>
-    </PropertyGroup>
-
-    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-      <PlatformTarget>x64</PlatformTarget>
-    </PropertyGroup>
-
     <ItemGroup>
       <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion).*" />
       <PackageReference Condition="'$(Configuration)' == 'Release'" Include="Bannerlord.ReferenceAssemblies.EarlyAccess" Version="$(GameVersion).*" />
@@ -114,6 +106,10 @@
       </Reference>
       <Reference Include="TaleWorlds.Localization">
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Localization.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="TaleWorlds.ModuleManager">
+        <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.ModuleManager.dll</HintPath>
         <Private>False</Private>
       </Reference>
       <Reference Include="TaleWorlds.MountAndBlade">
