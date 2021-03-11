@@ -5,7 +5,7 @@
     <GameBranch>Main</GameBranch>
     <AdditionalInfo></AdditionalInfo>
     <HarmonyVersion>2.0.4</HarmonyVersion>
-    <MCMVersion>4.1.2</MCMVersion>
+    <MCMVersion>4.3</MCMVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <GameFolder>C:\SteamCMD\mb2b_main</GameFolder>
