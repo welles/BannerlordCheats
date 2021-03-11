@@ -433,5 +433,13 @@ namespace BannerlordCheats.Settings
         public int CraftedWeaponThrustSpeedBonus { get; set; } = 0;
 
         #endregion Smithing
+
+        #region Workshops
+
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(WorkshopDailyExpensePercentage))]
+        public int WorkshopDailyExpensePercentage { get; set; } = 100;
+
+        #endregion Workshops
     }
 }
