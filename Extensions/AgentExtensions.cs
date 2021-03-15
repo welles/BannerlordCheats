@@ -1,4 +1,6 @@
-﻿using TaleWorlds.MountAndBlade;
+﻿using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
+using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Extensions
 {
@@ -29,6 +31,31 @@ namespace BannerlordCheats.Extensions
             }
             character = null;
             return false;
+        }
+
+        /// <summary>
+        /// Tries to get the PartyBase of the Agent origin being evaluated
+        /// </summary>
+        /// <param name="origin">The Agent origin to evaluate</param>
+        /// <param name="party">The Agent's party or null</param>
+        /// <returns>Returns true if the Agent's party was found</returns>
+        public static bool TryGetParty(this IAgentOriginBase origin, out PartyBase party)
+        {
+            switch (origin)
+            {
+                case PartyAgentOrigin partyAgentOrigin:
+                    party = partyAgentOrigin.Party;
+                    return true;
+                case PartyGroupAgentOrigin partyGroupAgentOrigin:
+                    party = partyGroupAgentOrigin.Party;
+                    return true;
+                case SimpleAgentOrigin simpleAgentOrigin:
+                    party = simpleAgentOrigin.Party;
+                    return true;
+                default:
+                    party = null;
+                    return false;
+            }
         }
     }
 }
