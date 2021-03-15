@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Localization;
 using MCM.Abstractions.Settings.Base.Global;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace BannerlordCheats.Settings
 {
@@ -43,7 +44,10 @@ namespace BannerlordCheats.Settings
             try { modName = L10N.GetText(BannerlordCheatsSettings.ModName); }
             catch { modName = "Cheats"; }
 
-            this.DisplayName = $"{modName} {Assembly.GetExecutingAssembly().GetName().Version}";
+            var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            version = Regex.Replace(version, @"\.0", string.Empty);
+
+            this.DisplayName = $"{modName} v{version}";
         }
 
         #region Hotkeys
