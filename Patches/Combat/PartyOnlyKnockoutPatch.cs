@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
 using TaleWorlds.Core;
@@ -12,9 +13,9 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
-
-            if ((Mission.Current?.PlayerTeam?.ActiveAgents.Contains(effectedAgent) ?? false)
-                && BannerlordCheatsSettings.Instance.PartyOnlyKnockout)
+            if (BannerlordCheatsSettings.Instance.PartyOnlyKnockout
+                && effectedAgent.Origin.TryGetParty(out var party)
+                && party.Leader.IsPlayerCharacter)
             {
                 __result = 0f;
             }
