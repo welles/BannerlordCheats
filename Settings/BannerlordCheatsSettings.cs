@@ -57,12 +57,12 @@ namespace BannerlordCheats.Settings
         #region Map
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(MapSpeedMultiplier), minValue: 1, maxValue: 100)]
-        public int MapSpeedMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(MapSpeedMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float MapSpeedMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(MapVisibilityMultiplier), minValue: 1, maxValue: 10)]
-        public int MapVisibilityMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(MapVisibilityMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float MapVisibilityMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
