@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
 using TaleWorlds.Core;
@@ -12,10 +13,11 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if ((attackInformation.AttackerFormation?.Team?.IsPlayerTeam ?? false)
-                && !attackInformation.IsFriendlyFire
+            if (BannerlordCheatsSettings.Instance.PartyDamageMultiplier > 1
                 && !BannerlordCheatsSettings.Instance.PartyOneHitKill
-                && BannerlordCheatsSettings.Instance.PartyDamageMultiplier > 1)
+                && !attackInformation.IsFriendlyFire
+                && attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
+                && party.Leader.IsPlayerCharacter)
             {
                 __result *= BannerlordCheatsSettings.Instance.PartyDamageMultiplier;
             }
