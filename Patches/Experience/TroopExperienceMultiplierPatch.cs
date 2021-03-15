@@ -1,9 +1,7 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
-using System.Linq;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
-using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Experience
 {
@@ -11,13 +9,19 @@ namespace BannerlordCheats.Patches.Experience
     public static class TroopExperienceMultiplierPatch
     {
         [HarmonyPostfix]
-        public static void GetXpFromHit(CharacterObject attackerTroop, CharacterObject attackedTroop, int damage, bool isFatal, CombatXpModel.MissionTypeEnum missionType, ref int xpAmount)
+        public static void GetXpFromHit(
+            ref CharacterObject attackerTroop,
+            ref CharacterObject captain,
+            ref CharacterObject attackedTroop,
+            ref PartyBase party,
+            ref int damage,
+            ref bool isFatal,
+            ref CombatXpModel.MissionTypeEnum missionType,
+            ref int xpAmount)
         {
-            if (Mission.Current != null
-                && Mission.Current.PlayerTeam != null
-                && !attackerTroop.IsPlayerCharacter
-                && Mission.Current.PlayerTeam.ActiveAgents.Any(x => x?.Character == attackerTroop)
-                && BannerlordCheatsSettings.Instance.TroopExperienceMultiplier > 1)
+            if (BannerlordCheatsSettings.Instance.TroopExperienceMultiplier > 1
+                && (party?.Leader?.IsPlayerCharacter ?? false)
+                && !attackerTroop.IsPlayerCharacter)
             {
                 xpAmount *= BannerlordCheatsSettings.Instance.TroopExperienceMultiplier;
             }
