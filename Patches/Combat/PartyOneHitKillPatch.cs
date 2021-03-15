@@ -1,11 +1,11 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
-using System.Linq;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Combat
 {
     [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class PartyOneHitKillPatch
@@ -13,10 +13,11 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if ((attackInformation.AttackerFormation?.Team?.IsPlayerTeam ?? false)
+            if (BannerlordCheatsSettings.Instance.PartyOneHitKill
                 && !attackInformation.IsFriendlyFire
                 && attackInformation.VictimAgentCharacter != null
-                && BannerlordCheatsSettings.Instance.PartyOneHitKill)
+                && attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
+                && party.Leader.IsPlayerCharacter)
             {
                 __result = attackInformation.VictimAgentCharacter.HitPoints;
             }
