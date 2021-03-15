@@ -2,6 +2,7 @@
 using HarmonyLib;
 using System;
 using System.Linq;
+using BannerlordCheats.Extensions;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
@@ -21,19 +22,26 @@ namespace BannerlordCheats.Patches.Combat
             {
                 var now = DateTime.Now.Second;
 
-                if (LastSet == null || now != LastSet)
+                if (PartyHealthRegen.LastSet == null || now != PartyHealthRegen.LastSet)
                 {
-                    LastSet = now;
+                    PartyHealthRegen.LastSet = now;
 
-                    foreach (var agent in Mission.Current.PlayerTeam.ActiveAgents.Where(x => x.Health > 0))
+                    var playerPartyAgents = Mission.Current.PlayerTeam.ActiveAgents
+                        .Where(x => x.Health > 0
+                                    && !x.IsPlayerControlled
+                                    && x.Origin.TryGetParty(out var party)
+                                    && party.Leader.IsPlayerCharacter)
+                        .ToArray();
+
+                    foreach (var agent in playerPartyAgents)
                     {
-                        float health = agent.Health;
-                        float maxHealth = agent.HealthLimit;
+                        var health = agent.Health;
+                        var maxHealth = agent.HealthLimit;
 
                         if (health < maxHealth)
                         {
-                            float regen = (BannerlordCheatsSettings.Instance.PartyHealthRegeneration / maxHealth) * 100;
-                            float newHealth = (float)Math.Round(health + regen);
+                            var regen = (BannerlordCheatsSettings.Instance.PartyHealthRegeneration / maxHealth) * 100;
+                            var newHealth = (float)Math.Round(health + regen);
 
                             agent.Health = Math.Min(maxHealth, newHealth);
                         }
