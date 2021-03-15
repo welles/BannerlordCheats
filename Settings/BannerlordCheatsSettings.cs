@@ -24,7 +24,7 @@ namespace BannerlordCheats.Settings
         private const string CharactersGroupName = "Characters";
         private const string WorkshopsGroupName = "Workshops";
 
-        public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version}";
+        public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}";
 
         public override string FolderName { get; } = "Cheats";
 
