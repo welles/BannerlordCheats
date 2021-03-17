@@ -363,31 +363,31 @@ namespace BannerlordCheats.Settings
         public int SellingPriceMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailyFoodBonus), minValue: 0, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailyFoodBonus), minValue: 0, maxValue: 10000)]
         public int DailyFoodBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailyGarrisonBonus), minValue: 0, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailyGarrisonBonus), minValue: 0, maxValue: 10000)]
         public int DailyGarrisonBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailyMilitiaBonus), minValue: 0, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailyMilitiaBonus), minValue: 0, maxValue: 10000)]
         public int DailyMilitiaBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailyProsperityBonus), minValue: 0, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailyProsperityBonus), minValue: 0, maxValue: 10000)]
         public int DailyProsperityBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailyLoyaltyBonus), minValue: 0, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailyLoyaltyBonus), minValue: 0, maxValue: 10000)]
         public int DailyLoyaltyBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailySecurityBonus), minValue: 0, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailySecurityBonus), minValue: 0, maxValue: 10000)]
         public int DailySecurityBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(DailyHearthsBonus), minValue: 0, maxValue: 1000)]
+        [LocalizedSettingPropertyInteger(nameof(DailyHearthsBonus), minValue: 0, maxValue: 10000)]
         public int DailyHearthsBonus { get; set; } = 0;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
