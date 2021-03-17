@@ -18,17 +18,21 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is InventoryGauntletScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                Hero.MainHero.ChangeHeroGold(1000);
-
-                InformationManager.DisplayMessage(new InformationMessage(string.Format(L10N.GetText("AddGoldMessage"), 1000), Color.White));
-            }
-            else if (ScreenManager.TopScreen is InventoryGauntletScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.X) && BannerlordCheatsSettings.Instance.EnableHotkeys)
+            if (ScreenManager.TopScreen is InventoryGauntletScreen
+                && BannerlordCheatsSettings.Instance.EnableHotkeys
+                && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.X))
             {
                 Hero.MainHero.ChangeHeroGold(100000);
 
                 InformationManager.DisplayMessage(new InformationMessage(string.Format(L10N.GetText("AddGoldMessage"), 100000), Color.White));
+            }
+            else if (ScreenManager.TopScreen is InventoryGauntletScreen
+                && BannerlordCheatsSettings.Instance.EnableHotkeys
+                && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
+            {
+                Hero.MainHero.ChangeHeroGold(1000);
+
+                InformationManager.DisplayMessage(new InformationMessage(string.Format(L10N.GetText("AddGoldMessage"), 1000), Color.White));
             }
         }
     }
