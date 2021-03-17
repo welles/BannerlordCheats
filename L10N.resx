@@ -723,4 +723,7 @@
   <data name="FactionArmyCohesionLossPercentage_Desc" xml:space="preserve">
     <value>How much cohesion NPC armies of the player faction lose over time. 100% means full cohesion loss, 0% means cohesion is frozen.</value>
   </data>
+  <data name="AddTroopsFromEncyclopediaMessage" xml:space="preserve">
+    <value>Added {0} {1} to the party.</value>
+  </data>
 </root>
