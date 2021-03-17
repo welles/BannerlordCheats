@@ -45,7 +45,7 @@ namespace BannerlordCheats.Settings
             var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             version = Regex.Replace(version, @"\.0", string.Empty);
 
-            this.DisplayName = $"{modName} v{version}";
+            this.DisplayName = $"{modName} {version}";
         }
 
         #region Hotkeys
