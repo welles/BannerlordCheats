@@ -39,9 +39,14 @@ namespace BannerlordCheats.Patches
 
             if (selectedCharacter.IsHero) { return; }
 
-            var index = PartyBase.MainParty.MemberRoster.FindIndexOfTroop(selectedCharacter.Character);
-
-            PartyBase.MainParty.AddToMemberRosterElementAtIndex(index, count);
+            if (selectedCharacter.IsPrisoner)
+            {
+                PartyBase.MainParty.AddPrisoner(selectedCharacter.Character, count);
+            }
+            else
+            {
+                PartyBase.MainParty.AddMember(selectedCharacter.Character, count);
+            }
 
             var newTroop = selectedCharacter.Troop;
             newTroop.Number += count;
