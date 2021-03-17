@@ -1,11 +1,11 @@
 ﻿using BannerlordCheats.Localization;
-using MCM.Abstractions.Settings.Base.PerSave;
+using MCM.Abstractions.Settings.Base.Global;
 using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace BannerlordCheats.Settings
 {
-    public class BannerlordCheatsSettings : AttributePerSaveSettings<BannerlordCheatsSettings>
+    public class BannerlordCheatsSettings : AttributeGlobalSettings<BannerlordCheatsSettings>
     {
         #region Base
 
@@ -29,9 +29,11 @@ namespace BannerlordCheats.Settings
 
         public override string FolderName { get; } = "Cheats";
 
+        public override string FormatType { get; } = "json";
+
         public override string DisplayName { get; }
 
-        public new static BannerlordCheatsSettings Instance => AttributePerSaveSettings<BannerlordCheatsSettings>.Instance;
+        public new static BannerlordCheatsSettings Instance => AttributeGlobalSettings<BannerlordCheatsSettings>.Instance;
 
         #endregion Base
 
