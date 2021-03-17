@@ -30,7 +30,7 @@ namespace BannerlordCheats.Patches.Combat
                         .Where(x => x.Health > 0
                                     && !x.IsPlayerControlled
                                     && x.Origin.TryGetParty(out var party)
-                                    && party.Leader.IsPlayerCharacter)
+                                    && party.IsPlayerParty())
                         .ToArray();
 
                     foreach (var agent in playerPartyAgents)

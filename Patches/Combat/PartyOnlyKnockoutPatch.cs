@@ -5,7 +5,7 @@ using SandBox;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Combat
 {
     [HarmonyPatch(typeof(DefaultAgentDecideKilledOrUnconsciousModel), nameof(DefaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
     public static class PartyOnlyKnockoutPatch
@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches
         {
             if (BannerlordCheatsSettings.Instance.PartyOnlyKnockout
                 && effectedAgent.Origin.TryGetParty(out var party)
-                && party.Leader.IsPlayerCharacter)
+                && party.IsPlayerParty())
             {
                 __result = 0f;
             }

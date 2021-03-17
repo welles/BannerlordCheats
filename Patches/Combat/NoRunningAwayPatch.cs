@@ -14,7 +14,7 @@ namespace BannerlordCheats.Patches.Combat
         {
             if (BannerlordCheatsSettings.Instance.NoRunningAway
                 && agent.Origin.TryGetParty(out var party)
-                && party.Leader.IsPlayerCharacter)
+                && party.IsPlayerParty())
             {
                 __result = 0.0f;
             }

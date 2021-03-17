@@ -14,7 +14,7 @@ namespace BannerlordCheats.Patches
             if (BannerlordCheatsSettings.Instance.PartyInvincible
                 && __instance.TryGetHuman(out var agent)
                 && agent.Origin.TryGetParty(out var party)
-                && party.Leader.IsPlayerCharacter
+                && party.IsPlayerParty()
                 && !agent.IsHero)
             {
                 __result = true;
