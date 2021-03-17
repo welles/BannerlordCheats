@@ -1,11 +1,10 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
-using System.Linq;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Combat
 {
     [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class OneHitKillPatch

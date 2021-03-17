@@ -3,7 +3,7 @@ using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Party
 {
     [HarmonyPatch(typeof(EndCaptivityAction), nameof(EndCaptivityAction.ApplyByEscape))]
     public static class NoPrisonerEscapePatch

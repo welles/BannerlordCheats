@@ -10,7 +10,7 @@ using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Hotkeys
 {
     [HarmonyPatch(typeof(Module), "OnApplicationTick")]
     public static class AddItemsCheatPatch
@@ -20,11 +20,11 @@ namespace BannerlordCheats.Patches
         {
             if (ScreenManager.TopScreen is InventoryGauntletScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddItems(100);
+                AddItemsCheatPatch.AddItems(100);
             }
             else if (ScreenManager.TopScreen is InventoryGauntletScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddItems(1);
+                AddItemsCheatPatch.AddItems(1);
             }
         }
 
