@@ -5,7 +5,7 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 using TaleWorlds.Core;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Smithing
 {
     [HarmonyPatch(typeof(DefaultSmithingModel), nameof(DefaultSmithingModel.GetEnergyCostForRefining))]
     public static class RefiningEnergyCostPatch
@@ -13,8 +13,8 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero, ref int __result)
         {
-            if ((hero?.IsHumanPlayerCharacter ?? false)
-                && BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage < 100)
+            if (BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage < 100
+                && (hero.PartyBelongedTo?.IsMainParty ?? false))
             {
                 var factor = BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage / 100f;
 
