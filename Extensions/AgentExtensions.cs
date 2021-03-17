@@ -45,13 +45,13 @@ namespace BannerlordCheats.Extensions
             {
                 case PartyAgentOrigin partyAgentOrigin:
                     party = partyAgentOrigin.Party;
-                    return true;
+                    return party != null;
                 case PartyGroupAgentOrigin partyGroupAgentOrigin:
                     party = partyGroupAgentOrigin.Party;
-                    return true;
+                    return party != null;
                 case SimpleAgentOrigin simpleAgentOrigin:
                     party = simpleAgentOrigin.Party;
-                    return true;
+                    return party != null;
                 default:
                     party = null;
                     return false;
