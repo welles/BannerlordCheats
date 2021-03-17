@@ -327,6 +327,10 @@ namespace BannerlordCheats.Settings
         #region Army
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(FactionArmyCohesionLossPercentage))]
+        public int FactionArmyCohesionLossPercentage { get; set; } = 100;
+
+        [LocalizedSettingPropertyGroup(ArmyGroupName)]
         [LocalizedSettingPropertyPercent(nameof(ArmyCohesionLossPercentage))]
         public int ArmyCohesionLossPercentage { get; set; } = 100;
 
