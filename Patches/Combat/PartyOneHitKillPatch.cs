@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Combat
                 && !attackInformation.IsFriendlyFire
                 && attackInformation.VictimAgentCharacter != null
                 && attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
-                && party.Leader.IsPlayerCharacter)
+                && party.IsPlayerParty())
             {
                 __result = attackInformation.VictimAgentCharacter.HitPoints;
             }

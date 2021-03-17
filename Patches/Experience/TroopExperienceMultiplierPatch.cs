@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
@@ -20,7 +21,7 @@ namespace BannerlordCheats.Patches.Experience
             ref int xpAmount)
         {
             if (BannerlordCheatsSettings.Instance.TroopExperienceMultiplier > 1
-                && (party?.Leader?.IsPlayerCharacter ?? false)
+                && party.IsPlayerParty()
                 && !attackerTroop.IsPlayerCharacter)
             {
                 xpAmount *= BannerlordCheatsSettings.Instance.TroopExperienceMultiplier;

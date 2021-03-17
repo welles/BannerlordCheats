@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Combat
                 && !BannerlordCheatsSettings.Instance.PartyOneHitKill
                 && !attackInformation.IsFriendlyFire
                 && attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
-                && party.Leader.IsPlayerCharacter)
+                && party.IsPlayerParty())
             {
                 __result *= BannerlordCheatsSettings.Instance.PartyDamageMultiplier;
             }
