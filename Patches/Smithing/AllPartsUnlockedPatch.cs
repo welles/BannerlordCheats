@@ -3,7 +3,7 @@ using HarmonyLib;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
 using TaleWorlds.Core;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Smithing
 {
     [HarmonyPatch(typeof(CraftingCampaignBehavior), nameof(CraftingCampaignBehavior.IsOpened))]
     public static class AllPartsUnlockedPatch

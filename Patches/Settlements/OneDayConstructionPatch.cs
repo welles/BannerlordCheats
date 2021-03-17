@@ -2,7 +2,7 @@
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Settlements
 {
     [HarmonyPatch(typeof(Town), nameof(Town.Construction), MethodType.Getter)]
     public static class OneDayConstructionPatch

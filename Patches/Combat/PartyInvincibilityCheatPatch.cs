@@ -3,7 +3,7 @@ using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Combat
 {
     [HarmonyPatch(typeof(Agent), nameof(Agent.Invulnerable), MethodType.Getter)]
     public static class PartyInvincibilityCheatPatch
