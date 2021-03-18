@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Combat
                 && attackInformation.IsVictimAgentHuman
                 && BannerlordCheatsSettings.Instance.OneHitKill)
             {
-                __result = attackInformation.VictimAgentCharacter.HitPoints;
+                __result = 10000;
             }
         }
     }
