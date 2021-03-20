@@ -15,7 +15,8 @@ namespace BannerlordCheats.Patches.Combat
                 && __instance.TryGetHuman(out var agent)
                 && agent.Origin.TryGetParty(out var party)
                 && party.IsPlayerParty()
-                && agent.IsHero)
+                && agent.IsHero
+                && !agent.IsPlayerControlled)
             {
                 __result = true;
             }
