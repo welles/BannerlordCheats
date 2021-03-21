@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
@@ -10,7 +11,7 @@ namespace BannerlordCheats.Patches.Clan
         [HarmonyPostfix]
         public static void GetPartyLimitForTier(TaleWorlds.CampaignSystem.Clan clan, int clanTierToCheck, ref int __result)
         {
-            if ((clan?.Leader?.IsHumanPlayerCharacter ?? false)
+            if (clan.IsPlayerClan()
                 && BannerlordCheatsSettings.Instance.ExtraClanPartyLimit > 0)
             {
                 __result += BannerlordCheatsSettings.Instance.ExtraClanPartyLimit;
