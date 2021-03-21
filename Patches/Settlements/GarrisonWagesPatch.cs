@@ -13,7 +13,7 @@ namespace BannerlordCheats.Patches.Settlements
         public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (mobileParty.IsGarrison
-                && (mobileParty.Party?.Owner?.IsHumanPlayerCharacter ?? false)
+                && mobileParty.IsPlayerParty()
                 && BannerlordCheatsSettings.Instance.GarrisonWagesPercentage < 100)
             {
                 __result.AddPercentage(BannerlordCheatsSettings.Instance.GarrisonWagesPercentage);
