@@ -6,7 +6,7 @@ namespace BannerlordCheats.Extensions
     {
         public static bool IsPlayerParty(this PartyBase party)
         {
-            return party?.Leader?.IsPlayerCharacter ?? false;
+            return party?.Owner?.IsHumanPlayerCharacter ?? false;
         }
     }
 }
