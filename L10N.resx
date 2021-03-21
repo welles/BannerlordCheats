@@ -732,4 +732,10 @@
   <data name="LearningLimitMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the learning limit for all skills is multiplied. A factor of 1 means default learning limit.</value>
   </data>
+  <data name="CompanionExperienceMultiplier_Name" xml:space="preserve">
+    <value>Companion Experience Multiplier</value>
+  </data>
+  <data name="CompanionExperienceMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the experience gain of player companions is multiplied. A factor of 1 means default experience.</value>
+  </data>
 </root>
