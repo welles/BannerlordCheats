@@ -744,4 +744,10 @@
   <data name="CompanionLearningRateMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the learning rate of player companions is multiplied. A factor of 1 means default learning.</value>
   </data>
+  <data name="SliceThroughEveryone_Name" xml:space="preserve">
+    <value>Slice Through Everyone</value>
+  </data>
+  <data name="SliceThroughEveryone_Desc" xml:space="preserve">
+    <value>Always slice through enemies with every attack unless blocked by their weapon.</value>
+  </data>
 </root>

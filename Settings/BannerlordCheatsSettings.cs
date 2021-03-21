@@ -149,6 +149,10 @@ namespace BannerlordCheats.Settings
         public bool AlwaysCrushThroughShields { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(SliceThroughEveryone))]
+        public bool SliceThroughEveryone { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyPercent(nameof(HealthRegeneration))]
         public int HealthRegeneration { get; set; } = 0;
 
