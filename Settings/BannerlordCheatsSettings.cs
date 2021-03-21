@@ -309,6 +309,10 @@ namespace BannerlordCheats.Settings
         public int LearningRateMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(CompanionLearningRateMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float CompanionLearningRateMultiplier { get; set; } = 1.0f;
+
+        [LocalizedSettingPropertyGroup(ExperienceGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(LearningLimitMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
         public float LearningLimitMultiplier { get; set; } = 1.0f;
 

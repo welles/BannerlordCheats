@@ -738,4 +738,10 @@
   <data name="CompanionExperienceMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the experience gain of player companions is multiplied. A factor of 1 means default experience.</value>
   </data>
+  <data name="CompanionLearningRateMultiplier_Name" xml:space="preserve">
+    <value>Companion Learning Rate Multiplier</value>
+  </data>
+  <data name="CompanionLearningRateMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the learning rate of player companions is multiplied. A factor of 1 means default learning.</value>
+  </data>
 </root>
