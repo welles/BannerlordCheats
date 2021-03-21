@@ -301,6 +301,10 @@ namespace BannerlordCheats.Settings
         public int ExperienceMultiplier { get; set; } = 1;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(CompanionExperienceMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float CompanionExperienceMultiplier { get; set; } = 1.0f;
+
+        [LocalizedSettingPropertyGroup(ExperienceGroupName)]
         [LocalizedSettingPropertyInteger(nameof(LearningRateMultiplier), minValue: 1, maxValue: 1000)]
         public int LearningRateMultiplier { get; set; } = 1;
 
