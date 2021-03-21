@@ -8,5 +8,10 @@ namespace BannerlordCheats.Extensions
         {
             return party?.Owner?.IsHumanPlayerCharacter ?? false;
         }
+
+        public static bool IsPlayerParty(this MobileParty party)
+        {
+            return party?.Party?.IsPlayerParty() ?? false;
+        }
     }
 }
