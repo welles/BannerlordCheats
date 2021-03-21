@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -11,7 +12,7 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetRenownReward(Hero winner, Town town, ref int __result)
         {
-            if ((winner?.IsHumanPlayerCharacter ?? false)
+            if (winner.IsPlayer()
                 && BannerlordCheatsSettings.Instance.RenownRewardMultiplier > 1)
             {
                 __result *= BannerlordCheatsSettings.Instance.RenownRewardMultiplier;

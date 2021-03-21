@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -12,7 +13,7 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void CalculateLearningRate(ref Hero hero, SkillObject skill, ref float __result)
         {
-            if ((hero?.IsHumanPlayerCharacter ?? false)
+            if (hero.IsPlayer()
                 && BannerlordCheatsSettings.Instance.LearningRateMultiplier > 1)
             {
                 __result *= BannerlordCheatsSettings.Instance.LearningRateMultiplier;

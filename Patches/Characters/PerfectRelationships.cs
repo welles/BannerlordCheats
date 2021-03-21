@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 
@@ -10,7 +11,7 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void GetRelation(Hero otherHero, ref Hero __instance, ref int __result)
         {
-            if (((__instance?.IsHumanPlayerCharacter ?? false) || (otherHero?.IsHumanPlayerCharacter ?? false))
+            if ((__instance.IsPlayer() || otherHero.IsPlayer())
                 && BannerlordCheatsSettings.Instance.PerfectRelationships)
             {
                 __result = 100;
