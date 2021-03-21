@@ -7,7 +7,7 @@ using TaleWorlds.Core;
 namespace BannerlordCheats.Patches.Experience
 {
     [HarmonyPatch(typeof(DefaultCharacterDevelopmentModel), nameof(DefaultCharacterDevelopmentModel.CalculateLearningRate), new[] { typeof(Hero), typeof(SkillObject) })]
-    public static class DefaultCharacterDevelopmentModelPatch
+    public static class LearningRateMultiplierPatch
     {
         [HarmonyPostfix]
         public static void CalculateLearningRate(ref Hero hero, SkillObject skill, ref float __result)
