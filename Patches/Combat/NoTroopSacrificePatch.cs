@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
@@ -27,7 +28,7 @@ namespace BannerlordCheats.Patches.Combat
         public static void GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, ref int __result)
         {
             if (BannerlordCheatsSettings.Instance.NoTroopSacrifice
-                && (party?.IsMainParty ?? false))
+                && party.IsPlayerParty())
             {
                 __result = 0;
             }
@@ -41,7 +42,7 @@ namespace BannerlordCheats.Patches.Combat
         public static void GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, ref int __result)
         {
             if (BannerlordCheatsSettings.Instance.NoTroopSacrifice
-                && (party?.IsMainParty ?? false))
+                && party.IsPlayerParty())
             {
                 __result = 0;
             }
