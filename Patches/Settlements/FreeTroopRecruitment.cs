@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
@@ -11,7 +12,7 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost, ref int __result)
         {
-            if ((buyerHero?.IsHumanPlayerCharacter ?? false)
+            if (buyerHero.IsPlayer()
                 && BannerlordCheatsSettings.Instance.FreeTroopRecruitment)
             {
                 __result = 1;
