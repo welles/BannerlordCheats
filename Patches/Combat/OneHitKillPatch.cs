@@ -14,7 +14,6 @@ namespace BannerlordCheats.Patches.Combat
         {
             if ((attackInformation.AttackerAgentCharacter?.IsPlayerCharacter ?? false)
                 && !attackInformation.IsFriendlyFire
-                && attackInformation.IsVictimAgentHuman
                 && BannerlordCheatsSettings.Instance.OneHitKill)
             {
                 __result = 10000;
