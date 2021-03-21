@@ -57,5 +57,10 @@ namespace BannerlordCheats.Extensions
                     return false;
             }
         }
+
+        public static bool IsPlayer(this Agent agent)
+        {
+            return agent?.IsPlayerControlled ?? false;
+        }
     }
 }
