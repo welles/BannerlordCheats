@@ -46,6 +46,8 @@ namespace BannerlordCheats.Settings
             this.DisplayName = $"{modName} {version}";
         }
 
+        public new static BannerlordCheatsSettings Instance => AttributePerSaveSettings<BannerlordCheatsSettings>.Instance ?? new BannerlordCheatsSettings();
+
         #region Hotkeys
 
         [LocalizedSettingPropertyGroup(HotkeysGroupName)]
