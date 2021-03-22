@@ -42,6 +42,7 @@ namespace BannerlordCheats.Settings
 
             var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             version = Regex.Replace(version, @"\.0", string.Empty);
+            if (!version.Contains(".")) {  version += ".0"; }
 
             this.DisplayName = $"{modName} {version}";
         }
