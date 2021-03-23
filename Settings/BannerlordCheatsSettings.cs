@@ -413,7 +413,7 @@ namespace BannerlordCheats.Settings
         public int GarrisonWagesPercentage { get; set; } = 100;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(NeverRequireCivilianEquipment))]
+        [LocalizedSettingPropertyBool(nameof(NeverRequireCivilianEquipment))]
         public bool NeverRequireCivilianEquipment { get; set; } = false;
 
         #endregion Settlements
