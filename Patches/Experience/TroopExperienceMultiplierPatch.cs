@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
@@ -24,7 +25,7 @@ namespace BannerlordCheats.Patches.Experience
                 && party.IsPlayerParty()
                 && !attackerTroop.IsPlayerCharacter)
             {
-                xpAmount *= BannerlordCheatsSettings.Instance.TroopExperienceMultiplier;
+                xpAmount = (int) Math.Round(xpAmount * BannerlordCheatsSettings.Instance.TroopExperienceMultiplier);
             }
         }
     }

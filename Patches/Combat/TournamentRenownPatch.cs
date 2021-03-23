@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
@@ -15,7 +16,7 @@ namespace BannerlordCheats.Patches.Combat
             if (winner.IsPlayer()
                 && BannerlordCheatsSettings.Instance.RenownRewardMultiplier > 1)
             {
-                __result *= BannerlordCheatsSettings.Instance.RenownRewardMultiplier;
+                __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.RenownRewardMultiplier);
             }
         }
     }
