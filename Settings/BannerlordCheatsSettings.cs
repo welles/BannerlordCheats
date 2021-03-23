@@ -117,12 +117,12 @@ namespace BannerlordCheats.Settings
         public bool EnemyOnlyKnockout { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(RenownRewardMultiplier), minValue: 1, maxValue: 1000)]
-        public int RenownRewardMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(RenownRewardMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float RenownRewardMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(InfluenceRewardMultiplier), minValue: 1, maxValue: 1000)]
-        public int InfluenceRewardMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(InfluenceRewardMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float InfluenceRewardMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(AlwaysWinBattleSimulation))]
@@ -181,8 +181,8 @@ namespace BannerlordCheats.Settings
         public bool NoFriendlyFire { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(CombatZoomMultiplier), minValue: 1, maxValue: 1000)]
-        public int CombatZoomMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(CombatZoomMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float CombatZoomMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(InstantCrossbowReload))]
@@ -241,8 +241,8 @@ namespace BannerlordCheats.Settings
         public bool NoPrisonerEscape { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(PartyHealingMultiplier), minValue: 1, maxValue: 100)]
-        public int PartyHealingMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(PartyHealingMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float PartyHealingMultiplier { get; set; } = 1.0f;
 
         #endregion
 
@@ -285,8 +285,8 @@ namespace BannerlordCheats.Settings
         #region Kingdom
 
         [LocalizedSettingPropertyGroup(KingdomGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(KingdomDecisionWeightMultiplier), minValue: 1, maxValue: 1000)]
-        public int KingdomDecisionWeightMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(KingdomDecisionWeightMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float KingdomDecisionWeightMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(KingdomGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoRelationshipLossOnDecision))]
@@ -301,8 +301,8 @@ namespace BannerlordCheats.Settings
         #region Experience
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(ExperienceMultiplier), minValue: 1, maxValue: 1000)]
-        public int ExperienceMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(ExperienceMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float ExperienceMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(CompanionExperienceMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
@@ -321,8 +321,8 @@ namespace BannerlordCheats.Settings
         public float LearningLimitMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(TroopExperienceMultiplier), minValue: 1, maxValue: 1000)]
-        public int TroopExperienceMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(TroopExperienceMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float TroopExperienceMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
         [LocalizedSettingPropertyBool(nameof(BannerlordCheatsSettings.FreeFocusPointAssignment))]
@@ -333,8 +333,8 @@ namespace BannerlordCheats.Settings
         #region Sieges
 
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(SiegeBuildingSpeedMultiplier), minValue: 1, maxValue: 1000)]
-        public int SiegeBuildingSpeedMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(SiegeBuildingSpeedMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float SiegeBuildingSpeedMultiplier { get; set; } = 1.0f;
         
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
         [LocalizedSettingPropertyPercent(nameof(EnemySiegeBuildingSpeedPercentage))]
@@ -377,8 +377,8 @@ namespace BannerlordCheats.Settings
         public float ItemTradingCostPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(SellingPriceMultiplier), minValue: 1, maxValue: 1000)]
-        public int SellingPriceMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(SellingPriceMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float SellingPriceMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyInteger(nameof(DailyFoodBonus), minValue: 0, maxValue: 10000)]
