@@ -9,7 +9,7 @@ namespace BannerlordCheats.Extensions
             explainedNumber.AddFactor(multiplier - 1);
         }
 
-        public static void AddPercentage(this ref ExplainedNumber explainedNumber, int percentage)
+        public static void AddPercentage(this ref ExplainedNumber explainedNumber, float percentage)
         {
             var factor = (1f - (percentage / 100f)) * -1;
 
