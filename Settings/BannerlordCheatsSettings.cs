@@ -70,7 +70,7 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
-        public int NpcMapSpeedPercentage { get; set; } = 100;
+        public float NpcMapSpeedPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvisibleOnMap))]
@@ -82,7 +82,7 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyPercent(nameof(DamageTakenPercentage))]
-        public int DamageTakenPercentage { get; set; } = 100;
+        public float DamageTakenPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(Invincible))]
@@ -98,7 +98,7 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyPercent(nameof(PartyDamageTakenPercentage))]
-        public int PartyDamageTakenPercentage { get; set; } = 100;
+        public float PartyDamageTakenPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(OneHitKill))]
@@ -154,11 +154,11 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyPercent(nameof(HealthRegeneration))]
-        public int HealthRegeneration { get; set; } = 0;
+        public float HealthRegeneration { get; set; } = 0.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyPercent(nameof(PartyHealthRegeneration))]
-        public int PartyHealthRegeneration { get; set; } = 0;
+        public float PartyHealthRegeneration { get; set; } = 0.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
@@ -218,11 +218,11 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyPercent(nameof(FoodConsumptionPercentage))]
-        public int FoodConsumptionPercentage { get; set; } = 100;
+        public float FoodConsumptionPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyPercent(nameof(TroopWagesPercentage))]
-        public int TroopWagesPercentage { get; set; } = 100;
+        public float TroopWagesPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(FreeTroopUpgrades))]
@@ -338,7 +338,7 @@ namespace BannerlordCheats.Settings
         
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
         [LocalizedSettingPropertyPercent(nameof(EnemySiegeBuildingSpeedPercentage))]
-        public int EnemySiegeBuildingSpeedPercentage { get; set; } = 100;
+        public float EnemySiegeBuildingSpeedPercentage { get; set; } = 100.0f;
 
         #endregion Sieges
 
@@ -346,15 +346,15 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
         [LocalizedSettingPropertyPercent(nameof(FactionArmyCohesionLossPercentage))]
-        public int FactionArmyCohesionLossPercentage { get; set; } = 100;
+        public float FactionArmyCohesionLossPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
         [LocalizedSettingPropertyPercent(nameof(ArmyCohesionLossPercentage))]
-        public int ArmyCohesionLossPercentage { get; set; } = 100;
+        public float ArmyCohesionLossPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(ArmyGroupName)]
         [LocalizedSettingPropertyPercent(nameof(ArmyFoodConsumptionPercentage))]
-        public int ArmyFoodConsumptionPercentage { get; set; } = 100;
+        public float ArmyFoodConsumptionPercentage { get; set; } = 100.0f;
 
         #endregion Army
 
@@ -374,7 +374,7 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(ItemTradingCostPercentage))]
-        public int ItemTradingCostPercentage { get; set; } = 100;
+        public float ItemTradingCostPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyInteger(nameof(SellingPriceMultiplier), minValue: 1, maxValue: 1000)]
@@ -410,7 +410,7 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
-        public int GarrisonWagesPercentage { get; set; } = 100;
+        public float GarrisonWagesPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(NeverRequireCivilianEquipment))]
@@ -422,7 +422,7 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyPercent(nameof(SmithingEnergyCostPercentage))]
-        public int SmithingEnergyCostPercentage { get; set; } = 100;
+        public float SmithingEnergyCostPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyBool(nameof(UnlockAllParts))]
@@ -430,11 +430,11 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyPercent(nameof(SmithingDifficultyPercentage))]
-        public int SmithingDifficultyPercentage { get; set; } = 100;
+        public float SmithingDifficultyPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyPercent(nameof(SmithingCostPercentage))]
-        public int SmithingCostPercentage { get; set; } = 100;
+        public float SmithingCostPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SmithingGroupName)]
         [LocalizedSettingPropertyInteger(nameof(CraftedWeaponHandlingBonus), minValue: 0, maxValue: 100)]
@@ -462,15 +462,15 @@ namespace BannerlordCheats.Settings
 
         [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(WorkshopBuyingCostPercentage))]
-        public int WorkshopBuyingCostPercentage { get; set; } = 100;
+        public float WorkshopBuyingCostPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(WorkshopDailyExpensePercentage))]
-        public int WorkshopDailyExpensePercentage { get; set; } = 100;
+        public float WorkshopDailyExpensePercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(WorkshopUpgradeCostPercentage))]
-        public int WorkshopUpgradeCostPercentage { get; set; } = 100;
+        public float WorkshopUpgradeCostPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(WorkshopSellingCostMultiplier), minValue: 1.0f, maxValue: 100.0f)]
