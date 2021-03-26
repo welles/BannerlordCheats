@@ -1,11 +1,11 @@
 ﻿using BannerlordCheats.Localization;
-using MCM.Abstractions.Settings.Base.Global;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using MCM.Abstractions.Settings.Base.PerSave;
 
 namespace BannerlordCheats.Settings
 {
-    public class BannerlordCheatsSettings : AttributeGlobalSettings<BannerlordCheatsSettings>
+    public class BannerlordCheatsSettings : AttributePerSaveSettings<BannerlordCheatsSettings>
     {
         #region Base
 
@@ -29,11 +29,7 @@ namespace BannerlordCheats.Settings
 
         public override string FolderName { get; } = "Cheats";
 
-        public override string FormatType { get; } = "json";
-
         public override string DisplayName { get; }
-
-        public new static BannerlordCheatsSettings Instance => AttributeGlobalSettings<BannerlordCheatsSettings>.Instance;
 
         #endregion Base
 
@@ -46,9 +42,12 @@ namespace BannerlordCheats.Settings
 
             var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             version = Regex.Replace(version, @"\.0", string.Empty);
+            if (!version.Contains(".")) {  version += ".0"; }
 
             this.DisplayName = $"{modName} {version}";
         }
+
+        public new static BannerlordCheatsSettings Instance => AttributePerSaveSettings<BannerlordCheatsSettings>.Instance ?? new BannerlordCheatsSettings();
 
         #region Hotkeys
 
