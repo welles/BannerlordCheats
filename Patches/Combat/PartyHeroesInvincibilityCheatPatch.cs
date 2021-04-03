@@ -13,10 +13,10 @@ namespace BannerlordCheats.Patches.Combat
         {
             if (BannerlordCheatsSettings.Instance.PartyHeroesInvincible
                 && __instance.TryGetHuman(out var agent)
+                && !agent.IsPlayer()
                 && agent.Origin.TryGetParty(out var party)
                 && party.IsPlayerParty()
-                && agent.IsHero
-                && !agent.IsPlayerControlled)
+                && agent.IsHero)
             {
                 __result = true;
             }

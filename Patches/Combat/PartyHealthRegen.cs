@@ -28,7 +28,7 @@ namespace BannerlordCheats.Patches.Combat
 
                     var playerPartyAgents = Mission.Current.PlayerTeam.ActiveAgents
                         .Where(x => x.Health > 0
-                                    && !x.IsPlayerControlled
+                                    && !x.IsPlayer()
                                     && x.Origin.TryGetParty(out var party)
                                     && party.IsPlayerParty())
                         .ToArray();
