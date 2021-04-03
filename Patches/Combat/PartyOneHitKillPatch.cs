@@ -13,13 +13,13 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if (BannerlordCheatsSettings.Instance.PartyOneHitKill
+            if (attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
+                && party.IsPlayerParty()
+                && !attackInformation.AttackerAgentCharacter.IsPlayer()
                 && !attackInformation.IsFriendlyFire
-                && attackInformation.VictimAgentCharacter != null
-                && attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
-                && party.IsPlayerParty())
+                && BannerlordCheatsSettings.Instance.PartyOneHitKill)
             {
-                __result = attackInformation.VictimAgentCharacter.HitPoints;
+                __result = 10000;
             }
         }
     }
