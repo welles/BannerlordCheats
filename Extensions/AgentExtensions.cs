@@ -60,7 +60,7 @@ namespace BannerlordCheats.Extensions
 
         public static bool IsPlayer(this Agent agent)
         {
-            return agent?.IsPlayerControlled ?? false;
+            return agent?.Character?.IsPlayer() ?? false;
         }
     }
 }
