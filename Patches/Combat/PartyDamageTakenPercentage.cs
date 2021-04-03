@@ -17,7 +17,8 @@ namespace BannerlordCheats.Patches.Combat
             if (BannerlordCheatsSettings.Instance.PartyDamageTakenPercentage < 100
                 && !BannerlordCheatsSettings.Instance.PartyInvincible
                 && attackInformation.VictimAgentOrigin.TryGetParty(out var party)
-                && party.IsPlayerParty())
+                && party.IsPlayerParty()
+                && !attackInformation.VictimAgentCharacter.IsPlayer())
             {
                 var factor = BannerlordCheatsSettings.Instance.PartyDamageTakenPercentage / 100f;
 
