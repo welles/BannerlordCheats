@@ -88,6 +88,10 @@ namespace BannerlordCheats.Settings
         public bool Invincible { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PlayerHorseInvincible))]
+        public bool PlayerHorseInvincible { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvincible))]
         public bool PartyInvincible { get; set; } = false;
 
@@ -308,8 +312,8 @@ namespace BannerlordCheats.Settings
         public float CompanionExperienceMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(LearningRateMultiplier), minValue: 1, maxValue: 1000)]
-        public int LearningRateMultiplier { get; set; } = 1;
+        [LocalizedSettingPropertyFloatingInteger(nameof(LearningRateMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float LearningRateMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(ExperienceGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(CompanionLearningRateMultiplier), minValue: 1.0f, maxValue: 1000.0f)]

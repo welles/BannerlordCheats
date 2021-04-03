@@ -750,4 +750,10 @@
   <data name="SliceThroughEveryone_Desc" xml:space="preserve">
     <value>Always slice through enemies with every attack unless blocked by their weapon.</value>
   </data>
+  <data name="PlayerHorseInvincible_Name" xml:space="preserve">
+    <value>Player Horse Invincible</value>
+  </data>
+  <data name="PlayerHorseInvincible_Desc" xml:space="preserve">
+    <value>Disables all damage to the horse the player is currently riding.</value>
+  </data>
 </root>
