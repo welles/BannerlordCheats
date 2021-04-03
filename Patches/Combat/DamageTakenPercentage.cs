@@ -2,6 +2,7 @@
 using HarmonyLib;
 using SandBox;
 using System;
+using BannerlordCheats.Extensions;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
@@ -13,8 +14,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if ((attackInformation.IsVictimAgentMine || (attackInformation.IsVictimAgentMount && attackInformation.IsVictimAgentRiderAgentMine))
-                && !BannerlordCheatsSettings.Instance.Invincible)
+            if (BannerlordCheatsSettings.Instance.DamageTakenPercentage < 100.0f
+                && !BannerlordCheatsSettings.Instance.Invincible
+                && attackInformation.VictimAgentCharacter.IsPlayer())
             {
                 var factor = BannerlordCheatsSettings.Instance.DamageTakenPercentage / 100f;
 
