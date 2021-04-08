@@ -144,8 +144,8 @@
   <data name="Map_GroupName" xml:space="preserve">
     <value>Map</value>
   </data>
-  <data name="Hotkeys_GroupName" xml:space="preserve">
-    <value>Hotkeys</value>
+  <data name="General_GroupName" xml:space="preserve">
+    <value>General</value>
   </data>
   <data name="Inventory_GroupName" xml:space="preserve">
     <value>Inventory</value>
