@@ -55,6 +55,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(EnableHotkeys))]
         public bool EnableHotkeys { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(GeneralGroupName)]
+        [LocalizedSettingPropertyBool(nameof(OverrideCheatMode))]
+        public bool OverrideCheatMode { get; set; } = false;
+
         #endregion General
 
         #region Map

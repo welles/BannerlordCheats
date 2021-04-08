@@ -780,4 +780,10 @@
   <data name="DecisionOverrideInfluenceCostPercentage_Desc" xml:space="preserve">
     <value>Percentage of influence cost to override a kingdom decision. 100% means full cost, 0% means no influence cost.</value>
   </data>
+  <data name="OverrideCheatMode_Name" xml:space="preserve">
+    <value>Force Enable Native Cheat Mode</value>
+  </data>
+  <data name="OverrideCheatMode_Desc" xml:space="preserve">
+    <value>Set to true to enable the native cheat mode during gameplay. You can leave the value in engine_config.txt on 0.</value>
+  </data>
 </root>
