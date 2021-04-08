@@ -11,7 +11,7 @@ namespace BannerlordCheats.Settings
 
         private const string ModName = "ModName";
         private const string CombatGroupName = "Combat";
-        private const string HotkeysGroupName = "Hotkeys";
+        private const string GeneralGroupName = "General";
         private const string MapGroupName = "Map";
         private const string InventoryGroupName = "Inventory";
         private const string PartyGroupName = "Party";
@@ -49,13 +49,13 @@ namespace BannerlordCheats.Settings
 
         public new static BannerlordCheatsSettings Instance => AttributePerSaveSettings<BannerlordCheatsSettings>.Instance ?? new BannerlordCheatsSettings();
 
-        #region Hotkeys
+        #region General
 
-        [LocalizedSettingPropertyGroup(HotkeysGroupName)]
+        [LocalizedSettingPropertyGroup(GeneralGroupName)]
         [LocalizedSettingPropertyBool(nameof(EnableHotkeys))]
         public bool EnableHotkeys { get; set; } = false;
 
-        #endregion Hotkeys
+        #endregion General
 
         #region Map
 
