@@ -762,4 +762,10 @@
   <data name="FriendlyLordCombatDeathPercentage_Desc" xml:space="preserve">
     <value>Percentage of chance of allied lords dying during combat. 100% means default chance, 0% means lords never die.</value>
   </data>
+  <data name="EnemyLordCombatDeathPercentage_Name" xml:space="preserve">
+    <value>Enemy Lord Combat Death Percentage</value>
+  </data>
+  <data name="EnemyLordCombatDeathPercentage_Desc" xml:space="preserve">
+    <value>Percentage of chance of enemy lords dying during combat. 100% means default chance, 0% means lords never die.</value>
+  </data>
 </root>
