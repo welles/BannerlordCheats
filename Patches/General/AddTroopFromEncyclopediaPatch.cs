@@ -8,7 +8,7 @@ using TaleWorlds.Core;
 using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 
-namespace BannerlordCheats.Patches.Hotkeys
+namespace BannerlordCheats.Patches.General
 {
     [HarmonyPatch(typeof(EncyclopediaPageVM), "OnTick")]
     public static class AddTroopFromEncyclopediaPatch
@@ -22,11 +22,11 @@ namespace BannerlordCheats.Patches.Hotkeys
             {
                 if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))
                 {
-                    AddTroops(characterObject, 10);
+                    AddTroopFromEncyclopediaPatch.AddTroops(characterObject, 10);
                 }
                 else if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftControl))
                 {
-                    AddTroops(characterObject, 1);
+                    AddTroopFromEncyclopediaPatch.AddTroops(characterObject, 1);
                 }
             }
         }

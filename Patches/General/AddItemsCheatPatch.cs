@@ -10,7 +10,7 @@ using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches.Hotkeys
+namespace BannerlordCheats.Patches.General
 {
     [HarmonyPatch(typeof(Module), "OnApplicationTick")]
     public static class AddItemsCheatPatch
