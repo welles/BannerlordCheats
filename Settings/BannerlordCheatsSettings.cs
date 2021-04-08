@@ -199,6 +199,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(EnemyLordCombatDeathPercentage))]
         public float EnemyLordCombatDeathPercentage { get; set; } = 100.0f;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(AlwaysKnockDown))]
+        public bool AlwaysKnockDown { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory
