@@ -2,7 +2,7 @@
 using HarmonyLib;
 using TaleWorlds.Core;
 
-namespace BannerlordCheats.Patches.Hotkeys
+namespace BannerlordCheats.Patches.General
 {
     [HarmonyPatch(typeof(Game), nameof(Game.CheatMode), MethodType.Getter)]
     public static class CheatModeOverridePatch
