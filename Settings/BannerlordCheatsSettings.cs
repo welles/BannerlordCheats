@@ -311,6 +311,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(NoCrimeRatingForCrimes))]
         public bool NoCrimeRatingForCrimes { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(DecisionOverrideInfluenceCostPercentage))]
+        public float DecisionOverrideInfluenceCostPercentage { get; set; } = 100.0f;
+
         #endregion Kingdom
 
         #region Experience

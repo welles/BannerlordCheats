@@ -774,4 +774,10 @@
   <data name="AlwaysKnockDown_Desc" xml:space="preserve">
     <value>Always knock down enemies on every hit.</value>
   </data>
+  <data name="DecisionOverrideInfluenceCostPercentage_Name" xml:space="preserve">
+    <value>Decision Override Influence Cost Percentage</value>
+  </data>
+  <data name="DecisionOverrideInfluenceCostPercentage_Desc" xml:space="preserve">
+    <value>Percentage of influence cost to override a kingdom decision. 100% means full cost, 0% means no influence cost.</value>
+  </data>
 </root>
