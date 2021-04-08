@@ -195,6 +195,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(FriendlyLordCombatDeathPercentage))]
         public float FriendlyLordCombatDeathPercentage { get; set; } = 100.0f;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(EnemyLordCombatDeathPercentage))]
+        public float EnemyLordCombatDeathPercentage { get; set; } = 100.0f;
+
         #endregion Combat
 
         #region Inventory
