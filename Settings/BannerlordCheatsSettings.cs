@@ -191,6 +191,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(InstantCrossbowReload))]
         public bool InstantCrossbowReload { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(FriendlyLordCombatDeathPercentage))]
+        public float FriendlyLordCombatDeathPercentage { get; set; } = 100.0f;
+
         #endregion Combat
 
         #region Inventory
