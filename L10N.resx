@@ -786,4 +786,10 @@
   <data name="OverrideCheatMode_Desc" xml:space="preserve">
     <value>Set to true to enable the native cheat mode during gameplay. You can leave the value in engine_config.txt on 0.</value>
   </data>
+  <data name="EnableHotkeyTips_Name" xml:space="preserve">
+    <value>Enable Hotkey Tips</value>
+  </data>
+  <data name="EnableHotkeyTips_Desc" xml:space="preserve">
+    <value>Enable to see a list of available cheat hotkeys in every screen that has any.</value>
+  </data>
 </root>
