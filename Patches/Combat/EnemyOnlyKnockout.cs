@@ -12,7 +12,6 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
-
             if ((Mission.Current?.PlayerEnemyTeam?.ActiveAgents.Contains(effectedAgent) ?? false)
                 && BannerlordCheatsSettings.Instance.EnemyOnlyKnockout)
             {

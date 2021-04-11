@@ -33,19 +33,26 @@ namespace BannerlordCheats
 
                     SubModule.ErrorFile = errorFileName;
 
-                    var errorFilePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), errorFileName);
+                    var location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+                    var errorFilePath = Path.Combine(location, errorFileName);
 
                     var errorMessage = new StringBuilder();
+
                     foreach (var module in ModuleHelper.GetModules())
                     {
                         errorMessage.AppendLine($"{module.Name} {module.Version}");
                     }
+
                     errorMessage.AppendLine();
                     errorMessage.AppendLine(e.ToString());
 
                     File.WriteAllText(errorFilePath, errorMessage.ToString());
                 }
-                catch { }
+                catch
+                {
+                    // Not worth crashing for
+                }
             }
         }
     }

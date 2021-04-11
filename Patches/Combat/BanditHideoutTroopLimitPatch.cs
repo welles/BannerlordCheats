@@ -3,7 +3,7 @@ using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Combat
 {
     [HarmonyPatch(typeof(DefaultBanditDensityModel), nameof(DefaultBanditDensityModel.GetPlayerMaximumTroopCountForHideoutMission))]
     public static class BanditHideoutTroopLimitPatch

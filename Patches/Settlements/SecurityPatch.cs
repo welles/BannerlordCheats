@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 
@@ -10,7 +11,7 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void SecurityChange(ref Town __instance, ref float __result)
         {
-            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false)
+            if (__instance.IsPlayerTown()
                 && BannerlordCheatsSettings.Instance.DailySecurityBonus > 0)
             {
                 __result += BannerlordCheatsSettings.Instance.DailySecurityBonus;

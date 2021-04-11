@@ -11,7 +11,7 @@ using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.General
 {
     [HarmonyPatch(typeof(Module), "OnApplicationTick")]
     public static class TroopCountCheatPatch
@@ -21,11 +21,11 @@ namespace BannerlordCheats.Patches
         {
             if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddTroops(10);
+                TroopCountCheatPatch.AddTroops(10);
             }
             else if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddTroops(1);
+                TroopCountCheatPatch.AddTroops(1);
             }
         }
 
@@ -39,9 +39,14 @@ namespace BannerlordCheats.Patches
 
             if (selectedCharacter.IsHero) { return; }
 
-            var index = PartyBase.MainParty.MemberRoster.FindIndexOfTroop(selectedCharacter.Character);
-
-            PartyBase.MainParty.AddToMemberRosterElementAtIndex(index, count);
+            if (selectedCharacter.IsPrisoner)
+            {
+                PartyBase.MainParty.AddPrisoner(selectedCharacter.Character, count);
+            }
+            else
+            {
+                PartyBase.MainParty.AddMember(selectedCharacter.Character, count);
+            }
 
             var newTroop = selectedCharacter.Troop;
             newTroop.Number += count;

@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
 using TaleWorlds.MountAndBlade;
@@ -11,10 +12,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateMoraleChangeToCharacter(Agent agent, float moraleChange, float distance, ref float __result)
         {
-            if (agent != null
-                && agent.Team != null
-                && agent.Team.IsPlayerTeam
-                && BannerlordCheatsSettings.Instance.NoRunningAway)
+            if (BannerlordCheatsSettings.Instance.NoRunningAway
+                && agent.Origin.TryGetParty(out var party)
+                && party.IsPlayerParty())
             {
                 __result = 0.0f;
             }

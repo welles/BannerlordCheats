@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
@@ -11,7 +12,7 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPrefix]
         public static void OnWeaponAmountChange(ref EquipmentIndex slotIndex, ref short amount, ref Agent __instance)
         {
-            if ((__instance?.IsPlayerControlled ?? false)
+            if (__instance.IsPlayer()
                 && BannerlordCheatsSettings.Instance.InfiniteAmmo)
             {
                 var fullAmount = __instance.Equipment[slotIndex].MaxAmmo;

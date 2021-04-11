@@ -3,7 +3,7 @@ using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Inventory
 {
     [HarmonyPatch(typeof(DefaultInventoryCapacityModel), nameof(DefaultInventoryCapacityModel.CalculateInventoryCapacity))]
     public static class DefaultInventoryCapacityModelPatch
