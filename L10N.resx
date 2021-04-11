@@ -792,4 +792,10 @@
   <data name="EnableHotkeyTips_Desc" xml:space="preserve">
     <value>Enable to see a list of available cheat hotkeys in every screen that has any.</value>
   </data>
+  <data name="CompanionDeathPercentage_Name" xml:space="preserve">
+    <value>Player Companion Death Percentage</value>
+  </data>
+  <data name="CompanionDeathPercentage_Desc" xml:space="preserve">
+    <value>Percentage of chance of player companions dying during combat. 100% means default chance, 0% means companions never die.</value>
+  </data>
 </root>
