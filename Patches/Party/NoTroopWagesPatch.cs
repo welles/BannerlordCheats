@@ -1,11 +1,10 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
-using System;
-using BannerlordCheats.Extensions;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Party
 {
     [HarmonyPatch(typeof(DefaultPartyWageModel), nameof(DefaultPartyWageModel.GetTotalWage))]
     public static class NoTroopWagesPatch

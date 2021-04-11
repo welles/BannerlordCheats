@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
 using TaleWorlds.Core;
@@ -12,7 +13,8 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage, ref bool __result)
         {
-            if ((attackerAgent?.IsPlayerControlled ?? false)
+            if (attackerAgent.TryGetHuman(out var agent)
+                && agent.IsPlayer()
                 && BannerlordCheatsSettings.Instance.AlwaysCrushThroughShields)
             {
                 __result = true;

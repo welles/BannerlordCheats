@@ -3,7 +3,7 @@ using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Settlements
 {
     [HarmonyPatch(typeof(DefaultDisguiseDetectionModel), nameof(DefaultDisguiseDetectionModel.CalculateDisguiseDetectionProbability))]
     public static class DisguiseAlwaysWorksPatch

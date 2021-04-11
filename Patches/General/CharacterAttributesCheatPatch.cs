@@ -1,10 +1,9 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
-using System;
-using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
@@ -12,7 +11,7 @@ using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.General
 {
     [HarmonyPatch(typeof(Module), "OnApplicationTick")]
     public static class CharacterAttributesCheatPatch
@@ -42,32 +41,32 @@ namespace BannerlordCheats.Patches
 
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddPoint(CharacterAttributesEnum.Vigor);
+                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Vigor);
             }
 
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D2) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddPoint(CharacterAttributesEnum.Control);
+                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Control);
             }
 
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D3) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddPoint(CharacterAttributesEnum.Endurance);
+                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Endurance);
             }
 
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D4) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddPoint(CharacterAttributesEnum.Cunning);
+                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Cunning);
             }
 
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D5) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddPoint(CharacterAttributesEnum.Social);
+                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Social);
             }
 
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D6) && BannerlordCheatsSettings.Instance.EnableHotkeys)
             {
-                AddPoint(CharacterAttributesEnum.Intelligence);
+                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Intelligence);
             }
         }
 

@@ -33,7 +33,7 @@ jobs:
         id: versions
         run: |
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
-          $ModVersion = $ModVersion.TrimEnd(".0")
+          $ModVersion = $ModVersion -replace "\.0",""
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
           Write-Host "::set-output name=mod_version::$ModVersion"
           Write-Host "ModVersion: ""$ModVersion"""

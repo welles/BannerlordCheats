@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -16,7 +17,7 @@ namespace BannerlordCheats.Patches.Settlements
                 && isSelling
                 && BannerlordCheatsSettings.Instance.SellingPriceMultiplier > 1)
             {
-                __result *= BannerlordCheatsSettings.Instance.SellingPriceMultiplier;
+                __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.SellingPriceMultiplier);
             }
         }
     }

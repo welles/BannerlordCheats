@@ -1,8 +1,9 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Settlements
 {
     [HarmonyPatch(typeof(Town), nameof(Town.Construction), MethodType.Getter)]
     public static class OneDayConstructionPatch
@@ -10,7 +11,7 @@ namespace BannerlordCheats.Patches
         [HarmonyPostfix]
         public static void Construction(ref Town __instance, ref float __result)
         {
-            if ((__instance?.Owner?.Owner?.IsHumanPlayerCharacter ?? false)
+            if (__instance.IsPlayerTown()
                 && !__instance.CurrentBuilding.IsCurrentlyDefault
                 && BannerlordCheatsSettings.Instance.OneDayConstruction)
             {

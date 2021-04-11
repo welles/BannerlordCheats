@@ -11,7 +11,7 @@ using TaleWorlds.InputSystem;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.General
 {
     [HarmonyPatch(typeof(Module), "OnApplicationTick")]
     public static class TroopExperienceCheatPatch

@@ -1,21 +1,20 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
-using SandBox;
-using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
+    [HarmonyPatch(typeof(Agent), nameof(Agent.Invulnerable), MethodType.Getter)]
     public static class InvincibilityCheatPatch
     {
         [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
+        public static void Invulnerable(ref Agent __instance, ref bool __result)
         {
-            if ((attackInformation.IsVictimAgentMine || (attackInformation.IsVictimAgentMount && attackInformation.IsVictimAgentRiderAgentMine))
-                && BannerlordCheatsSettings.Instance.Invincible)
+            if (BannerlordCheatsSettings.Instance.Invincible
+                && __instance.IsPlayer())
             {
-                __result = 0;
+                __result = true;
             }
         }
     }

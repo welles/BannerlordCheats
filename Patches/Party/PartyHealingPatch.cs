@@ -4,7 +4,7 @@ using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
-namespace BannerlordCheats.Patches
+namespace BannerlordCheats.Patches.Party
 {
     [HarmonyPatch(typeof(DefaultPartyHealingModel), nameof(DefaultPartyHealingModel.GetDailyHealingForRegulars))]
     public static class PartyHealingPatchRegulars
