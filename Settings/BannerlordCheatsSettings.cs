@@ -200,6 +200,10 @@ namespace BannerlordCheats.Settings
         public bool InstantCrossbowReload { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(CompanionDeathPercentage))]
+        public float CompanionDeathPercentage { get; set; } = 100.0f;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyPercent(nameof(FriendlyLordCombatDeathPercentage))]
         public float FriendlyLordCombatDeathPercentage { get; set; } = 100.0f;
 
