@@ -1,4 +1,7 @@
-﻿using BannerlordCheats.Localization;
+﻿using System;
+using System.Linq;
+using System.Linq.Expressions;
+using BannerlordCheats.Localization;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using MCM.Abstractions.Settings.Base.PerSave;
@@ -25,6 +28,9 @@ namespace BannerlordCheats.Settings
         private const string CharactersGroupName = "Characters";
         private const string WorkshopsGroupName = "Workshops";
 
+        [Obsolete("Use TryGetModifiedValue instead of accessing the instance directly.", true)]
+        public new static BannerlordCheatsSettings Instance => AttributePerSaveSettings<BannerlordCheatsSettings>.Instance;
+
         public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}";
 
         public override string FolderName { get; } = "Cheats";
@@ -47,7 +53,36 @@ namespace BannerlordCheats.Settings
             this.DisplayName = $"{modName} {version}";
         }
 
-        public new static BannerlordCheatsSettings Instance => AttributePerSaveSettings<BannerlordCheatsSettings>.Instance ?? new BannerlordCheatsSettings();
+        public static bool TryGetModifiedValue<T>(Expression<Func<BannerlordCheatsSettings, T>> expression, out T modifiedValue)
+        {
+            var member = ((MemberExpression) expression.Body).Member;
+
+            var attribute = member.GetCustomAttributes(typeof(LocalizedSettingProperty), true).OfType<LocalizedSettingProperty>().Single();
+
+            var defaultValue = attribute.DefaultValue;
+
+            var instance = AttributePerSaveSettings<BannerlordCheatsSettings>.Instance;
+
+            if (instance == null)
+            {
+                modifiedValue = (T) defaultValue;
+
+                return false;
+            }
+
+            var value = ((PropertyInfo) member).GetValue(instance);
+
+            if (value.Equals(defaultValue))
+            {
+                modifiedValue = (T) defaultValue;
+
+                return false;
+            }
+
+            modifiedValue = (T) value;
+
+            return true;
+        }
 
         #region General
 
