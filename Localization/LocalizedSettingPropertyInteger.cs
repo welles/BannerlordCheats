@@ -1,11 +1,10 @@
 ﻿using MCM.Abstractions.Settings.Definitions;
-using System;
 
 namespace BannerlordCheats.Localization
 {
     public sealed class LocalizedSettingPropertyInteger : LocalizedSettingProperty, IPropertyDefinitionWithMinMax, IPropertyDefinitionWithFormat
     {
-        public LocalizedSettingPropertyInteger(string settingName, int minValue, int maxValue) : base(settingName)
+        public LocalizedSettingPropertyInteger(string settingName, int minValue, int maxValue, int defaultValue) : base(settingName, defaultValue)
         {
             this.MinValue = minValue;
             this.MaxValue = maxValue;

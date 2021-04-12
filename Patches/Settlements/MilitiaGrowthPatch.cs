@@ -11,10 +11,10 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void MilitiaChange(ref Town __instance, ref float __result)
         {
-            if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.Instance.DailyMilitiaBonus > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyMilitiaBonus, out var dailyMilitiaBonus)
+                && __instance.IsPlayerTown())
             {
-                __result += BannerlordCheatsSettings.Instance.DailyMilitiaBonus;
+                __result += dailyMilitiaBonus;
             }
         }
     }
@@ -25,10 +25,10 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void MilitiaChange(ref Village __instance, ref float __result)
         {
-            if (__instance.IsPlayerVillage()
-                && BannerlordCheatsSettings.Instance.DailyMilitiaBonus > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyMilitiaBonus, out var dailyMilitiaBonus)
+                && __instance.IsPlayerVillage())
             {
-                __result += BannerlordCheatsSettings.Instance.DailyMilitiaBonus;
+                __result += dailyMilitiaBonus;
             }
         }
     }

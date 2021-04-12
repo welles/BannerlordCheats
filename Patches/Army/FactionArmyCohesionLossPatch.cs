@@ -12,11 +12,11 @@ namespace BannerlordCheats.Patches.Army
         [HarmonyPostfix]
         public static void CohesionChange(ref ArmyObj __instance, ref float __result)
         {
-            if (BannerlordCheatsSettings.Instance.FactionArmyCohesionLossPercentage < 100
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.FactionArmyCohesionLossPercentage, out var factionArmyCohesionLossPercentage)
                 && __instance.Kingdom.Clans.Any(x => x.IsPlayerClan())
-                && !__instance.Parties.Any(x => x.IsMainParty))
+                && !__instance.Parties.Any(x => x.IsPlayerParty()))
             {
-                var factor = BannerlordCheatsSettings.Instance.FactionArmyCohesionLossPercentage / 100f;
+                var factor = factionArmyCohesionLossPercentage / 100f;
 
                 __result *= factor;
             }

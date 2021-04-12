@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches.Kingdom
         [HarmonyPostfix]
         public static void GetCrimeRatingOf(ref CrimeModel.CrimeType crime, ref object[] additionalArgs, ref float __result)
         {
-            if (BannerlordCheatsSettings.Instance.NoCrimeRatingForCrimes)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoCrimeRatingForCrimes, out var noCrimeRatingForCrimes)
+                && noCrimeRatingForCrimes)
             {
                 __result = 0f;
             }

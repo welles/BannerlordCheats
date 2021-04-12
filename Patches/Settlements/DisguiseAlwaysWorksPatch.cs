@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void CalculateDisguiseDetectionProbability(Settlement settlement, ref float __result)
         {
-            if (BannerlordCheatsSettings.Instance.DisguiseAlwaysWorks)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DisguiseAlwaysWorks, out var disguiseAlwaysWorks)
+                && disguiseAlwaysWorks)
             {
                 __result = 1;
             }

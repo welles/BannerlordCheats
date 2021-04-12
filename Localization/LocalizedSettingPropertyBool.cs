@@ -4,6 +4,6 @@ namespace BannerlordCheats.Localization
 {
     public sealed class LocalizedSettingPropertyBool : LocalizedSettingProperty, IPropertyDefinitionBool
     {
-        public LocalizedSettingPropertyBool(string settingName) : base(settingName) { }
+        public LocalizedSettingPropertyBool(string settingName, bool defaultValue) : base(settingName, defaultValue) { }
     }
 }

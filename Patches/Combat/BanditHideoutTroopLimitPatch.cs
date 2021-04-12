@@ -11,9 +11,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetPlayerMaximumTroopCountForHideoutMission(ref MobileParty party, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance.BanditHideoutTroopLimit > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.BanditHideoutTroopLimit, out var banditHideoutTroopLimit))
             {
-                __result += BannerlordCheatsSettings.Instance.BanditHideoutTroopLimit;
+                __result += banditHideoutTroopLimit;
             }
         }
     }

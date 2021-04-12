@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
@@ -11,10 +12,10 @@ namespace BannerlordCheats.Patches.Inventory
         [HarmonyPostfix]
         public static void CalculateInventoryCapacity(ref MobileParty mobileParty, ref bool includeDescriptions, ref int additionalTroops, ref int additionalSpareMounts, ref int additionalPackAnimals, ref bool includeFollowers, ref ExplainedNumber __result)
         {
-            if ((mobileParty?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.ExtraInventoryCapacity > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraInventoryCapacity, out var extraInventoryCapacity)
+                && mobileParty.IsPlayerParty())
             {
-                __result.Add(BannerlordCheatsSettings.Instance.ExtraInventoryCapacity);
+                __result.Add(extraInventoryCapacity);
             }
         }
     }

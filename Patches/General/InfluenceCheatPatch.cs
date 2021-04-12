@@ -18,7 +18,10 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletClanScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X) && BannerlordCheatsSettings.Instance.EnableHotkeys)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys
+                && ScreenManager.TopScreen is GauntletClanScreen
+                && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
             {
                 Hero.MainHero.AddInfluenceWithKingdom(1000);
 

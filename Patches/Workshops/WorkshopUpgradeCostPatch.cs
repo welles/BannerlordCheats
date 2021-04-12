@@ -10,9 +10,9 @@ namespace BannerlordCheats.Patches.Workshops
         [HarmonyPostfix]
         public static void GetUpgradeCost(ref int currentLevel, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance.WorkshopUpgradeCostPercentage < 100)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.WorkshopUpgradeCostPercentage, out var workshopUpgradeCostPercentage))
             {
-                var factor = BannerlordCheatsSettings.Instance.WorkshopUpgradeCostPercentage / 100f;
+                var factor = workshopUpgradeCostPercentage / 100f;
 
                 __result = (int) (__result * factor);
             }

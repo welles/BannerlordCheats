@@ -10,7 +10,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void DoesMissionRequireCivilianEquipment(ref Mission __instance, ref bool __result)
         {
-            if (BannerlordCheatsSettings.Instance.NeverRequireCivilianEquipment)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NeverRequireCivilianEquipment, out var neverRequireCivilianEquipment)
+                && neverRequireCivilianEquipment)
             {
                 __result = false;
             }

@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
 using TaleWorlds.MountAndBlade;
@@ -11,10 +12,10 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CrossbowReloadSpeed(ref Agent agent, ref float __result)
         {
-            if (agent != null && agent.IsMainAgent
-                && BannerlordCheatsSettings.Instance.CombatZoomMultiplier > 1)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CombatZoomMultiplier, out var combatZoomMultiplier)
+                && agent.IsPlayer())
             {
-                __result *= BannerlordCheatsSettings.Instance.CombatZoomMultiplier;
+                __result *= combatZoomMultiplier;
             }
         }
     }

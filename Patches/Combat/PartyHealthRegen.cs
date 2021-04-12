@@ -15,10 +15,10 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void OnApplicationTick(float dt)
         {
-            if ((Mission.Current != null)
-                && (Mission.Current.PlayerTeam != null)
-                && (MBCommon.IsPaused != true)
-                && (BannerlordCheatsSettings.Instance.PartyHealthRegeneration > 0))
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyHealthRegeneration, out var partyHealthRegeneration)
+                && Mission.Current != null
+                && Mission.Current.PlayerTeam != null
+                && MBCommon.IsPaused != true)
             {
                 var now = DateTime.Now.Second;
 
@@ -40,7 +40,7 @@ namespace BannerlordCheats.Patches.Combat
 
                         if (health < maxHealth)
                         {
-                            var regen = (BannerlordCheatsSettings.Instance.PartyHealthRegeneration / maxHealth) * 100;
+                            var regen = (partyHealthRegeneration / maxHealth) * 100;
                             var newHealth = (float)Math.Round(health + regen);
 
                             agent.Health = Math.Min(maxHealth, newHealth);

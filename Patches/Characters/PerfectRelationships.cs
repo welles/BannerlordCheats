@@ -11,8 +11,9 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void GetRelation(Hero otherHero, ref Hero __instance, ref int __result)
         {
-            if ((__instance.IsPlayer() || otherHero.IsPlayer())
-                && BannerlordCheatsSettings.Instance.PerfectRelationships)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PerfectRelationships, out var perfectRelationships)
+                && perfectRelationships
+                && (__instance.IsPlayer() || otherHero.IsPlayer()))
             {
                 __result = 100;
             }

@@ -11,10 +11,10 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void LoyaltyChange(ref Town __instance, ref float __result)
         {
-            if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.Instance.DailyLoyaltyBonus > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyLoyaltyBonus, out var dailyLoyaltyBonus)
+                && __instance.IsPlayerTown())
             {
-                __result += BannerlordCheatsSettings.Instance.DailyLoyaltyBonus;
+                __result += dailyLoyaltyBonus;
             }
         }
     }

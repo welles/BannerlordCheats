@@ -12,10 +12,10 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void GetPartySpottingRange(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if ((party?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.MapVisibilityMultiplier > 1.0f)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.MapVisibilityMultiplier, out var mapVisibilityMultiplier)
+                && party.IsPlayerParty())
             {
-                __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityMultiplier);
+                __result.AddMultiplier(mapVisibilityMultiplier);
             }
         }
     }

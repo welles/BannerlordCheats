@@ -12,10 +12,10 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetPartyPrisonerSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance.ExtraPartyPrisonerSize > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraPartyPrisonerSize, out var extraPartyPrisonerSize)
+                && party.IsPlayerParty())
             {
-                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyPrisonerSize);
+                __result.Add(extraPartyPrisonerSize);
             }
         }
     }

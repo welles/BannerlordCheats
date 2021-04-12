@@ -12,10 +12,10 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if ((mobileParty?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.TroopWagesPercentage < 100)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.TroopWagesPercentage, out var troopWagesPercentage)
+                && mobileParty.IsPlayerParty())
             {
-                __result.AddPercentage(BannerlordCheatsSettings.Instance.TroopWagesPercentage);
+                __result.AddPercentage(troopWagesPercentage);
             }
         }
     }

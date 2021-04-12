@@ -19,8 +19,6 @@ namespace BannerlordCheats.Localization
 
         public string GroupName { get; }
 
-        public bool IsMainToggle { get; }
-
         public int GroupOrder { get; }
     }
 }

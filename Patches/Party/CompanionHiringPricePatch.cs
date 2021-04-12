@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetCompanionHiringPrice(Hero companion, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance.FreeCompanionHiring)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.FreeCompanionHiring, out var freeCompanionHiring)
+                && freeCompanionHiring)
             {
                 __result = 0;
             }

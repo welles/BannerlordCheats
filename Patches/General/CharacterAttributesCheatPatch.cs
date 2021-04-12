@@ -19,54 +19,53 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A) && BannerlordCheatsSettings.Instance.EnableHotkeys)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys
+                && ScreenManager.TopScreen is GauntletCharacterDeveloperScreen)
             {
-                var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A))
+                {
+                    var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
 
-                var currentHero = charVM.CurrentCharacter.Hero;
+                    var currentHero = charVM.CurrentCharacter.Hero;
 
-                currentHero.SetAttributeValue(CharacterAttributesEnum.Control, 10);
-                currentHero.SetAttributeValue(CharacterAttributesEnum.Cunning, 10);
-                currentHero.SetAttributeValue(CharacterAttributesEnum.Endurance, 10);
-                currentHero.SetAttributeValue(CharacterAttributesEnum.Intelligence, 10);
-                currentHero.SetAttributeValue(CharacterAttributesEnum.Social, 10);
-                currentHero.SetAttributeValue(CharacterAttributesEnum.Vigor, 10);
+                    currentHero.SetAttributeValue(CharacterAttributesEnum.Control, 10);
+                    currentHero.SetAttributeValue(CharacterAttributesEnum.Cunning, 10);
+                    currentHero.SetAttributeValue(CharacterAttributesEnum.Endurance, 10);
+                    currentHero.SetAttributeValue(CharacterAttributesEnum.Intelligence, 10);
+                    currentHero.SetAttributeValue(CharacterAttributesEnum.Social, 10);
+                    currentHero.SetAttributeValue(CharacterAttributesEnum.Vigor, 10);
 
-                charVM.RefreshValues();
+                    charVM.RefreshValues();
 
-                var message = string.Format(L10N.GetText("SetAllAttributesMessage"), currentHero.Name);
+                    var message = string.Format(L10N.GetText("SetAllAttributesMessage"), currentHero.Name);
 
-                InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
-            }
-
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Vigor);
-            }
-
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D2) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Control);
-            }
-
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D3) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Endurance);
-            }
-
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D4) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Cunning);
-            }
-
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D5) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Social);
-            }
-
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D6) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Intelligence);
+                    InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1))
+                {
+                    CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Vigor);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D2))
+                {
+                    CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Control);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D3))
+                {
+                    CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Endurance);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D4))
+                {
+                    CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Cunning);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D5))
+                {
+                    CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Social);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D6))
+                {
+                    CharacterAttributesCheatPatch.AddPoint(CharacterAttributesEnum.Intelligence);
+                }
             }
         }
 

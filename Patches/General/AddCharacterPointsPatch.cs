@@ -18,33 +18,38 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.F) && BannerlordCheatsSettings.Instance.EnableHotkeys)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys
+                && ScreenManager.TopScreen is GauntletCharacterDeveloperScreen)
             {
-                var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.F))
+                {
+                    var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
 
-                var currentHero = charVM.CurrentCharacter.Hero;
+                    var currentHero = charVM.CurrentCharacter.Hero;
 
-                currentHero.HeroDeveloper.UnspentFocusPoints++;
+                    currentHero.HeroDeveloper.UnspentFocusPoints++;
 
-                charVM.CurrentCharacter.UnspentCharacterPoints++;
+                    charVM.CurrentCharacter.UnspentCharacterPoints++;
 
-                var message = string.Format(L10N.GetText("AddUnspentFocusPointMessage"), currentHero.Name);
+                    var message = string.Format(L10N.GetText("AddUnspentFocusPointMessage"), currentHero.Name);
 
-                InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
-            }
-            else if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.G) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+                    InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.G))
+                {
+                    var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
 
-                var currentHero = charVM.CurrentCharacter.Hero;
+                    var currentHero = charVM.CurrentCharacter.Hero;
 
-                currentHero.HeroDeveloper.UnspentAttributePoints++;
+                    currentHero.HeroDeveloper.UnspentAttributePoints++;
 
-                charVM.CurrentCharacter.UnspentAttributePoints++;
+                    charVM.CurrentCharacter.UnspentAttributePoints++;
 
-                var message = string.Format(L10N.GetText("AddUnspentAttributePointMessage"), currentHero.Name);
+                    var message = string.Format(L10N.GetText("AddUnspentAttributePointMessage"), currentHero.Name);
 
-                InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+                    InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+                }
             }
         }
     }

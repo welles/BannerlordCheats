@@ -11,9 +11,9 @@ namespace BannerlordCheats.Patches.Workshops
         [HarmonyPostfix]
         public static void GetBuyingCostForPlayer(ref Workshop workshop, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance.WorkshopBuyingCostPercentage < 100)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.WorkshopBuyingCostPercentage, out var workshopBuyingCostPercentage))
             {
-                var factor = BannerlordCheatsSettings.Instance.WorkshopBuyingCostPercentage / 100f;
+                var factor = workshopBuyingCostPercentage / 100f;
 
                 __result = (int) (__result * factor);
             }

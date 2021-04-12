@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void GetRequiredFocusPointsToAddFocus(ref SkillObject skill, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance.FreeFocusPointAssignment)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.FreeFocusPointAssignment, out var freeFocusPointAssignment)
+                && freeFocusPointAssignment)
             {
                 __result = 0;
             }

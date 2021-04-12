@@ -12,8 +12,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void SimulateHit(ref CharacterObject strikerTroop, ref CharacterObject struckTroop, ref PartyBase strikerParty, ref PartyBase struckParty, ref float strikerAdvantage, ref MapEvent battle, ref int __result)
         {
-            if (struckParty.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance.AlwaysWinBattleSimulation)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.AlwaysWinBattleSimulation, out var alwaysWinBattleSimulation)
+                && alwaysWinBattleSimulation
+                && struckParty.IsPlayerParty())
             {
                 __result = 0;
             }
