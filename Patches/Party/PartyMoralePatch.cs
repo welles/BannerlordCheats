@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
@@ -11,10 +12,10 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetEffectivePartyMorale(ref MobileParty mobileParty, ref bool includeDescription, ref ExplainedNumber __result)
         {
-            if ((mobileParty?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.ExtraPartyMorale > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraPartyMorale, out var extraPartyMorale)
+                && mobileParty.IsPlayerParty())
             {
-                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMorale);
+                __result.Add(extraPartyMorale);
             }
         }
     }

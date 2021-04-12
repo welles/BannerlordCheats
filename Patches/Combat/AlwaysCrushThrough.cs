@@ -13,9 +13,10 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage, ref bool __result)
         {
-            if (attackerAgent.TryGetHuman(out var agent)
-                && agent.IsPlayer()
-                && BannerlordCheatsSettings.Instance.AlwaysCrushThroughShields)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.AlwaysCrushThroughShields, out var alwaysCrushThroughShields)
+                && alwaysCrushThroughShields
+                && attackerAgent.TryGetHuman(out var agent)
+                && agent.IsPlayer())
             {
                 __result = true;
             }

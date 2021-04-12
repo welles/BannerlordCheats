@@ -18,9 +18,9 @@ namespace BannerlordCheats.Patches.Experience
             ref bool includeDescriptions,
             ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.Instance.LearningLimitMultiplier > 1.0f)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.LearningLimitMultiplier, out var learningLimitMultiplier))
             {
-                __result.AddMultiplier(BannerlordCheatsSettings.Instance.LearningLimitMultiplier);
+                __result.AddMultiplier(learningLimitMultiplier);
             }
         }
     }

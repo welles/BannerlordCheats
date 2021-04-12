@@ -19,13 +19,18 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys
+                && ScreenManager.TopScreen is GauntletPartyScreen)
             {
-                TroopCountCheatPatch.AddTroops(10);
-            }
-            else if (ScreenManager.TopScreen is GauntletPartyScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                TroopCountCheatPatch.AddTroops(1);
+                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
+                {
+                    TroopCountCheatPatch.AddTroops(10);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
+                {
+                    TroopCountCheatPatch.AddTroops(1);
+                }
             }
         }
 

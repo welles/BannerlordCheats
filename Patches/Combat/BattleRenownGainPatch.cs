@@ -12,10 +12,10 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateRenownGain(ref PartyBase party, ref float renownValueOfBattle, ref float contributionShare, ref ExplainedNumber result, ref float __result)
         {
-            if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance.RenownRewardMultiplier > 1)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.RenownRewardMultiplier, out var renownRewardMultiplier)
+                && party.IsPlayerParty())
             {
-                __result *= BannerlordCheatsSettings.Instance.RenownRewardMultiplier;
+                __result *= renownRewardMultiplier;
             }
         }
     }

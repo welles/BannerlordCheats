@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Smithing
         [HarmonyPostfix]
         public static void GetSmithingCostsForWeaponDesign(WeaponDesign weaponDesign, ref int[] __result)
         {
-            if (BannerlordCheatsSettings.Instance.SmithingCostPercentage < 100)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.SmithingCostPercentage, out var smithingCostPercentage))
             {
-                var factor = BannerlordCheatsSettings.Instance.SmithingCostPercentage / 100f;
+                var factor = smithingCostPercentage / 100f;
 
                 for (var i = 0; i < __result.Length; i++)
                 {

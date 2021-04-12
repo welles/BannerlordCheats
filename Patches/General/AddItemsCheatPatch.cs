@@ -18,13 +18,18 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is InventoryGauntletScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys
+                && ScreenManager.TopScreen is InventoryGauntletScreen)
             {
-                AddItemsCheatPatch.AddItems(100);
-            }
-            else if (ScreenManager.TopScreen is InventoryGauntletScreen && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H) && BannerlordCheatsSettings.Instance.EnableHotkeys)
-            {
-                AddItemsCheatPatch.AddItems(1);
+                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
+                {
+                    AddItemsCheatPatch.AddItems(100);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
+                {
+                    AddItemsCheatPatch.AddItems(1);
+                }
             }
         }
 

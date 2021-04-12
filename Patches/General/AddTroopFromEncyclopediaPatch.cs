@@ -16,8 +16,9 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnTick(ref EncyclopediaPageVM __instance)
         {
-            if (BannerlordCheatsSettings.Instance.EnableHotkeys
-                && __instance is EncyclopediaUnitPageVM unitPageVM
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys
+                && __instance is EncyclopediaUnitPageVM
                 && __instance.Obj is CharacterObject characterObject)
             {
                 if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))

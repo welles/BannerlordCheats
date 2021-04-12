@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 
@@ -10,7 +11,9 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void ShouldBeIgnored(ref MobileParty __instance, ref bool __result)
         {
-            if (__instance.IsMainParty && BannerlordCheatsSettings.Instance.PartyInvisibleOnMap)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyInvisibleOnMap, out var partyInvisibleOnMap)
+                && partyInvisibleOnMap
+                && __instance.IsPlayerParty())
             {
                 __result = true;
             }

@@ -1,4 +1,5 @@
 ﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
@@ -13,11 +14,11 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand, ref int __result)
         {
-            if ((clientParty?.IsMainParty ?? false)
-                && isSelling
-                && BannerlordCheatsSettings.Instance.SellingPriceMultiplier > 1)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.SellingPriceMultiplier, out var sellingPriceMultiplier)
+                && clientParty.IsPlayerParty()
+                && isSelling)
             {
-                __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.SellingPriceMultiplier);
+                __result = (int) Math.Round(__result * sellingPriceMultiplier);
             }
         }
     }

@@ -16,7 +16,8 @@ namespace BannerlordCheats.Patches.Combat
             ref bool isFatalHit,
             ref MeleeCollisionReaction __result)
         {
-            if (BannerlordCheatsSettings.Instance.SliceThroughEveryone
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.SliceThroughEveryone, out var sliceThroughEveryone)
+                && sliceThroughEveryone
                 && attacker.IsPlayer())
             {
                 __result = MeleeCollisionReaction.SlicedThrough;
@@ -38,7 +39,8 @@ namespace BannerlordCheats.Patches.Combat
             ref bool isShruggedOff,
             ref MeleeCollisionReaction colReaction)
         {
-            if (BannerlordCheatsSettings.Instance.SliceThroughEveryone
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.SliceThroughEveryone, out var sliceThroughEveryone)
+                && sliceThroughEveryone
                 && attacker.IsPlayer())
             {
                 colReaction = MeleeCollisionReaction.SlicedThrough;

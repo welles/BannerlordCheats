@@ -13,9 +13,10 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if (attackInformation.AttackerAgentCharacter.IsPlayer()
-                && !attackInformation.IsFriendlyFire
-                && BannerlordCheatsSettings.Instance.OneHitKill)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.OneHitKill, out var oneHitKill)
+                && oneHitKill
+                && attackInformation.AttackerAgentCharacter.IsPlayer()
+                && !attackInformation.IsFriendlyFire)
             {
                 __result = 10000;
             }

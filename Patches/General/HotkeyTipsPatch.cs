@@ -13,7 +13,10 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void PushScreen(ref ScreenBase screen)
         {
-            if (BannerlordCheatsSettings.Instance.EnableHotkeys && BannerlordCheatsSettings.Instance.EnableHotkeyTips)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeyTips, out var enableHotkeyTips)
+                && enableHotkeys
+                && enableHotkeyTips)
             {
                 switch (screen)
                 {
@@ -50,7 +53,10 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OpenEncyclopedia()
         {
-            if (BannerlordCheatsSettings.Instance.EnableHotkeys && BannerlordCheatsSettings.Instance.EnableHotkeyTips)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeyTips, out var enableHotkeyTips)
+                && enableHotkeys
+                && enableHotkeyTips)
             {
                 Message.Show("Encyclopedia Screen Cheat Hotkeys:");
                 Message.Show("CTRL + H: Add 1 soldier of the selected troop type to the party.");

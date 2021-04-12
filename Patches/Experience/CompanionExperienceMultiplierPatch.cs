@@ -11,11 +11,11 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void GetXpMultiplier(ref Hero hero, ref float __result)
         {
-            if ((hero?.IsPlayerCompanion?? false)
-                && (Campaign.Current?.GameStarted ?? false)
-                && BannerlordCheatsSettings.Instance.CompanionExperienceMultiplier > 1.0f)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionExperienceMultiplier, out var companionExperienceMultiplier)
+                && (hero?.IsPlayerCompanion?? false)
+                && (Campaign.Current?.GameStarted ?? false))
             {
-                __result *= BannerlordCheatsSettings.Instance.CompanionExperienceMultiplier;
+                __result *= companionExperienceMultiplier;
             }
         }
     }

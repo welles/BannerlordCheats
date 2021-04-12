@@ -14,10 +14,10 @@ namespace BannerlordCheats.Patches.Sieges
         [HarmonyPostfix]
         public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
         {
-            if ((side?.SiegeParties?.Any(x => x.IsPlayerParty()) ?? false)
-                && BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier > 1)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.SiegeBuildingSpeedMultiplier, out var siegeBuildingSpeedMultiplier)
+                && (side?.SiegeParties?.Any(x => x.IsPlayerParty()) ?? false))
             {
-                __result *= BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier;
+                __result *= siegeBuildingSpeedMultiplier;
             }
         }
     }

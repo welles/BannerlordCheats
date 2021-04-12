@@ -10,7 +10,10 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void CheatMode(ref bool __result)
         {
-            __result |= BannerlordCheatsSettings.Instance.OverrideCheatMode;
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.OverrideCheatMode, out var overrideCheatMode))
+            {
+                __result |= overrideCheatMode;
+            }
         }
     }
 }

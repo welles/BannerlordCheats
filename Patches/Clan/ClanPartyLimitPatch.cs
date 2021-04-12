@@ -11,10 +11,10 @@ namespace BannerlordCheats.Patches.Clan
         [HarmonyPostfix]
         public static void GetPartyLimitForTier(TaleWorlds.CampaignSystem.Clan clan, int clanTierToCheck, ref int __result)
         {
-            if (clan.IsPlayerClan()
-                && BannerlordCheatsSettings.Instance.ExtraClanPartyLimit > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraClanPartyLimit, out var extraClanPartyLimit)
+                && clan.IsPlayerClan())
             {
-                __result += BannerlordCheatsSettings.Instance.ExtraClanPartyLimit;
+                __result += extraClanPartyLimit;
             }
         }
     }

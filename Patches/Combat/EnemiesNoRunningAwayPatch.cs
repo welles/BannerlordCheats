@@ -11,11 +11,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateMoraleChangeToCharacter(Agent agent, float moraleChange, float distance, ref float __result)
         {
-            if (agent != null
-                && agent.Team != null
-                && Agent.Main?.Team != null
-                && agent.Team.IsEnemyOf(Agent.Main.Team)
-                && BannerlordCheatsSettings.Instance.EnemiesNoRunningAway)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemiesNoRunningAway, out var enemiesNoRunningAway)
+                && enemiesNoRunningAway
+                && (Mission.Current?.PlayerEnemyTeam?.ActiveAgents.Contains(agent) ?? false))
             {
                 __result = 0.0f;
             }

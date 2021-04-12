@@ -13,12 +13,10 @@ namespace BannerlordCheats.Patches.Army
         [HarmonyPostfix]
         public static void CalculateDailyFoodConsumptionf(ref MobileParty party, ref bool includeDescription, ref ExplainedNumber __result)
         {
-            if (party != null
-                && party.Army != null
-                && party.Army.Parties.Any(x => x?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage < 100)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ArmyFoodConsumptionPercentage, out var armyFoodConsumptionPercentage)
+                && party.Army.Parties.Any(x => x.IsPlayerParty()))
             {
-                __result.AddPercentage(BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage);
+                __result.AddPercentage(armyFoodConsumptionPercentage);
             }
         }
     }

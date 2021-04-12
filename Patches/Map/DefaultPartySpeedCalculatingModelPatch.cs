@@ -12,10 +12,10 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
         {
-            if ((mobileParty?.IsMainParty ?? false)
-                && BannerlordCheatsSettings.Instance.MapSpeedMultiplier > 1.0f)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.MapSpeedMultiplier, out var mapSpeedMultiplier)
+                && mobileParty.IsPlayerParty())
             {
-                __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapSpeedMultiplier);
+                __result.AddMultiplier(mapSpeedMultiplier);
             }
         }
     }

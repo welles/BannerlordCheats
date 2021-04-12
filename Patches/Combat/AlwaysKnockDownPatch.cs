@@ -18,7 +18,8 @@ namespace BannerlordCheats.Patches.Combat
             ref bool isInitialBlowShrugOff,
             ref Blow blow)
         {
-            if (BannerlordCheatsSettings.Instance.AlwaysKnockDown
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.AlwaysKnockDown, out var alwaysKnockDown)
+                && alwaysKnockDown
                 && attacker.IsPlayer())
             {
                 blow.BlowFlag &= ~BlowFlags.ShrugOff;

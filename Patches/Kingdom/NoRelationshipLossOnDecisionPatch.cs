@@ -11,7 +11,8 @@ namespace BannerlordCheats.Patches.Kingdom
         [HarmonyPostfix]
         public static void GetRelationChangeWithSponsor(Supporter.SupportWeights supportWeight, bool isOpposingSides, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance.NoRelationshipLossOnDecision)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoRelationshipLossOnDecision, out var noRelationshipLossOnDecision)
+                && noRelationshipLossOnDecision)
             {
                 __result = Math.Max(__result, 0);
             }

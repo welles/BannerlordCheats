@@ -11,10 +11,10 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void SecurityChange(ref Town __instance, ref float __result)
         {
-            if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.Instance.DailySecurityBonus > 0)
+            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailySecurityBonus, out var dailySecurityBonus)
+                && __instance.IsPlayerTown())
             {
-                __result += BannerlordCheatsSettings.Instance.DailySecurityBonus;
+                __result += dailySecurityBonus;
             }
         }
     }
