@@ -19,10 +19,10 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
-                && enableHotkeys
-                && ScreenManager.TopScreen is GauntletPartyScreen
-                && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
+            if (ScreenManager.TopScreen is GauntletPartyScreen
+                && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys)
             {
                 var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
 

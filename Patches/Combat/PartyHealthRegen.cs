@@ -15,10 +15,10 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void OnApplicationTick(float dt)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyHealthRegeneration, out var partyHealthRegeneration)
-                && Mission.Current != null
+            if (Mission.Current != null
                 && Mission.Current.PlayerTeam != null
-                && MBCommon.IsPaused != true)
+                && MBCommon.IsPaused != true
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyHealthRegeneration, out var partyHealthRegeneration))
             {
                 var now = DateTime.Now.Second;
 

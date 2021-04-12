@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
-                && enableHotkeys
-                && ScreenManager.TopScreen is GauntletCharacterDeveloperScreen)
+            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys)
             {
                 if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A))
                 {
