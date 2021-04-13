@@ -11,9 +11,9 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void ShouldBeIgnored(ref MobileParty __instance, ref bool __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyInvisibleOnMap, out var partyInvisibleOnMap)
-                && partyInvisibleOnMap
-                && __instance.IsPlayerParty())
+            if (__instance.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyInvisibleOnMap, out var partyInvisibleOnMap)
+                && partyInvisibleOnMap)
             {
                 __result = true;
             }

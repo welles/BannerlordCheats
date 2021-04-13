@@ -14,7 +14,7 @@ namespace BannerlordCheats.Patches.Army
         public static void CalculateDailyFoodConsumptionf(ref MobileParty party, ref bool includeDescription, ref ExplainedNumber __result)
         {
             if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ArmyFoodConsumptionPercentage, out var armyFoodConsumptionPercentage)
-                && party.Army.Parties.Any(x => x.IsPlayerParty()))
+                && (party?.Army?.Parties?.Any(x => x.IsPlayerParty()) ?? false))
             {
                 __result.AddPercentage(armyFoodConsumptionPercentage);
             }
