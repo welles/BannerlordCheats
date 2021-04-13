@@ -16,10 +16,10 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnTick(ref EncyclopediaPageVM __instance)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
-                && enableHotkeys
-                && __instance is EncyclopediaUnitPageVM
-                && __instance.Obj is CharacterObject characterObject)
+            if (__instance is EncyclopediaUnitPageVM
+                && __instance.Obj is CharacterObject characterObject
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
+                && enableHotkeys)
             {
                 if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))
                 {

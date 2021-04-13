@@ -12,8 +12,8 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.MapSpeedMultiplier, out var mapSpeedMultiplier)
-                && mobileParty.IsPlayerParty())
+            if (mobileParty.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.MapSpeedMultiplier, out var mapSpeedMultiplier))
             {
                 __result.AddMultiplier(mapSpeedMultiplier);
             }
