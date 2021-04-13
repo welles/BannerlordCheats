@@ -94,9 +94,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(EnableHotkeyTips), false)]
         public bool EnableHotkeyTips { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(GeneralGroupName)]
-        [LocalizedSettingPropertyBool(nameof(OverrideCheatMode), false)]
-        public bool OverrideCheatMode { get; set; } = false;
+        // [LocalizedSettingPropertyGroup(GeneralGroupName)]
+        // [LocalizedSettingPropertyBool(nameof(OverrideCheatMode), false)]
+        // public bool OverrideCheatMode { get; set; } = false;
 
         #endregion General
 
