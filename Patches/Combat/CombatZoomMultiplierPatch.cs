@@ -12,8 +12,8 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CrossbowReloadSpeed(ref Agent agent, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CombatZoomMultiplier, out var combatZoomMultiplier)
-                && agent.IsPlayer())
+            if (agent.IsPlayer()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.CombatZoomMultiplier, out var combatZoomMultiplier))
             {
                 __result *= combatZoomMultiplier;
             }

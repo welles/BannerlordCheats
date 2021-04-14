@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
 using TaleWorlds.Core;
@@ -12,9 +13,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemyOnlyKnockout, out var enemyOnlyKnockout)
-                && enemyOnlyKnockout
-                && (Mission.Current?.PlayerEnemyTeam?.ActiveAgents.Contains(effectedAgent) ?? false))
+            if (effectedAgent.IsPlayerEnemy()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemyOnlyKnockout, out var enemyOnlyKnockout)
+                && enemyOnlyKnockout)
             {
                 __result = 0f;
             }

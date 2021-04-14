@@ -1,6 +1,5 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
-using System.Linq;
 using BannerlordCheats.Extensions;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
@@ -13,8 +12,8 @@ namespace BannerlordCheats.Patches.Army
         [HarmonyPostfix]
         public static void CalculateDailyFoodConsumptionf(ref MobileParty party, ref bool includeDescription, ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ArmyFoodConsumptionPercentage, out var armyFoodConsumptionPercentage)
-                && (party?.Army?.Parties?.Any(x => x.IsPlayerParty()) ?? false))
+            if (party.IsPlayerArmy()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ArmyFoodConsumptionPercentage, out var armyFoodConsumptionPercentage))
             {
                 __result.AddPercentage(armyFoodConsumptionPercentage);
             }

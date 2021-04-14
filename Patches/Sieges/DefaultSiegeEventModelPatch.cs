@@ -1,6 +1,5 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
-using System.Linq;
 using BannerlordCheats.Extensions;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -14,8 +13,8 @@ namespace BannerlordCheats.Patches.Sieges
         [HarmonyPostfix]
         public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.SiegeBuildingSpeedMultiplier, out var siegeBuildingSpeedMultiplier)
-                && (side?.SiegeParties?.Any(x => x.IsPlayerParty()) ?? false))
+            if (siegeEvent.IsPlayerSiege()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.SiegeBuildingSpeedMultiplier, out var siegeBuildingSpeedMultiplier))
             {
                 __result *= siegeBuildingSpeedMultiplier;
             }

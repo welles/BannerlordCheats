@@ -11,8 +11,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void FoodChange(ref Town __instance, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyFoodBonus, out var dailyFoodBonus)
-                && __instance.IsPlayerTown())
+            if (__instance.IsPlayerTown()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyFoodBonus, out var dailyFoodBonus))
             {
                 __result += dailyFoodBonus;
             }

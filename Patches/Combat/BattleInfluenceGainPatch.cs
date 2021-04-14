@@ -12,8 +12,8 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateInfluenceGain(ref PartyBase party, ref float influenceValueOfBattle, ref float contributionShare, ref ExplainedNumber result, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.InfluenceRewardMultiplier, out var influenceRewardMultiplier)
-                && party.IsPlayerParty())
+            if (party.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.InfluenceRewardMultiplier, out var influenceRewardMultiplier))
             {
                 __result *= influenceRewardMultiplier;
             }

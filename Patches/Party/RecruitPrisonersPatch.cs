@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Party
             if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.InstantPrisonerRecruitment, out var instantPrisonerRecruitment)
                 && instantPrisonerRecruitment
                 && party.IsPlayerParty()
-                && (!character?.IsHero ?? false))
+                && !character.IsHero())
             {
-                __result = MobileParty.MainParty.PrisonRoster.GetTroopCount(character);
+                __result = party.PrisonRoster.GetTroopCount(character);
             }
         }
     }

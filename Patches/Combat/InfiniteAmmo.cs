@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPrefix]
         public static void OnWeaponAmountChange(ref EquipmentIndex slotIndex, ref short amount, ref Agent __instance)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.InfiniteAmmo, out var infiniteAmmo)
-                && infiniteAmmo
-                && __instance.IsPlayer())
+            if (__instance.IsPlayer()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.InfiniteAmmo, out var infiniteAmmo)
+                && infiniteAmmo)
             {
                 var fullAmount = __instance.Equipment[slotIndex].MaxAmmo;
 

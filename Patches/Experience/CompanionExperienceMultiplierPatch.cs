@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -11,9 +12,9 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void GetXpMultiplier(ref Hero hero, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionExperienceMultiplier, out var companionExperienceMultiplier)
-                && (hero?.IsPlayerCompanion?? false)
-                && (Campaign.Current?.GameStarted ?? false))
+            if (!hero.IsPlayer()
+                && hero.IsPlayerCompanion()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionExperienceMultiplier, out var companionExperienceMultiplier))
             {
                 __result *= companionExperienceMultiplier;
             }

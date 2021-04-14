@@ -13,9 +13,10 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum battleSide, MapEvent mapEvent, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoTroopSacrifice, out var noTroopSacrifice)
-                && noTroopSacrifice
-                && battleSide == mapEvent.PlayerSide)
+            if (mapEvent.IsPlayerMapEvent
+                && battleSide == mapEvent.PlayerSide
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoTroopSacrifice, out var noTroopSacrifice)
+                && noTroopSacrifice)
             {
                 __result = 0;
             }
@@ -28,9 +29,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoTroopSacrifice, out var noTroopSacrifice)
-                && noTroopSacrifice
-                && party.IsPlayerParty())
+            if (party.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoTroopSacrifice, out var noTroopSacrifice)
+                && noTroopSacrifice)
             {
                 __result = 0;
             }
@@ -43,9 +44,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoTroopSacrifice, out var noTroopSacrifice)
-                && noTroopSacrifice
-                && party.IsPlayerParty())
+            if (party.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoTroopSacrifice, out var noTroopSacrifice)
+                && noTroopSacrifice)
             {
                 __result = 0;
             }

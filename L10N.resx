@@ -145,7 +145,7 @@
     <value>Map</value>
   </data>
   <data name="General_GroupName" xml:space="preserve">
-    <value>General</value>
+    <value># General #</value>
   </data>
   <data name="Inventory_GroupName" xml:space="preserve">
     <value>Inventory</value>

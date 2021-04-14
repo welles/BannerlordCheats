@@ -11,8 +11,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void MilitiaChange(ref Town __instance, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyMilitiaBonus, out var dailyMilitiaBonus)
-                && __instance.IsPlayerTown())
+            if (__instance.IsPlayerTown()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyMilitiaBonus, out var dailyMilitiaBonus))
             {
                 __result += dailyMilitiaBonus;
             }
@@ -25,8 +25,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void MilitiaChange(ref Village __instance, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyMilitiaBonus, out var dailyMilitiaBonus)
-                && __instance.IsPlayerVillage())
+            if (__instance.IsPlayerVillage()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyMilitiaBonus, out var dailyMilitiaBonus))
             {
                 __result += dailyMilitiaBonus;
             }

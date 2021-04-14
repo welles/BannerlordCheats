@@ -5,10 +5,8 @@ namespace BannerlordCheats.Localization
 {
     public abstract class LocalizedSettingProperty : Attribute, IPropertyDefinitionBase
     {
-        public LocalizedSettingProperty(string settingName, object defaultValue)
+        public LocalizedSettingProperty(string settingName)
         {
-            this.DefaultValue = defaultValue;
-
             try
             {
                 this.DisplayName = L10N.GetText(settingName + "_Name");
@@ -28,7 +26,5 @@ namespace BannerlordCheats.Localization
         public bool RequireRestart { get; } = false;
 
         public string HintText { get; }
-
-        public object DefaultValue { get; }
     }
 }

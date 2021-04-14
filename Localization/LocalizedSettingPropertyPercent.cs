@@ -4,7 +4,7 @@ namespace BannerlordCheats.Localization
 {
     public sealed class LocalizedSettingPropertyPercent : LocalizedSettingProperty, IPropertyDefinitionWithMinMax, IPropertyDefinitionWithFormat
     {
-        public LocalizedSettingPropertyPercent(string settingName, float defaultValue) : base(settingName, defaultValue) { }
+        public LocalizedSettingPropertyPercent(string settingName) : base(settingName) { }
 
         public string ValueFormat { get; } = "0.00\\%";
 

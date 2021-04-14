@@ -13,8 +13,8 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void CalculateLearningRate(ref Hero hero, SkillObject skill, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.LearningRateMultiplier, out var learningRateMultiplier)
-                && hero.IsPlayer())
+            if (hero.IsPlayer()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.LearningRateMultiplier, out var learningRateMultiplier))
             {
                 __result *= learningRateMultiplier;
             }

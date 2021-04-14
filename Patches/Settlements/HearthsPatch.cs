@@ -11,8 +11,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void HearthChange(ref Village __instance, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyHearthsBonus, out var dailyHearthsBonus)
-                && __instance.IsPlayerVillage())
+            if (__instance.IsPlayerVillage()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyHearthsBonus, out var dailyHearthsBonus))
             {
                 __result += dailyHearthsBonus;
             }

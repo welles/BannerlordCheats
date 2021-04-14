@@ -11,8 +11,8 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void GarrisonChange(ref Town __instance, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyGarrisonBonus, out var dailyGarrisonBonus)
-                && __instance.IsPlayerTown())
+            if (__instance.IsPlayerTown()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyGarrisonBonus, out var dailyGarrisonBonus))
             {
                 __result += dailyGarrisonBonus;
             }

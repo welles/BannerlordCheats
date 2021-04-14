@@ -8,5 +8,10 @@ namespace BannerlordCheats.Extensions
         {
             return clan?.Leader?.IsHumanPlayerCharacter ?? false;
         }
+
+        public static bool IsPlayerClan(this PartyBase party)
+        {
+            return party?.Owner?.Clan?.IsPlayerClan() ?? false;
+        }
     }
 }

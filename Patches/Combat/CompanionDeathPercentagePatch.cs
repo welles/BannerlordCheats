@@ -13,11 +13,8 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionDeathPercentage, out var companionDeathPercentage)
-                && effectedAgent.Character.IsHero
-                && !effectedAgent.Character.IsPlayer()
-                && effectedAgent.Origin.TryGetParty(out var party)
-                && party.IsPlayerParty())
+            if (effectedAgent.IsPlayerCompanion()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionDeathPercentage, out var companionDeathPercentage))
             {
                 var factor = companionDeathPercentage / 100f;
 

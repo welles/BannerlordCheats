@@ -8,5 +8,10 @@ namespace BannerlordCheats.Extensions
         {
             return characterObject?.IsPlayerCharacter ?? false;
         }
+
+        public static bool IsHero(this BasicCharacterObject characterObject)
+        {
+            return characterObject?.IsHero ?? false;
+        }
     }
 }
