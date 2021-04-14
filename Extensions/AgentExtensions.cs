@@ -58,9 +58,35 @@ namespace BannerlordCheats.Extensions
             }
         }
 
+        public static bool IsHero(this Agent agent)
+        {
+            return agent?.IsHero ?? false;
+        }
+
         public static bool IsPlayer(this Agent agent)
         {
             return agent?.Character?.IsPlayer() ?? false;
+        }
+
+        public static bool IsPlayerCompanion(this Agent agent)
+        {
+            return !agent.IsPlayer()
+                && agent.IsHero()
+                && agent.Origin.TryGetParty(out var party)
+                && party.IsPlayerParty();
+        }
+
+        public static bool IsPlayerEnemy(this Agent agent)
+        {
+            return agent?.Team != null
+                && !agent.Team.IsPlayerTeam
+                && !agent.Team.IsPlayerAlly;
+        }
+
+        public static bool IsPlayerAlly(this Agent agent)
+        {
+            return agent?.Team != null
+                   && (agent.Team.IsPlayerTeam || agent.Team.IsPlayerAlly);
         }
     }
 }

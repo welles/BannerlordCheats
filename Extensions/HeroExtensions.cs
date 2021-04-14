@@ -8,5 +8,10 @@ namespace BannerlordCheats.Extensions
         {
             return hero?.IsHumanPlayerCharacter ?? false;
         }
+
+        public static bool IsPlayerCompanion(this Hero hero)
+        {
+            return hero?.IsPlayerCompanion ?? false;
+        }
     }
 }
