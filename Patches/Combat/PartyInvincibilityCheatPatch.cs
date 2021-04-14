@@ -11,12 +11,12 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void Invulnerable(ref Agent __instance, ref bool __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyInvincible, out var partyInvincible)
-                && partyInvincible
-                && __instance.TryGetHuman(out var agent)
+            if (__instance.TryGetHuman(out var agent)
                 && agent.Origin.TryGetParty(out var party)
                 && party.IsPlayerParty()
-                && !agent.IsHero)
+                && !agent.IsHero()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyInvincible, out var partyInvincible)
+                && partyInvincible)
             {
                 __result = true;
             }

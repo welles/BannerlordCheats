@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.GarrisonWagesPercentage, out var garrisonWagesPercentage)
-                && mobileParty.IsGarrison
-                && mobileParty.IsPlayerParty())
+            if (mobileParty.IsGarrison
+                && mobileParty.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.GarrisonWagesPercentage, out var garrisonWagesPercentage))
             {
                 __result.AddPercentage(garrisonWagesPercentage);
             }

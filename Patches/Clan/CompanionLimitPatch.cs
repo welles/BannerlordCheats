@@ -11,8 +11,8 @@ namespace BannerlordCheats.Patches.Clan
         [HarmonyPostfix]
         public static void GetCompanionLimit(ref TaleWorlds.CampaignSystem.Clan clan, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraCompanionLimit, out var extraCompanionLimit)
-                && clan.IsPlayerClan())
+            if (clan.IsPlayerClan()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraCompanionLimit, out var extraCompanionLimit))
             {
                 __result += extraCompanionLimit;
             }

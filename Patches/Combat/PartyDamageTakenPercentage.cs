@@ -14,10 +14,10 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyDamageTakenPercentage, out var partyDamageTakenPercentage)
-                && attackInformation.VictimAgentOrigin.TryGetParty(out var party)
+            if ( attackInformation.VictimAgentOrigin.TryGetParty(out var party)
                 && party.IsPlayerParty()
-                && !attackInformation.VictimAgentCharacter.IsPlayer())
+                && !attackInformation.VictimAgentCharacter.IsPlayer()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyDamageTakenPercentage, out var partyDamageTakenPercentage))
             {
                 var factor = partyDamageTakenPercentage / 100f;
 

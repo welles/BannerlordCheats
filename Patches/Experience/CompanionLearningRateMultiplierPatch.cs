@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -12,8 +13,9 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void CalculateLearningRate(ref Hero hero, ref SkillObject skill, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionLearningRateMultiplier, out var companionLearningRateMultiplier)
-                && (hero?.IsPlayerCompanion ?? false))
+            if (!hero.IsPlayer()
+                && hero.IsPlayerCompanion()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionLearningRateMultiplier, out var companionLearningRateMultiplier))
             {
                 __result *= companionLearningRateMultiplier;
             }

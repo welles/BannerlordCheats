@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using BannerlordCheats.Extensions;
+﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using ArmyObj = TaleWorlds.CampaignSystem.Army;
@@ -12,8 +11,8 @@ namespace BannerlordCheats.Patches.Army
         [HarmonyPostfix]
         public static void CohesionChange(ref ArmyObj __instance, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ArmyCohesionLossPercentage, out var armyCohesionLossPercentage)
-                && __instance.Parties.Any(x => x.IsPlayerParty()))
+            if (__instance.IsPlayerArmy()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ArmyCohesionLossPercentage, out var armyCohesionLossPercentage))
             {
                 var factor = armyCohesionLossPercentage / 100f;
 

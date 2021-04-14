@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using BannerlordCheats.Extensions;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
 using TaleWorlds.Core;
@@ -12,9 +13,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemyLordCombatDeathPercentage, out var enemyLordCombatDeathPercentage)
-                && effectedAgent.Character.IsHero
-                && !effectedAgent.Team.IsPlayerAlly)
+            if (effectedAgent.IsHero()
+                && effectedAgent.IsPlayerEnemy()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemyLordCombatDeathPercentage, out var enemyLordCombatDeathPercentage))
             {
                 var factor = enemyLordCombatDeathPercentage / 100f;
 

@@ -11,10 +11,10 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void Construction(ref Town __instance, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.OneDayConstruction, out var oneDayConstruction)
-                && oneDayConstruction
-                && __instance.IsPlayerTown()
-                && !__instance.CurrentBuilding.IsCurrentlyDefault)
+            if (__instance.IsPlayerTown()
+                && !__instance.CurrentBuilding.IsCurrentlyDefault
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.OneDayConstruction, out var oneDayConstruction)
+                && oneDayConstruction)
             {
                 __result = __instance.CurrentBuilding.GetConstructionCost();
             }

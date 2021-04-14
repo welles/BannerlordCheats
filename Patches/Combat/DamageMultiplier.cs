@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DamageMultiplier, out var damageMultiplier)
-                && attackInformation.AttackerAgentCharacter.IsPlayer()
-                && !attackInformation.IsFriendlyFire)
+            if (attackInformation.AttackerAgentCharacter.IsPlayer()
+                && !attackInformation.IsFriendlyFire
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DamageMultiplier, out var damageMultiplier))
             {
                 __result *= damageMultiplier;
             }

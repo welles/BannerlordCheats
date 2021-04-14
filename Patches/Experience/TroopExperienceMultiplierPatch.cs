@@ -21,9 +21,9 @@ namespace BannerlordCheats.Patches.Experience
             ref CombatXpModel.MissionTypeEnum missionType,
             ref int xpAmount)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.TroopExperienceMultiplier, out var troopExperienceMultiplier)
-                && party.IsPlayerParty()
-                && !attackerTroop.IsPlayerCharacter)
+            if (party.IsPlayerParty()
+                && !attackerTroop.IsPlayer()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.TroopExperienceMultiplier, out var troopExperienceMultiplier))
             {
                 xpAmount = (int) Math.Round(xpAmount * troopExperienceMultiplier);
             }

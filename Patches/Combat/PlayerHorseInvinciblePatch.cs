@@ -11,11 +11,11 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void Invulnerable(ref Agent __instance, ref bool __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PlayerHorseInvincible, out var playerHorseInvincible)
-                && playerHorseInvincible
-                && __instance.IsMount
+            if (__instance.IsMount
                 && __instance.TryGetHuman(out var rider)
-                && rider.IsPlayer())
+                && rider.IsPlayer()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PlayerHorseInvincible, out var playerHorseInvincible)
+                && playerHorseInvincible)
             {
                 __result = true;
             }

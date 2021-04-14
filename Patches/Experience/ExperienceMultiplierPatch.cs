@@ -12,9 +12,8 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void GetXpMultiplier(Hero hero, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExperienceMultiplier, out var experienceMultiplier)
-                && hero.IsPlayer()
-                && (Campaign.Current?.GameStarted ?? false))
+            if (hero.IsPlayer()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExperienceMultiplier, out var experienceMultiplier))
             {
                 __result *= experienceMultiplier;
             }

@@ -12,8 +12,8 @@ namespace BannerlordCheats.Patches.Inventory
         [HarmonyPostfix]
         public static void CalculateInventoryCapacity(ref MobileParty mobileParty, ref bool includeDescriptions, ref int additionalTroops, ref int additionalSpareMounts, ref int additionalPackAnimals, ref bool includeFollowers, ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraInventoryCapacity, out var extraInventoryCapacity)
-                && mobileParty.IsPlayerParty())
+            if (mobileParty.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraInventoryCapacity, out var extraInventoryCapacity))
             {
                 __result.Add(extraInventoryCapacity);
             }

@@ -14,8 +14,8 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DamageTakenPercentage, out var damageTakenPercentage)
-                && attackInformation.VictimAgentCharacter.IsPlayer())
+            if (attackInformation.VictimAgentCharacter.IsPlayer()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DamageTakenPercentage, out var damageTakenPercentage))
             {
                 var factor = damageTakenPercentage / 100f;
 

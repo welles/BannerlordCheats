@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetGoldCostForUpgrade(ref PartyBase party, ref CharacterObject characterObject, ref CharacterObject upgradeTarget, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.FreeTroopUpgrades, out var freeTroopUpgrades)
-                && freeTroopUpgrades
-                && party.IsPlayerParty())
+            if (party.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.FreeTroopUpgrades, out var freeTroopUpgrades)
+                && freeTroopUpgrades)
             {
                 __result = 0;
             }

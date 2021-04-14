@@ -12,8 +12,9 @@ namespace BannerlordCheats.Patches.Clan
         [HarmonyPostfix]
         public static void GetPartyMemberSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraClanPartySize, out var extraClanPartySize)
-                && party.Owner.Clan.IsPlayerClan())
+            if (party.IsPlayerClan()
+                && !party.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraClanPartySize, out var extraClanPartySize))
             {
                 __result.Add(extraClanPartySize);
             }

@@ -12,8 +12,8 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetEffectivePartyMorale(ref MobileParty mobileParty, ref bool includeDescription, ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraPartyMorale, out var extraPartyMorale)
-                && mobileParty.IsPlayerParty())
+            if (mobileParty.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraPartyMorale, out var extraPartyMorale))
             {
                 __result.Add(extraPartyMorale);
             }

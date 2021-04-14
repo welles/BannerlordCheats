@@ -12,8 +12,8 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetDailyHealingForRegulars(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyHealingMultiplier, out var partyHealingMultiplier)
-                && party.IsPlayerParty())
+            if (party.IsPlayerParty()
+            && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyHealingMultiplier, out var partyHealingMultiplier))
             {
                 __result.AddMultiplier(partyHealingMultiplier);
             }
@@ -26,8 +26,8 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetDailyHealingHpForHeroes(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyHealingMultiplier, out var partyHealingMultiplier)
-                && party.IsPlayerParty())
+            if (party.IsPlayerParty()
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyHealingMultiplier, out var partyHealingMultiplier))
             {
                 __result.AddMultiplier(partyHealingMultiplier);
             }

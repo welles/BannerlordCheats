@@ -11,11 +11,11 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPrefix]
         public static bool ApplyByEscape(Hero character, Hero facilitator)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoPrisonerEscape, out var noPrisonerEscape)
-                && noPrisonerEscape
-                && character.IsPrisoner
+            if (character.IsPrisoner
                 && character.PartyBelongedToAsPrisoner != null
-                && character.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction)
+                && character.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoPrisonerEscape, out var noPrisonerEscape)
+                && noPrisonerEscape)
             {
                 return false;
             }

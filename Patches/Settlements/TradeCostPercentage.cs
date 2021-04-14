@@ -14,9 +14,9 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ItemTradingCostPercentage, out var itemTradingCostPercentage)
-                && clientParty.IsPlayerParty()
-                && !isSelling)
+            if (clientParty.IsPlayerParty()
+                && !isSelling
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ItemTradingCostPercentage, out var itemTradingCostPercentage))
             {
                 var factor = itemTradingCostPercentage / 100f;
 
