@@ -1,9 +1,10 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Linq.Expressions;
 using BannerlordCheats.Localization;
 using System.Reflection;
 using System.Text.RegularExpressions;
+using BannerlordCheats.Extensions;
 using MCM.Abstractions.Settings.Base.PerSave;
 
 namespace BannerlordCheats.Settings
@@ -27,6 +28,12 @@ namespace BannerlordCheats.Settings
         private const string SettlementsGroupName = "Settlements";
         private const string CharactersGroupName = "Characters";
         private const string WorkshopsGroupName = "Workshops";
+
+        private static readonly BannerlordCheatsSettings Default = new BannerlordCheatsSettings();
+
+        #if DEBUG
+        private static readonly Dictionary<string, long> Counter = new Dictionary<string, long>();
+        #endif
 
         [Obsolete("Use TryGetModifiedValue instead of accessing the instance directly.", true)]
         public new static BannerlordCheatsSettings Instance => AttributePerSaveSettings<BannerlordCheatsSettings>.Instance;
@@ -55,33 +62,45 @@ namespace BannerlordCheats.Settings
 
         public static bool TryGetModifiedValue<T>(Expression<Func<BannerlordCheatsSettings, T>> expression, out T modifiedValue)
         {
-            var member = ((MemberExpression) expression.Body).Member;
-
-            var attribute = member.GetCustomAttributes(typeof(LocalizedSettingProperty), true).OfType<LocalizedSettingProperty>().Single();
-
-            var defaultValue = attribute.DefaultValue;
-
             var instance = AttributePerSaveSettings<BannerlordCheatsSettings>.Instance;
 
             if (instance == null)
             {
-                modifiedValue = (T) defaultValue;
+                modifiedValue = default;
 
                 return false;
             }
 
-            var value = ((PropertyInfo) member).GetValue(instance);
+            var propertyInfo = (PropertyInfo) ((MemberExpression) expression.Body).Member;
 
-            if (value.Equals(defaultValue))
+            #if DEBUG
+            var name = propertyInfo.Name;
+            if (BannerlordCheatsSettings.Counter.TryGetValue(name, out var counter))
             {
-                modifiedValue = (T) defaultValue;
+                BannerlordCheatsSettings.Counter[name] = counter + 1;
+            }
+            else
+            {
+                BannerlordCheatsSettings.Counter.Add(name, 1);
+            }
+            #endif
 
-                return false;
+            var accessor = PropertyInfoHelper<BannerlordCheatsSettings, T>.GetFastAccessor(propertyInfo);
+
+            var defaultValue = accessor.GetValue(BannerlordCheatsSettings.Default);
+
+            var currentValue = accessor.GetValue(instance);
+
+            if (!EqualityComparer<T>.Default.Equals(defaultValue, currentValue))
+            {
+                modifiedValue = currentValue;
+
+                return true;
             }
 
-            modifiedValue = (T) value;
+            modifiedValue = defaultValue;
 
-            return true;
+            return false;
         }
 
         #region General
