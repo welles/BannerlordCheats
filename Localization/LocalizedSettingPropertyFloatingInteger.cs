@@ -5,7 +5,7 @@ namespace BannerlordCheats.Localization
 {
     public sealed class LocalizedSettingPropertyFloatingInteger : LocalizedSettingProperty, IPropertyDefinitionWithMinMax, IPropertyDefinitionWithFormat
     {
-        public LocalizedSettingPropertyFloatingInteger(string settingName, float minValue, float maxValue, float defaultValue) : base(settingName, defaultValue)
+        public LocalizedSettingPropertyFloatingInteger(string settingName, float minValue, float maxValue) : base(settingName)
         {
             this.MinValue = Convert.ToDecimal(minValue);
             this.MaxValue = Convert.ToDecimal(maxValue);
