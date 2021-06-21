@@ -453,9 +453,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(OneDayConstruction))]
         public bool OneDayConstruction { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
-        public bool FreeTroopRecruitment { get; set; } = false;
+        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        // [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
+        // public bool FreeTroopRecruitment { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(ItemTradingCostPercentage))]
