@@ -10,12 +10,16 @@ namespace BannerlordCheats.Patches.Combat
     public static class BattleRenownGainPatch
     {
         [HarmonyPostfix]
-        public static void CalculateRenownGain(ref PartyBase party, ref float renownValueOfBattle, ref float contributionShare, ref ExplainedNumber result, ref float __result)
+        public static void CalculateRenownGain(
+            ref PartyBase party,
+            ref float renownValueOfBattle,
+            ref float contributionShare,
+            ref ExplainedNumber __result)
         {
             if (party.IsPlayerParty()
                 && BannerlordCheatsSettings.TryGetModifiedValue(x => x.RenownRewardMultiplier, out var renownRewardMultiplier))
             {
-                __result *= renownRewardMultiplier;
+                __result.AddMultiplier(renownRewardMultiplier);
             }
         }
     }

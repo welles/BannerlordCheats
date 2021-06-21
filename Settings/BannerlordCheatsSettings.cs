@@ -113,25 +113,25 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(EnableHotkeyTips))]
         public bool EnableHotkeyTips { get; set; } = false;
 
-        // [LocalizedSettingPropertyGroup(GeneralGroupName)]
-        // [LocalizedSettingPropertyBool(nameof(OverrideCheatMode))]
-        // public bool OverrideCheatMode { get; set; } = false;
+        [LocalizedSettingPropertyGroup(GeneralGroupName)]
+        [LocalizedSettingPropertyBool(nameof(OverrideCheatMode))]
+        public bool OverrideCheatMode { get; set; } = false;
 
         #endregion General
 
         #region Map
 
-        [LocalizedSettingPropertyGroup(MapGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(MapSpeedMultiplier), minValue: 1.0f, maxValue: 100.0f)]
-        public float MapSpeedMultiplier { get; set; } = 1.0f;
+        // [LocalizedSettingPropertyGroup(MapGroupName)]
+        // [LocalizedSettingPropertyFloatingInteger(nameof(MapSpeedMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        // public float MapSpeedMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(MapVisibilityMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float MapVisibilityMultiplier { get; set; } = 1.0f;
 
-        [LocalizedSettingPropertyGroup(MapGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
-        public float NpcMapSpeedPercentage { get; set; } = 100.0f;
+        // [LocalizedSettingPropertyGroup(MapGroupName)]
+        // [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
+        // public float NpcMapSpeedPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvisibleOnMap))]
@@ -229,9 +229,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
         public bool InfiniteAmmo { get; set; } = false;
 
-        // [LocalizedSettingPropertyGroup(CombatGroupName)]
-        // [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
-        // public bool PartyInfiniteAmmo { get; set; } = false;
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
+        public bool PartyInfiniteAmmo { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(DamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
@@ -301,9 +301,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(FoodConsumptionPercentage))]
         public float FoodConsumptionPercentage { get; set; } = 100.0f;
 
-        [LocalizedSettingPropertyGroup(PartyGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(TroopWagesPercentage))]
-        public float TroopWagesPercentage { get; set; } = 100.0f;
+        // [LocalizedSettingPropertyGroup(PartyGroupName)]
+        // [LocalizedSettingPropertyPercent(nameof(TroopWagesPercentage))]
+        // public float TroopWagesPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(FreeTroopUpgrades))]
@@ -453,9 +453,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(OneDayConstruction))]
         public bool OneDayConstruction { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
-        public bool FreeTroopRecruitment { get; set; } = false;
+        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        // [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
+        // public bool FreeTroopRecruitment { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(ItemTradingCostPercentage))]
@@ -493,9 +493,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(DailyHearthsBonus), minValue: 0, maxValue: 10000)]
         public int DailyHearthsBonus { get; set; } = 0;
 
-        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
-        public float GarrisonWagesPercentage { get; set; } = 100.0f;
+        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        // [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
+        // public float GarrisonWagesPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(NeverRequireCivilianEquipment))]

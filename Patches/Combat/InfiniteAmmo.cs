@@ -2,25 +2,38 @@
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.Core;
+using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(Agent), "OnWeaponAmountChange")]
-    public static class InfiniteAmmoValue
+    [HarmonyPatch(typeof(Mission), "OnAgentShootMissile")]
+    public static class InfiniteAmmo
     {
-        [HarmonyPrefix]
-        public static void OnWeaponAmountChange(ref EquipmentIndex slotIndex, ref short amount, ref Agent __instance)
+        [HarmonyPostfix]
+        public static void OnAgentShootMissile(
+            ref Agent shooterAgent,
+            ref EquipmentIndex weaponIndex,
+            ref Vec3 position,
+            ref Vec3 velocity,
+            ref Mat3 orientation,
+            ref bool hasRigidBody,
+            ref bool isPrimaryWeaponShot,
+            ref int forcedMissileIndex)
         {
-            if (__instance.IsPlayer()
+            if (shooterAgent.IsPlayer()
                 && BannerlordCheatsSettings.TryGetModifiedValue(x => x.InfiniteAmmo, out var infiniteAmmo)
                 && infiniteAmmo)
             {
-                var fullAmount = __instance.Equipment[slotIndex].MaxAmmo;
-
-                if (amount < fullAmount)
+                for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
                 {
-                    __instance.SetWeaponAmountInSlot(slotIndex, fullAmount, false);
+                    var missionWeapon = shooterAgent.Equipment[index];
+
+                    if (missionWeapon.IsAnyConsumable(out _)
+                        && missionWeapon.Amount <= missionWeapon.ModifiedMaxAmount)
+                    {
+                        shooterAgent.SetWeaponAmountInSlot(index, missionWeapon.ModifiedMaxAmount, true);
+                    }
                 }
             }
         }
