@@ -113,9 +113,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(EnableHotkeyTips))]
         public bool EnableHotkeyTips { get; set; } = false;
 
-        // [LocalizedSettingPropertyGroup(GeneralGroupName)]
-        // [LocalizedSettingPropertyBool(nameof(OverrideCheatMode))]
-        // public bool OverrideCheatMode { get; set; } = false;
+        [LocalizedSettingPropertyGroup(GeneralGroupName)]
+        [LocalizedSettingPropertyBool(nameof(OverrideCheatMode))]
+        public bool OverrideCheatMode { get; set; } = false;
 
         #endregion General
 
@@ -229,9 +229,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
         public bool InfiniteAmmo { get; set; } = false;
 
-        // [LocalizedSettingPropertyGroup(CombatGroupName)]
-        // [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
-        // public bool PartyInfiniteAmmo { get; set; } = false;
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
+        public bool PartyInfiniteAmmo { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(DamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
