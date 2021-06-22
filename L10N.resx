@@ -792,4 +792,10 @@
   <data name="CompanionDeathPercentage_Desc" xml:space="preserve">
     <value>Percentage of chance of player companions dying during combat. 100% means default chance, 0% means companions never die.</value>
   </data>
+  <data name="NativeItemSpawning_Name" xml:space="preserve">
+    <value>Spawn Items</value>
+  </data>
+  <data name="NativeItemSpawning_Desc" xml:space="preserve">
+    <value>Check to enable item spawning just like in native cheat mode. Open the inventory to see all items in the game, drag to your inventory to spawn them.</value>
+  </data>
 </root>

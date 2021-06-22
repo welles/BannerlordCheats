@@ -273,6 +273,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(ExtraInventoryCapacity), minValue: 0, maxValue: 1000000)]
         public int ExtraInventoryCapacity { get; set; } = 0;
 
+        [LocalizedSettingPropertyGroup(InventoryGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NativeItemSpawning))]
+        public bool NativeItemSpawning { get; set; } = false;
+
         #endregion Inventory
 
         #region Party
