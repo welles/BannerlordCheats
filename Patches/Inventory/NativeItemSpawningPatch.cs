@@ -22,10 +22,11 @@ namespace BannerlordCheats.Patches.Inventory
             ref bool useBasePrices,
             ref TextObject leftRosterName)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NativeItemSpawning, out _)
-                && party.IsPlayerParty()
+            if (party.IsPlayerParty()
                 && !isTrading
-                && !Game.Current.CheatMode)
+                && !Game.Current.CheatMode
+                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NativeItemSpawning, out var nativeItemSpawning
+                && nativeItemSpawning)
             {
                 var objectTypeList = Game.Current.ObjectManager.GetObjectTypeList<ItemObject>();
                 for (var index = 0; index != objectTypeList.Count; ++index)
