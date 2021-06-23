@@ -450,10 +450,6 @@ namespace BannerlordCheats.Settings
         public bool DisguiseAlwaysWorks { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyBool(nameof(OneDayConstruction))]
-        public bool OneDayConstruction { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
         public bool FreeTroopRecruitment { get; set; } = false;
 
