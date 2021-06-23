@@ -384,12 +384,6 @@
   <data name="DisguiseAlwaysWorks_Desc" xml:space="preserve">
     <value>Sneaking into settlements always succeeds.</value>
   </data>
-  <data name="OneDayConstruction_Name" xml:space="preserve">
-    <value>One Day Construction</value>
-  </data>
-  <data name="OneDayConstruction_Desc" xml:space="preserve">
-    <value>Buildings in player settlements are constructed in one day.</value>
-  </data>
   <data name="SmithingEnergyCostPercentage_Name" xml:space="preserve">
     <value>Energy Cost Percentage</value>
   </data>
