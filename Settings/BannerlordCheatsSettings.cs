@@ -113,10 +113,6 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(EnableHotkeyTips))]
         public bool EnableHotkeyTips { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(GeneralGroupName)]
-        [LocalizedSettingPropertyBool(nameof(OverrideCheatMode))]
-        public bool OverrideCheatMode { get; set; } = false;
-
         #endregion General
 
         #region Map
@@ -276,6 +272,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(InventoryGroupName)]
         [LocalizedSettingPropertyInteger(nameof(ExtraInventoryCapacity), minValue: 0, maxValue: 1000000)]
         public int ExtraInventoryCapacity { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(InventoryGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NativeItemSpawning))]
+        public bool NativeItemSpawning { get; set; } = false;
 
         #endregion Inventory
 
@@ -449,10 +449,6 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(DisguiseAlwaysWorks))]
         public bool DisguiseAlwaysWorks { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyBool(nameof(OneDayConstruction))]
-        public bool OneDayConstruction { get; set; } = false;
-
         // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         // [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
         // public bool FreeTroopRecruitment { get; set; } = false;
@@ -500,6 +496,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(NeverRequireCivilianEquipment))]
         public bool NeverRequireCivilianEquipment { get; set; } = false;
+
+        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        // [LocalizedSettingPropertyFloatingInteger(nameof(ConstructionPowerMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        // public float ConstructionPowerMultiplier { get; set; } = 1.0f;
 
         #endregion Settlements
 
