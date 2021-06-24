@@ -384,12 +384,6 @@
   <data name="DisguiseAlwaysWorks_Desc" xml:space="preserve">
     <value>Sneaking into settlements always succeeds.</value>
   </data>
-  <data name="OneDayConstruction_Name" xml:space="preserve">
-    <value>One Day Construction</value>
-  </data>
-  <data name="OneDayConstruction_Desc" xml:space="preserve">
-    <value>Buildings in player settlements are constructed in one day.</value>
-  </data>
   <data name="SmithingEnergyCostPercentage_Name" xml:space="preserve">
     <value>Energy Cost Percentage</value>
   </data>
@@ -780,12 +774,6 @@
   <data name="DecisionOverrideInfluenceCostPercentage_Desc" xml:space="preserve">
     <value>Percentage of influence cost to override a kingdom decision. 100% means full cost, 0% means no influence cost.</value>
   </data>
-  <data name="OverrideCheatMode_Name" xml:space="preserve">
-    <value>Force Enable Native Cheat Mode</value>
-  </data>
-  <data name="OverrideCheatMode_Desc" xml:space="preserve">
-    <value>Set to true to enable the native cheat mode during gameplay. You can leave the value in engine_config.txt on 0.</value>
-  </data>
   <data name="EnableHotkeyTips_Name" xml:space="preserve">
     <value>Enable Hotkey Tips</value>
   </data>
@@ -797,5 +785,17 @@
   </data>
   <data name="CompanionDeathPercentage_Desc" xml:space="preserve">
     <value>Percentage of chance of player companions dying during combat. 100% means default chance, 0% means companions never die.</value>
+  </data>
+  <data name="NativeItemSpawning_Name" xml:space="preserve">
+    <value>Spawn Items</value>
+  </data>
+  <data name="NativeItemSpawning_Desc" xml:space="preserve">
+    <value>Check to enable item spawning just like in native cheat mode. Open the inventory to see all items in the game, drag to your inventory to spawn them.</value>
+  </data>
+  <data name="ConstructionPowerMultiplier_Name" xml:space="preserve">
+    <value>Construction Power Multiplier</value>
+  </data>
+  <data name="ConstructionPowerMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the construction power of player towns is multiplied. A factor of 1 means default construction power.</value>
   </data>
 </root>
