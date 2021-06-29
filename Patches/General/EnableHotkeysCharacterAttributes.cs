@@ -29,12 +29,12 @@ namespace BannerlordCheats.Patches.General
 
                     var currentHero = charVM.CurrentCharacter.Hero;
 
-                    CharacterAttributesCheatPatch.SetMaximum(currentHero, DefaultCharacterAttributes.Control);
-                    CharacterAttributesCheatPatch.SetMaximum(currentHero, DefaultCharacterAttributes.Cunning);
-                    CharacterAttributesCheatPatch.SetMaximum(currentHero, DefaultCharacterAttributes.Endurance);
-                    CharacterAttributesCheatPatch.SetMaximum(currentHero, DefaultCharacterAttributes.Intelligence);
-                    CharacterAttributesCheatPatch.SetMaximum(currentHero, DefaultCharacterAttributes.Social);
-                    CharacterAttributesCheatPatch.SetMaximum(currentHero, DefaultCharacterAttributes.Vigor);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Control);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Cunning);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Endurance);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Intelligence);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Social);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Vigor);
 
                     charVM.RefreshValues();
 
@@ -44,27 +44,27 @@ namespace BannerlordCheats.Patches.General
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1))
                 {
-                    CharacterAttributesCheatPatch.AddPoint(DefaultCharacterAttributes.Vigor);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Vigor);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D2))
                 {
-                    CharacterAttributesCheatPatch.AddPoint(DefaultCharacterAttributes.Control);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Control);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D3))
                 {
-                    CharacterAttributesCheatPatch.AddPoint(DefaultCharacterAttributes.Endurance);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Endurance);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D4))
                 {
-                    CharacterAttributesCheatPatch.AddPoint(DefaultCharacterAttributes.Cunning);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Cunning);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D5))
                 {
-                    CharacterAttributesCheatPatch.AddPoint(DefaultCharacterAttributes.Social);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Social);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D6))
                 {
-                    CharacterAttributesCheatPatch.AddPoint(DefaultCharacterAttributes.Intelligence);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Intelligence);
                 }
             }
         }
