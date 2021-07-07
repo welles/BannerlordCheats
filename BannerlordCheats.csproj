@@ -1,9 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-      <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion).*" />
-      <PackageReference Condition="'$(Configuration)' == 'Release'" Include="Bannerlord.ReferenceAssemblies.EarlyAccess" Version="$(GameVersion).*" />
-      <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" />
+      <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion).*" IncludeAssets="compile" />
+      <PackageReference Condition="$(UseNuGetAssemblies) == True" Include="Bannerlord.ReferenceAssemblies.EarlyAccess" Version="$(GameVersion).*" />
+      <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" IncludeAssets="compile" />
     </ItemGroup>
 
     <ItemGroup>
@@ -15,7 +15,7 @@
       </None>
     </ItemGroup>
 
-    <ItemGroup Condition="'$(Configuration)' == 'Debug'">
+    <ItemGroup Condition="$(UseNuGetAssemblies) == False">
       <Reference Include="TaleWorlds.BattlEye.Client">
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.BattlEye.Client.dll</HintPath>
         <Private>False</Private>

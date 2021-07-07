@@ -16,9 +16,9 @@ namespace BannerlordCheats.Patches.Settlements
         {
             if (clientParty.IsPlayerParty()
                 && isSelling
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.SellingPriceMultiplier, out var sellingPriceMultiplier))
+                && BannerlordCheatsSettings.Instance?.SellingPriceMultiplier > 1f)
             {
-                __result = (int) Math.Round(__result * sellingPriceMultiplier);
+                __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.SellingPriceMultiplier);
             }
         }
     }

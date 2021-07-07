@@ -10,8 +10,7 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void CanPlayerBarterWithHero(Hero hero, ref bool __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoBarterCooldown, out var noBarterCooldown)
-                && noBarterCooldown)
+            if (BannerlordCheatsSettings.Instance?.NoBarterCooldown == true)
             {
                 __result = true;
             }

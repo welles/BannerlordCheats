@@ -16,8 +16,7 @@ namespace BannerlordCheats.Patches.Combat
             if (attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
                 && party.IsPlayerParty()
                 && attackInformation.IsFriendlyFire
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoFriendlyFire, out var noFriendlyFire)
-                && noFriendlyFire)
+                && BannerlordCheatsSettings.Instance?.NoFriendlyFire == true)
             {
                 __result = 0;
             }
