@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Combat
         {
             if (attackInformation.AttackerAgentCharacter.IsPlayer()
                 && !attackInformation.IsFriendlyFire
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DamageMultiplier, out var damageMultiplier))
+                && BannerlordCheatsSettings.Instance?.DamageMultiplier > 1f)
             {
-                __result *= damageMultiplier;
+                __result *= BannerlordCheatsSettings.Instance.DamageMultiplier;
             }
         }
     }

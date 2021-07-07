@@ -22,8 +22,7 @@ namespace BannerlordCheats.Patches.Combat
             ref int forcedMissileIndex)
         {
             if (shooterAgent.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.InfiniteAmmo, out var infiniteAmmo)
-                && infiniteAmmo)
+                && BannerlordCheatsSettings.Instance?.InfiniteAmmo == true)
             {
                 for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
                 {

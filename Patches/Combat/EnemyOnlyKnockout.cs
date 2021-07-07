@@ -14,8 +14,7 @@ namespace BannerlordCheats.Patches.Combat
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
             if (effectedAgent.IsPlayerEnemy()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemyOnlyKnockout, out var enemyOnlyKnockout)
-                && enemyOnlyKnockout)
+                && BannerlordCheatsSettings.Instance?.EnemyOnlyKnockout == true)
             {
                 __result = 0f;
             }

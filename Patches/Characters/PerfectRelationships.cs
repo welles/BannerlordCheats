@@ -12,8 +12,7 @@ namespace BannerlordCheats.Patches.Characters
         public static void GetRelation(Hero otherHero, ref Hero __instance, ref int __result)
         {
             if ((__instance.IsPlayer() || otherHero.IsPlayer())
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PerfectRelationships, out var perfectRelationships)
-                && perfectRelationships)
+                && BannerlordCheatsSettings.Instance?.PerfectRelationships == true)
             {
                 __result = 100;
             }

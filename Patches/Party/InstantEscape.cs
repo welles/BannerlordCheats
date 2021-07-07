@@ -11,8 +11,7 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void CheckCaptivityChange(float dt, ref string __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.InstantEscape, out var instantEscape)
-                && instantEscape)
+            if (BannerlordCheatsSettings.Instance?.InstantEscape == true)
             {
                 PlayerCaptivity.EndCaptivity();
             }

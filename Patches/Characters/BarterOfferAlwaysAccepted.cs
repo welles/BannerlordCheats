@@ -10,8 +10,7 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void IsOfferAcceptable(BarterData args, Hero hero, PartyBase party, ref BarterManager __instance, ref bool __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.BarterOfferAlwaysAccepted, out var barterOfferAlwaysAccepted)
-                && barterOfferAlwaysAccepted)
+            if (BannerlordCheatsSettings.Instance?.BarterOfferAlwaysAccepted == true)
             {
                 __result = true;
             }
