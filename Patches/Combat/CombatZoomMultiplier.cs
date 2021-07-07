@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Combat
         public static void CrossbowReloadSpeed(ref Agent agent, ref float __result)
         {
             if (agent.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.CombatZoomMultiplier, out var combatZoomMultiplier))
+                && BannerlordCheatsSettings.Instance?.CombatZoomMultiplier > 1f)
             {
-                __result *= combatZoomMultiplier;
+                __result *= BannerlordCheatsSettings.Instance.CombatZoomMultiplier;
             }
         }
     }

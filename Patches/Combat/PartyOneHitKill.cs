@@ -17,8 +17,7 @@ namespace BannerlordCheats.Patches.Combat
                 && party.IsPlayerParty()
                 && !attackInformation.AttackerAgentCharacter.IsPlayer()
                 && !attackInformation.IsFriendlyFire
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyOneHitKill, out var partyOneHitKill)
-                && partyOneHitKill)
+                && BannerlordCheatsSettings.Instance?.PartyOneHitKill == true)
             {
                 __result = 10000;
             }

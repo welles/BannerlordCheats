@@ -14,8 +14,7 @@ namespace BannerlordCheats.Patches.Combat
         {
             if (mapEvent.IsPlayerMapEvent
                 && battleSide == mapEvent.PlayerSide
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoTroopSacrifice, out var noTroopSacrifice)
-                && noTroopSacrifice)
+                && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
             {
                 __result = 0;
             }

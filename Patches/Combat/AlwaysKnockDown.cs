@@ -19,8 +19,7 @@ namespace BannerlordCheats.Patches.Combat
             ref Blow blow)
         {
             if (attacker.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.AlwaysKnockDown, out var alwaysKnockDown)
-                && alwaysKnockDown)
+                && BannerlordCheatsSettings.Instance?.AlwaysKnockDown == true)
             {
                 blow.BlowFlag &= ~BlowFlags.ShrugOff;
                 blow.BlowFlag |= BlowFlags.KnockDown;

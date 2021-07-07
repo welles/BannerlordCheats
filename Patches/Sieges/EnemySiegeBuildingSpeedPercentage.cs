@@ -27,10 +27,10 @@ namespace BannerlordCheats.Patches.Sieges
                     return;
             }
 
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemySiegeBuildingSpeedPercentage, out var enemySiegeBuildingSpeedPercentage)
-                && (siegeEvent.GetSiegeEventSide(otherSide)?.SiegeParties.Any(x => x.IsPlayerParty()) ?? false))
+            if ((siegeEvent.GetSiegeEventSide(otherSide)?.SiegeParties.Any(x => x.IsPlayerParty()) ?? false)
+                && BannerlordCheatsSettings.Instance?.EnemySiegeBuildingSpeedPercentage < 100f)
             {
-                var factor = enemySiegeBuildingSpeedPercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage / 100f;
 
                 var newValue = factor * __result;
 

@@ -13,8 +13,7 @@ namespace BannerlordCheats.Patches.Combat
         public static void SimulateHit(ref CharacterObject strikerTroop, ref CharacterObject struckTroop, ref PartyBase strikerParty, ref PartyBase struckParty, ref float strikerAdvantage, ref MapEvent battle, ref int __result)
         {
             if (struckParty.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.AlwaysWinBattleSimulation, out var alwaysWinBattleSimulation)
-                && alwaysWinBattleSimulation)
+                && BannerlordCheatsSettings.Instance?.AlwaysWinBattleSimulation == true)
             {
                 __result = 0;
             }

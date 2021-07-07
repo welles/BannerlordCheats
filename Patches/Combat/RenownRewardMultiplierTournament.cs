@@ -14,9 +14,9 @@ namespace BannerlordCheats.Patches.Combat
         public static void GetRenownReward(Hero winner, Town town, ref int __result)
         {
             if (winner.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.RenownRewardMultiplier, out var renownRewardMultiplier))
+                && BannerlordCheatsSettings.Instance?.RenownRewardMultiplier > 1f)
             {
-                __result = (int) Math.Round(__result * renownRewardMultiplier);
+                __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.RenownRewardMultiplier);
             }
         }
     }

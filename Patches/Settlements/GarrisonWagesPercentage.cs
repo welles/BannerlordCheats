@@ -14,9 +14,9 @@ namespace BannerlordCheats.Patches.Settlements
     //     {
     //         if (mobileParty.IsGarrison
     //             && mobileParty.IsPlayerParty()
-    //             && BannerlordCheatsSettings.TryGetModifiedValue(x => x.GarrisonWagesPercentage, out var garrisonWagesPercentage))
+    //             && BannerlordCheatsSettings.Instance?.GarrisonWagesPercentage < 100f)
     //         {
-    //             __result.AddPercentage(garrisonWagesPercentage);
+    //             __result.AddPercentage(BannerlordCheatsSettings.Instance.GarrisonWagesPercentage);
     //         }
     //     }
     // }

@@ -12,10 +12,9 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void  CalculateRecruitableNumber(ref PartyBase party, ref CharacterObject character, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.InstantPrisonerRecruitment, out var instantPrisonerRecruitment)
-                && instantPrisonerRecruitment
-                && party.IsPlayerParty()
-                && !character.IsHero())
+            if (party.IsPlayerParty()
+                && !character.IsHero()
+                && BannerlordCheatsSettings.Instance?.InstantPrisonerRecruitment == true)
             {
                 __result = party.PrisonRoster.GetTroopCount(character);
             }

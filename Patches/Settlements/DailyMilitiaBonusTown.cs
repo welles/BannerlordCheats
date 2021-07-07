@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Settlements
         public static void MilitiaChange(ref Town __instance, ref float __result)
         {
             if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyMilitiaBonus, out var dailyMilitiaBonus))
+                && BannerlordCheatsSettings.Instance?.DailyMilitiaBonus > 0)
             {
-                __result += dailyMilitiaBonus;
+                __result += BannerlordCheatsSettings.Instance.DailyMilitiaBonus;
             }
         }
     }

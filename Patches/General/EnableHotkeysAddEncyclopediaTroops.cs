@@ -18,8 +18,7 @@ namespace BannerlordCheats.Patches.General
         {
             if (__instance is EncyclopediaUnitPageVM
                 && __instance.Obj is CharacterObject characterObject
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
-                && enableHotkeys)
+                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
             {
                 if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))
                 {

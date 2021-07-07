@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Party
         public static void GetPartyMemberSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraPartyMemberSize, out var extraPartyMemberSize))
+                && BannerlordCheatsSettings.Instance?.ExtraPartyMemberSize > 0)
             {
-                __result.Add(extraPartyMemberSize);
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMemberSize);
             }
         }
     }

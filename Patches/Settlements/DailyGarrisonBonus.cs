@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Settlements
         public static void GarrisonChange(ref Town __instance, ref int __result)
         {
             if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyGarrisonBonus, out var dailyGarrisonBonus))
+                && BannerlordCheatsSettings.Instance?.DailyGarrisonBonus > 0)
             {
-                __result += dailyGarrisonBonus;
+                __result += BannerlordCheatsSettings.Instance.DailyGarrisonBonus;
             }
         }
     }

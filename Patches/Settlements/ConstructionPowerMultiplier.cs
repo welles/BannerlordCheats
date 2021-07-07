@@ -16,9 +16,9 @@ namespace BannerlordCheats.Patches.Settlements
     //         ref ExplainedNumber __result)
     //     {
     //         if (town.IsPlayerTown()
-    //             && BannerlordCheatsSettings.TryGetModifiedValue(settings => settings.ConstructionPowerMultiplier, out var constructionPowerMultiplier))
+    //             && BannerlordCheatsSettings.Instance?.ConstructionPowerMultiplier > 1f)
     //         {
-    //             __result.AddMultiplier(constructionPowerMultiplier);
+    //             __result.AddMultiplier(BannerlordCheatsSettings.Instance.ConstructionPowerMultiplier);
     //         }
     //     }
     // }

@@ -13,8 +13,7 @@ namespace BannerlordCheats.Patches.Party
         public static void GetGoldCostForUpgrade(ref PartyBase party, ref CharacterObject characterObject, ref CharacterObject upgradeTarget, ref int __result)
         {
             if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.FreeTroopUpgrades, out var freeTroopUpgrades)
-                && freeTroopUpgrades)
+                && BannerlordCheatsSettings.Instance?.FreeTroopUpgrades == true)
             {
                 __result = 0;
             }

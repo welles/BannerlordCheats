@@ -12,8 +12,7 @@ namespace BannerlordCheats.Patches.Map
         public static void ShouldBeIgnored(ref MobileParty __instance, ref bool __result)
         {
             if (__instance.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyInvisibleOnMap, out var partyInvisibleOnMap)
-                && partyInvisibleOnMap)
+                && BannerlordCheatsSettings.Instance?.PartyInvisibleOnMap == true)
             {
                 __result = true;
             }

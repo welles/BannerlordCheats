@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Army
         public static void CohesionChange(ref ArmyObj __instance, ref float __result)
         {
             if (__instance.IsPlayerArmy()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ArmyCohesionLossPercentage, out var armyCohesionLossPercentage))
+                && BannerlordCheatsSettings.Instance?.ArmyCohesionLossPercentage < 100f)
             {
-                var factor = armyCohesionLossPercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.ArmyCohesionLossPercentage / 100f;
 
                 __result *= factor;
             }

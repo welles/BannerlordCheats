@@ -14,9 +14,9 @@ namespace BannerlordCheats.Patches.Combat
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
             if (effectedAgent.IsPlayerCompanion()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionDeathPercentage, out var companionDeathPercentage))
+                && BannerlordCheatsSettings.Instance?.CompanionDeathPercentage < 100f)
             {
-                var factor = companionDeathPercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.CompanionDeathPercentage / 100f;
 
                 __result *= factor;
             }

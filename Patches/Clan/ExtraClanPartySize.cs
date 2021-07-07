@@ -14,9 +14,9 @@ namespace BannerlordCheats.Patches.Clan
         {
             if (party.IsPlayerClan()
                 && !party.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraClanPartySize, out var extraClanPartySize))
+                && BannerlordCheatsSettings.Instance?.ExtraClanPartySize > 0)
             {
-                __result.Add(extraClanPartySize);
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraClanPartySize);
             }
         }
     }

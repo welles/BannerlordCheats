@@ -13,8 +13,7 @@ namespace BannerlordCheats.Patches.Combat
         public static void CalculateMoraleChangeToCharacter(Agent agent, float moraleChange, float distance, ref float __result)
         {
             if (agent.IsPlayerEnemy()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemiesNoRunningAway, out var enemiesNoRunningAway)
-                && enemiesNoRunningAway)
+                && BannerlordCheatsSettings.Instance?.EnemiesNoRunningAway == true)
             {
                 __result = 0.0f;
             }

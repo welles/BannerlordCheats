@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Clan
         public static void GetPartyLimitForTier(TaleWorlds.CampaignSystem.Clan clan, int clanTierToCheck, ref int __result)
         {
             if (clan.IsPlayerClan()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraClanPartyLimit, out var extraClanPartyLimit))
+                && BannerlordCheatsSettings.Instance?.ExtraClanPartyLimit > 0)
             {
-                __result += extraClanPartyLimit;
+                __result += BannerlordCheatsSettings.Instance.ExtraClanPartyLimit;
             }
         }
     }

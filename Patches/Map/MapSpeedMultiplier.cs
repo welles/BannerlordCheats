@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Map
     //     public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
     //     {
     //         if (mobileParty.IsPlayerParty()
-    //             && BannerlordCheatsSettings.TryGetModifiedValue(x => x.MapSpeedMultiplier, out var mapSpeedMultiplier))
+    //             && BannerlordCheatsSettings.Instance?.MapSpeedMultiplier > 1f)
     //         {
-    //             __result.AddMultiplier(mapSpeedMultiplier);
+    //             __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapSpeedMultiplier);
     //         }
     //     }
     // }

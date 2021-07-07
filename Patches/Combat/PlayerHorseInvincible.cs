@@ -14,8 +14,7 @@ namespace BannerlordCheats.Patches.Combat
             if (__instance.IsMount
                 && __instance.TryGetHuman(out var rider)
                 && rider.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PlayerHorseInvincible, out var playerHorseInvincible)
-                && playerHorseInvincible)
+                && BannerlordCheatsSettings.Instance?.PlayerHorseInvincible == true)
             {
                 __result = true;
             }

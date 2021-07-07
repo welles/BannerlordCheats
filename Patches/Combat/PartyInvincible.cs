@@ -15,8 +15,7 @@ namespace BannerlordCheats.Patches.Combat
                 && agent.Origin.TryGetParty(out var party)
                 && party.IsPlayerParty()
                 && !agent.IsHero()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyInvincible, out var partyInvincible)
-                && partyInvincible)
+                && BannerlordCheatsSettings.Instance?.PartyInvincible == true)
             {
                 __result = true;
             }

@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Army
         {
             if (__instance.IsOfPlayerKingdom()
                 && !__instance.IsPlayerArmy()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.FactionArmyCohesionLossPercentage, out var factionArmyCohesionLossPercentage))
+                && BannerlordCheatsSettings.Instance?.FactionArmyCohesionLossPercentage < 100f)
             {
-                var factor = factionArmyCohesionLossPercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.FactionArmyCohesionLossPercentage / 100f;
 
                 __result *= factor;
             }

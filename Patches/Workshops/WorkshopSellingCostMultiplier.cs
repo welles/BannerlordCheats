@@ -11,9 +11,9 @@ namespace BannerlordCheats.Patches.Workshops
         [HarmonyPostfix]
         public static void GetSellingCost(ref Workshop workshop, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.WorkshopSellingCostMultiplier, out var workshopSellingCostMultiplier))
+            if (BannerlordCheatsSettings.Instance?.WorkshopSellingCostMultiplier > 1f)
             {
-                __result = (int) (__result * workshopSellingCostMultiplier);
+                __result = (int) (__result * BannerlordCheatsSettings.Instance.WorkshopSellingCostMultiplier);
             }
         }
     }

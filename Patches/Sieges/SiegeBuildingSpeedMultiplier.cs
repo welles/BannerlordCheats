@@ -14,9 +14,9 @@ namespace BannerlordCheats.Patches.Sieges
         public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
         {
             if (side.IsPlayerSide()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.SiegeBuildingSpeedMultiplier, out var siegeBuildingSpeedMultiplier))
+                && BannerlordCheatsSettings.Instance?.EnemySiegeBuildingSpeedPercentage > 1f)
             {
-                __result *= siegeBuildingSpeedMultiplier;
+                __result *= BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage;
             }
         }
     }

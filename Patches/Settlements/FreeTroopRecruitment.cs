@@ -13,8 +13,7 @@ namespace BannerlordCheats.Patches.Settlements
     //     public static void GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost, ref int __result)
     //     {
     //         if (buyerHero.IsPlayer()
-    //             && BannerlordCheatsSettings.TryGetModifiedValue(x => x.FreeTroopRecruitment, out var freeTroopRecruitment)
-    //             && freeTroopRecruitment)
+    //             && BannerlordCheatsSettings.Instance?.FreeTroopRecruitment == true)
     //         {
     //             __result = 1;
     //         }

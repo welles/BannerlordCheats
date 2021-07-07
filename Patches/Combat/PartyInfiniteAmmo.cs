@@ -24,8 +24,7 @@ namespace BannerlordCheats.Patches.Combat
             if (!shooterAgent.IsPlayer()
                 && shooterAgent.Origin.TryGetParty(out var party)
                 && party.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyInfiniteAmmo, out var partyInfiniteAmmo)
-                && partyInfiniteAmmo)
+                && BannerlordCheatsSettings.Instance?.PartyInfiniteAmmo == true)
             {
                 for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
                 {
