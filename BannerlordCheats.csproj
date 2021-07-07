@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <ItemGroup>
-      <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion).*" />
+      <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion).*" IncludeAssets="compile" />
       <PackageReference Condition="$(UseNuGetAssemblies) == True" Include="Bannerlord.ReferenceAssemblies.EarlyAccess" Version="$(GameVersion).*" />
       <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" IncludeAssets="compile" />
     </ItemGroup>
