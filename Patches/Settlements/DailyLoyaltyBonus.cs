@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Settlements
         public static void LoyaltyChange(ref Town __instance, ref float __result)
         {
             if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyLoyaltyBonus, out var dailyLoyaltyBonus))
+                && BannerlordCheatsSettings.Instance?.DailyLoyaltyBonus > 0)
             {
-                __result += dailyLoyaltyBonus;
+                __result += BannerlordCheatsSettings.Instance.DailyLoyaltyBonus;
             }
         }
     }

@@ -10,8 +10,7 @@ namespace BannerlordCheats.Patches.Kingdom
         [HarmonyPostfix]
         public static void GetRelationCostOfDisbandingArmy(bool isLeaderParty, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoRelationshipLossOnDecision, out var noRelationshipLossOnDecision)
-                && noRelationshipLossOnDecision)
+            if (BannerlordCheatsSettings.Instance?.NoRelationshipLossOnDecision == true)
             {
                 __result = 0;
             }

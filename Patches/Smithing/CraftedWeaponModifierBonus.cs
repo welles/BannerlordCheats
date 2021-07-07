@@ -11,29 +11,29 @@ namespace BannerlordCheats.Patches.Smithing
         [HarmonyPostfix]
         public static void GetModifierChanges(int modifierTier, ref OverrideData __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CraftedWeaponHandlingBonus, out var craftedWeaponHandlingBonus))
+            if (BannerlordCheatsSettings.Instance?.CraftedWeaponHandlingBonus > 0)
             {
-                __result.Handling += craftedWeaponHandlingBonus;
+                __result.Handling += BannerlordCheatsSettings.Instance.CraftedWeaponHandlingBonus;
             }
 
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CraftedWeaponSwingDamageBonus, out var craftedWeaponSwingDamageBonus))
+            if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingDamageBonus > 0)
             {
-                __result.SwingDamageOverriden += craftedWeaponSwingDamageBonus;
+                __result.SwingDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingDamageBonus;
             }
 
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CraftedWeaponSwingSpeedBonus, out var craftedWeaponSwingSpeedBonus))
+            if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingSpeedBonus > 0)
             {
-                __result.SwingSpeedOverriden += craftedWeaponSwingSpeedBonus;
+                __result.SwingSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingSpeedBonus;
             }
 
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CraftedWeaponThrustDamageBonus, out var craftedWeaponThrustDamageBonus))
+            if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustDamageBonus > 0)
             {
-                __result.ThrustDamageOverriden += craftedWeaponThrustDamageBonus;
+                __result.ThrustDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustDamageBonus;
             }
 
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.CraftedWeaponThrustSpeedBonus, out var craftedWeaponThrustSpeedBonus))
+            if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustSpeedBonus > 0)
             {
-                __result.ThrustSpeedOverriden += craftedWeaponThrustSpeedBonus;
+                __result.ThrustSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustSpeedBonus;
             }
         }
     }

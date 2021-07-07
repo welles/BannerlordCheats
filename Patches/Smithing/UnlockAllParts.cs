@@ -11,8 +11,7 @@ namespace BannerlordCheats.Patches.Smithing
         [HarmonyPostfix]
         public static void IsOpened(CraftingPiece craftingPiece, ref bool __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.UnlockAllParts, out var unlockAllParts)
-                && unlockAllParts)
+            if (BannerlordCheatsSettings.Instance?.UnlockAllParts == true)
             {
                 __result = true;
             }

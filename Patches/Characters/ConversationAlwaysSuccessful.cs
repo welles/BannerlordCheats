@@ -11,8 +11,7 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void GetChances(PersuasionOptionArgs optionArgs, ref float successChance, ref float critSuccessChance, ref float critFailChance, ref float failChance, float difficultyMultiplier)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.ConversationAlwaysSuccessful, out var conversationAlwaysSuccessful)
-                 && conversationAlwaysSuccessful)
+            if (BannerlordCheatsSettings.Instance?.ConversationAlwaysSuccessful == true)
             {
                 successChance = 1;
                 critSuccessChance = 1;

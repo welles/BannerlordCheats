@@ -20,8 +20,7 @@ namespace BannerlordCheats.Patches.General
         {
             if (ScreenManager.TopScreen is GauntletClanScreen
                 && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
-                && enableHotkeys)
+                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
             {
                 Hero.MainHero.AddInfluenceWithKingdom(1000);
 

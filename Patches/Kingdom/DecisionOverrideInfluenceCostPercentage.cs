@@ -16,9 +16,9 @@ namespace BannerlordCheats.Patches.Kingdom
             ref KingdomDecision decision,
             ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.DecisionOverrideInfluenceCostPercentage, out var decisionOverrideInfluenceCostPercentage))
+            if (BannerlordCheatsSettings.Instance?.DecisionOverrideInfluenceCostPercentage < 100f)
             {
-                var factor = decisionOverrideInfluenceCostPercentage / 100.0f;
+                var factor = BannerlordCheatsSettings.Instance.DecisionOverrideInfluenceCostPercentage / 100.0f;
 
                 var newValue = __result * factor;
 

@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Settlements
         public static void HearthChange(ref Village __instance, ref float __result)
         {
             if (__instance.IsPlayerVillage()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyHearthsBonus, out var dailyHearthsBonus))
+                && BannerlordCheatsSettings.Instance?.DailyHearthsBonus > 0)
             {
-                __result += dailyHearthsBonus;
+                __result += BannerlordCheatsSettings.Instance.DailyHearthsBonus;
             }
         }
     }

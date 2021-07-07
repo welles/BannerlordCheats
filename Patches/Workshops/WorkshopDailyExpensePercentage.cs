@@ -10,9 +10,9 @@ namespace BannerlordCheats.Patches.Workshops
         [HarmonyPostfix]
         public static void GetDailyExpense(ref int level, ref int __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.WorkshopDailyExpensePercentage, out var workshopDailyExpensePercentage))
+            if (BannerlordCheatsSettings.Instance?.WorkshopDailyExpensePercentage < 100f)
             {
-                var factor = workshopDailyExpensePercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.WorkshopDailyExpensePercentage / 100f;
 
                 __result = (int) (__result * factor);
             }

@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Clan
         public static void GetCompanionLimit(ref TaleWorlds.CampaignSystem.Clan clan, ref int __result)
         {
             if (clan.IsPlayerClan()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraCompanionLimit, out var extraCompanionLimit))
+                && BannerlordCheatsSettings.Instance?.ExtraCompanionLimit > 0)
             {
-                __result += extraCompanionLimit;
+                __result += BannerlordCheatsSettings.Instance.ExtraCompanionLimit;
             }
         }
     }

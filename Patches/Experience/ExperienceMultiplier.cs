@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Experience
         public static void GetXpMultiplier(Hero hero, ref float __result)
         {
             if (hero.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExperienceMultiplier, out var experienceMultiplier))
+                && BannerlordCheatsSettings.Instance?.ExperienceMultiplier > 1f)
             {
-                __result *= experienceMultiplier;
+                __result *= BannerlordCheatsSettings.Instance.ExperienceMultiplier;
             }
         }
     }

@@ -20,8 +20,7 @@ namespace BannerlordCheats.Patches.Combat
             ref MeleeCollisionReaction colReaction)
         {
             if (attacker.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.SliceThroughEveryone, out var sliceThroughEveryone)
-                && sliceThroughEveryone)
+                && BannerlordCheatsSettings.Instance?.SliceThroughEveryone == true)
             {
                 colReaction = MeleeCollisionReaction.SlicedThrough;
             }

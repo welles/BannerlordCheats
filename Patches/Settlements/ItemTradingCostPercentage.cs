@@ -16,9 +16,9 @@ namespace BannerlordCheats.Patches.Settlements
         {
             if (clientParty.IsPlayerParty()
                 && !isSelling
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ItemTradingCostPercentage, out var itemTradingCostPercentage))
+                && BannerlordCheatsSettings.Instance?.ItemTradingCostPercentage < 100f)
             {
-                var factor = itemTradingCostPercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.ItemTradingCostPercentage / 100f;
 
                 var newValue = (int)Math.Round(factor * __result);
 

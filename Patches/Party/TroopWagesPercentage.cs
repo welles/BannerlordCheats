@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Party
         public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (mobileParty.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.TroopWagesPercentage, out var troopWagesPercentage))
+                && BannerlordCheatsSettings.Instance?.TroopWagesPercentage < 100f)
             {
-                __result.AddPercentage(troopWagesPercentage);
+                __result.AddPercentage(BannerlordCheatsSettings.Instance.TroopWagesPercentage);
             }
         }
     }

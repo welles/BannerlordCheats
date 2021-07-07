@@ -14,8 +14,7 @@ namespace BannerlordCheats.Patches.Party
             if (character.IsPrisoner
                 && character.PartyBelongedToAsPrisoner != null
                 && character.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoPrisonerEscape, out var noPrisonerEscape)
-                && noPrisonerEscape)
+                && BannerlordCheatsSettings.Instance?.NoPrisonerEscape == true)
             {
                 return false;
             }

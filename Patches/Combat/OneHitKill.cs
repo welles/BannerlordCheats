@@ -15,8 +15,7 @@ namespace BannerlordCheats.Patches.Combat
         {
             if (attackInformation.AttackerAgentCharacter.IsPlayer()
                 && !attackInformation.IsFriendlyFire
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.OneHitKill, out var oneHitKill)
-                && oneHitKill)
+                && BannerlordCheatsSettings.Instance?.OneHitKill == true)
             {
                 __result = 10000;
             }

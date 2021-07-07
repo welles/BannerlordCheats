@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Experience
         {
             if (!hero.IsPlayer()
                 && hero.IsPlayerCompanion()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.CompanionLearningRateMultiplier, out var companionLearningRateMultiplier))
+                && BannerlordCheatsSettings.Instance?.CompanionLearningRateMultiplier > 1f)
             {
-                __result *= companionLearningRateMultiplier;
+                __result *= BannerlordCheatsSettings.Instance.CompanionLearningRateMultiplier;
             }
         }
     }

@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Combat
             ref ExplainedNumber __result)
         {
             if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.InfluenceRewardMultiplier, out var influenceRewardMultiplier))
+                && BannerlordCheatsSettings.Instance?.InfluenceRewardMultiplier > 1f)
             {
-                __result.AddMultiplier(influenceRewardMultiplier);
+                __result.AddMultiplier(BannerlordCheatsSettings.Instance.InfluenceRewardMultiplier);
             }
         }
     }

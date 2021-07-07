@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Settlements
         public static void FoodChange(ref Town __instance, ref float __result)
         {
             if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyFoodBonus, out var dailyFoodBonus))
+                && BannerlordCheatsSettings.Instance?.DailyFoodBonus > 0)
             {
-                __result += dailyFoodBonus;
+                __result += BannerlordCheatsSettings.Instance.DailyFoodBonus;
             }
         }
     }

@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Party
         public static void GetPartyPrisonerSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraPartyPrisonerSize, out var extraPartyPrisonerSize))
+                && BannerlordCheatsSettings.Instance?.ExtraPartyPrisonerSize > 0)
             {
-                __result.Add(extraPartyPrisonerSize);
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyPrisonerSize);
             }
         }
     }

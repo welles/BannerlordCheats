@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Party
         public static void GetEffectivePartyMorale(ref MobileParty mobileParty, ref bool includeDescription, ref ExplainedNumber __result)
         {
             if (mobileParty.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraPartyMorale, out var extraPartyMorale))
+                && BannerlordCheatsSettings.Instance?.ExtraPartyMorale > 0)
             {
-                __result.Add(extraPartyMorale);
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMorale);
             }
         }
     }

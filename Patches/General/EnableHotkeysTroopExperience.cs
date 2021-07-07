@@ -21,8 +21,7 @@ namespace BannerlordCheats.Patches.General
         {
             if (ScreenManager.TopScreen is GauntletPartyScreen
                 && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
-                && enableHotkeys)
+                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
             {
                 var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
 

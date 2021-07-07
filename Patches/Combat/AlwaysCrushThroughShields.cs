@@ -14,8 +14,7 @@ namespace BannerlordCheats.Patches.Combat
         public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage, ref bool __result)
         {
             if (attackerAgent.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.AlwaysCrushThroughShields, out var alwaysCrushThroughShields)
-                && alwaysCrushThroughShields)
+                && BannerlordCheatsSettings.Instance?.AlwaysCrushThroughShields == true)
             {
                 __result = true;
             }

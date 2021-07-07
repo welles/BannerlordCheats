@@ -13,8 +13,7 @@ namespace BannerlordCheats.Patches.Combat
         public static void GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, ref int __result)
         {
             if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoTroopSacrifice, out var noTroopSacrifice)
-                && noTroopSacrifice)
+                && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
             {
                 __result = 0;
             }

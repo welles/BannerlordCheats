@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Settlements
         public static void SecurityChange(ref Town __instance, ref float __result)
         {
             if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailySecurityBonus, out var dailySecurityBonus))
+                && BannerlordCheatsSettings.Instance?.DailySecurityBonus > 0)
             {
-                __result += dailySecurityBonus;
+                __result += BannerlordCheatsSettings.Instance.DailySecurityBonus;
             }
         }
     }

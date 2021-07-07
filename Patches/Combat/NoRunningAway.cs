@@ -14,8 +14,7 @@ namespace BannerlordCheats.Patches.Combat
         {
             if (agent.Origin.TryGetParty(out var party)
                 && party.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NoRunningAway, out var noRunningAway)
-                && noRunningAway)
+                && BannerlordCheatsSettings.Instance?.NoRunningAway == true)
             {
                 __result = 0.0f;
             }

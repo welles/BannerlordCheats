@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Party
         public static void GetDailyHealingForRegulars(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
             if (party.IsPlayerParty()
-            && BannerlordCheatsSettings.TryGetModifiedValue(x => x.PartyHealingMultiplier, out var partyHealingMultiplier))
+            && BannerlordCheatsSettings.Instance?.PartyHealingMultiplier > 1f)
             {
-                __result.AddMultiplier(partyHealingMultiplier);
+                __result.AddMultiplier(BannerlordCheatsSettings.Instance.PartyHealingMultiplier);
             }
         }
     }

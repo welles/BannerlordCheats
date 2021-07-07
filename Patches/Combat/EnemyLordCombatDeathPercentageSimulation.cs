@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Combat
         {
             if (struckTroop.IsHero()
                 && !struckParty.IsPlayerKingdom()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnemyLordCombatDeathPercentage, out var enemyLordCombatDeathPercentage))
+                && BannerlordCheatsSettings.Instance?.EnemyLordCombatDeathPercentage < 100f)
             {
-                var factor = enemyLordCombatDeathPercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.EnemyLordCombatDeathPercentage / 100f;
 
                 __result = (int) Math.Round(__result / factor);
             }

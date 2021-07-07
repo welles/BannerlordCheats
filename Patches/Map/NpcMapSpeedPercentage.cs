@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Map
         public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
         {
             if (!mobileParty.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NpcMapSpeedPercentage, out var npcMapSpeedPercentage))
+                && BannerlordCheatsSettings.Instance?.NpcMapSpeedPercentage > 100f)
             {
-                __result.AddPercentage(npcMapSpeedPercentage);
+                __result.AddPercentage(BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage);
             }
         }
     }

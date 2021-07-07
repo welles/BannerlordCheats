@@ -25,8 +25,7 @@ namespace BannerlordCheats.Patches.Inventory
             if (party.IsPlayerParty()
                 && !isTrading
                 && !Game.Current.CheatMode
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.NativeItemSpawning, out var nativeItemSpawning)
-                && nativeItemSpawning)
+                && BannerlordCheatsSettings.Instance?.NativeItemSpawning == true)
             {
                 var objectTypeList = Game.Current.ObjectManager.GetObjectTypeList<ItemObject>();
                 for (var index = 0; index != objectTypeList.Count; ++index)

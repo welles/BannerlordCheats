@@ -12,9 +12,9 @@ namespace BannerlordCheats.Patches.Settlements
         public static void ProsperityChange(ref Town __instance, ref float __result)
         {
             if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DailyProsperityBonus, out var dailyProsperityBonus))
+                && BannerlordCheatsSettings.Instance?.DailyProsperityBonus > 0)
             {
-                __result += dailyProsperityBonus;
+                __result += BannerlordCheatsSettings.Instance.DailyProsperityBonus;
             }
         }
     }

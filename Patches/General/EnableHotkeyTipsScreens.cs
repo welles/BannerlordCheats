@@ -12,10 +12,8 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void PushScreen(ref ScreenBase screen)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeyTips, out var enableHotkeyTips)
-                && enableHotkeys
-                && enableHotkeyTips)
+            if (BannerlordCheatsSettings.Instance?.EnableHotkeys == true
+                && BannerlordCheatsSettings.Instance?.EnableHotkeyTips == true)
             {
                 switch (screen)
                 {

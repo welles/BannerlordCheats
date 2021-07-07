@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Smithing
         public static void GetEnergyCostForSmelting(ItemObject item, Hero hero, ref int __result)
         {
             if (hero.PartyBelongedTo.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.SmithingEnergyCostPercentage, out var smithingEnergyCostPercentage))
+                && BannerlordCheatsSettings.Instance?.SmithingEnergyCostPercentage < 100f)
             {
-                var factor = smithingEnergyCostPercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage / 100f;
 
                 var newValue = (int)Math.Round(factor * __result);
 

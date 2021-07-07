@@ -13,9 +13,9 @@ namespace BannerlordCheats.Patches.Inventory
         public static void CalculateInventoryCapacity(ref MobileParty mobileParty, ref bool includeDescriptions, ref int additionalTroops, ref int additionalSpareMounts, ref int additionalPackAnimals, ref bool includeFollowers, ref ExplainedNumber __result)
         {
             if (mobileParty.IsPlayerParty()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.ExtraInventoryCapacity, out var extraInventoryCapacity))
+                && BannerlordCheatsSettings.Instance?.ExtraInventoryCapacity > 0)
             {
-                __result.Add(extraInventoryCapacity);
+                __result.Add(BannerlordCheatsSettings.Instance.ExtraInventoryCapacity);
             }
         }
     }

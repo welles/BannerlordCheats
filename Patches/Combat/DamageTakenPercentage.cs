@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Combat
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
             if (attackInformation.VictimAgentCharacter.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.DamageTakenPercentage, out var damageTakenPercentage))
+                && BannerlordCheatsSettings.Instance?.DamageTakenPercentage < 100f)
             {
-                var factor = damageTakenPercentage / 100f;
+                var factor = BannerlordCheatsSettings.Instance.DamageTakenPercentage / 100f;
 
                 var newValue = (int)Math.Round(factor * __result);
 

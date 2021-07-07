@@ -14,9 +14,9 @@ namespace BannerlordCheats.Patches.Experience
         public static void CalculateLearningRate(ref Hero hero, SkillObject skill, ref float __result)
         {
             if (hero.IsPlayer()
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.LearningRateMultiplier, out var learningRateMultiplier))
+                && BannerlordCheatsSettings.Instance?.LearningRateMultiplier > 1f)
             {
-                __result *= learningRateMultiplier;
+                __result *= BannerlordCheatsSettings.Instance.LearningRateMultiplier;
             }
         }
     }

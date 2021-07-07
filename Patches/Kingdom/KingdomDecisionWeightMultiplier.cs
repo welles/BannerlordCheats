@@ -11,10 +11,10 @@ namespace BannerlordCheats.Patches.Kingdom
         [HarmonyPostfix]
         public static void Getter(ref DecisionOutcome __instance, ref float __result)
         {
-            if (BannerlordCheatsSettings.TryGetModifiedValue(x => x.KingdomDecisionWeightMultiplier, out var kingdomDecisionWeightMultiplier)
-                && __instance.SupporterList.Any(x => x.IsPlayer))
+            if (__instance.SupporterList.Any(x => x.IsPlayer)
+                && BannerlordCheatsSettings.Instance?.KingdomDecisionWeightMultiplier > 1f)
             {
-                __result *= kingdomDecisionWeightMultiplier;
+                __result *= BannerlordCheatsSettings.Instance.KingdomDecisionWeightMultiplier;
             }
         }
     }

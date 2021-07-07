@@ -20,8 +20,7 @@ namespace BannerlordCheats.Patches.General
         public static void OnApplicationTick()
         {
             if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
-                && BannerlordCheatsSettings.TryGetModifiedValue(x => x.EnableHotkeys, out var enableHotkeys)
-                && enableHotkeys)
+                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
             {
                 if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A))
                 {
