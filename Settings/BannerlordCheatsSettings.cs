@@ -245,9 +245,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(FoodConsumptionPercentage))]
         public float FoodConsumptionPercentage { get; set; } = 100.0f;
 
-        [LocalizedSettingPropertyGroup(PartyGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(TroopWagesPercentage))]
-        public float TroopWagesPercentage { get; set; } = 100.0f;
+        // [LocalizedSettingPropertyGroup(PartyGroupName)]
+        // [LocalizedSettingPropertyPercent(nameof(TroopWagesPercentage))]
+        // public float TroopWagesPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(FreeTroopUpgrades))]
