@@ -1,11 +1,11 @@
 <Project>
   <PropertyGroup>
-    <Version>2.5.0.0</Version>
-    <GameVersion>1.5.10</GameVersion>
+    <Version>2.6.0.0</Version>
+    <GameVersion>1.6.1.280285</GameVersion>
     <GameBranch>Stable</GameBranch>
     <AdditionalInfo></AdditionalInfo>
-    <HarmonyVersion>2.1.0</HarmonyVersion>
-    <MCMVersion>4.3</MCMVersion>
+    <HarmonyVersion>2.1.1</HarmonyVersion>
+    <MCMVersion>4.3.10</MCMVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <GameFolder>C:\SteamCMD\mb2b_stable</GameFolder>

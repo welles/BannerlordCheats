@@ -1,9 +1,9 @@
-﻿using System;
-using BannerlordCheats.Extensions;
+﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox.GauntletUI;
+using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
@@ -28,12 +28,12 @@ namespace BannerlordCheats.Patches.General
 
                     var currentHero = charVM.CurrentCharacter.Hero;
 
-                    currentHero.SetAttributeValue(CharacterAttributesEnum.Control, 10);
-                    currentHero.SetAttributeValue(CharacterAttributesEnum.Cunning, 10);
-                    currentHero.SetAttributeValue(CharacterAttributesEnum.Endurance, 10);
-                    currentHero.SetAttributeValue(CharacterAttributesEnum.Intelligence, 10);
-                    currentHero.SetAttributeValue(CharacterAttributesEnum.Social, 10);
-                    currentHero.SetAttributeValue(CharacterAttributesEnum.Vigor, 10);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Control);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Cunning);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Endurance);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Intelligence);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Social);
+                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Vigor);
 
                     charVM.RefreshValues();
 
@@ -43,46 +43,53 @@ namespace BannerlordCheats.Patches.General
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1))
                 {
-                    EnableHotkeysCharacterAttributes.AddPoint(CharacterAttributesEnum.Vigor);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Vigor);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D2))
                 {
-                    EnableHotkeysCharacterAttributes.AddPoint(CharacterAttributesEnum.Control);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Control);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D3))
                 {
-                    EnableHotkeysCharacterAttributes.AddPoint(CharacterAttributesEnum.Endurance);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Endurance);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D4))
                 {
-                    EnableHotkeysCharacterAttributes.AddPoint(CharacterAttributesEnum.Cunning);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Cunning);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D5))
                 {
-                    EnableHotkeysCharacterAttributes.AddPoint(CharacterAttributesEnum.Social);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Social);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D6))
                 {
-                    EnableHotkeysCharacterAttributes.AddPoint(CharacterAttributesEnum.Intelligence);
+                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Intelligence);
                 }
             }
         }
 
-        private static void AddPoint(CharacterAttributesEnum type)
+        private static void SetMaximum(Hero hero, CharacterAttribute attribute)
+        {
+            var changeAmount = 10 - hero.GetAttributeValue(attribute);
+
+            hero.HeroDeveloper.AddAttribute(attribute, changeAmount, false);
+        }
+
+        private static void AddPoint(CharacterAttribute attribute)
         {
             var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
 
             var currentHero = charVM.CurrentCharacter.Hero;
 
-            var oldValue = currentHero.GetAttributeValue(type);
+            var oldValue = currentHero.GetAttributeValue(attribute);
 
             if (oldValue >= 10) { return; }
 
-            currentHero.SetAttributeValue(type, oldValue + 1);
+            currentHero.HeroDeveloper.AddAttribute(attribute, 1, false);
 
             charVM.RefreshValues();
 
-            var message = string.Format(L10N.GetText("AddAttributePointMessage"), Enum.GetName(typeof(CharacterAttributesEnum), type), currentHero.Name);
+            var message = string.Format(L10N.GetText("AddAttributePointMessage"), attribute.Name, currentHero.Name);
 
             InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
         }
