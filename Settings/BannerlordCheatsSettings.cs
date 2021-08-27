@@ -441,9 +441,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(NeverRequireCivilianEquipment))]
         public bool NeverRequireCivilianEquipment { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(ConstructionPowerMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
-        public float ConstructionPowerMultiplier { get; set; } = 1.0f;
+        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        // [LocalizedSettingPropertyFloatingInteger(nameof(ConstructionPowerMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        // public float ConstructionPowerMultiplier { get; set; } = 1.0f;
 
         #endregion Settlements
 
