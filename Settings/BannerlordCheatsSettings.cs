@@ -433,9 +433,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(DailyHearthsBonus), minValue: 0, maxValue: 10000)]
         public int DailyHearthsBonus { get; set; } = 0;
 
-        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
-        public float GarrisonWagesPercentage { get; set; } = 100.0f;
+        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        // [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
+        // public float GarrisonWagesPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(NeverRequireCivilianEquipment))]
