@@ -3,7 +3,6 @@
     <Version>2.7.0.0</Version>
     <GameVersion>1.6.2.280252</GameVersion>
     <GameBranch>Beta</GameBranch>
-    <AdditionalInfo></AdditionalInfo>
     <HarmonyVersion>2.1.1</HarmonyVersion>
     <MCMVersion>4.3.10</MCMVersion>
     <TargetFramework>net472</TargetFramework>
