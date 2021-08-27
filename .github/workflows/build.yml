@@ -2,6 +2,7 @@ name: Build
 
 on:
   push:
+    branches: [ stable-develop, beta-develop ]
   workflow_dispatch:
 
 jobs:
