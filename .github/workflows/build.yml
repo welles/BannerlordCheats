@@ -47,15 +47,6 @@ jobs:
           Write-Host "::set-output name=game_branch::$GameBranch"
           Write-Host "GameBranch: ""$GameBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $AdditionalInfo = Get-Content .\Directory.Build.props | Select-String -Pattern "<AdditionalInfo>(.*)<\/AdditionalInfo>" | % { $($_.Matches.Groups[1]).Value }
-          $AdditionalInfoEscaped = $AdditionalInfo -replace " ", "_"
-          If ($AdditionalInfoEscaped) { $AdditionalInfoEscaped = "_$AdditionalInfoEscaped" }
-          If ($AdditionalInfo) { $AdditionalInfo = " ($AdditionalInfo)" }
-          Write-Host "::set-output name=additional_info_escaped::$AdditionalInfoEscaped"
-          Write-Host "AdditionalInfoEscaped: ""$AdditionalInfoEscaped"""
-          Write-Host "::set-output name=additional_info::$AdditionalInfo"
-          Write-Host "AdditionalInfo: ""$AdditionalInfo"""
-          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $RepoBranch = "${{github.ref}}"
           $RepoBranch = $RepoBranch.Split("/")[-1]
           If ($RepoBranch -eq "master") { $RepoBranch = "" }
@@ -63,7 +54,7 @@ jobs:
           Write-Host "::set-output name=repo_branch::$RepoBranch"
           Write-Host "RepoBranch: ""$RepoBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ZipName = "BannerlordCheats_v$($ModVersion)$($AdditionalInfoEscaped)_for_$($GameBranch)_e$($GameVersion)"
+          $ZipName = "BannerlordCheats_v$($ModVersion)_for_$($GameBranch)_e$($GameVersion)"
           Write-Host "::set-output name=zip_name::$ZipName"
           Write-Host "ZipName: ""$ZipName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -71,7 +62,7 @@ jobs:
           Write-Host "::set-output name=tag_name::$TagName"
           Write-Host "TagName: ""$TagName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ReleaseTitle = "Release v$($ModVersion)$($AdditionalInfo) for $($GameBranch) e$($GameVersion)"
+          $ReleaseTitle = "Release v$($ModVersion) for $($GameBranch) e$($GameVersion)"
           Write-Host "::set-output name=release_title::$ReleaseTitle"
           Write-Host "ReleaseTitle: ""$ReleaseTitle"""
 
