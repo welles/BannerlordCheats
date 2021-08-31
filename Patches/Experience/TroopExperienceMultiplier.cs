@@ -2,6 +2,7 @@
 using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
@@ -10,6 +11,7 @@ namespace BannerlordCheats.Patches.Experience
     [HarmonyPatch(typeof(DefaultCombatXpModel), nameof(DefaultCombatXpModel.GetXpFromHit))]
     public static class TroopExperienceMultiplier
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void GetXpFromHit(
             ref CharacterObject attackerTroop,

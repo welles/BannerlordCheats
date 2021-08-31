@@ -1,5 +1,6 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 using static TaleWorlds.Core.Crafting;
 
@@ -8,6 +9,7 @@ namespace BannerlordCheats.Patches.Smithing
     [HarmonyPatch(typeof(DefaultSmithingModel), nameof(DefaultSmithingModel.GetModifierChanges))]
     public static class CraftedWeaponModifierBonus
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void GetModifierChanges(int modifierTier, ref OverrideData __result)
         {

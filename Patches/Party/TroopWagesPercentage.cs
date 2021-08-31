@@ -9,6 +9,7 @@ namespace BannerlordCheats.Patches.Party
     // [HarmonyPatch(typeof(DefaultPartyWageModel), nameof(DefaultPartyWageModel.GetTotalWage))]
     // public static class TroopWagesPercentage
     // {
+    //     [UsedImplicitly]
     //     [HarmonyPostfix]
     //     public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
     //     {

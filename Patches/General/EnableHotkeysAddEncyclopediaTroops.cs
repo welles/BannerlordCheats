@@ -2,6 +2,7 @@
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
 using TaleWorlds.Core;
@@ -13,6 +14,7 @@ namespace BannerlordCheats.Patches.General
     [HarmonyPatch(typeof(EncyclopediaPageVM), "OnTick")]
     public static class EnableHotkeysAddEncyclopediaTroops
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void OnTick(ref EncyclopediaPageVM __instance)
         {
