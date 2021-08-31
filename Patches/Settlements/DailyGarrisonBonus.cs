@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
 
 namespace BannerlordCheats.Patches.Settlements
@@ -8,6 +9,7 @@ namespace BannerlordCheats.Patches.Settlements
     [HarmonyPatch(typeof(Town), nameof(Town.GarrisonChange), MethodType.Getter)]
     public static class DailyGarrisonBonus
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void GarrisonChange(ref Town __instance, ref int __result)
         {

@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SandBox.View.Map;
 
 namespace BannerlordCheats.Patches.General
@@ -8,6 +9,7 @@ namespace BannerlordCheats.Patches.General
     [HarmonyPatch(typeof(MapScreen), nameof(MapScreen.OpenEncyclopedia))]
     public static class EnableHotkeyTipsEncyclopedia
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void OpenEncyclopedia()
         {

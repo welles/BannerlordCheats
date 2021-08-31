@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
@@ -8,6 +9,7 @@ namespace BannerlordCheats.Patches.Combat
     [HarmonyPatch(typeof(Mission), "DecideWeaponCollisionReaction")]
     public static class SliceThroughEveryoneWeapon
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void DecideWeaponCollisionReaction(
             ref Blow registeredBlow,

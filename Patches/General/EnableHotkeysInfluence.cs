@@ -2,6 +2,7 @@
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
@@ -15,6 +16,7 @@ namespace BannerlordCheats.Patches.General
     [HarmonyPatch(typeof(Module), "OnApplicationTick")]
     public static class EnableHotkeysInfluence
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {

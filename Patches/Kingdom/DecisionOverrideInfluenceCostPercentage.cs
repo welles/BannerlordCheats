@@ -1,6 +1,7 @@
 ﻿using System;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.Election;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
@@ -9,6 +10,7 @@ namespace BannerlordCheats.Patches.Kingdom
     [HarmonyPatch(typeof(DefaultClanPoliticsModel), nameof(DefaultClanPoliticsModel.GetInfluenceRequiredToOverrideKingdomDecision))]
     public static class DecisionOverrideInfluenceCostPercentage
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void GetInfluenceRequiredToOverrideKingdomDecision(
             ref DecisionOutcome popularOption,

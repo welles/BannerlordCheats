@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using ArmyObj = TaleWorlds.CampaignSystem.Army;
 
 namespace BannerlordCheats.Patches.Army
@@ -8,6 +9,7 @@ namespace BannerlordCheats.Patches.Army
     [HarmonyPatch(typeof(ArmyObj), nameof(ArmyObj.CohesionChange), MethodType.Getter)]
     public static class FactionArmyCohesionLossPercentage
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void CohesionChange(ref ArmyObj __instance, ref float __result)
         {

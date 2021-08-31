@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
 using System;
+using JetBrains.Annotations;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
@@ -10,6 +11,7 @@ namespace BannerlordCheats.Patches.Combat
     {
         private static int? LastSet = null;
 
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void OnApplicationTick(float dt)
         {

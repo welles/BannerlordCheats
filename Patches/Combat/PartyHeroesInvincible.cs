@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
@@ -8,6 +9,7 @@ namespace BannerlordCheats.Patches.Combat
     [HarmonyPatch(typeof(Agent), nameof(Agent.Invulnerable), MethodType.Getter)]
     public static class PartyHeroesInvincible
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void Invulnerable(ref Agent __instance, ref bool __result)
         {

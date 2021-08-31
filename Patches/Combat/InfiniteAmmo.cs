@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
@@ -10,6 +11,7 @@ namespace BannerlordCheats.Patches.Combat
     [HarmonyPatch(typeof(Mission), "OnAgentShootMissile")]
     public static class InfiniteAmmo
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void OnAgentShootMissile(
             ref Agent shooterAgent,
