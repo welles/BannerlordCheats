@@ -49,7 +49,7 @@ jobs:
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $RepoBranch = "${{github.ref}}"
           $RepoBranch = $RepoBranch.Split("/")[-1]
-          If ($RepoBranch -eq "master") { $RepoBranch = "" }
+          If ($RepoBranch -eq "stable") { $RepoBranch = "" }
           If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
           Write-Host "::set-output name=repo_branch::$RepoBranch"
           Write-Host "RepoBranch: ""$RepoBranch"""
