@@ -31,7 +31,7 @@ namespace BannerlordCheats.Patches.General
 
                 var selectedCharacter = partyVM.CurrentCharacter;
 
-                if (selectedCharacter.IsHero || !selectedCharacter.IsTroopUpgradable) { return; }
+                if (selectedCharacter.IsHero || !selectedCharacter.IsUpgradableTroop) { return; }
 
                 var index = PartyBase.MainParty.MemberRoster.FindIndexOfTroop(selectedCharacter.Character);
 
