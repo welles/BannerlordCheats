@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SandBox.GauntletUI;
 using TaleWorlds.Engine.Screens;
 
@@ -9,6 +10,7 @@ namespace BannerlordCheats.Patches.General
     [HarmonyPatch(typeof(ScreenManager), nameof(ScreenManager.PushScreen))]
     public static class EnableHotkeyTipsScreens
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void PushScreen(ref ScreenBase screen)
         {

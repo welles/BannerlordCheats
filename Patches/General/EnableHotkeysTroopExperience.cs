@@ -2,6 +2,7 @@
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
@@ -16,6 +17,7 @@ namespace BannerlordCheats.Patches.General
     [HarmonyPatch(typeof(Module), "OnApplicationTick")]
     public static class EnableHotkeysTroopExperience
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
@@ -29,7 +31,7 @@ namespace BannerlordCheats.Patches.General
 
                 var selectedCharacter = partyVM.CurrentCharacter;
 
-                if (selectedCharacter.IsHero || !selectedCharacter.IsTroopUpgradable) { return; }
+                if (selectedCharacter.IsHero || !selectedCharacter.IsUpgradableTroop) { return; }
 
                 var index = PartyBase.MainParty.MemberRoster.FindIndexOfTroop(selectedCharacter.Character);
 

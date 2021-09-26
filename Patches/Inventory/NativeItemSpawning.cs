@@ -1,6 +1,7 @@
 ﻿using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.Core;
 using TaleWorlds.Localization;
@@ -10,6 +11,7 @@ namespace BannerlordCheats.Patches.Inventory
     [HarmonyPatch(typeof(InventoryLogic), nameof(InventoryLogic.Initialize), typeof(ItemRoster), typeof(MobileParty), typeof(bool), typeof(bool), typeof(CharacterObject), typeof(InventoryManager.InventoryCategoryType), typeof(IMarketData), typeof(bool), typeof(TextObject))]
     public static class NativeItemSpawning
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void Initialize(
             ref ItemRoster leftItemRoster,
