@@ -9,6 +9,7 @@ namespace BannerlordCheats.Patches.Settlements
     // [HarmonyPatch(typeof(DefaultBuildingConstructionModel), nameof(DefaultBuildingConstructionModel.CalculateDailyConstructionPower))]
     // public static class ConstructionPowerMultiplier
     // {
+    //     [UsedImplicitly]
     //     [HarmonyPostfix]
     //     public static void CalculateDailyConstructionPower(
     //         ref Town town,

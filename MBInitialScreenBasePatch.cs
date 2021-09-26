@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.Core;
 using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
@@ -8,6 +9,7 @@ namespace BannerlordCheats
     [HarmonyPatch(typeof(MBInitialScreenBase), "OnInitialize")]
     public static class MBInitialScreenBasePatch
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void OnInitialize()
         {

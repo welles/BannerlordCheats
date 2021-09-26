@@ -1,5 +1,6 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
 
 namespace BannerlordCheats.Patches.Workshops
@@ -7,6 +8,7 @@ namespace BannerlordCheats.Patches.Workshops
     [HarmonyPatch(typeof(DefaultWorkshopModel), nameof(DefaultWorkshopModel.GetUpgradeCost))]
     public static class WorkshopUpgradeCostPercentage
     {
+        [UsedImplicitly]
         [HarmonyPostfix]
         public static void GetUpgradeCost(ref int currentLevel, ref int __result)
         {

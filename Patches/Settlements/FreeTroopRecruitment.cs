@@ -9,6 +9,7 @@ namespace BannerlordCheats.Patches.Settlements
     // [HarmonyPatch(typeof(DefaultPartyWageModel), nameof(DefaultPartyWageModel.GetTroopRecruitmentCost))]
     // public static class FreeTroopRecruitment
     // {
+    //     [UsedImplicitly]
     //     [HarmonyPostfix]
     //     public static void GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost, ref int __result)
     //     {
