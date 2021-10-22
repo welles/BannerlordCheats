@@ -444,6 +444,10 @@ namespace BannerlordCheats.Settings
         // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         // [LocalizedSettingPropertyFloatingInteger(nameof(ConstructionPowerMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
         // public float ConstructionPowerMultiplier { get; set; } = 1.0f;
+        
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoBribeToEnterKeep))]
+        public bool NoBribeToEnterKeep { get; set; } = false;
 
         #endregion Settlements
 
