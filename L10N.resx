@@ -798,4 +798,10 @@
   <data name="ConstructionPowerMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the construction power of player towns is multiplied. A factor of 1 means default construction power.</value>
   </data>
+  <data name="NoBribeToEnterKeep_Name" xml:space="preserve">
+    <value>If enabled, no bribe is required to enter a keep.</value>
+  </data>
+  <data name="NoBribeToEnterKeep_Desc" xml:space="preserve">
+    <value>Enter Keeps Without Bribe</value>
+  </data>
 </root>
