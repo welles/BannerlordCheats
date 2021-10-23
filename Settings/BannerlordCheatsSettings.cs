@@ -312,6 +312,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(AllowSameSexMarriage))]
         public bool AllowSameSexMarriage { get; set; } = false;
+        
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(PregnancyChanceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float PregnancyChanceMultiplier { get; set; } = 1.0f;
 
         #endregion Characters
 
