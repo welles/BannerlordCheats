@@ -304,6 +304,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(ConversationAlwaysSuccessful))]
         public bool ConversationAlwaysSuccessful { get; set; } = false;
+        
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PerfectAttraction))]
+        public bool PerfectAttraction { get; set; } = false;
 
         #endregion Characters
 
