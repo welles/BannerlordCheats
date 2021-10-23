@@ -4,7 +4,6 @@ using BannerlordCheats.Localization;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.Core;
-using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats
@@ -18,13 +17,17 @@ namespace BannerlordCheats
         {
             if (SubModule.ErrorFile != null)
             {
-                InformationManager.DisplayMessage(new InformationMessage("Bannerlord Cheats could not load correctly!", Color.FromUint(16711680)));
-                InformationManager.DisplayMessage(new InformationMessage($"Detailed error info has been saved in the file {SubModule.ErrorFile} in the Cheats mod folder.", Color.FromUint(16711680)));
-                InformationManager.DisplayMessage(new InformationMessage("If possible please send this file to the mod author.", Color.FromUint(16711680)));
-                InformationManager.DisplayMessage(new InformationMessage("You can still play the game, but some cheats may not work.", Color.FromUint(16711680)));
+                InformationManager.ShowInquiry(new InquiryData(
+                    L10N.GetText("ModFailedLoadWarningTitle"),
+                    L10N.GetTextFormat("ModFailedLoadWarningMessage", SubModule.ErrorFile),
+                    true,
+                    false,
+                    L10N.GetText("ModWarningMessageConfirm"),
+                    null,
+                    null,
+                    null));
             }
-
-            if (!ConfirmFileExists())
+            else if (!ConfirmFileExists())
             {
                 InformationManager.ShowInquiry(new InquiryData(
                     L10N.GetText("ModName"),

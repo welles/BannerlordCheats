@@ -31,11 +31,11 @@ namespace BannerlordCheats
                 {
                     var errorFileName = $"Error-{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.txt";
 
-                    SubModule.ErrorFile = errorFileName;
-
                     var location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
                     var errorFilePath = Path.Combine(location, errorFileName);
+
+                    SubModule.ErrorFile = errorFilePath;
 
                     var errorMessage = new StringBuilder();
 

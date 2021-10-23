@@ -844,4 +844,13 @@ Thank you!</value>
   <data name="ModWarningMessageConfirm" xml:space="preserve">
     <value>I Understand</value>
   </data>
+  <data name="ModFailedLoadWarningTitle" xml:space="preserve">
+    <value>Bannerlord Cheats failed to load!</value>
+  </data>
+  <data name="ModFailedLoadWarningMessage" xml:space="preserve">
+    <value>This is most likely due to a version mismatch between the game and the mod. Please check if you have the correct mod version for your version of the game.
+If you do, please send the error information that has been generated in the file "{0}" to the mod author so that they can investigate this issue.
+You can still play the game, but most cheats will not work.
+Thank you!</value>
+  </data>
 </root>
