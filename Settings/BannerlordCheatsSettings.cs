@@ -508,6 +508,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(WorkshopSellingCostMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float WorkshopSellingCostMultiplier { get; set; } = 1.0f;
+        
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(EveryoneBuysWorkshops))]
+        public bool EveryoneBuysWorkshops { get; set; } = false;
 
         #endregion Workshops
     }

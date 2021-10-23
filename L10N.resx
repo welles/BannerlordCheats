@@ -804,4 +804,10 @@
   <data name="NoBribeToEnterKeep_Desc" xml:space="preserve">
     <value>Enter Keeps Without Bribe</value>
   </data>
+  <data name="EveryoneBuysWorkshops_Name" xml:space="preserve">
+    <value>Everyone Buys Workshops</value>
+  </data>
+  <data name="EveryoneBuysWorkshops_Desc" xml:space="preserve">
+    <value>If enabled, you will always find a buyer for your workshop, even if you have adjusted the workshop selling price cheat.</value>
+  </data>
 </root>
