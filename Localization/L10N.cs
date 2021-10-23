@@ -26,7 +26,7 @@ namespace BannerlordCheats.Localization
                 var key = entry.Attribute("name").Value;
                 var value = entry.Element("value").Value;
 
-                if (!string.IsNullOrWhiteSpace(key) && !string.IsNullOrWhiteSpace(value))
+                if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
                 {
                     L10N.Values.Add(key, value);
                 }
@@ -36,6 +36,18 @@ namespace BannerlordCheats.Localization
         public static string GetText(string key)
         {
             return L10N.Values[key];
+        }
+
+        public static string GetTextFormat(string key, params object[] formatValues)
+        {
+            var text = Values[key];
+
+            for (int i = 0; i < formatValues.Length; i++)
+            {
+                text = text.Replace($"{{{i}}}", formatValues[i].ToString());
+            }
+
+            return text;
         }
     }
 }
