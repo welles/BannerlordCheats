@@ -61,17 +61,17 @@ namespace BannerlordCheats.Settings
 
         #region Map
 
-        // [LocalizedSettingPropertyGroup(MapGroupName)]
-        // [LocalizedSettingPropertyFloatingInteger(nameof(MapSpeedMultiplier), minValue: 1.0f, maxValue: 100.0f)]
-        // public float MapSpeedMultiplier { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(MapGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(MapSpeedMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float MapSpeedMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(MapVisibilityMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float MapVisibilityMultiplier { get; set; } = 1.0f;
 
-        // [LocalizedSettingPropertyGroup(MapGroupName)]
-        // [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
-        // public float NpcMapSpeedPercentage { get; set; } = 100.0f;
+        [LocalizedSettingPropertyGroup(MapGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
+        public float NpcMapSpeedPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvisibleOnMap))]
@@ -304,6 +304,22 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(ConversationAlwaysSuccessful))]
         public bool ConversationAlwaysSuccessful { get; set; } = false;
+        
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PerfectAttraction))]
+        public bool PerfectAttraction { get; set; } = false;
+        
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyBool(nameof(AllowSameSexMarriage))]
+        public bool AllowSameSexMarriage { get; set; } = false;
+        
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(PregnancyChanceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float PregnancyChanceMultiplier { get; set; } = 1.0f;
+        
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(AdjustPregnancyDuration), minValue: 1, maxValue: 36)]
+        public int AdjustPregnancyDuration { get; set; } = 36;
 
         #endregion Characters
 
@@ -444,6 +460,10 @@ namespace BannerlordCheats.Settings
         // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         // [LocalizedSettingPropertyFloatingInteger(nameof(ConstructionPowerMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
         // public float ConstructionPowerMultiplier { get; set; } = 1.0f;
+        
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoBribeToEnterKeep))]
+        public bool NoBribeToEnterKeep { get; set; } = false;
 
         #endregion Settlements
 
@@ -504,6 +524,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(WorkshopSellingCostMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float WorkshopSellingCostMultiplier { get; set; } = 1.0f;
+        
+        [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(EveryoneBuysWorkshops))]
+        public bool EveryoneBuysWorkshops { get; set; } = false;
 
         #endregion Workshops
     }
