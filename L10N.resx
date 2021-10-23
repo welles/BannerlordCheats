@@ -822,4 +822,10 @@
   <data name="AllowSameSexMarriage_Desc" xml:space="preserve">
     <value>If enabled, you can marry characters of the same gender as your character.</value>
   </data>
+  <data name="PregnancyChanceMultiplier_Name" xml:space="preserve">
+    <value>Pregnancy Chance Multiplier</value>
+  </data>
+  <data name="PregnancyChanceMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the chance of getting pregnant for player characters or player character spouses is multiplied. Does not affect characters that cannot become pregnant! A factor of 1 means default pregnancy chance.</value>
+  </data>
 </root>
