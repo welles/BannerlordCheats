@@ -37,5 +37,17 @@ namespace BannerlordCheats.Localization
         {
             return L10N.Values[key];
         }
+
+        public static string GetTextFormat(string key, params object[] formatValues)
+        {
+            var text = Values[key];
+
+            for (int i = 0; i < formatValues.Length; i++)
+            {
+                text = text.Replace($"{{{i}}}", formatValues[i].ToString());
+            }
+
+            return text;
+        }
     }
 }
