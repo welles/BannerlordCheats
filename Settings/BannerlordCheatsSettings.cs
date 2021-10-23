@@ -316,6 +316,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(PregnancyChanceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float PregnancyChanceMultiplier { get; set; } = 1.0f;
+        
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(AdjustPregnancyDuration), minValue: 1, maxValue: 36)]
+        public int AdjustPregnancyDuration { get; set; } = 36;
 
         #endregion Characters
 

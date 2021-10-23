@@ -828,4 +828,10 @@
   <data name="PregnancyChanceMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the chance of getting pregnant for player characters or player character spouses is multiplied. Does not affect characters that cannot become pregnant! A factor of 1 means default pregnancy chance.</value>
   </data>
+  <data name="AdjustPregnancyDuration_Name" xml:space="preserve">
+    <value>Adjust Pregnancy Duration</value>
+  </data>
+  <data name="AdjustPregnancyDuration_Desc" xml:space="preserve">
+    <value>Adjust the length of pregnancies for all characters in the game. The default length of a pregnancy is 36 days.</value>
+  </data>
 </root>
