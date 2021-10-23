@@ -816,4 +816,10 @@
   <data name="PerfectAttraction_Desc" xml:space="preserve">
     <value>If enabled, potential partners will always be 100% attracted to you.</value>
   </data>
+  <data name="AllowSameSexMarriage_Name" xml:space="preserve">
+    <value>Allow Same Sex Marriage</value>
+  </data>
+  <data name="AllowSameSexMarriage_Desc" xml:space="preserve">
+    <value>If enabled, you can marry characters of the same gender as your character.</value>
+  </data>
 </root>

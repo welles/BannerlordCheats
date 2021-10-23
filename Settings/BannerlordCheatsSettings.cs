@@ -308,6 +308,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(PerfectAttraction))]
         public bool PerfectAttraction { get; set; } = false;
+        
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyBool(nameof(AllowSameSexMarriage))]
+        public bool AllowSameSexMarriage { get; set; } = false;
 
         #endregion Characters
 
