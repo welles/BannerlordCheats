@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Reflection;
 using BannerlordCheats.Localization;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.Core;
@@ -41,17 +42,27 @@ namespace BannerlordCheats
             }
         }
 
+        private static string ConfirmFilePath
+        {
+            get
+            {
+                var confirmFileName = "I Understand How The Cheats Work.txt";
+
+                var assemblyLocation = Assembly.GetAssembly(typeof(BannerlordCheatsSettings)).Location;
+
+                var location = Path.GetDirectoryName(assemblyLocation);
+
+                var confirmFilePath = Path.Combine(location, confirmFileName);
+
+                return confirmFilePath;
+            }
+        }
+
         private static void CreateConfirmFile()
         {
             try
             {
-                var confirmFileName = $"I Understand How The Cheats Work.txt";
-
-                var location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-                var confirmFilePath = Path.Combine(location, confirmFileName);
-
-                File.Create(confirmFileName);
+                File.Create(ConfirmFilePath);
             }
             catch
             {
@@ -63,13 +74,7 @@ namespace BannerlordCheats
         {
             try
             {
-                var confirmFileName = $"I Understand How The Cheats Work.txt";
-
-                var location = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-                var confirmFilePath = Path.Combine(location, confirmFileName);
-
-                return File.Exists(confirmFilePath);
+                return File.Exists(ConfirmFilePath);
             }
             catch
             {
