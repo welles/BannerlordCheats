@@ -434,6 +434,10 @@ namespace BannerlordCheats.Settings
         public float SellingPriceMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(TournamentMaximumBetMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float TournamentMaximumBetMultiplier { get; set; } = 1.0f;
+
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyInteger(nameof(DailyFoodBonus), minValue: 0, maxValue: 10000)]
         public int DailyFoodBonus { get; set; } = 0;
 
