@@ -213,6 +213,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(AlwaysKnockDown))]
         public bool AlwaysKnockDown { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NeverKnockedBackByAttacks))]
+        public bool NeverKnockedBackByAttacks { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory
