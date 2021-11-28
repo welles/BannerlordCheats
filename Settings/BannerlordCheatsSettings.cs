@@ -206,6 +206,10 @@ namespace BannerlordCheats.Settings
         public float EnemyLordCombatDeathPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(EnemyLordCombatDeathChanceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float EnemyLordCombatDeathChanceMultiplier { get; set; } = 1.0f;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyBool(nameof(AlwaysKnockDown))]
         public bool AlwaysKnockDown { get; set; } = false;
 
@@ -304,19 +308,19 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(ConversationAlwaysSuccessful))]
         public bool ConversationAlwaysSuccessful { get; set; } = false;
-        
+
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(PerfectAttraction))]
         public bool PerfectAttraction { get; set; } = false;
-        
+
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(AllowSameSexMarriage))]
         public bool AllowSameSexMarriage { get; set; } = false;
-        
+
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(PregnancyChanceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float PregnancyChanceMultiplier { get; set; } = 1.0f;
-        
+
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyInteger(nameof(AdjustPregnancyDuration), minValue: 1, maxValue: 36)]
         public int AdjustPregnancyDuration { get; set; } = 36;
@@ -380,7 +384,7 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(SiegeBuildingSpeedMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
         public float SiegeBuildingSpeedMultiplier { get; set; } = 1.0f;
-        
+
         [LocalizedSettingPropertyGroup(SiegesGroupName)]
         [LocalizedSettingPropertyPercent(nameof(EnemySiegeBuildingSpeedPercentage))]
         public float EnemySiegeBuildingSpeedPercentage { get; set; } = 100.0f;
@@ -460,7 +464,7 @@ namespace BannerlordCheats.Settings
         // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         // [LocalizedSettingPropertyFloatingInteger(nameof(ConstructionPowerMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
         // public float ConstructionPowerMultiplier { get; set; } = 1.0f;
-        
+
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoBribeToEnterKeep))]
         public bool NoBribeToEnterKeep { get; set; } = false;
@@ -524,7 +528,7 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(WorkshopSellingCostMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float WorkshopSellingCostMultiplier { get; set; } = 1.0f;
-        
+
         [LocalizedSettingPropertyGroup(WorkshopsGroupName)]
         [LocalizedSettingPropertyBool(nameof(EveryoneBuysWorkshops))]
         public bool EveryoneBuysWorkshops { get; set; } = false;
