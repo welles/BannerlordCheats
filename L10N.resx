@@ -853,4 +853,10 @@ If you do, please send the error information that has been generated in the file
 You can still play the game, but most cheats will not work.
 Thank you!</value>
   </data>
+  <data name="EnemyLordCombatDeathChanceMultiplier_Name" xml:space="preserve">
+    <value>Enemy Lord Combat Death Chance Multiplier</value>
+  </data>
+  <data name="EnemyLordCombatDeathChanceMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the chance of enemy lords dying in combat is multiplied. 1 means default death chance.</value>
+  </data>
 </root>
