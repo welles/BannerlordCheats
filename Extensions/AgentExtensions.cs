@@ -58,6 +58,12 @@ namespace BannerlordCheats.Extensions
             }
         }
 
+        public static bool IsOnPlayerEnemySide(this IAgentOriginBase origin)
+        {
+            return origin.TryGetParty(out var party)
+                   && (party.MapEventSide?.OtherSide?.IsMainPartyAmongParties() ?? false);
+        }
+
         public static bool IsHero(this Agent agent)
         {
             return agent?.IsHero ?? false;

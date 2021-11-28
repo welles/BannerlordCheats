@@ -1,5 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+    <PropertyGroup>
+      <IsPackable>false</IsPackable>
+      <AssemblyVersion>$(Version)</AssemblyVersion>
+    </PropertyGroup>
+
     <ItemGroup>
       <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion)" IncludeAssets="compile" />
       <PackageReference Condition="$(UseNuGetAssemblies) == True" Include="Bannerlord.ReferenceAssemblies.EarlyAccess" Version="$(GameVersion)" />
