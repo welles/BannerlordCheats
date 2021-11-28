@@ -865,4 +865,10 @@ Thank you!</value>
   <data name="NeverKnockedBackByAttacks_Name" xml:space="preserve">
     <value>Never Knocked Back By Attacks</value>
   </data>
+  <data name="EnemyDamagePercentage_Name" xml:space="preserve">
+    <value>Enemy Damage Percentage</value>
+  </data>
+  <data name="EnemyDamagePercentage_Desc" xml:space="preserve">
+    <value>Percentage of damage all player enemies do during combat compared to the original damage. 100% means full damage.</value>
+  </data>
 </root>
