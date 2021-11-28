@@ -871,4 +871,10 @@ Thank you!</value>
   <data name="EnemyDamagePercentage_Desc" xml:space="preserve">
     <value>Percentage of damage all player enemies do during combat compared to the original damage. 100% means full damage.</value>
   </data>
+  <data name="TournamentMaximumBetMultiplier_Name" xml:space="preserve">
+    <value>Tournament Maximum Bet Multiplier</value>
+  </data>
+  <data name="TournamentMaximumBetMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the maximum amont of money you can bet on a tournament is multiplied. 1 means default value.</value>
+  </data>
 </root>
