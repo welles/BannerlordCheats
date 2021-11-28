@@ -178,6 +178,10 @@ namespace BannerlordCheats.Settings
         public float DamageMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(EnemyDamagePercentage))]
+        public float EnemyDamagePercentage { get; set; } = 100.0f;
+
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(PartyDamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
         public float PartyDamageMultiplier { get; set; } = 1.0f;
 
