@@ -859,4 +859,10 @@ Thank you!</value>
   <data name="EnemyLordCombatDeathChanceMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the chance of enemy lords dying in combat is multiplied. 1 means default death chance.</value>
   </data>
+  <data name="NeverKnockedBackByAttacks_Desc" xml:space="preserve">
+    <value>If enabled the player character is never knocked back or stunned by enemy attacks.</value>
+  </data>
+  <data name="NeverKnockedBackByAttacks_Name" xml:space="preserve">
+    <value>Never Knocked Back By Attacks</value>
+  </data>
 </root>
