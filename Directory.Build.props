@@ -1,7 +1,7 @@
 <Project>
   <PropertyGroup>
     <Version>2.9.0.0</Version>
-    <GameVersion>1.6.4.291839</GameVersion>
+    <GameVersion>1.6.5.294486</GameVersion>
     <GameBranch>Stable</GameBranch>
     <HarmonyVersion>2.1.1</HarmonyVersion>
     <MCMVersion>4.3.10</MCMVersion>
