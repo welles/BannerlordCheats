@@ -84,15 +84,16 @@ namespace BannerlordCheats.Extensions
 
         public static bool IsPlayerEnemy(this Agent agent)
         {
-            return agent?.Team != null
-                && !agent.Team.IsPlayerTeam
-                && !agent.Team.IsPlayerAlly;
+            return Mission.Current?.PlayerTeam != null
+                   && agent?.Team != null
+                   && Mission.Current.PlayerTeam.Side != agent.Team.Side;
         }
 
         public static bool IsPlayerAlly(this Agent agent)
         {
-            return agent?.Team != null
-                   && (agent.Team.IsPlayerTeam || agent.Team.IsPlayerAlly);
+            return Mission.Current?.PlayerTeam != null
+                   && agent?.Team != null
+                   && Mission.Current.PlayerTeam.Side == agent.Team.Side;
         }
     }
 }
