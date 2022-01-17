@@ -7,12 +7,15 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(DefaultBattleMoraleModel), nameof(DefaultBattleMoraleModel.CalculateMoraleChangeToCharacter))]
+    [HarmonyPatch(typeof(SandboxBattleMoraleModel), nameof(SandboxBattleMoraleModel.CalculateMoraleChangeToCharacter))]
     public static class EnemiesNoRunningAway
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CalculateMoraleChangeToCharacter(Agent agent, float moraleChange, float distance, ref float __result)
+        public static void CalculateMoraleChangeToCharacter(
+            ref Agent agent,
+            ref float maxMoraleChange,
+            ref float __result)
         {
             if (agent.IsPlayerEnemy()
                 && BannerlordCheatsSettings.Instance?.EnemiesNoRunningAway == true)
