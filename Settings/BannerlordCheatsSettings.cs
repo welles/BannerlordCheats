@@ -221,6 +221,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(NeverKnockedBackByAttacks))]
         public bool NeverKnockedBackByAttacks { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoStuckArrows))]
+        public bool NoStuckArrows { get; set; } = false;
+
         #endregion Combat
 
         #region Inventory
