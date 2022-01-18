@@ -877,4 +877,10 @@ Thank you!</value>
   <data name="TournamentMaximumBetMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the maximum amont of money you can bet on a tournament is multiplied. 1 means default value.</value>
   </data>
+  <data name="NoStuckArrows_Name" xml:space="preserve">
+    <value>No Stuck Arrows</value>
+  </data>
+  <data name="NoStuckArrows_Desc" xml:space="preserve">
+    <value>If enabled, arrows will not get stuck in the player character.</value>
+  </data>
 </root>
