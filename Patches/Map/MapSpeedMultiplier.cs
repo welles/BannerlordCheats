@@ -7,7 +7,6 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
 namespace BannerlordCheats.Patches.Map
 {
-    /*
     [HarmonyPatch(typeof(DefaultPartySpeedCalculatingModel), nameof(DefaultPartySpeedCalculatingModel.CalculateFinalSpeed))]
     public static class MapSpeedMultiplier
     {
@@ -22,5 +21,4 @@ namespace BannerlordCheats.Patches.Map
             }
         }
     }
-    */
 }
