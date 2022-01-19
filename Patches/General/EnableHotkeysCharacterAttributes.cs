@@ -41,7 +41,7 @@ namespace BannerlordCheats.Patches.General
 
                     var message = string.Format(L10N.GetText("SetAllAttributesMessage"), currentHero.Name);
 
-                    InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+                    Message.Show(message);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1))
                 {
@@ -93,7 +93,7 @@ namespace BannerlordCheats.Patches.General
 
             var message = string.Format(L10N.GetText("AddAttributePointMessage"), attribute.Name, currentHero.Name);
 
-            InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+            Message.Show(message);
         }
     }
 }
