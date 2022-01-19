@@ -27,13 +27,13 @@ namespace BannerlordCheats.Patches.General
                 {
                     Hero.MainHero.ChangeHeroGold(100000);
 
-                    InformationManager.DisplayMessage(new InformationMessage(string.Format(L10N.GetText("AddGoldMessage"), 100000), Color.White));
+                    Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 100000));
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
                 {
                     Hero.MainHero.ChangeHeroGold(1000);
 
-                    InformationManager.DisplayMessage(new InformationMessage(string.Format(L10N.GetText("AddGoldMessage"), 1000), Color.White));
+                    Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 1000));
                 }
             }
         }

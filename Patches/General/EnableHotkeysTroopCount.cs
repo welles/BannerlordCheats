@@ -64,7 +64,7 @@ namespace BannerlordCheats.Patches.General
 
             var message = string.Format(L10N.GetText("AddTroopsMessage"), count, selectedCharacter.Name);
 
-            InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+            Message.Show(message);
         }
     }
 }

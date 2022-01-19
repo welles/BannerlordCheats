@@ -26,7 +26,7 @@ namespace BannerlordCheats.Patches.General
             {
                 Hero.MainHero.AddInfluenceWithKingdom(1000);
 
-                InformationManager.DisplayMessage(new InformationMessage(L10N.GetText("AddInfluenceMessage"), Color.White));
+                Message.Show(L10N.GetText("AddInfluenceMessage"));
             }
         }
     }

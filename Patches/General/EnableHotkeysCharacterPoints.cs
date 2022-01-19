@@ -35,7 +35,7 @@ namespace BannerlordCheats.Patches.General
 
                     var message = string.Format(L10N.GetText("AddUnspentFocusPointMessage"), currentHero.Name);
 
-                    InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+                    Message.Show(message);
                 }
                 else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.G))
                 {
@@ -49,7 +49,7 @@ namespace BannerlordCheats.Patches.General
 
                     var message = string.Format(L10N.GetText("AddUnspentAttributePointMessage"), currentHero.Name);
 
-                    InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+                    Message.Show(message);
                 }
             }
         }
