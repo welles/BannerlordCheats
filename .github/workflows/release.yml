@@ -53,6 +53,12 @@ jobs:
           Write-Host "::set-output name=repo_branch::$RepoBranch"
           Write-Host "RepoBranch: ""$RepoBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $Prerelease = "${{github.ref}}"
+          $Prerelease = $Prerelease.Split("/")[-1]
+          If ($Prerelease -eq "stable") { $Prerelease = "false" } Else { $Prerelease = "true" }
+          Write-Host "::set-output name=prerelease::$Prerelease"
+          Write-Host "Prerelease: ""$Prerelease"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $ZipName = "BannerlordCheats_v$($ModVersion)_for_$($GameBranch)_e$($GameVersion)"
           Write-Host "::set-output name=zip_name::$ZipName"
           Write-Host "ZipName: ""$ZipName"""
@@ -81,7 +87,7 @@ jobs:
           tag_name: ${{steps.versions.outputs.tag_name}}
           release_name: ${{steps.versions.outputs.release_title}}
           draft: false
-          prerelease: false
+          prerelease: ${{steps.versions.outputs.prerelease}}
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
