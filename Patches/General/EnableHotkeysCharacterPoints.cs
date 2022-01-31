@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
@@ -20,37 +21,44 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
-                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+            try
             {
-                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.F))
+                if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
+                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
                 {
-                    var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+                    if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.F))
+                    {
+                        var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
 
-                    var currentHero = charVM.CurrentCharacter.Hero;
+                        var currentHero = charVM.CurrentCharacter.Hero;
 
-                    currentHero.HeroDeveloper.UnspentFocusPoints++;
+                        currentHero.HeroDeveloper.UnspentFocusPoints++;
 
-                    charVM.CurrentCharacter.UnspentCharacterPoints++;
+                        charVM.CurrentCharacter.UnspentCharacterPoints++;
 
-                    var message = string.Format(L10N.GetText("AddUnspentFocusPointMessage"), currentHero.Name);
+                        var message = string.Format(L10N.GetText("AddUnspentFocusPointMessage"), currentHero.Name);
 
-                    Message.Show(message);
+                        Message.Show(message);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.G))
+                    {
+                        var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+
+                        var currentHero = charVM.CurrentCharacter.Hero;
+
+                        currentHero.HeroDeveloper.UnspentAttributePoints++;
+
+                        charVM.CurrentCharacter.UnspentAttributePoints++;
+
+                        var message = string.Format(L10N.GetText("AddUnspentAttributePointMessage"), currentHero.Name);
+
+                        Message.Show(message);
+                    }
                 }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.G))
-                {
-                    var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
-
-                    var currentHero = charVM.CurrentCharacter.Hero;
-
-                    currentHero.HeroDeveloper.UnspentAttributePoints++;
-
-                    charVM.CurrentCharacter.UnspentAttributePoints++;
-
-                    var message = string.Format(L10N.GetText("AddUnspentAttributePointMessage"), currentHero.Name);
-
-                    Message.Show(message);
-                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnableHotkeysCharacterPoints));
             }
         }
     }

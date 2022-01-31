@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,10 +14,17 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void GetRelation(Hero otherHero, ref Hero __instance, ref int __result)
         {
-            if ((__instance.IsPlayer() || otherHero.IsPlayer())
-                && BannerlordCheatsSettings.Instance?.PerfectRelationships == true)
+            try
             {
-                __result = 100;
+                if ((__instance.IsPlayer() || otherHero.IsPlayer())
+                    && BannerlordCheatsSettings.Instance?.PerfectRelationships == true)
+                {
+                    __result = 100;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(PerfectRelationships));
             }
         }
     }

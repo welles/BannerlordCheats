@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -23,19 +24,26 @@ namespace BannerlordCheats.Patches.Combat
             ref bool isPrimaryWeaponShot,
             ref int forcedMissileIndex)
         {
-            if (shooterAgent.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.InfiniteAmmo == true)
+            try
             {
-                for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
+                if (shooterAgent.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.InfiniteAmmo == true)
                 {
-                    var missionWeapon = shooterAgent.Equipment[index];
-
-                    if (missionWeapon.IsAnyConsumable(out _)
-                        && missionWeapon.Amount <= missionWeapon.ModifiedMaxAmount)
+                    for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
                     {
-                        shooterAgent.SetWeaponAmountInSlot(index, missionWeapon.ModifiedMaxAmount, true);
+                        var missionWeapon = shooterAgent.Equipment[index];
+
+                        if (missionWeapon.IsAnyConsumable(out _)
+                            && missionWeapon.Amount <= missionWeapon.ModifiedMaxAmount)
+                        {
+                            shooterAgent.SetWeaponAmountInSlot(index, missionWeapon.ModifiedMaxAmount, true);
+                        }
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(InfiniteAmmo));
             }
         }
     }

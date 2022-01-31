@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -25,11 +26,18 @@ namespace BannerlordCheats.Patches.Combat
             ref Vec3 bounceBackAngularVelocity,
             ref int forcedSpawnIndex)
         {
-            if (attachedAgent.IsPlayer()
-                && collisionReaction == Mission.MissileCollisionReaction.Stick
-                && BannerlordCheatsSettings.Instance?.NoStuckArrows == true)
+            try
             {
-                collisionReaction = Mission.MissileCollisionReaction.BecomeInvisible;
+                if (attachedAgent.IsPlayer()
+                    && collisionReaction == Mission.MissileCollisionReaction.Stick
+                    && BannerlordCheatsSettings.Instance?.NoStuckArrows == true)
+                {
+                    collisionReaction = Mission.MissileCollisionReaction.BecomeInvisible;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NoStuckArrows));
             }
         }
     }

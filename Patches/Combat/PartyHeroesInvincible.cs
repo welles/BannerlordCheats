@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,14 +14,21 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void Invulnerable(ref Agent __instance, ref bool __result)
         {
-            if (__instance.TryGetHuman(out var agent)
-                && !agent.IsPlayer()
-                && agent.Origin.TryGetParty(out var party)
-                && party.IsPlayerParty()
-                && agent.IsHero()
-                && BannerlordCheatsSettings.Instance?.PartyHeroesInvincible == true)
+            try
             {
-                __result = true;
+                if (__instance.TryGetHuman(out var agent)
+                    && !agent.IsPlayer()
+                    && agent.Origin.TryGetParty(out var party)
+                    && party.IsPlayerParty()
+                    && agent.IsHero()
+                    && BannerlordCheatsSettings.Instance?.PartyHeroesInvincible == true)
+                {
+                    __result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(PartyHeroesInvincible));
             }
         }
     }

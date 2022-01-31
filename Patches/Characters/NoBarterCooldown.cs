@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -12,9 +13,16 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void CanPlayerBarterWithHero(Hero hero, ref bool __result)
         {
-            if (BannerlordCheatsSettings.Instance?.NoBarterCooldown == true)
+            try
             {
-                __result = true;
+                if (BannerlordCheatsSettings.Instance?.NoBarterCooldown == true)
+                {
+                    __result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NoBarterCooldown));
             }
         }
     }

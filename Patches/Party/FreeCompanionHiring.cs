@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetCompanionHiringPrice(Hero companion, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.FreeCompanionHiring == true)
+            try
             {
-                __result = 0;
+                if (BannerlordCheatsSettings.Instance?.FreeCompanionHiring == true)
+                {
+                    __result = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(FreeCompanionHiring));
             }
         }
     }

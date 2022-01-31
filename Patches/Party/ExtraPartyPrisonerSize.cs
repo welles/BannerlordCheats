@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetPartyPrisonerSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.ExtraPartyPrisonerSize > 0)
+            try
             {
-                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyPrisonerSize);
+                if (party.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.ExtraPartyPrisonerSize > 0)
+                {
+                    __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyPrisonerSize);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ExtraPartyPrisonerSize));
             }
         }
     }

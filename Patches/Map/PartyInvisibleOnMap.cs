@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,10 +14,17 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void ShouldBeIgnored(ref MobileParty __instance, ref bool __result)
         {
-            if (__instance.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.PartyInvisibleOnMap == true)
+            try
             {
-                __result = true;
+                if (__instance.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.PartyInvisibleOnMap == true)
+                {
+                    __result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(PartyInvisibleOnMap));
             }
         }
     }

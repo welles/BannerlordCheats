@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
@@ -20,17 +21,24 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is InventoryGauntletScreen
-                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+            try
             {
-                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
+                if (ScreenManager.TopScreen is InventoryGauntletScreen
+                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
                 {
-                    EnableHotkeysAddItems.AddItems(100);
+                    if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
+                    {
+                        EnableHotkeysAddItems.AddItems(100);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
+                    {
+                        EnableHotkeysAddItems.AddItems(1);
+                    }
                 }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
-                {
-                    EnableHotkeysAddItems.AddItems(1);
-                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnableHotkeysAddItems));
             }
         }
 

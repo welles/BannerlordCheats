@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -15,10 +16,17 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void CalculateLearningRate(ref Hero hero, SkillObject skill, ref float __result)
         {
-            if (hero.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.LearningRateMultiplier > 1f)
+            try
             {
-                __result *= BannerlordCheatsSettings.Instance.LearningRateMultiplier;
+                if (hero.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.LearningRateMultiplier > 1f)
+                {
+                    __result *= BannerlordCheatsSettings.Instance.LearningRateMultiplier;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(LearningRateMultiplier));
             }
         }
     }

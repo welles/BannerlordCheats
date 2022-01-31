@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (mobileParty.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.TroopWagesPercentage < 100f)
+            try
             {
-                __result.AddPercentage(BannerlordCheatsSettings.Instance.TroopWagesPercentage);
+                if (mobileParty.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.TroopWagesPercentage < 100f)
+                {
+                    __result.AddPercentage(BannerlordCheatsSettings.Instance.TroopWagesPercentage);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(TroopWagesPercentage));
             }
         }
     }

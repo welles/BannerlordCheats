@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -15,10 +16,17 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage, ref bool __result)
         {
-            if (attackerAgent.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.AlwaysCrushThroughShields == true)
+            try
             {
-                __result = true;
+                if (attackerAgent.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.AlwaysCrushThroughShields == true)
+                {
+                    __result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(AlwaysCrushThroughShields));
             }
         }
     }

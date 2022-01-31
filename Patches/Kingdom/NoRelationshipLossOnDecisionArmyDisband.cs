@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
@@ -12,9 +13,16 @@ namespace BannerlordCheats.Patches.Kingdom
         [HarmonyPostfix]
         public static void GetRelationCostOfDisbandingArmy(bool isLeaderParty, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.NoRelationshipLossOnDecision == true)
+            try
             {
-                __result = 0;
+                if (BannerlordCheatsSettings.Instance?.NoRelationshipLossOnDecision == true)
+                {
+                    __result = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NoRelationshipLossOnDecisionArmyDisband));
             }
         }
     }

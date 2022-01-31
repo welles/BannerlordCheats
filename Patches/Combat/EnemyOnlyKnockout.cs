@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -15,10 +16,17 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
-            if (effectedAgent.IsPlayerEnemy()
-                && BannerlordCheatsSettings.Instance?.EnemyOnlyKnockout == true)
+            try
             {
-                __result = 0f;
+                if (effectedAgent.IsPlayerEnemy()
+                    && BannerlordCheatsSettings.Instance?.EnemyOnlyKnockout == true)
+                {
+                    __result = 0f;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnemyOnlyKnockout));
             }
         }
     }

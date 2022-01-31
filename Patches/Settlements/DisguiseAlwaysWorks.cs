@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void CalculateDisguiseDetectionProbability(Settlement settlement, ref float __result)
         {
-            if (BannerlordCheatsSettings.Instance?.DisguiseAlwaysWorks == true)
+            try
             {
-                __result = 1;
+                if (BannerlordCheatsSettings.Instance?.DisguiseAlwaysWorks == true)
+                {
+                    __result = 1;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(DisguiseAlwaysWorks));
             }
         }
     }

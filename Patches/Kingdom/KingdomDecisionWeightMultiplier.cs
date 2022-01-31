@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using System.Linq;
 using JetBrains.Annotations;
@@ -13,10 +14,17 @@ namespace BannerlordCheats.Patches.Kingdom
         [HarmonyPostfix]
         public static void Getter(ref DecisionOutcome __instance, ref float __result)
         {
-            if (__instance.SupporterList.Any(x => x.IsPlayer)
-                && BannerlordCheatsSettings.Instance?.KingdomDecisionWeightMultiplier > 1f)
+            try
             {
-                __result *= BannerlordCheatsSettings.Instance.KingdomDecisionWeightMultiplier;
+                if (__instance.SupporterList.Any(x => x.IsPlayer)
+                    && BannerlordCheatsSettings.Instance?.KingdomDecisionWeightMultiplier > 1f)
+                {
+                    __result *= BannerlordCheatsSettings.Instance.KingdomDecisionWeightMultiplier;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(KingdomDecisionWeightMultiplier));
             }
         }
     }

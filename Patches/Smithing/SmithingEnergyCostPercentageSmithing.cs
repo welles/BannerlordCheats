@@ -16,14 +16,21 @@ namespace BannerlordCheats.Patches.Smithing
         [HarmonyPostfix]
         public static void GetEnergyCostForSmithing(ItemObject item, Hero hero, ref int __result)
         {
-            if (hero.PartyBelongedTo.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.SmithingEnergyCostPercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage / 100f;
+                if (hero.PartyBelongedTo.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.SmithingEnergyCostPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage / 100f;
 
-                var newValue = (int)Math.Round(factor * __result);
+                    var newValue = (int)Math.Round(factor * __result);
 
-                __result = newValue;
+                    __result = newValue;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(SmithingEnergyCostPercentageSmithing));
             }
         }
     }

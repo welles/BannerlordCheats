@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -12,11 +13,18 @@ namespace BannerlordCheats.Patches.Workshops
         [HarmonyPostfix]
         public static void GetDailyExpense(ref int level, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.WorkshopDailyExpensePercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.WorkshopDailyExpensePercentage / 100f;
+                if (BannerlordCheatsSettings.Instance?.WorkshopDailyExpensePercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.WorkshopDailyExpensePercentage / 100f;
 
-                __result = (int) (__result * factor);
+                    __result = (int) (__result * factor);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(WorkshopDailyExpensePercentage));
             }
         }
     }

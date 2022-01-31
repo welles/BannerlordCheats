@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
@@ -20,13 +21,20 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletClanScreen
-                && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
-                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+            try
             {
-                Hero.MainHero.AddInfluenceWithKingdom(1000);
+                if (ScreenManager.TopScreen is GauntletClanScreen
+                    && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
+                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                {
+                    Hero.MainHero.AddInfluenceWithKingdom(1000);
 
-                Message.Show(L10N.GetText("AddInfluenceMessage"));
+                    Message.Show(L10N.GetText("AddInfluenceMessage"));
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnableHotkeysInfluence));
             }
         }
     }

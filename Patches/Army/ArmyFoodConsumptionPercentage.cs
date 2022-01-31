@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using BannerlordCheats.Extensions;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Army
         [HarmonyPostfix]
         public static void CalculateDailyFoodConsumptionf(ref MobileParty party, ref bool includeDescription, ref ExplainedNumber __result)
         {
-            if (party.IsPlayerArmy()
-                && BannerlordCheatsSettings.Instance?.ArmyFoodConsumptionPercentage < 100f)
+            try
             {
-                __result.AddPercentage(BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage);
+                if (party.IsPlayerArmy()
+                    && BannerlordCheatsSettings.Instance?.ArmyFoodConsumptionPercentage < 100f)
+                {
+                    __result.AddPercentage(BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ArmyFoodConsumptionPercentage));
             }
         }
     }

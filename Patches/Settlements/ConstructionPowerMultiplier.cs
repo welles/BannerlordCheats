@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -17,10 +18,17 @@ namespace BannerlordCheats.Patches.Settlements
             ref bool includeDescriptions,
             ref ExplainedNumber __result)
         {
-            if (town.IsPlayerTown()
-                && BannerlordCheatsSettings.Instance?.ConstructionPowerMultiplier > 1f)
+            try
             {
-                __result.AddMultiplier(BannerlordCheatsSettings.Instance.ConstructionPowerMultiplier);
+                if (town.IsPlayerTown()
+                    && BannerlordCheatsSettings.Instance?.ConstructionPowerMultiplier > 1f)
+                {
+                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.ConstructionPowerMultiplier);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ConstructionPowerMultiplier));
             }
         }
     }

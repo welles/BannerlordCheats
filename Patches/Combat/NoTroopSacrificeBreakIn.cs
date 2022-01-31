@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetLostTroopCountForBreakingInBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, ref int __result)
         {
-            if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
+            try
             {
-                __result = 0;
+                if (party.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
+                {
+                    __result = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NoTroopSacrificeBreakIn));
             }
         }
     }

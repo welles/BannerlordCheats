@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Inventory
         [HarmonyPostfix]
         public static void CalculateInventoryCapacity(ref MobileParty mobileParty, ref bool includeDescriptions, ref int additionalTroops, ref int additionalSpareMounts, ref int additionalPackAnimals, ref bool includeFollowers, ref ExplainedNumber __result)
         {
-            if (mobileParty.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.ExtraInventoryCapacity > 0)
+            try
             {
-                __result.Add(BannerlordCheatsSettings.Instance.ExtraInventoryCapacity);
+                if (mobileParty.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.ExtraInventoryCapacity > 0)
+                {
+                    __result.Add(BannerlordCheatsSettings.Instance.ExtraInventoryCapacity);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ExtraInventoryCapacity));
             }
         }
     }
