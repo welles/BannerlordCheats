@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Smithing
         [HarmonyPostfix]
         public static void IsOpened(CraftingPiece craftingPiece, ref bool __result)
         {
-            if (BannerlordCheatsSettings.Instance?.UnlockAllParts == true)
+            try
             {
-                __result = true;
+                if (BannerlordCheatsSettings.Instance?.UnlockAllParts == true)
+                {
+                    __result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(UnlockAllParts));
             }
         }
     }

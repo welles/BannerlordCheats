@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -20,11 +21,18 @@ namespace BannerlordCheats.Patches.Combat
             ref bool isInitialBlowShrugOff,
             ref Blow blow)
         {
-            if (attacker.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.AlwaysKnockDown == true)
+            try
             {
-                blow.BlowFlag &= ~BlowFlags.ShrugOff;
-                blow.BlowFlag |= BlowFlags.KnockDown;
+                if (attacker.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.AlwaysKnockDown == true)
+                {
+                    blow.BlowFlag &= ~BlowFlags.ShrugOff;
+                    blow.BlowFlag |= BlowFlags.KnockDown;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(AlwaysKnockDown));
             }
         }
     }

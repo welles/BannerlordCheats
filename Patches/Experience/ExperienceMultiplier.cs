@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void GetXpMultiplier(Hero hero, ref float __result)
         {
-            if (hero.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.ExperienceMultiplier > 1f)
+            try
             {
-                __result *= BannerlordCheatsSettings.Instance.ExperienceMultiplier;
+                if (hero.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.ExperienceMultiplier > 1f)
+                {
+                    __result *= BannerlordCheatsSettings.Instance.ExperienceMultiplier;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ExperienceMultiplier));
             }
         }
     }

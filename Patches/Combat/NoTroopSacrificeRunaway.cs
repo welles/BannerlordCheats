@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -14,11 +15,18 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum battleSide, MapEvent mapEvent, ref int __result)
         {
-            if (mapEvent.IsPlayerMapEvent
-                && battleSide == mapEvent.PlayerSide
-                && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
+            try
             {
-                __result = 0;
+                if (mapEvent.IsPlayerMapEvent
+                    && battleSide == mapEvent.PlayerSide
+                    && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
+                {
+                    __result = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NoTroopSacrificeRunaway));
             }
         }
     }

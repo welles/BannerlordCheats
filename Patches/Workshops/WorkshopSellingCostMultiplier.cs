@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Workshops
         [HarmonyPostfix]
         public static void GetSellingCost(ref Workshop workshop, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.WorkshopSellingCostMultiplier > 1f)
+            try
             {
-                __result = (int) (__result * BannerlordCheatsSettings.Instance.WorkshopSellingCostMultiplier);
+                if (BannerlordCheatsSettings.Instance?.WorkshopSellingCostMultiplier > 1f)
+                {
+                    __result = (int) (__result * BannerlordCheatsSettings.Instance.WorkshopSellingCostMultiplier);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(WorkshopSellingCostMultiplier));
             }
         }
     }

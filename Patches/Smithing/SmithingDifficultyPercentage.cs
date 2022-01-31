@@ -14,13 +14,20 @@ namespace BannerlordCheats.Patches.Smithing
         [HarmonyPostfix]
         public static void GetCraftingPartDifficulty(CraftingPiece craftingPiece, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.SmithingDifficultyPercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.SmithingDifficultyPercentage / 100f;
+                if (BannerlordCheatsSettings.Instance?.SmithingDifficultyPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.SmithingDifficultyPercentage / 100f;
 
-                var newValue = (int)Math.Round(factor * __result);
+                    var newValue = (int)Math.Round(factor * __result);
 
-                __result = newValue;
+                    __result = newValue;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(SmithingDifficultyPercentage));
             }
         }
     }

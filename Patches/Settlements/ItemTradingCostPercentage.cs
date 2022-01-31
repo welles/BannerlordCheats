@@ -16,15 +16,22 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand, ref int __result)
         {
-            if (clientParty.IsPlayerParty()
-                && !isSelling
-                && BannerlordCheatsSettings.Instance?.ItemTradingCostPercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.ItemTradingCostPercentage / 100f;
+                if (clientParty.IsPlayerParty()
+                    && !isSelling
+                    && BannerlordCheatsSettings.Instance?.ItemTradingCostPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.ItemTradingCostPercentage / 100f;
 
-                var newValue = (int)Math.Round(factor * __result);
+                    var newValue = (int)Math.Round(factor * __result);
 
-                __result = newValue;
+                    __result = newValue;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ItemTradingCostPercentage));
             }
         }
     }

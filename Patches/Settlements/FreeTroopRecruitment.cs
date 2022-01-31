@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost, ref int __result)
         {
-            if (buyerHero.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.FreeTroopRecruitment == true)
+            try
             {
-                __result = 1;
+                if (buyerHero.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.FreeTroopRecruitment == true)
+                {
+                    __result = 1;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(FreeTroopRecruitment));
             }
         }
     }

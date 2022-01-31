@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
@@ -13,29 +14,36 @@ namespace BannerlordCheats.Patches.Smithing
         [HarmonyPostfix]
         public static void GetModifierChanges(int modifierTier, ref OverrideData __result)
         {
-            if (BannerlordCheatsSettings.Instance?.CraftedWeaponHandlingBonus > 0)
+            try
             {
-                __result.Handling += BannerlordCheatsSettings.Instance.CraftedWeaponHandlingBonus;
-            }
+                if (BannerlordCheatsSettings.Instance?.CraftedWeaponHandlingBonus > 0)
+                {
+                    __result.Handling += BannerlordCheatsSettings.Instance.CraftedWeaponHandlingBonus;
+                }
 
-            if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingDamageBonus > 0)
-            {
-                __result.SwingDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingDamageBonus;
-            }
+                if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingDamageBonus > 0)
+                {
+                    __result.SwingDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingDamageBonus;
+                }
 
-            if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingSpeedBonus > 0)
-            {
-                __result.SwingSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingSpeedBonus;
-            }
+                if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingSpeedBonus > 0)
+                {
+                    __result.SwingSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingSpeedBonus;
+                }
 
-            if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustDamageBonus > 0)
-            {
-                __result.ThrustDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustDamageBonus;
-            }
+                if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustDamageBonus > 0)
+                {
+                    __result.ThrustDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustDamageBonus;
+                }
 
-            if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustSpeedBonus > 0)
+                if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustSpeedBonus > 0)
+                {
+                    __result.ThrustSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustSpeedBonus;
+                }
+            }
+            catch (Exception e)
             {
-                __result.ThrustSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustSpeedBonus;
+                SubModule.LogError(e, typeof(CraftedWeaponModifierBonus));
             }
         }
     }

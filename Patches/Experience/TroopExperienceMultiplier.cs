@@ -23,11 +23,18 @@ namespace BannerlordCheats.Patches.Experience
             ref CombatXpModel.MissionTypeEnum missionType,
             ref int xpAmount)
         {
-            if (party.IsPlayerParty()
-                && !attackerTroop.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.TroopExperienceMultiplier > 1f)
+            try
             {
-                xpAmount = (int) Math.Round(xpAmount * BannerlordCheatsSettings.Instance.TroopExperienceMultiplier);
+                if (party.IsPlayerParty()
+                    && !attackerTroop.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.TroopExperienceMultiplier > 1f)
+                {
+                    xpAmount = (int) Math.Round(xpAmount * BannerlordCheatsSettings.Instance.TroopExperienceMultiplier);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(TroopExperienceMultiplier));
             }
         }
     }

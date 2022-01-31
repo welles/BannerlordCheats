@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,12 +14,19 @@ namespace BannerlordCheats.Patches.Army
         [HarmonyPostfix]
         public static void CohesionChange(ref ArmyObj __instance, ref float __result)
         {
-            if (__instance.IsPlayerArmy()
-                && BannerlordCheatsSettings.Instance?.ArmyCohesionLossPercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.ArmyCohesionLossPercentage / 100f;
+                if (__instance.IsPlayerArmy()
+                    && BannerlordCheatsSettings.Instance?.ArmyCohesionLossPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.ArmyCohesionLossPercentage / 100f;
 
-                __result *= factor;
+                    __result *= factor;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ArmyCohesionLossPercentage));
             }
         }
     }

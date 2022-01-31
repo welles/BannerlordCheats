@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using BannerlordCheats.Extensions;
 using JetBrains.Annotations;
@@ -15,10 +16,17 @@ namespace BannerlordCheats.Patches.Sieges
         [HarmonyPostfix]
         public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
         {
-            if (side.IsPlayerSide()
-                && BannerlordCheatsSettings.Instance?.SiegeBuildingSpeedMultiplier > 1f)
+            try
             {
-                __result *= BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier;
+                if (side.IsPlayerSide()
+                    && BannerlordCheatsSettings.Instance?.SiegeBuildingSpeedMultiplier > 1f)
+                {
+                    __result *= BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(SiegeBuildingSpeedMultiplier));
             }
         }
     }

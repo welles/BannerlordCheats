@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -21,10 +22,17 @@ namespace BannerlordCheats.Patches.Combat
             ref bool isShruggedOff,
             ref MeleeCollisionReaction colReaction)
         {
-            if (attacker.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.SliceThroughEveryone == true)
+            try
             {
-                colReaction = MeleeCollisionReaction.SlicedThrough;
+                if (attacker.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.SliceThroughEveryone == true)
+                {
+                    colReaction = MeleeCollisionReaction.SlicedThrough;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(SliceThroughEveryoneWeapon));
             }
         }
     }

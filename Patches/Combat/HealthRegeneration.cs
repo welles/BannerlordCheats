@@ -15,28 +15,35 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void OnApplicationTick(float dt)
         {
-            if (Mission.Current != null
-                && Agent.Main != null
-                && MBCommon.IsPaused != true
-                && BannerlordCheatsSettings.Instance?.HealthRegeneration > 0f)
+            try
             {
-                var now = DateTime.Now.Second;
-
-                if (LastSet == null || now != LastSet)
+                if (Mission.Current != null
+                    && Agent.Main != null
+                    && MBCommon.IsPaused != true
+                    && BannerlordCheatsSettings.Instance?.HealthRegeneration > 0f)
                 {
-                    LastSet = now;
+                    var now = DateTime.Now.Second;
 
-                    float health = Agent.Main.Health;
-                    float maxHealth = Agent.Main.HealthLimit;
-
-                    if (health < maxHealth)
+                    if (LastSet == null || now != LastSet)
                     {
-                        float regen = (BannerlordCheatsSettings.Instance.HealthRegeneration / maxHealth) * 100;
-                        float newHealth = (float) Math.Round(health + regen);
+                        LastSet = now;
 
-                        Agent.Main.Health = Math.Min(maxHealth, newHealth);
+                        float health = Agent.Main.Health;
+                        float maxHealth = Agent.Main.HealthLimit;
+
+                        if (health < maxHealth)
+                        {
+                            float regen = (BannerlordCheatsSettings.Instance.HealthRegeneration / maxHealth) * 100;
+                            float newHealth = (float) Math.Round(health + regen);
+
+                            Agent.Main.Health = Math.Min(maxHealth, newHealth);
+                        }
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(HealthRegeneration));
             }
         }
     }

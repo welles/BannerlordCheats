@@ -13,11 +13,18 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void GetMaximumBet(ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.TournamentMaximumBetMultiplier > 1)
+            try
             {
-                var newValue = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.TournamentMaximumBetMultiplier);
+                if (BannerlordCheatsSettings.Instance?.TournamentMaximumBetMultiplier > 1)
+                {
+                    var newValue = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.TournamentMaximumBetMultiplier);
 
-                __result = newValue;
+                    __result = newValue;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(TournamentMaximumBetMultiplier));
             }
         }
     }

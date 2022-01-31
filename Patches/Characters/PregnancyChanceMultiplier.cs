@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -16,12 +17,19 @@ namespace BannerlordCheats.Patches.Characters
             ref Hero hero,
             ref float __result)
         {
-            if (BannerlordCheatsSettings.Instance?.PregnancyChanceMultiplier > 1.0f
-                && (hero.IsPlayer() || hero.Spouse.IsPlayer()))
+            try
             {
-                __result *= BannerlordCheatsSettings.Instance.PregnancyChanceMultiplier;
+                if (BannerlordCheatsSettings.Instance?.PregnancyChanceMultiplier > 1.0f
+                    && (hero.IsPlayer() || hero.Spouse.IsPlayer()))
+                {
+                    __result *= BannerlordCheatsSettings.Instance.PregnancyChanceMultiplier;
+                }
             }
-        } 
-        
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(PregnancyChanceMultiplier));
+            }
+        }
+
     }
 }

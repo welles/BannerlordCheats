@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
@@ -20,21 +21,28 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is InventoryGauntletScreen
-                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+            try
             {
-                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.X))
+                if (ScreenManager.TopScreen is InventoryGauntletScreen
+                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
                 {
-                    Hero.MainHero.ChangeHeroGold(100000);
+                    if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.X))
+                    {
+                        Hero.MainHero.ChangeHeroGold(100000);
 
-                    Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 100000));
-                }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
-                {
-                    Hero.MainHero.ChangeHeroGold(1000);
+                        Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 100000));
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
+                    {
+                        Hero.MainHero.ChangeHeroGold(1000);
 
-                    Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 1000));
+                        Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 1000));
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnableHotkeysMoney));
             }
         }
     }

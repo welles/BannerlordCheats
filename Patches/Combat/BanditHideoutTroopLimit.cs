@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetPlayerMaximumTroopCountForHideoutMission(ref MobileParty party, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.BanditHideoutTroopLimit > 0)
+            try
             {
-                __result += BannerlordCheatsSettings.Instance.BanditHideoutTroopLimit;
+                if (BannerlordCheatsSettings.Instance?.BanditHideoutTroopLimit > 0)
+                {
+                    __result += BannerlordCheatsSettings.Instance.BanditHideoutTroopLimit;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(BanditHideoutTroopLimit));
             }
         }
     }

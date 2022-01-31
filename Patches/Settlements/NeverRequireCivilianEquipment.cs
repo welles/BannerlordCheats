@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.MountAndBlade;
@@ -12,9 +13,16 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void DoesMissionRequireCivilianEquipment(ref Mission __instance, ref bool __result)
         {
-            if (BannerlordCheatsSettings.Instance?.NeverRequireCivilianEquipment == true)
+            try
             {
-                __result = false;
+                if (BannerlordCheatsSettings.Instance?.NeverRequireCivilianEquipment == true)
+                {
+                    __result = false;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NeverRequireCivilianEquipment));
             }
         }
     }

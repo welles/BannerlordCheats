@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,12 +14,19 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void Invulnerable(ref Agent __instance, ref bool __result)
         {
-            if (__instance.IsMount
-                && __instance.TryGetHuman(out var rider)
-                && rider.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.PlayerHorseInvincible == true)
+            try
             {
-                __result = true;
+                if (__instance.IsMount
+                    && __instance.TryGetHuman(out var rider)
+                    && rider.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.PlayerHorseInvincible == true)
+                {
+                    __result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(PlayerHorseInvincible));
             }
         }
     }

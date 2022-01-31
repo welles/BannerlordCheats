@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetGoldCostForUpgrade(ref PartyBase party, ref CharacterObject characterObject, ref CharacterObject upgradeTarget, ref int __result)
         {
-            if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.FreeTroopUpgrades == true)
+            try
             {
-                __result = 0;
+                if (party.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.FreeTroopUpgrades == true)
+                {
+                    __result = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(FreeTroopUpgrades));
             }
         }
     }

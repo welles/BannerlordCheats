@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
@@ -19,17 +20,24 @@ namespace BannerlordCheats.Patches.Characters
             ref Hero secondHero,
             ref bool __result)
         {
-            if (BannerlordCheatsSettings.Instance?.AllowSameSexMarriage == true
-                && (firstHero.IsPlayer() || secondHero.IsPlayer()))
+            try
             {
-                __result = (firstHero.Clan?.Leader != firstHero || secondHero.Clan?.Leader != secondHero) 
-                           // && firstHero.IsFemale != secondHero.IsFemale
-                           && !DiscoverAncestors(firstHero, 3).Intersect(DiscoverAncestors(secondHero, 3)).Any()
-                           && firstHero.CanMarry()
-                           && secondHero.CanMarry();
+                if (BannerlordCheatsSettings.Instance?.AllowSameSexMarriage == true
+                    && (firstHero.IsPlayer() || secondHero.IsPlayer()))
+                {
+                    __result = (firstHero.Clan?.Leader != firstHero || secondHero.Clan?.Leader != secondHero)
+                               // && firstHero.IsFemale != secondHero.IsFemale
+                               && !DiscoverAncestors(firstHero, 3).Intersect(DiscoverAncestors(secondHero, 3)).Any()
+                               && firstHero.CanMarry()
+                               && secondHero.CanMarry();
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(AllowSameSexMarriage));
             }
         }
-        
+
         private static IEnumerable<Hero> DiscoverAncestors(Hero hero, int n)
         {
             if (hero != null)

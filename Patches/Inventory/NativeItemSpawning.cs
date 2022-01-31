@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -24,17 +25,24 @@ namespace BannerlordCheats.Patches.Inventory
             ref bool useBasePrices,
             ref TextObject leftRosterName)
         {
-            if (party.IsPlayerParty()
-                && !isTrading
-                && !Game.Current.CheatMode
-                && BannerlordCheatsSettings.Instance?.NativeItemSpawning == true)
+            try
             {
-                var objectTypeList = Game.Current.ObjectManager.GetObjectTypeList<ItemObject>();
-                for (var index = 0; index != objectTypeList.Count; ++index)
+                if (party.IsPlayerParty()
+                    && !isTrading
+                    && !Game.Current.CheatMode
+                    && BannerlordCheatsSettings.Instance?.NativeItemSpawning == true)
                 {
-                    var itemObject = objectTypeList[index];
-                    leftItemRoster.AddToCounts(itemObject, 10);
+                    var objectTypeList = Game.Current.ObjectManager.GetObjectTypeList<ItemObject>();
+                    for (var index = 0; index != objectTypeList.Count; ++index)
+                    {
+                        var itemObject = objectTypeList[index];
+                        leftItemRoster.AddToCounts(itemObject, 10);
+                    }
                 }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NativeItemSpawning));
             }
         }
     }

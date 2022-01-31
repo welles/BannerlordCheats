@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void IsBribeNotNeededToEnterKeep(Settlement settlement, ref bool __result)
         {
-            if (BannerlordCheatsSettings.Instance?.NoBribeToEnterKeep == true)
+            try
             {
-                __result = true;
+                if (BannerlordCheatsSettings.Instance?.NoBribeToEnterKeep == true)
+                {
+                    __result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NoBribeToEnterKeep));
             }
         }
     }

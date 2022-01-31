@@ -15,10 +15,17 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetRenownReward(Hero winner, Town town, ref int __result)
         {
-            if (winner.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.RenownRewardMultiplier > 1f)
+            try
             {
-                __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.RenownRewardMultiplier);
+                if (winner.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.RenownRewardMultiplier > 1f)
+                {
+                    __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.RenownRewardMultiplier);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(RenownRewardMultiplierTournament));
             }
         }
     }

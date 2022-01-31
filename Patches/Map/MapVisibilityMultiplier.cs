@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void GetPartySpottingRange(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
         {
-            if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.MapVisibilityMultiplier > 1f)
+            try
             {
-                __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityMultiplier);
+                if (party.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.MapVisibilityMultiplier > 1f)
+                {
+                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityMultiplier);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(MapVisibilityMultiplier));
             }
         }
     }
