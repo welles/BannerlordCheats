@@ -120,8 +120,20 @@
   <data name="ModName" xml:space="preserve">
     <value>Cheats</value>
   </data>
-  <data name="Combat_GroupName" xml:space="preserve">
-    <value>Combat</value>
+  <data name="Combat_Player_GroupName" xml:space="preserve">
+    <value>Combat - Player</value>
+  </data>
+  <data name="Combat_Party_GroupName" xml:space="preserve">
+    <value>Combat - Party</value>
+  </data>
+  <data name="Combat_Allies_GroupName" xml:space="preserve">
+    <value>Combat - Allies</value>
+  </data>
+  <data name="Combat_Enemies_GroupName" xml:space="preserve">
+    <value>Combat - Enemies</value>
+  </data>
+  <data name="Combat_Misc_GroupName" xml:space="preserve">
+    <value>Combat - Misc</value>
   </data>
   <data name="Party_GroupName" xml:space="preserve">
     <value>Party</value>
