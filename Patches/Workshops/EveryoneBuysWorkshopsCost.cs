@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -22,11 +23,18 @@ namespace BannerlordCheats.Patches.Workshops
             ref int cost,
             ref TextObject customName)
         {
-            if (BannerlordCheatsSettings.Instance?.EveryoneBuysWorkshops == true
-                && workshop.Owner.IsPlayer()
-                && cost > newOwner.Gold)
+            try
             {
-                newOwner.Gold = cost;
+                if (BannerlordCheatsSettings.Instance?.EveryoneBuysWorkshops == true
+                    && workshop.Owner.IsPlayer()
+                    && cost > newOwner.Gold)
+                {
+                    newOwner.Gold = cost;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EveryoneBuysWorkshopsCost));
             }
         }
     }

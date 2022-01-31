@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
@@ -11,15 +12,24 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPrefix]
         public static bool ApplyByEscape(Hero character, Hero facilitator)
         {
-            if (character.IsPrisoner
-                && character.PartyBelongedToAsPrisoner != null
-                && character.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction
-                && BannerlordCheatsSettings.Instance?.NoPrisonerEscape == true)
+            try
             {
-                return false;
-            }
+                if (character.IsPrisoner
+                    && character.PartyBelongedToAsPrisoner != null
+                    && character.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction
+                    && BannerlordCheatsSettings.Instance?.NoPrisonerEscape == true)
+                {
+                    return false;
+                }
 
-            return true;
+                return true;
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NoPrisonerEscape));
+
+                return true;
+            }
         }
     }
 }

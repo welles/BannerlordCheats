@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void CheckCaptivityChange(float dt, ref string __result)
         {
-            if (BannerlordCheatsSettings.Instance?.InstantEscape == true)
+            try
             {
-                PlayerCaptivity.EndCaptivity();
+                if (BannerlordCheatsSettings.Instance?.InstantEscape == true)
+                {
+                    PlayerCaptivity.EndCaptivity();
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(InstantEscape));
             }
         }
     }

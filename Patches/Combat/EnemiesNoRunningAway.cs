@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -17,10 +18,17 @@ namespace BannerlordCheats.Patches.Combat
             ref float maxMoraleChange,
             ref float __result)
         {
-            if (agent.IsPlayerEnemy()
-                && BannerlordCheatsSettings.Instance?.EnemiesNoRunningAway == true)
+            try
             {
-                __result = 0.0f;
+                if (agent.IsPlayerEnemy()
+                    && BannerlordCheatsSettings.Instance?.EnemiesNoRunningAway == true)
+                {
+                    __result = 0.0f;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnemiesNoRunningAway));
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -12,9 +13,16 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void PregnancyDurationInDays(ref float __result)
         {
-            if (BannerlordCheatsSettings.Instance?.AdjustPregnancyDuration < 36)
+            try
             {
-                __result = BannerlordCheatsSettings.Instance.AdjustPregnancyDuration;
+                if (BannerlordCheatsSettings.Instance?.AdjustPregnancyDuration < 36)
+                {
+                    __result = BannerlordCheatsSettings.Instance.AdjustPregnancyDuration;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(AdjustPregnancyDuration));
             }
         }
     }

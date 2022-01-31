@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using SandBox;
@@ -13,10 +14,17 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPrefix]
         public static void GetPerkEffectsOnAgent(ref Agent agent, ref AgentDrivenProperties agentDrivenProperties, ref WeaponComponentData rightHandEquippedItem)
         {
-            if (agent.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.InstantCrossbowReload == true)
+            try
             {
-                agentDrivenProperties.ReloadSpeed = 10f;
+                if (agent.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.InstantCrossbowReload == true)
+                {
+                    agentDrivenProperties.ReloadSpeed = 10f;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(InstantCrossbowReload));
             }
         }
     }

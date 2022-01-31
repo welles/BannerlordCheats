@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -15,13 +16,20 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if (attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
-                && party.IsPlayerParty()
-                && !attackInformation.AttackerAgentCharacter.IsPlayer()
-                && !attackInformation.IsFriendlyFire
-                && BannerlordCheatsSettings.Instance?.PartyDamageMultiplier > 1f)
+            try
             {
-                __result *= BannerlordCheatsSettings.Instance.PartyDamageMultiplier;
+                if (attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
+                    && party.IsPlayerParty()
+                    && !attackInformation.AttackerAgentCharacter.IsPlayer()
+                    && !attackInformation.IsFriendlyFire
+                    && BannerlordCheatsSettings.Instance?.PartyDamageMultiplier > 1f)
+                {
+                    __result *= BannerlordCheatsSettings.Instance.PartyDamageMultiplier;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(PartyDamageMultiplier));
             }
         }
     }

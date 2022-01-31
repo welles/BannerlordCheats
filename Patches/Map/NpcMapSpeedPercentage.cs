@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -7,7 +8,6 @@ using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
 
 namespace BannerlordCheats.Patches.Map
 {
-    /*
     [HarmonyPatch(typeof(DefaultPartySpeedCalculatingModel), nameof(DefaultPartySpeedCalculatingModel.CalculateFinalSpeed))]
     public static class NpcMapSpeedPercentage
     {
@@ -15,12 +15,18 @@ namespace BannerlordCheats.Patches.Map
         [HarmonyPostfix]
         public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
         {
-            if (!mobileParty.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.NpcMapSpeedPercentage > 100f)
+            try
             {
-                __result.AddPercentage(BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage);
+                if (!mobileParty.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.NpcMapSpeedPercentage > 100f)
+                {
+                    __result.AddPercentage(BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NpcMapSpeedPercentage));
             }
         }
     }
-    */
 }

@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -18,10 +19,17 @@ namespace BannerlordCheats.Patches.Combat
             ref float contributionShare,
             ref ExplainedNumber __result)
         {
-            if (party.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.InfluenceRewardMultiplier > 1f)
+            try
             {
-                __result.AddMultiplier(BannerlordCheatsSettings.Instance.InfluenceRewardMultiplier);
+                if (party.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.InfluenceRewardMultiplier > 1f)
+                {
+                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.InfluenceRewardMultiplier);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(InfluenceRewardMultiplier));
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -15,12 +16,19 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
-            if (effectedAgent.IsPlayerCompanion()
-                && BannerlordCheatsSettings.Instance?.CompanionDeathPercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.CompanionDeathPercentage / 100f;
+                if (effectedAgent.IsPlayerCompanion()
+                    && BannerlordCheatsSettings.Instance?.CompanionDeathPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.CompanionDeathPercentage / 100f;
 
-                __result *= factor;
+                    __result *= factor;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(CompanionDeathPercentage));
             }
         }
     }

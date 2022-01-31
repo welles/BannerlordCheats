@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void GetEffectivePartyMorale(ref MobileParty mobileParty, ref bool includeDescription, ref ExplainedNumber __result)
         {
-            if (mobileParty.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.ExtraPartyMorale > 0)
+            try
             {
-                __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMorale);
+                if (mobileParty.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.ExtraPartyMorale > 0)
+                {
+                    __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMorale);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ExtraPartyMorale));
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void SimulateHit(ref CharacterObject strikerTroop, ref CharacterObject struckTroop, ref PartyBase strikerParty, ref PartyBase struckParty, ref float strikerAdvantage, ref MapEvent battle, ref int __result)
         {
-            if (struckParty.IsPlayerParty()
-                && BannerlordCheatsSettings.Instance?.AlwaysWinBattleSimulation == true)
+            try
             {
-                __result = 0;
+                if (struckParty.IsPlayerParty()
+                    && BannerlordCheatsSettings.Instance?.AlwaysWinBattleSimulation == true)
+                {
+                    __result = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(AlwaysWinBattleSimulation));
             }
         }
     }

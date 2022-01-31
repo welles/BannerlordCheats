@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,11 +14,18 @@ namespace BannerlordCheats.Patches.Workshops
         [HarmonyPostfix]
         public static void GetBuyingCostForPlayer(ref Workshop workshop, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.WorkshopBuyingCostPercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.WorkshopBuyingCostPercentage / 100f;
+                if (BannerlordCheatsSettings.Instance?.WorkshopBuyingCostPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.WorkshopBuyingCostPercentage / 100f;
 
-                __result = (int) (__result * factor);
+                    __result = (int) (__result * factor);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(WorkshopBuyingCostPercentage));
             }
         }
     }
