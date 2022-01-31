@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
@@ -9,7 +10,6 @@ using TaleWorlds.CampaignSystem.ViewModelCollection;
 using TaleWorlds.Core;
 using TaleWorlds.Engine.Screens;
 using TaleWorlds.InputSystem;
-using TaleWorlds.Library;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.General
@@ -21,52 +21,59 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnApplicationTick()
         {
-            if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
-                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+            try
             {
-                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A))
+                if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
+                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
                 {
-                    var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+                    if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A))
+                    {
+                        var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
 
-                    var currentHero = charVM.CurrentCharacter.Hero;
+                        var currentHero = charVM.CurrentCharacter.Hero;
 
-                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Control);
-                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Cunning);
-                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Endurance);
-                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Intelligence);
-                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Social);
-                    EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Vigor);
+                        EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Control);
+                        EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Cunning);
+                        EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Endurance);
+                        EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Intelligence);
+                        EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Social);
+                        EnableHotkeysCharacterAttributes.SetMaximum(currentHero, DefaultCharacterAttributes.Vigor);
 
-                    charVM.RefreshValues();
+                        charVM.RefreshValues();
 
-                    var message = string.Format(L10N.GetText("SetAllAttributesMessage"), currentHero.Name);
+                        var message = string.Format(L10N.GetText("SetAllAttributesMessage"), currentHero.Name);
 
-                    InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+                        Message.Show(message);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1))
+                    {
+                        EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Vigor);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D2))
+                    {
+                        EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Control);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D3))
+                    {
+                        EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Endurance);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D4))
+                    {
+                        EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Cunning);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D5))
+                    {
+                        EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Social);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D6))
+                    {
+                        EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Intelligence);
+                    }
                 }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D1))
-                {
-                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Vigor);
-                }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D2))
-                {
-                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Control);
-                }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D3))
-                {
-                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Endurance);
-                }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D4))
-                {
-                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Cunning);
-                }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D5))
-                {
-                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Social);
-                }
-                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.D6))
-                {
-                    EnableHotkeysCharacterAttributes.AddPoint(DefaultCharacterAttributes.Intelligence);
-                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnableHotkeysCharacterAttributes));
             }
         }
 
@@ -93,7 +100,7 @@ namespace BannerlordCheats.Patches.General
 
             var message = string.Format(L10N.GetText("AddAttributePointMessage"), attribute.Name, currentHero.Name);
 
-            InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+            Message.Show(message);
         }
     }
 }

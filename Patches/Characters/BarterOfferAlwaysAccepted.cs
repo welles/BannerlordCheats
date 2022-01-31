@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -12,9 +13,16 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void IsOfferAcceptable(BarterData args, Hero hero, PartyBase party, ref BarterManager __instance, ref bool __result)
         {
-            if (BannerlordCheatsSettings.Instance?.BarterOfferAlwaysAccepted == true)
+            try
             {
-                __result = true;
+                if (BannerlordCheatsSettings.Instance?.BarterOfferAlwaysAccepted == true)
+                {
+                    __result = true;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(BarterOfferAlwaysAccepted));
             }
         }
     }

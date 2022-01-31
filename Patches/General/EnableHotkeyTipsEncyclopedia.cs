@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,12 +14,19 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OpenEncyclopedia()
         {
-            if (BannerlordCheatsSettings.Instance?.EnableHotkeys == true
-                && BannerlordCheatsSettings.Instance?.EnableHotkeyTips == true)
+            try
             {
-                Message.Show("Encyclopedia Screen Cheat Hotkeys:");
-                Message.Show("CTRL + H: Add 1 soldier of the selected troop type to the party.");
-                Message.Show("CTRL + SHIFT + H: Add 10 soldiers of the selected troop type to the party.");
+                if (BannerlordCheatsSettings.Instance?.EnableHotkeys == true
+                    && BannerlordCheatsSettings.Instance?.EnableHotkeyTips == true)
+                {
+                    Message.Show("Encyclopedia Screen Cheat Hotkeys:");
+                    Message.Show("CTRL + H: Add 1 soldier of the selected troop type to the party.");
+                    Message.Show("CTRL + SHIFT + H: Add 10 soldiers of the selected troop type to the party.");
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnableHotkeyTipsEncyclopedia));
             }
         }
     }

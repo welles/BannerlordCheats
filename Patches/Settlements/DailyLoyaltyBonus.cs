@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,10 +14,17 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void LoyaltyChange(ref Town __instance, ref float __result)
         {
-            if (__instance.IsPlayerTown()
-                && BannerlordCheatsSettings.Instance?.DailyLoyaltyBonus > 0)
+            try
             {
-                __result += BannerlordCheatsSettings.Instance.DailyLoyaltyBonus;
+                if (__instance.IsPlayerTown()
+                    && BannerlordCheatsSettings.Instance?.DailyLoyaltyBonus > 0)
+                {
+                    __result += BannerlordCheatsSettings.Instance.DailyLoyaltyBonus;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(DailyLoyaltyBonus));
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using System.Linq;
 using BannerlordCheats.Extensions;
@@ -16,27 +17,34 @@ namespace BannerlordCheats.Patches.Sieges
         [HarmonyPostfix]
         public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
         {
-            BattleSideEnum otherSide;
-            switch (side.BattleSide)
+            try
             {
-                case BattleSideEnum.Attacker:
-                    otherSide = BattleSideEnum.Defender;
-                    break;
-                case BattleSideEnum.Defender:
-                    otherSide = BattleSideEnum.Attacker;
-                    break;
-                default:
-                    return;
+                BattleSideEnum otherSide;
+                switch (side.BattleSide)
+                {
+                    case BattleSideEnum.Attacker:
+                        otherSide = BattleSideEnum.Defender;
+                        break;
+                    case BattleSideEnum.Defender:
+                        otherSide = BattleSideEnum.Attacker;
+                        break;
+                    default:
+                        return;
+                }
+
+                if ((siegeEvent.GetSiegeEventSide(otherSide)?.SiegeParties.Any(x => x.IsPlayerParty()) ?? false)
+                    && BannerlordCheatsSettings.Instance?.EnemySiegeBuildingSpeedPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage / 100f;
+
+                    var newValue = factor * __result;
+
+                    __result = newValue;
+                }
             }
-
-            if ((siegeEvent.GetSiegeEventSide(otherSide)?.SiegeParties.Any(x => x.IsPlayerParty()) ?? false)
-                && BannerlordCheatsSettings.Instance?.EnemySiegeBuildingSpeedPercentage < 100f)
+            catch (Exception e)
             {
-                var factor = BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage / 100f;
-
-                var newValue = factor * __result;
-
-                __result = newValue;
+                SubModule.LogError(e, typeof(EnemySiegeBuildingSpeedPercentage));
             }
         }
     }

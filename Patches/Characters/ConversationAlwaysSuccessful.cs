@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.Conversation.Persuasion;
@@ -13,12 +14,19 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void GetChances(PersuasionOptionArgs optionArgs, ref float successChance, ref float critSuccessChance, ref float critFailChance, ref float failChance, float difficultyMultiplier)
         {
-            if (BannerlordCheatsSettings.Instance?.ConversationAlwaysSuccessful == true)
+            try
             {
-                successChance = 1;
-                critSuccessChance = 1;
-                failChance = 0;
-                critFailChance = 0;
+                if (BannerlordCheatsSettings.Instance?.ConversationAlwaysSuccessful == true)
+                {
+                    successChance = 1;
+                    critSuccessChance = 1;
+                    failChance = 0;
+                    critFailChance = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ConversationAlwaysSuccessful));
             }
         }
     }

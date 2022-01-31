@@ -16,14 +16,21 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
         {
-            if (attackInformation.AttackerAgentOrigin.IsOnPlayerEnemySide()
-                && BannerlordCheatsSettings.Instance?.EnemyDamagePercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.EnemyDamagePercentage / 100f;
+                if (attackInformation.AttackerAgentOrigin.IsOnPlayerEnemySide()
+                    && BannerlordCheatsSettings.Instance?.EnemyDamagePercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.EnemyDamagePercentage / 100f;
 
-                var newValue = (int)Math.Round(factor * __result);
+                    var newValue = (int)Math.Round(factor * __result);
 
-                __result = newValue;
+                    __result = newValue;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnemyDamagePercentage));
             }
         }
     }

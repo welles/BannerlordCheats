@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,10 +15,17 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void CrossbowReloadSpeed(ref Agent agent, ref float __result)
         {
-            if (agent.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.CombatZoomMultiplier > 1f)
+            try
             {
-                __result *= BannerlordCheatsSettings.Instance.CombatZoomMultiplier;
+                if (agent.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.CombatZoomMultiplier > 1f)
+                {
+                    __result *= BannerlordCheatsSettings.Instance.CombatZoomMultiplier;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(CombatZoomMultiplier));
             }
         }
     }

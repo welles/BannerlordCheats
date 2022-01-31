@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -18,10 +19,17 @@ namespace BannerlordCheats.Patches.Combat
             ref bool isFatalHit,
             ref MeleeCollisionReaction __result)
         {
-            if (attacker.IsPlayer()
-                && BannerlordCheatsSettings.Instance?.SliceThroughEveryone == true)
+            try
             {
-                __result = MeleeCollisionReaction.SlicedThrough;
+                if (attacker.IsPlayer()
+                    && BannerlordCheatsSettings.Instance?.SliceThroughEveryone == true)
+                {
+                    __result = MeleeCollisionReaction.SlicedThrough;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(SliceThroughEveryonePassive));
             }
         }
     }

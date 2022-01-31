@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -14,11 +15,18 @@ namespace BannerlordCheats.Patches.Party
         [HarmonyPostfix]
         public static void  CalculateRecruitableNumber(ref PartyBase party, ref CharacterObject character, ref int __result)
         {
-            if (party.IsPlayerParty()
-                && !character.IsHero()
-                && BannerlordCheatsSettings.Instance?.InstantPrisonerRecruitment == true)
+            try
             {
-                __result = party.PrisonRoster.GetTroopCount(character);
+                if (party.IsPlayerParty()
+                    && !character.IsHero()
+                    && BannerlordCheatsSettings.Instance?.InstantPrisonerRecruitment == true)
+                {
+                    __result = party.PrisonRoster.GetTroopCount(character);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(InstantPrisonerRecruitment));
             }
         }
     }

@@ -18,13 +18,20 @@ namespace BannerlordCheats.Patches.Kingdom
             ref KingdomDecision decision,
             ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.DecisionOverrideInfluenceCostPercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.DecisionOverrideInfluenceCostPercentage / 100.0f;
+                if (BannerlordCheatsSettings.Instance?.DecisionOverrideInfluenceCostPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.DecisionOverrideInfluenceCostPercentage / 100.0f;
 
-                var newValue = __result * factor;
+                    var newValue = __result * factor;
 
-                __result = (int) Math.Round(newValue);
+                    __result = (int) Math.Round(newValue);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(DecisionOverrideInfluenceCostPercentage));
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -20,9 +21,16 @@ namespace BannerlordCheats.Patches.Experience
             ref bool includeDescriptions,
             ref ExplainedNumber __result)
         {
-            if (BannerlordCheatsSettings.Instance?.LearningLimitMultiplier > 1f)
+            try
             {
-                __result.AddMultiplier(BannerlordCheatsSettings.Instance.LearningLimitMultiplier);
+                if (BannerlordCheatsSettings.Instance?.LearningLimitMultiplier > 1f)
+                {
+                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.LearningLimitMultiplier);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(LearningLimitMultiplier));
             }
         }
     }

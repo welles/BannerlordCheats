@@ -10,7 +10,11 @@ namespace BannerlordCheats.Settings
         #region Base
 
         private const string ModName = "ModName";
-        private const string CombatGroupName = "Combat";
+        private const string CombatPlayerGroupName = "Combat_Player";
+        private const string CombatPartyGroupName = "Combat_Party";
+        private const string CombatAlliesGroupName = "Combat_Allies";
+        private const string CombatEnemiesGroupName = "Combat_Enemies";
+        private const string CombatMiscGroupName = "Combat_Misc";
         private const string GeneralGroupName = "General";
         private const string MapGroupName = "Map";
         private const string InventoryGroupName = "Inventory";
@@ -61,21 +65,17 @@ namespace BannerlordCheats.Settings
 
         #region Map
 
-        /*
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(MapSpeedMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float MapSpeedMultiplier { get; set; } = 1.0f;
-        */
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(MapVisibilityMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float MapVisibilityMultiplier { get; set; } = 1.0f;
 
-        /*
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyPercent(nameof(NpcMapSpeedPercentage))]
         public float NpcMapSpeedPercentage { get; set; } = 100.0f;
-        */
 
         [LocalizedSettingPropertyGroup(MapGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvisibleOnMap))]
@@ -83,149 +83,169 @@ namespace BannerlordCheats.Settings
 
         #endregion Map
 
-        #region Combat
+        #region Combat - Player
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyPercent(nameof(DamageTakenPercentage))]
         public float DamageTakenPercentage { get; set; } = 100.0f;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(Invincible))]
         public bool Invincible { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(PlayerHorseInvincible))]
         public bool PlayerHorseInvincible { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(PartyInvincible))]
-        public bool PartyInvincible { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(PartyHeroesInvincible))]
-        public bool PartyHeroesInvincible { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(PartyDamageTakenPercentage))]
-        public float PartyDamageTakenPercentage { get; set; } = 100.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(OneHitKill))]
         public bool OneHitKill { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(PartyOneHitKill))]
-        public bool PartyOneHitKill { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(PartyOnlyKnockout))]
-        public bool PartyOnlyKnockout { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(EnemyOnlyKnockout))]
-        public bool EnemyOnlyKnockout { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(RenownRewardMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
-        public float RenownRewardMultiplier { get; set; } = 1.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(InfluenceRewardMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
-        public float InfluenceRewardMultiplier { get; set; } = 1.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(AlwaysWinBattleSimulation))]
-        public bool AlwaysWinBattleSimulation { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoTroopSacrifice))]
-        public bool NoTroopSacrifice { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoRunningAway))]
-        public bool NoRunningAway { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(EnemiesNoRunningAway))]
-        public bool EnemiesNoRunningAway { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyInteger(nameof(BanditHideoutTroopLimit), minValue: 0, maxValue: 1000)]
-        public int BanditHideoutTroopLimit { get; set; } = 0;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(AlwaysCrushThroughShields))]
         public bool AlwaysCrushThroughShields { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(SliceThroughEveryone))]
         public bool SliceThroughEveryone { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyPercent(nameof(HealthRegeneration))]
         public float HealthRegeneration { get; set; } = 0.0f;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(PartyHealthRegeneration))]
-        public float PartyHealthRegeneration { get; set; } = 0.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(InfiniteAmmo))]
         public bool InfiniteAmmo { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
-        public bool PartyInfiniteAmmo { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(DamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
         public float DamageMultiplier { get; set; } = 1.0f;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(EnemyDamagePercentage))]
-        public float EnemyDamagePercentage { get; set; } = 100.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(PartyDamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
-        public float PartyDamageMultiplier { get; set; } = 1.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(NoFriendlyFire))]
-        public bool NoFriendlyFire { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(CombatZoomMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
-        public float CombatZoomMultiplier { get; set; } = 1.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyBool(nameof(InstantCrossbowReload))]
-        public bool InstantCrossbowReload { get; set; } = false;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(CompanionDeathPercentage))]
-        public float CompanionDeathPercentage { get; set; } = 100.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(FriendlyLordCombatDeathPercentage))]
-        public float FriendlyLordCombatDeathPercentage { get; set; } = 100.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(EnemyLordCombatDeathPercentage))]
-        public float EnemyLordCombatDeathPercentage { get; set; } = 100.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(EnemyLordCombatDeathChanceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
-        public float EnemyLordCombatDeathChanceMultiplier { get; set; } = 1.0f;
-
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(AlwaysKnockDown))]
         public bool AlwaysKnockDown { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatGroupName)]
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(NeverKnockedBackByAttacks))]
         public bool NeverKnockedBackByAttacks { get; set; } = false;
 
-        #endregion Combat
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoStuckArrows))]
+        public bool NoStuckArrows { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
+        [LocalizedSettingPropertyBool(nameof(InstantCrossbowReload))]
+        public bool InstantCrossbowReload { get; set; } = false;
+
+        #endregion Combat - Player
+
+        #region Combat - Party
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyInvincible))]
+        public bool PartyInvincible { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyHeroesInvincible))]
+        public bool PartyHeroesInvincible { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(PartyDamageTakenPercentage))]
+        public float PartyDamageTakenPercentage { get; set; } = 100.0f;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyOneHitKill))]
+        public bool PartyOneHitKill { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyOnlyKnockout))]
+        public bool PartyOnlyKnockout { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoRunningAway))]
+        public bool NoRunningAway { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(PartyHealthRegeneration))]
+        public float PartyHealthRegeneration { get; set; } = 0.0f;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(PartyInfiniteAmmo))]
+        public bool PartyInfiniteAmmo { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(PartyDamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
+        public float PartyDamageMultiplier { get; set; } = 1.0f;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoFriendlyFire))]
+        public bool NoFriendlyFire { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(CompanionDeathPercentage))]
+        public float CompanionDeathPercentage { get; set; } = 100.0f;
+
+        #endregion Combat - Party
+
+        #region Combat - Allies
+
+        [LocalizedSettingPropertyGroup(CombatAlliesGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(FriendlyLordCombatDeathPercentage))]
+        public float FriendlyLordCombatDeathPercentage { get; set; } = 100.0f;
+
+        #endregion Combat - Allies
+
+        #region Combat - Enemies
+
+        [LocalizedSettingPropertyGroup(CombatEnemiesGroupName)]
+        [LocalizedSettingPropertyBool(nameof(EnemyOnlyKnockout))]
+        public bool EnemyOnlyKnockout { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatEnemiesGroupName)]
+        [LocalizedSettingPropertyBool(nameof(EnemiesNoRunningAway))]
+        public bool EnemiesNoRunningAway { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatEnemiesGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(EnemyDamagePercentage))]
+        public float EnemyDamagePercentage { get; set; } = 100.0f;
+
+        [LocalizedSettingPropertyGroup(CombatEnemiesGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(EnemyLordCombatDeathPercentage))]
+        public float EnemyLordCombatDeathPercentage { get; set; } = 100.0f;
+
+        [LocalizedSettingPropertyGroup(CombatEnemiesGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(EnemyLordCombatDeathChanceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float EnemyLordCombatDeathChanceMultiplier { get; set; } = 1.0f;
+
+        #endregion Combat - Enemies
+
+        #region Combat - Misc
+
+        [LocalizedSettingPropertyGroup(CombatMiscGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(RenownRewardMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float RenownRewardMultiplier { get; set; } = 1.0f;
+
+        [LocalizedSettingPropertyGroup(CombatMiscGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(InfluenceRewardMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float InfluenceRewardMultiplier { get; set; } = 1.0f;
+
+        [LocalizedSettingPropertyGroup(CombatMiscGroupName)]
+        [LocalizedSettingPropertyBool(nameof(AlwaysWinBattleSimulation))]
+        public bool AlwaysWinBattleSimulation { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatMiscGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NoTroopSacrifice))]
+        public bool NoTroopSacrifice { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CombatMiscGroupName)]
+        [LocalizedSettingPropertyInteger(nameof(BanditHideoutTroopLimit), minValue: 0, maxValue: 1000)]
+        public int BanditHideoutTroopLimit { get; set; } = 0;
+
+        [LocalizedSettingPropertyGroup(CombatMiscGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(CombatZoomMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float CombatZoomMultiplier { get; set; } = 1.0f;
+
+        #endregion Combat - Misc
 
         #region Inventory
 
@@ -261,9 +281,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyPercent(nameof(FoodConsumptionPercentage))]
         public float FoodConsumptionPercentage { get; set; } = 100.0f;
 
-        // [LocalizedSettingPropertyGroup(PartyGroupName)]
-        // [LocalizedSettingPropertyPercent(nameof(TroopWagesPercentage))]
-        // public float TroopWagesPercentage { get; set; } = 100.0f;
+        [LocalizedSettingPropertyGroup(PartyGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(TroopWagesPercentage))]
+        public float TroopWagesPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(PartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(FreeTroopUpgrades))]
@@ -425,9 +445,9 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(DisguiseAlwaysWorks))]
         public bool DisguiseAlwaysWorks { get; set; } = false;
 
-        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        // [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
-        // public bool FreeTroopRecruitment { get; set; } = false;
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(FreeTroopRecruitment))]
+        public bool FreeTroopRecruitment { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyPercent(nameof(ItemTradingCostPercentage))]
@@ -469,17 +489,17 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyInteger(nameof(DailyHearthsBonus), minValue: 0, maxValue: 10000)]
         public int DailyHearthsBonus { get; set; } = 0;
 
-        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        // [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
-        // public float GarrisonWagesPercentage { get; set; } = 100.0f;
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyPercent(nameof(GarrisonWagesPercentage))]
+        public float GarrisonWagesPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(NeverRequireCivilianEquipment))]
         public bool NeverRequireCivilianEquipment { get; set; } = false;
 
-        // [LocalizedSettingPropertyGroup(SettlementsGroupName)]
-        // [LocalizedSettingPropertyFloatingInteger(nameof(ConstructionPowerMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
-        // public float ConstructionPowerMultiplier { get; set; } = 1.0f;
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(ConstructionPowerMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        public float ConstructionPowerMultiplier { get; set; } = 1.0f;
 
         [LocalizedSettingPropertyGroup(SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoBribeToEnterKeep))]

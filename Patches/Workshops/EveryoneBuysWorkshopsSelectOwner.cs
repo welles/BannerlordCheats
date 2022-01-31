@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -18,10 +19,17 @@ namespace BannerlordCheats.Patches.Workshops
             ref Hero excludedHero,
             ref int requiredGold)
         {
-            if (BannerlordCheatsSettings.Instance?.EveryoneBuysWorkshops == true
-                && excludedHero.IsPlayer())
+            try
             {
-                requiredGold = 0;
+                if (BannerlordCheatsSettings.Instance?.EveryoneBuysWorkshops == true
+                    && excludedHero.IsPlayer())
+                {
+                    requiredGold = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EveryoneBuysWorkshopsSelectOwner));
             }
         }
     }

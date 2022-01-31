@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,10 +14,17 @@ namespace BannerlordCheats.Patches.Clan
         [HarmonyPostfix]
         public static void GetCompanionLimit(ref TaleWorlds.CampaignSystem.Clan clan, ref int __result)
         {
-            if (clan.IsPlayerClan()
-                && BannerlordCheatsSettings.Instance?.ExtraCompanionLimit > 0)
+            try
             {
-                __result += BannerlordCheatsSettings.Instance.ExtraCompanionLimit;
+                if (clan.IsPlayerClan()
+                    && BannerlordCheatsSettings.Instance?.ExtraCompanionLimit > 0)
+                {
+                    __result += BannerlordCheatsSettings.Instance.ExtraCompanionLimit;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(ExtraCompanionLimit));
             }
         }
     }

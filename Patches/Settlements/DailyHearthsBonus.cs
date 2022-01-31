@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -13,10 +14,17 @@ namespace BannerlordCheats.Patches.Settlements
         [HarmonyPostfix]
         public static void HearthChange(ref Village __instance, ref float __result)
         {
-            if (__instance.IsPlayerVillage()
-                && BannerlordCheatsSettings.Instance?.DailyHearthsBonus > 0)
+            try
             {
-                __result += BannerlordCheatsSettings.Instance.DailyHearthsBonus;
+                if (__instance.IsPlayerVillage()
+                    && BannerlordCheatsSettings.Instance?.DailyHearthsBonus > 0)
+                {
+                    __result += BannerlordCheatsSettings.Instance.DailyHearthsBonus;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(DailyHearthsBonus));
             }
         }
     }

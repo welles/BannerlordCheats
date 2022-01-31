@@ -1,13 +1,12 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
-using TaleWorlds.Core;
 using TaleWorlds.InputSystem;
-using TaleWorlds.Library;
 
 namespace BannerlordCheats.Patches.General
 {
@@ -18,18 +17,25 @@ namespace BannerlordCheats.Patches.General
         [HarmonyPostfix]
         public static void OnTick(ref EncyclopediaPageVM __instance)
         {
-            if (__instance is EncyclopediaUnitPageVM
-                && __instance.Obj is CharacterObject characterObject
-                && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+            try
             {
-                if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))
+                if (__instance is EncyclopediaUnitPageVM
+                    && __instance.Obj is CharacterObject characterObject
+                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
                 {
-                    EnableHotkeysAddEncyclopediaTroops.AddTroops(characterObject, 10);
+                    if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))
+                    {
+                        EnableHotkeysAddEncyclopediaTroops.AddTroops(characterObject, 10);
+                    }
+                    else if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftControl))
+                    {
+                        EnableHotkeysAddEncyclopediaTroops.AddTroops(characterObject, 1);
+                    }
                 }
-                else if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftControl))
-                {
-                    EnableHotkeysAddEncyclopediaTroops.AddTroops(characterObject, 1);
-                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(EnableHotkeysAddEncyclopediaTroops));
             }
         }
 
@@ -39,7 +45,7 @@ namespace BannerlordCheats.Patches.General
 
             var message = string.Format(L10N.GetText("AddTroopsFromEncyclopediaMessage"), count, characterObject.Name);
 
-            InformationManager.DisplayMessage(new InformationMessage(message, Color.White));
+            Message.Show(message);
         }
     }
 }

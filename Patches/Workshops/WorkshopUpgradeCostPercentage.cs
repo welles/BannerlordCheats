@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.SandBox.GameComponents;
@@ -12,11 +13,18 @@ namespace BannerlordCheats.Patches.Workshops
         [HarmonyPostfix]
         public static void GetUpgradeCost(ref int currentLevel, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.WorkshopUpgradeCostPercentage < 100f)
+            try
             {
-                var factor = BannerlordCheatsSettings.Instance.WorkshopUpgradeCostPercentage / 100f;
+                if (BannerlordCheatsSettings.Instance?.WorkshopUpgradeCostPercentage < 100f)
+                {
+                    var factor = BannerlordCheatsSettings.Instance.WorkshopUpgradeCostPercentage / 100f;
 
-                __result = (int) (__result * factor);
+                    __result = (int) (__result * factor);
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(WorkshopUpgradeCostPercentage));
             }
         }
     }

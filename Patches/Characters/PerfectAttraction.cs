@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -17,10 +18,17 @@ namespace BannerlordCheats.Patches.Characters
             ref Hero heroOfInterest,
             ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.PerfectAttraction == true
-                && heroOfInterest.IsPlayer())
+            try
             {
-                __result = 100;
+                if (BannerlordCheatsSettings.Instance?.PerfectAttraction == true
+                    && heroOfInterest.IsPlayer())
+                {
+                    __result = 100;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(PerfectAttraction));
             }
         }
     }

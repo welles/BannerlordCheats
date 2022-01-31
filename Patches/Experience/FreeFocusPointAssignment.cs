@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Experience
         [HarmonyPostfix]
         public static void GetRequiredFocusPointsToAddFocus(ref SkillObject skill, ref int __result)
         {
-            if (BannerlordCheatsSettings.Instance?.FreeFocusPointAssignment == true)
+            try
             {
-                __result = 0;
+                if (BannerlordCheatsSettings.Instance?.FreeFocusPointAssignment == true)
+                {
+                    __result = 0;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(FreeFocusPointAssignment));
             }
         }
     }

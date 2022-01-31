@@ -17,38 +17,45 @@ namespace BannerlordCheats.Patches.Combat
         [HarmonyPostfix]
         public static void OnApplicationTick(float dt)
         {
-            if (Mission.Current != null
-                && Mission.Current.PlayerTeam != null
-                && MBCommon.IsPaused != true
-                && BannerlordCheatsSettings.Instance?.PartyHealthRegeneration > 0f)
+            try
             {
-                var now = DateTime.Now.Second;
-
-                if (PartyHealthRegeneration.LastSet == null || now != PartyHealthRegeneration.LastSet)
+                if (Mission.Current != null
+                    && Mission.Current.PlayerTeam != null
+                    && MBCommon.IsPaused != true
+                    && BannerlordCheatsSettings.Instance?.PartyHealthRegeneration > 0f)
                 {
-                    PartyHealthRegeneration.LastSet = now;
+                    var now = DateTime.Now.Second;
 
-                    var playerPartyAgents = Mission.Current.PlayerTeam.ActiveAgents
-                        .Where(x => x.Health > 0
-                                    && !x.IsPlayer()
-                                    && x.Origin.TryGetParty(out var party)
-                                    && party.IsPlayerParty())
-                        .ToArray();
-
-                    foreach (var agent in playerPartyAgents)
+                    if (PartyHealthRegeneration.LastSet == null || now != PartyHealthRegeneration.LastSet)
                     {
-                        var health = agent.Health;
-                        var maxHealth = agent.HealthLimit;
+                        PartyHealthRegeneration.LastSet = now;
 
-                        if (health < maxHealth)
+                        var playerPartyAgents = Mission.Current.PlayerTeam.ActiveAgents
+                            .Where(x => x.Health > 0
+                                        && !x.IsPlayer()
+                                        && x.Origin.TryGetParty(out var party)
+                                        && party.IsPlayerParty())
+                            .ToArray();
+
+                        foreach (var agent in playerPartyAgents)
                         {
-                            var regen = (BannerlordCheatsSettings.Instance.PartyHealthRegeneration / maxHealth) * 100;
-                            var newHealth = (float)Math.Round(health + regen);
+                            var health = agent.Health;
+                            var maxHealth = agent.HealthLimit;
 
-                            agent.Health = Math.Min(maxHealth, newHealth);
+                            if (health < maxHealth)
+                            {
+                                var regen = (BannerlordCheatsSettings.Instance.PartyHealthRegeneration / maxHealth) * 100;
+                                var newHealth = (float)Math.Round(health + regen);
+
+                                agent.Health = Math.Min(maxHealth, newHealth);
+                            }
                         }
                     }
                 }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(PartyHealthRegeneration));
             }
         }
     }

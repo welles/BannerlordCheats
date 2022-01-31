@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Settings;
+﻿using System;
+using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -13,9 +14,16 @@ namespace BannerlordCheats.Patches.Kingdom
         [HarmonyPostfix]
         public static void GetCrimeRatingOf(ref CrimeModel.CrimeType crime, ref object[] additionalArgs, ref float __result)
         {
-            if (BannerlordCheatsSettings.Instance?.NoCrimeRatingForCrimes == true)
+            try
             {
-                __result = 0f;
+                if (BannerlordCheatsSettings.Instance?.NoCrimeRatingForCrimes == true)
+                {
+                    __result = 0f;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(NoCrimeRatingForCrimes));
             }
         }
     }
