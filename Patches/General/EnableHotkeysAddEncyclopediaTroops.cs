@@ -6,9 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.Encyclopedia;
-using TaleWorlds.Core;
 using TaleWorlds.InputSystem;
-using TaleWorlds.Library;
 
 namespace BannerlordCheats.Patches.General
 {
