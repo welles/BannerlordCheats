@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
-using TaleWorlds.Engine.Screens;
+using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Extensions
 {

@@ -4,7 +4,8 @@ using HarmonyLib;
 using BannerlordCheats.Extensions;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.GameComponents.Map;
+using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.CampaignSystem.Party;
 
 namespace BannerlordCheats.Patches.Army
 {

@@ -1,4 +1,4 @@
-﻿using TaleWorlds.CampaignSystem;
+﻿using TaleWorlds.CampaignSystem.Party;
 
 namespace BannerlordCheats.Extensions
 {

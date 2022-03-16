@@ -5,10 +5,11 @@ using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SandBox.GauntletUI;
+using TaleWorlds.CampaignSystem.Party;
 using TaleWorlds.CampaignSystem.ViewModelCollection;
-using TaleWorlds.Engine.Screens;
 using TaleWorlds.InputSystem;
 using TaleWorlds.MountAndBlade;
+using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Patches.General
 {
@@ -50,11 +51,11 @@ namespace BannerlordCheats.Patches.General
 
             if (selectedItem == null) { return; }
 
-            var index = TaleWorlds.CampaignSystem.PartyBase.MainParty.ItemRoster.FindIndexOfElement(selectedItem.ItemRosterElement.EquipmentElement);
+            var index = PartyBase.MainParty.ItemRoster.FindIndexOfElement(selectedItem.ItemRosterElement.EquipmentElement);
 
             if (index < 0) { return; }
 
-            TaleWorlds.CampaignSystem.PartyBase.MainParty.ItemRoster.AddToCounts(selectedItem.ItemRosterElement.EquipmentElement, count);
+            PartyBase.MainParty.ItemRoster.AddToCounts(selectedItem.ItemRosterElement.EquipmentElement, count);
 
             selectedItem.ItemCount += count;
 

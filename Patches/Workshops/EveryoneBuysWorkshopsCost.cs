@@ -5,6 +5,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
+using TaleWorlds.CampaignSystem.Settlements.Workshops;
 using TaleWorlds.Localization;
 
 namespace BannerlordCheats.Patches.Workshops
