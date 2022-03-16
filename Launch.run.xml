@@ -1,8 +1,8 @@
 ﻿<component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Launch" type="RunExe" factoryName=".NET Executable">
-    <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../SteamCMD/mb2b_stable/bin/Win64_Shipping_Client/Bannerlord.exe" />
+    <option name="EXE_PATH" value="$PROJECT_DIR$/../../../../SteamCMD/apps/mb2b_stable/bin/Win64_Shipping_Client/Bannerlord.exe" />
     <option name="PROGRAM_PARAMETERS" value="/singleplayer _MODULES_*Bannerlord.Harmony*Bannerlord.ButterLib*Bannerlord.UIExtenderEx*Bannerlord.MBOptionScreen*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*Cheats*_MODULES_" />
-    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../SteamCMD/mb2b_stable/bin/Win64_Shipping_Client" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../SteamCMD/apps/mb2b_stable/bin/Win64_Shipping_Client" />
     <option name="PASS_PARENT_ENVS" value="1" />
     <option name="USE_EXTERNAL_CONSOLE" value="0" />
     <option name="USE_MONO" value="0" />
