@@ -3,7 +3,7 @@
     <Version>2.10.1.0</Version>
     <GameVersion>1.7.1.306438</GameVersion>
     <GameBranch>Stable</GameBranch>
-    <HarmonyVersion>2.2.0</HarmonyVersion>
+    <HarmonyVersion>2.2.1</HarmonyVersion>
     <MCMVersion>4.3.21</MCMVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
