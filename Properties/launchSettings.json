@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Launch": {
+      "commandName": "Executable",
+      "executablePath": "C:\\SteamCMD\\apps\\mb2b_beta\\bin\\Win64_Shipping_Client\\Bannerlord.exe",
+      "commandLineArgs": "/singleplayer _MODULES_*Bannerlord.Harmony*Bannerlord.ButterLib*Bannerlord.UIExtenderEx*Bannerlord.MBOptionScreen*Native*SandBoxCore*CustomBattle*SandBox*StoryMode*Cheats*_MODULES_",
+      "workingDirectory": "C:\\SteamCMD\\apps\\mb2b_beta\\bin\\Win64_Shipping_Client"
+    }
+  }
+}
