@@ -1,4 +1,6 @@
-﻿using TaleWorlds.CampaignSystem;
+using System;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Party;
 
 namespace BannerlordCheats.Extensions
 {
@@ -7,12 +9,17 @@ namespace BannerlordCheats.Extensions
         public static bool IsPlayerParty(this PartyBase party)
         {
             // Workaround for crash on accessing BanditPartyComponent.Owner
-            if (party?.MapFaction?.IsBanditFaction == true)
+            Hero owner;
+            try
+            {
+                owner = party?.Owner;
+            }
+            catch (NullReferenceException)
             {
                 return false;
             }
 
-            return party?.Owner?.IsHumanPlayerCharacter ?? false;
+            return owner?.IsHumanPlayerCharacter ?? false;
         }
 
         public static bool IsPlayerParty(this MobileParty party)

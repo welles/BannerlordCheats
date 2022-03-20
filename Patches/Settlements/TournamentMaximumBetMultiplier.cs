@@ -2,7 +2,7 @@
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SandBox.TournamentMissions.Missions;
+using SandBox.Tournaments.MissionLogics;
 
 namespace BannerlordCheats.Patches.Settlements
 {

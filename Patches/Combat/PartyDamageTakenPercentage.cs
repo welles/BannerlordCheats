@@ -1,9 +1,9 @@
 ﻿using BannerlordCheats.Settings;
 using HarmonyLib;
-using SandBox;
 using System;
 using BannerlordCheats.Extensions;
 using JetBrains.Annotations;
+using SandBox.GameComponents;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
