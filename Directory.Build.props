@@ -4,7 +4,7 @@
     <GameVersion>1.7.2.310327</GameVersion>
     <GameBranch>Beta</GameBranch>
     <HarmonyVersion>2.2.1</HarmonyVersion>
-    <MCMVersion>4.5.0</MCMVersion>
+    <MCMVersion>4.6.0</MCMVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <GameFolder>C:\SteamCMD\apps\mb2b_beta</GameFolder>
