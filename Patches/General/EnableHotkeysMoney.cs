@@ -4,7 +4,6 @@ using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.InputSystem;
 using TaleWorlds.MountAndBlade;

@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using TaleWorlds.CampaignSystem.Siege;
+﻿using TaleWorlds.CampaignSystem.Siege;
 
 namespace BannerlordCheats.Extensions
 {

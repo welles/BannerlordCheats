@@ -1,8 +1,6 @@
 ﻿using System;
 using BannerlordCheats.Settings;
 using HarmonyLib;
-using System.Linq;
-using BannerlordCheats.Extensions;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.GameComponents;
 using TaleWorlds.CampaignSystem.Siege;
