@@ -2,7 +2,7 @@
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
-using TaleWorlds.CampaignSystem.SandBox.CampaignBehaviors;
+using TaleWorlds.CampaignSystem.CampaignBehaviors;
 using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches.Smithing

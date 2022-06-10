@@ -3,6 +3,7 @@
     <PropertyGroup>
       <IsPackable>false</IsPackable>
       <AssemblyVersion>$(Version)</AssemblyVersion>
+      <PlatformTarget>x64</PlatformTarget>
     </PropertyGroup>
 
     <ItemGroup>
@@ -179,6 +180,10 @@
       </Reference>
       <Reference Include="TaleWorlds.SaveSystem">
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.SaveSystem.dll</HintPath>
+        <Private>False</Private>
+      </Reference>
+      <Reference Include="TaleWorlds.ScreenSystem">
+        <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.ScreenSystem.dll</HintPath>
         <Private>False</Private>
       </Reference>
       <Reference Include="TaleWorlds.Starter.DotNetCore">
