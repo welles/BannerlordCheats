@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -30,7 +32,7 @@ namespace BannerlordCheats.Patches.Sieges
                         return;
                 }
 
-                if ((siegeEvent.GetSiegeEventSide(otherSide)?.SiegeParties.Any(x => x.IsPlayerParty()) ?? false)
+                if ((siegeEvent.GetSiegeEventSide(otherSide)?.GetInvolvedPartiesForEventType().Any(x => x.IsPlayerParty()) ?? false)
                     && BannerlordCheatsSettings.Instance?.EnemySiegeBuildingSpeedPercentage < 100f)
                 {
                     var factor = BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage / 100f;

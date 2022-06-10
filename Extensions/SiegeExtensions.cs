@@ -1,4 +1,5 @@
-﻿using TaleWorlds.CampaignSystem.Siege;
+﻿using System.Linq;
+using TaleWorlds.CampaignSystem.Siege;
 
 namespace BannerlordCheats.Extensions
 {
@@ -6,7 +7,7 @@ namespace BannerlordCheats.Extensions
     {
         public static bool IsPlayerSide(this ISiegeEventSide side)
         {
-            return side?.SiegeParties?.Any(x => x.IsPlayerParty()) ?? false;
+            return side?.GetInvolvedPartiesForEventType()?.Any(x => x.IsPlayerParty()) ?? false;
         }
     }
 }
