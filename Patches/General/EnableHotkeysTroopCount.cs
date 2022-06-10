@@ -6,7 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem.Party;
-using TaleWorlds.CampaignSystem.ViewModelCollection;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Party;
 using TaleWorlds.InputSystem;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;

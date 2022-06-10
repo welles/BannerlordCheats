@@ -21,7 +21,7 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is InventoryGauntletScreen
+                if (ScreenManager.TopScreen is GauntletInventoryScreen
                     && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
                 {
                     if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.X))

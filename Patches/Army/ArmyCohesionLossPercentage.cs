@@ -7,7 +7,7 @@ using ArmyObj = TaleWorlds.CampaignSystem.Army;
 
 namespace BannerlordCheats.Patches.Army
 {
-    [HarmonyPatch(typeof(ArmyObj), nameof(ArmyObj.CohesionChange), MethodType.Getter)]
+    [HarmonyPatch(typeof(ArmyObj), nameof(ArmyObj.DailyCohesionChange), MethodType.Getter)]
     public static class ArmyCohesionLossPercentage
     {
         [UsedImplicitly]
