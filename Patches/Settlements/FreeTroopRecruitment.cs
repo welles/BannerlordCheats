@@ -4,7 +4,7 @@ using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.CampaignSystem.SandBox.GameComponents.Party;
+using TaleWorlds.CampaignSystem.GameComponents;
 
 namespace BannerlordCheats.Patches.Settlements
 {

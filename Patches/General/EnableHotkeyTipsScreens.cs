@@ -4,7 +4,7 @@ using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using SandBox.GauntletUI;
-using TaleWorlds.Engine.Screens;
+using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Patches.General
 {

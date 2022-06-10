@@ -6,9 +6,9 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
-using TaleWorlds.Engine.Screens;
 using TaleWorlds.InputSystem;
 using TaleWorlds.MountAndBlade;
+using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Patches.General
 {

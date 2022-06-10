@@ -3,7 +3,7 @@ using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem.Election;
-using TaleWorlds.CampaignSystem.SandBox.GameComponents;
+using TaleWorlds.CampaignSystem.GameComponents;
 
 namespace BannerlordCheats.Patches.Kingdom
 {

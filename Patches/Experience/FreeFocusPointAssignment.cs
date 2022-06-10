@@ -2,7 +2,7 @@
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
-using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
 using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches.Experience

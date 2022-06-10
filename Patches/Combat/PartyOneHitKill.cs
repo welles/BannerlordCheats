@@ -3,7 +3,7 @@ using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
-using SandBox;
+using SandBox.GameComponents;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
