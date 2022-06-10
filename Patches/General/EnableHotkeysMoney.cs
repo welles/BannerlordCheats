@@ -4,6 +4,7 @@ using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.InputSystem;
 using TaleWorlds.MountAndBlade;
@@ -20,7 +21,7 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is InventoryGauntletScreen
+                if (ScreenManager.TopScreen is GauntletInventoryScreen
                     && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
                 {
                     if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.X))
