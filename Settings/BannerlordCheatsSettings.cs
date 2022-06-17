@@ -120,7 +120,7 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(DamageMultiplier), minValue: 1.0f, maxValue: 10.0f)]
         public float DamageMultiplier { get; set; } = 1.0f;
-
+        /*
         [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(AlwaysKnockDown))]
         public bool AlwaysKnockDown { get; set; } = false;
@@ -128,7 +128,7 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(NeverKnockedBackByAttacks))]
         public bool NeverKnockedBackByAttacks { get; set; } = false;
-
+        */
         [LocalizedSettingPropertyGroup(CombatPlayerGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoStuckArrows))]
         public bool NoStuckArrows { get; set; } = false;

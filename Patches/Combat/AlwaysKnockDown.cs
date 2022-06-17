@@ -7,7 +7,7 @@ using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
-{
+{/*
     [HarmonyPatch(typeof(Mission), "DecideAgentKnockedByBlow")]
     public static class AlwaysKnockDown
     {
@@ -36,4 +36,4 @@ namespace BannerlordCheats.Patches.Combat
             }
         }
     }
-}
+*/}

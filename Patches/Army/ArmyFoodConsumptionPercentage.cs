@@ -14,7 +14,7 @@ namespace BannerlordCheats.Patches.Army
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CalculateDailyFoodConsumptionf(ref MobileParty party, ref bool includeDescription, ref ExplainedNumber __result)
+        public static void CalculateDailyFoodConsumptionf(ref MobileParty party, ref ExplainedNumber __result)
         {
             try
             {
