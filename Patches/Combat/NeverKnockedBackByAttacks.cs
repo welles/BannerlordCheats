@@ -8,22 +8,21 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(Mission), "DecideAgentKnockedByBlow")]
+    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.DecideAgentKnockedBackByBlow))]
     public static class NeverKnockedBackByAttacks
     {
         [UsedImplicitly]
         [HarmonyPostfix]
         public static void DecideAgentKnockedByBlow(
-            ref Agent attacker,
-            ref Agent victim,
+            ref Agent attackerAgent,
+            ref Agent victimAgent,
             ref AttackCollisionData collisionData,
             ref WeaponComponentData attackerWeapon,
-            ref bool isInitialBlowShrugOff,
             ref Blow blow)
         {
             try
             {
-                if (victim.IsPlayer()
+                if (victimAgent.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.NeverKnockedBackByAttacks == true)
                 {
                     blow.BlowFlag &= ~BlowFlags.KnockDown;
