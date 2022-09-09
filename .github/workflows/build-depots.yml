@@ -40,3 +40,9 @@ jobs:
           dotnet depotdownloader/DepotDownloader.dll -app 261550 -depot 261551 -beta e1.8.0 -username ${{secrets.STEAM_USERNAME}}
           -password ${{secrets.STEAM_PASSWORD}} -os windows -osarch 64 -filelist ./.github/resources/depotdownloader.txt -dir bannerlord;
         shell: pwsh
+
+      - name: Build BannerlordCheats
+        run: dotnet build BannerlordCheats.csproj  --configuration Release -p:GameFolder="$PWD\bannerlord" -p:UseNuGetAssemblies="False"
+        env:
+          DOTNET_NOLOGO: 1
+          DOTNET_CLI_TELEMETRY_OPTOUT: 1

@@ -1,1 +1,2 @@
+regex:bin\/Win64_Shipping_Client\/[^\/]+\.dll
 regex:Modules\/[A-Za-z]+\/bin\/Win64_Shipping_Client\/[^\/]+\.dll
