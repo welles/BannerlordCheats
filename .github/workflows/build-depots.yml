@@ -97,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: ${{steps.versions.outputs.zip_name}}
-          path: ./bannerlord/Modules/Cheats/
+          path: ./bannerlord/Modules/Cheats
 
       - name: Create Release
         uses: actions/create-release@v1
