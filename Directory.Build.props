@@ -8,6 +8,6 @@
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <GameFolder>C:\SteamCMD\apps\mb2b_beta</GameFolder>
-    <UseNuGetAssemblies>True</UseNuGetAssemblies>
+    <UseNuGetAssemblies>False</UseNuGetAssemblies>
   </PropertyGroup>
 </Project>
