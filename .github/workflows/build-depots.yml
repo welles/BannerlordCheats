@@ -1,0 +1,42 @@
+name: Build (Depots)
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build & Release (Depots)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@master
+        with:
+          dotnet-version: 6.0.x
+        env:
+          DOTNET_NOLOGO: 1
+          DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+      - name: Download DepotDownloader 2.4.7
+        uses: i3h/download-release-asset@v1.3.2
+        with:
+          owner: SteamRE
+          repo: DepotDownloader
+          tag: DepotDownloader_2.4.7
+          file: depotdownloader-2.4.7.zip
+
+      - name: Extract DepotDownloader 2.4.7
+        uses: DuckSoft/extract-7z-action@v1.0
+        with:
+          pathSource: depotdownloader-2.4.7.zip
+          pathTarget: depotdownloader
+
+      - name: Download Game Binaries
+        run: >-
+          dotnet depotdownloader/DepotDownloader.dll -app 261550 -depot 261551 -beta e1.8.0 -username ${{secrets.STEAM_USERNAME}}
+          -password ${{secrets.STEAM_PASSWORD}} -os windows -osarch 64 -dir bannerlord;
+        shell: pwsh
