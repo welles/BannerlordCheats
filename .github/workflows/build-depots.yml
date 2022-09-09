@@ -84,7 +84,7 @@ jobs:
         shell: pwsh
 
       - name: Build BannerlordCheats
-        run: dotnet build BannerlordCheats.csproj  --configuration Release -p:GameFolder="$PWD\bannerlord" -p:UseNuGetAssemblies="False"
+        run: dotnet build BannerlordCheats.csproj  --configuration Release -p:GameFolder="${{github.workspace}}/bannerlord" -p:UseNuGetAssemblies="False"
         env:
           DOTNET_NOLOGO: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
