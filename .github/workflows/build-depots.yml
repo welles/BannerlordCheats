@@ -94,7 +94,7 @@ jobs:
         working-directory: ./bannerlord/Modules
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{steps.versions.outputs.zip_name}}
           path: ./bannerlord/Modules/Cheats
