@@ -38,5 +38,5 @@ jobs:
       - name: Download Game Binaries
         run: >-
           dotnet depotdownloader/DepotDownloader.dll -app 261550 -depot 261551 -beta e1.8.0 -username ${{secrets.STEAM_USERNAME}}
-          -password ${{secrets.STEAM_PASSWORD}} -os windows -osarch 64 -dir bannerlord;
+          -password ${{secrets.STEAM_PASSWORD}} -os windows -osarch 64 -filelist regex:*\.dll -dir bannerlord;
         shell: pwsh
