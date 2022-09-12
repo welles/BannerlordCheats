@@ -7,12 +7,12 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(Agent), nameof(Agent.Invulnerable), MethodType.Getter)]
+    [HarmonyPatch(typeof(Agent), nameof(Agent.CurrentMortalityState), MethodType.Getter)]
     public static class PartyHeroesInvincible
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void Invulnerable(ref Agent __instance, ref bool __result)
+        public static void Invulnerable(ref Agent __instance, ref Agent.MortalityState __result)
         {
             try
             {
@@ -23,7 +23,7 @@ namespace BannerlordCheats.Patches.Combat
                     && agent.IsHero()
                     && BannerlordCheatsSettings.Instance?.PartyHeroesInvincible == true)
                 {
-                    __result = true;
+                    __result = Agent.MortalityState.Invulnerable;
                 }
             }
             catch (Exception e)

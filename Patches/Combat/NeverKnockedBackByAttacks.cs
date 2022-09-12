@@ -3,27 +3,27 @@ using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
+using SandBox.GameComponents;
 using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(Mission), "DecideAgentKnockedByBlow")]
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecideAgentKnockedBackByBlow))]
     public static class NeverKnockedBackByAttacks
     {
         [UsedImplicitly]
         [HarmonyPostfix]
         public static void DecideAgentKnockedByBlow(
-            ref Agent attacker,
-            ref Agent victim,
+            ref Agent attackerAgent,
+            ref Agent victimAgent,
             ref AttackCollisionData collisionData,
             ref WeaponComponentData attackerWeapon,
-            ref bool isInitialBlowShrugOff,
             ref Blow blow)
         {
             try
             {
-                if (victim.IsPlayer()
+                if (victimAgent.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.NeverKnockedBackByAttacks == true)
                 {
                     blow.BlowFlag &= ~BlowFlags.KnockDown;

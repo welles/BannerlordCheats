@@ -22,24 +22,24 @@ namespace BannerlordCheats.Patches.General
                 {
                     switch (screen)
                     {
-                        case InventoryGauntletScreen inventoryGauntletScreen:
+                        case GauntletInventoryScreen _:
                             Message.Show("Inventory Screen Cheat Hotkeys:");
                             Message.Show("CTRL + X: Add 1.000 gold.");
                             Message.Show("CTRL + SHIFT + X: Add 100.000 gold.");
                             Message.Show("CTRL + H: Add 1 to the selected item type.");
                             Message.Show("CTRL + SHIFT + H: Add 100 to the selected item type.");
                             break;
-                        case GauntletClanScreen gauntletClanScreen:
+                        case GauntletClanScreen _:
                             Message.Show("Clan Screen Cheat Hotkeys:");
                             Message.Show("CTRL + X: Add 1.000 influence.");
                             break;
-                        case GauntletPartyScreen gauntletPartyScreen:
+                        case GauntletPartyScreen _:
                             Message.Show("Party Screen Cheat Hotkeys:");
                             Message.Show("CTRL + H: Add 1 soldier to the selected troop.");
                             Message.Show("CTRL + SHIFT + H: Add 10 soldiers to the selected troop.");
                             Message.Show("CTRL + X: Add experience to the selected troop.");
                             break;
-                        case GauntletCharacterDeveloperScreen gauntletCharacterDeveloperScreen:
+                        case GauntletCharacterDeveloperScreen _:
                             Message.Show("Character Screen Cheat Hotkeys:");
                             Message.Show("CTRL + A: Set all character attributes to 10.");
                             Message.Show("CTRL + (1-6): Add 1 point to the attribute at the given index.");

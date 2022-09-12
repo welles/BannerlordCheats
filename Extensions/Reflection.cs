@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
-using TaleWorlds.CampaignSystem.ViewModelCollection;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Inventory;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Party;
 using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Extensions

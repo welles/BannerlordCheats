@@ -6,7 +6,7 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem.Party;
-using TaleWorlds.CampaignSystem.ViewModelCollection;
+using TaleWorlds.CampaignSystem.ViewModelCollection.Inventory;
 using TaleWorlds.InputSystem;
 using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is InventoryGauntletScreen
+                if (ScreenManager.TopScreen is GauntletInventoryScreen
                     && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
                 {
                     if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
@@ -43,7 +43,7 @@ namespace BannerlordCheats.Patches.General
 
         private static void AddItems(int count)
         {
-            var inventoryScreen = ScreenManager.TopScreen as InventoryGauntletScreen;
+            var inventoryScreen = ScreenManager.TopScreen as GauntletInventoryScreen;
 
             var inventoryVM = inventoryScreen.GetViewModel<SPInventoryVM>();
 
