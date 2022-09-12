@@ -4,18 +4,20 @@ using System;
 using System.Linq;
 using BannerlordCheats.Extensions;
 using JetBrains.Annotations;
+using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(Module), "OnApplicationTick")]
+    [HarmonyPatch(typeof(GameManagerBase), nameof(GameManagerBase.OnTick))]
     public static class PartyHealthRegeneration
     {
         private static int? LastSet = null;
 
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void OnApplicationTick(float dt)
+        public static void OnTick(
+            ref float dt)
         {
             try
             {
