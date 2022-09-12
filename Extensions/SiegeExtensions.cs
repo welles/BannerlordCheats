@@ -7,7 +7,7 @@ namespace BannerlordCheats.Extensions
     {
         public static bool IsPlayerSide(this ISiegeEventSide side)
         {
-            return side?.SiegeParties?.Any(x => x.IsPlayerParty()) ?? false;
+            return side?.GetInvolvedPartiesForEventType()?.Any(x => x.IsPlayerParty()) ?? false;
         }
     }
 }

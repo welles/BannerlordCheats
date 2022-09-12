@@ -1,5 +1,4 @@
-﻿using TaleWorlds.Core;
-using TaleWorlds.Library;
+﻿using TaleWorlds.Library;
 
 namespace BannerlordCheats.Extensions
 {

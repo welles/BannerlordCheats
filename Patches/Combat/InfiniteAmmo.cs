@@ -33,7 +33,7 @@ namespace BannerlordCheats.Patches.Combat
                     {
                         var missionWeapon = shooterAgent.Equipment[index];
 
-                        if (missionWeapon.IsAnyConsumable(out _)
+                        if (missionWeapon.IsAnyConsumable()
                             && missionWeapon.Amount <= missionWeapon.ModifiedMaxAmount)
                         {
                             shooterAgent.SetWeaponAmountInSlot(index, missionWeapon.ModifiedMaxAmount, true);

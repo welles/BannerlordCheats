@@ -2,23 +2,26 @@
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
-using TaleWorlds.CampaignSystem.ComponentInterfaces;
-using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.Actions;
 
 namespace BannerlordCheats.Patches.Kingdom
 {
-    [HarmonyPatch(typeof(DefaultCrimeModel), nameof(DefaultCrimeModel.GetCrimeRatingOf))]
+    [HarmonyPatch(typeof(ChangeCrimeRatingAction), nameof(ChangeCrimeRatingAction.Apply))]
     public static class NoCrimeRatingForCrimes
     {
         [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void GetCrimeRatingOf(ref CrimeModel.CrimeType crime, ref object[] additionalArgs, ref float __result)
+        [HarmonyPrefix]
+        public static void Apply(
+            ref IFaction faction,
+            ref float deltaCrimeRating,
+            ref bool showNotification)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.NoCrimeRatingForCrimes == true)
                 {
-                    __result = 0f;
+                    deltaCrimeRating = 0f;
                 }
             }
             catch (Exception e)
