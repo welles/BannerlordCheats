@@ -80,8 +80,7 @@ jobs:
       - name: Download Game Binaries
         run: >-
           foreach ($depot in @(261551, 261552)) {
-            dotnet depotdownloader/DepotDownloader.dll -app 261550 -depot $depot -beta ${{steps.versions.outputs.game_version}} -username ${{secrets.STEAM_USERNAME}}
-            -password ${{secrets.STEAM_PASSWORD}} -os windows -osarch 64 -filelist ./.github/resources/depotdownloader.txt -dir bannerlord;
+            dotnet depotdownloader/DepotDownloader.dll -app 261550 -depot $depot -beta ${{steps.versions.outputs.game_version}} -username ${{secrets.STEAM_USERNAME}} -password ${{secrets.STEAM_PASSWORD}} -os windows -osarch 64 -filelist ./.github/resources/depotdownloader.txt -dir bannerlord;
           }
         shell: pwsh
 
