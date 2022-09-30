@@ -8,6 +8,7 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
+    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.DecidePassiveAttackCollisionReaction))]
     [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecidePassiveAttackCollisionReaction))]
     public static class SliceThroughEveryonePassive
     {

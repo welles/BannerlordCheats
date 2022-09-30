@@ -9,6 +9,7 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
+    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.DecideAgentKnockedDownByBlow))]
     [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecideAgentKnockedDownByBlow))]
     public static class AlwaysKnockDown
     {

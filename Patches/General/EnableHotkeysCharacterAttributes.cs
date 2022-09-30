@@ -9,17 +9,17 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
 using TaleWorlds.Core;
 using TaleWorlds.InputSystem;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Patches.General
 {
-    [HarmonyPatch(typeof(Module), "OnApplicationTick")]
+    [HarmonyPatch(typeof(GameManagerBase), nameof(GameManagerBase.OnTick))]
     public static class EnableHotkeysCharacterAttributes
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void OnApplicationTick()
+        public static void OnTick(
+            ref float dt)
         {
             try
             {
