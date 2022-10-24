@@ -4,7 +4,7 @@
     <GameVersion>e1.8.1</GameVersion>
     <GameBranch>Stable</GameBranch>
     <HarmonyVersion>2.2.2</HarmonyVersion>
-    <MCMVersion>4.7.7</MCMVersion>
+    <MCMVersion>4.7.11</MCMVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <GameFolder>C:\SteamCMD\apps\mb2b_stable</GameFolder>
