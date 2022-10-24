@@ -12,13 +12,13 @@ namespace BannerlordCheats.Patches.Workshops
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetSellingCost(ref Workshop workshop, ref int __result)
+        public static void GetSellingCost(ref Workshop workshop, ref int result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.WorkshopSellingCostMultiplier > 1f)
                 {
-                    __result = (int) (__result * BannerlordCheatsSettings.Instance.WorkshopSellingCostMultiplier);
+                    result = (int) (result * BannerlordCheatsSettings.Instance.WorkshopSellingCostMultiplier);
                 }
             }
             catch (Exception e)

@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Characters
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetRelation(Hero otherHero, ref Hero __instance, ref int __result)
+        public static void GetRelation(Hero otherHero, ref Hero instance, ref int result)
         {
             try
             {
-                if ((__instance.IsPlayer() || otherHero.IsPlayer())
+                if ((instance.IsPlayer() || otherHero.IsPlayer())
                     && BannerlordCheatsSettings.Instance?.PerfectRelationships == true)
                 {
-                    __result = 100;
+                    result = 100;
                 }
             }
             catch (Exception e)

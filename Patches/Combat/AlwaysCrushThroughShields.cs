@@ -15,14 +15,14 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage, ref bool __result)
+        public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage, ref bool result)
         {
             try
             {
                 if (attackerAgent.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.AlwaysCrushThroughShields == true)
                 {
-                    __result = true;
+                    result = true;
                 }
             }
             catch (Exception e)

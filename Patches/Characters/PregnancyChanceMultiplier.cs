@@ -15,14 +15,14 @@ namespace BannerlordCheats.Patches.Characters
         [HarmonyPostfix]
         public static void GetDailyChanceOfPregnancyForHero(
             ref Hero hero,
-            ref float __result)
+            ref float result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.PregnancyChanceMultiplier > 1.0f
                     && (hero.IsPlayer() || hero.Spouse.IsPlayer()))
                 {
-                    __result *= BannerlordCheatsSettings.Instance.PregnancyChanceMultiplier;
+                    result *= BannerlordCheatsSettings.Instance.PregnancyChanceMultiplier;
                 }
             }
             catch (Exception e)

@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Party
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetEffectivePartyMorale(ref MobileParty mobileParty, ref bool includeDescription, ref ExplainedNumber __result)
+        public static void GetEffectivePartyMorale(ref MobileParty mobileParty, ref bool includeDescription, ref ExplainedNumber result)
         {
             try
             {
                 if (mobileParty.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.ExtraPartyMorale > 0)
                 {
-                    __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMorale);
+                    result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMorale);
                 }
             }
             catch (Exception e)

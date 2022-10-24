@@ -14,7 +14,7 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
+        public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber result)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.Settlements
                     && mobileParty.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.GarrisonWagesPercentage < 100f)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.GarrisonWagesPercentage);
+                    result.AddPercentage(BannerlordCheatsSettings.Instance.GarrisonWagesPercentage);
                 }
             }
             catch (Exception e)

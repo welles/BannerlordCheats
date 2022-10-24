@@ -12,7 +12,7 @@ namespace BannerlordCheats.Patches.Party
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CheckCaptivityChange(float dt, ref string __result)
+        public static void CheckCaptivityChange(float dt, ref string result)
         {
             try
             {

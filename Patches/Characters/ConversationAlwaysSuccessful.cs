@@ -16,13 +16,11 @@ namespace BannerlordCheats.Patches.Characters
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.ConversationAlwaysSuccessful == true)
-                {
-                    successChance = 1;
-                    critSuccessChance = 1;
-                    failChance = 0;
-                    critFailChance = 0;
-                }
+                if (BannerlordCheatsSettings.Instance?.ConversationAlwaysSuccessful != true) return;
+                successChance = 1;
+                critSuccessChance = 1;
+                failChance = 0;
+                critFailChance = 0;
             }
             catch (Exception e)
             {

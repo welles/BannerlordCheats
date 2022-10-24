@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void LoyaltyChange(ref Town __instance, ref float __result)
+        public static void LoyaltyChange(ref Town instance, ref float result)
         {
             try
             {
-                if (__instance.IsPlayerTown()
+                if (instance.IsPlayerTown()
                     && BannerlordCheatsSettings.Instance?.DailyLoyaltyBonus > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyLoyaltyBonus;
+                    result += BannerlordCheatsSettings.Instance.DailyLoyaltyBonus;
                 }
             }
             catch (Exception e)

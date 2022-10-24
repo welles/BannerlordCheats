@@ -16,13 +16,10 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.EnableHotkeys == true
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeyTips == true)
-                {
-                    Message.Show("Encyclopedia Screen Cheat Hotkeys:");
-                    Message.Show("CTRL + H: Add 1 soldier of the selected troop type to the party.");
-                    Message.Show("CTRL + SHIFT + H: Add 10 soldiers of the selected troop type to the party.");
-                }
+                if (!(BannerlordCheatsSettings.Instance is { EnableHotkeys: true, EnableHotkeyTips: true })) return;
+                Message.Show("Encyclopedia Screen Cheat Hotkeys:");
+                Message.Show("CTRL + H: Add 1 soldier of the selected troop type to the party.");
+                Message.Show("CTRL + SHIFT + H: Add 10 soldiers of the selected troop type to the party.");
             }
             catch (Exception e)
             {

@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Map
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetPartySpottingRange(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber __result)
+        public static void GetPartySpottingRange(ref MobileParty party, ref bool includeDescriptions, ref ExplainedNumber result)
         {
             try
             {
                 if (party.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.MapVisibilityMultiplier > 1f)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityMultiplier);
+                    result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityMultiplier);
                 }
             }
             catch (Exception e)

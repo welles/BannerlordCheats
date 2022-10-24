@@ -12,13 +12,13 @@ namespace BannerlordCheats.Patches.Smithing
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void IsOpened(CraftingPiece craftingPiece, ref bool __result)
+        public static void IsOpened(CraftingPiece craftingPiece, ref bool result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.UnlockAllParts == true)
                 {
-                    __result = true;
+                    result = true;
                 }
             }
             catch (Exception e)

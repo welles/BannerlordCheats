@@ -16,14 +16,14 @@ namespace BannerlordCheats.Patches.Combat
         public static void CalculateMoraleChangeToCharacter(
             ref Agent agent,
             ref float maxMoraleChange,
-            ref float __result)
+            ref float result)
         {
             try
             {
                 if (agent.IsPlayerEnemy()
                     && BannerlordCheatsSettings.Instance?.EnemiesNoRunningAway == true)
                 {
-                    __result = 0.0f;
+                    result = 0.0f;
                 }
             }
             catch (Exception e)

@@ -18,14 +18,14 @@ namespace BannerlordCheats.Patches.Combat
             ref PartyBase party,
             ref float renownValueOfBattle,
             ref float contributionShare,
-            ref ExplainedNumber __result)
+            ref ExplainedNumber result)
         {
             try
             {
                 if (party.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.RenownRewardMultiplier > 1f)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.RenownRewardMultiplier);
+                    result.AddMultiplier(BannerlordCheatsSettings.Instance.RenownRewardMultiplier);
                 }
             }
             catch (Exception e)

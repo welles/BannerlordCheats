@@ -19,13 +19,13 @@ namespace BannerlordCheats
     [UsedImplicitly]
     public class SubModule : MBSubModuleBase
     {
-        private static bool PatchesApplied = false;
+        private static bool _patchesApplied;
 
         public override void OnInitialState()
         {
             base.OnInitialState();
 
-            if (!SubModule.ConfirmFileExists())
+            if (!ConfirmFileExists())
             {
                 InformationManager.ShowInquiry(new InquiryData(
                     L10N.GetText("ModName"),
@@ -34,7 +34,7 @@ namespace BannerlordCheats
                     false,
                     L10N.GetText("ModWarningMessageConfirm"),
                     null,
-                    SubModule.CreateConfirmFile,
+                    CreateConfirmFile,
                     null));
             }
         }
@@ -43,7 +43,7 @@ namespace BannerlordCheats
         {
             base.OnGameInitializationFinished(game);
 
-            if (!(game.GameType is Campaign) || SubModule.PatchesApplied)
+            if (!(game.GameType is Campaign) || _patchesApplied)
             {
                 return;
             }
@@ -54,7 +54,7 @@ namespace BannerlordCheats
 
                 harmony.PatchAll();
 
-                SubModule.PatchesApplied = true;
+                _patchesApplied = true;
             }
             catch (Exception e)
             {
@@ -62,7 +62,7 @@ namespace BannerlordCheats
 
                 try
                 {
-                    var errorFilePath = SubModule.CreateErrorFile(e);
+                    var errorFilePath = CreateErrorFile(e);
 
                     InformationManager.ShowInquiry(new InquiryData(
                         L10N.GetText("ModFailedLoadWarningTitle"),
@@ -87,7 +87,7 @@ namespace BannerlordCheats
 
             try
             {
-                errorFilePath = SubModule.CreateErrorFile(e, type);
+                errorFilePath = CreateErrorFile(e, type);
             }
             catch
             {
@@ -127,13 +127,16 @@ namespace BannerlordCheats
 
             var location = Path.GetDirectoryName(assemblyLocation);
 
+            if (location == null) return null;
             var errorFilePath = Path.Combine(location, errorFileName);
 
             var errorMessage = new StringBuilder();
 
             errorMessage.AppendLine("Thanks a lot for helping to improve this mod!");
-            errorMessage.AppendLine("You could drop the contents of this file into https://pastebin.com/ and post a link to the file");
-            errorMessage.AppendLine("in the NexusMods posts page at https://www.nexusmods.com/mountandblade2bannerlord/mods/1839?tab=posts");
+            errorMessage.AppendLine(
+                "You could drop the contents of this file into https://pastebin.com/ and post a link to the file");
+            errorMessage.AppendLine(
+                "in the NexusMods posts page at https://www.nexusmods.com/mountandblade2bannerlord/mods/1839?tab=posts");
 
             errorMessage.AppendLine();
             errorMessage.AppendLine("Modules:");
@@ -168,12 +171,13 @@ namespace BannerlordCheats
         {
             get
             {
-                var confirmFileName = "I Understand How The Cheats Work.txt";
+                const string confirmFileName = "I Understand How The Cheats Work.txt";
 
                 var assemblyLocation = Assembly.GetAssembly(typeof(BannerlordCheatsSettings)).Location;
 
                 var location = Path.GetDirectoryName(assemblyLocation);
 
+                if (location == null) return null;
                 var confirmFilePath = Path.Combine(location, confirmFileName);
 
                 return confirmFilePath;
@@ -184,7 +188,7 @@ namespace BannerlordCheats
         {
             try
             {
-                File.Create(SubModule.ConfirmFilePath);
+                File.Create(ConfirmFilePath);
             }
             catch
             {
@@ -196,7 +200,7 @@ namespace BannerlordCheats
         {
             try
             {
-                return File.Exists(SubModule.ConfirmFilePath);
+                return File.Exists(ConfirmFilePath);
             }
             catch
             {

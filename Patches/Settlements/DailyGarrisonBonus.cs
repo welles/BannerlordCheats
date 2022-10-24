@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GarrisonChange(ref Town __instance, ref int __result)
+        public static void GarrisonChange(ref Town instance, ref int result)
         {
             try
             {
-                if (__instance.IsPlayerTown()
+                if (instance.IsPlayerTown()
                     && BannerlordCheatsSettings.Instance?.DailyGarrisonBonus > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyGarrisonBonus;
+                    result += BannerlordCheatsSettings.Instance.DailyGarrisonBonus;
                 }
             }
             catch (Exception e)

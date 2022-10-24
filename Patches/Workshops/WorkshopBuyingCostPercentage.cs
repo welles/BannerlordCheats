@@ -12,16 +12,14 @@ namespace BannerlordCheats.Patches.Workshops
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetBuyingCostForPlayer(ref Workshop workshop, ref int __result)
+        public static void GetBuyingCostForPlayer(ref Workshop workshop, ref int result)
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.WorkshopBuyingCostPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.WorkshopBuyingCostPercentage / 100f;
+                if (!(BannerlordCheatsSettings.Instance?.WorkshopBuyingCostPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.WorkshopBuyingCostPercentage / 100f;
 
-                    __result = (int) (__result * factor);
-                }
+                result = (int) (result * factor);
             }
             catch (Exception e)
             {

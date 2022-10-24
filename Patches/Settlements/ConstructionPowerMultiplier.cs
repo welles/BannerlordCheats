@@ -17,14 +17,14 @@ namespace BannerlordCheats.Patches.Settlements
         public static void CalculateDailyConstructionPower(
             ref Town town,
             ref bool includeDescriptions,
-            ref ExplainedNumber __result)
+            ref ExplainedNumber result)
         {
             try
             {
                 if (town.IsPlayerTown()
                     && BannerlordCheatsSettings.Instance?.ConstructionPowerMultiplier > 1f)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.ConstructionPowerMultiplier);
+                    result.AddMultiplier(BannerlordCheatsSettings.Instance.ConstructionPowerMultiplier);
                 }
             }
             catch (Exception e)

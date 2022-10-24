@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void Invulnerable(ref Agent __instance, ref Agent.MortalityState __result)
+        public static void Invulnerable(ref Agent instance, ref Agent.MortalityState result)
         {
             try
             {
-                if (__instance.IsPlayer()
+                if (instance.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.Invincible == true)
                 {
-                    __result = Agent.MortalityState.Invulnerable;
+                    result = Agent.MortalityState.Invulnerable;
                 }
             }
             catch (Exception e)

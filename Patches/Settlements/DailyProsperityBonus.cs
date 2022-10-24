@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void ProsperityChange(ref Town __instance, ref float __result)
+        public static void ProsperityChange(ref Town instance, ref float result)
         {
             try
             {
-                if (__instance.IsPlayerTown()
+                if (instance.IsPlayerTown()
                     && BannerlordCheatsSettings.Instance?.DailyProsperityBonus > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyProsperityBonus;
+                    result += BannerlordCheatsSettings.Instance.DailyProsperityBonus;
                 }
             }
             catch (Exception e)

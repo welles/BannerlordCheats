@@ -23,34 +23,32 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is GauntletPartyScreen
-                    && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
-                {
-                    var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
+                if (!(ScreenManager.TopScreen is GauntletPartyScreen)
+                    || !Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
+                    || BannerlordCheatsSettings.Instance?.EnableHotkeys != true) return;
+                var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
 
-                    var partyVM = partyScreen.GetViewModel<PartyVM>();
+                var partyVm = partyScreen.GetViewModel<PartyVM>();
 
-                    var selectedCharacter = partyVM.CurrentCharacter;
+                var selectedCharacter = partyVm.CurrentCharacter;
 
-                    if (selectedCharacter.IsHero || !selectedCharacter.IsUpgradableTroop) { return; }
+                if (selectedCharacter.IsHero || !selectedCharacter.IsUpgradableTroop) { return; }
 
-                    var index = PartyBase.MainParty.MemberRoster.FindIndexOfTroop(selectedCharacter.Character);
+                var index = PartyBase.MainParty.MemberRoster.FindIndexOfTroop(selectedCharacter.Character);
 
-                    var missingXp = selectedCharacter.MaxXP * selectedCharacter.Number - selectedCharacter.CurrentXP;
+                var missingXp = selectedCharacter.MaxXP * selectedCharacter.Number - selectedCharacter.CurrentXP;
 
-                    PartyBase.MainParty.MemberRoster.AddXpToTroopAtIndex(missingXp, index);
+                PartyBase.MainParty.MemberRoster.AddXpToTroopAtIndex(missingXp, index);
 
-                    var newTroop = selectedCharacter.Troop;
-                    newTroop.Xp = selectedCharacter.MaxXP * selectedCharacter.Number;
-                    selectedCharacter.Troop = newTroop;
+                var newTroop = selectedCharacter.Troop;
+                newTroop.Xp = selectedCharacter.MaxXP * selectedCharacter.Number;
+                selectedCharacter.Troop = newTroop;
 
-                    selectedCharacter.InitializeUpgrades();
+                selectedCharacter.InitializeUpgrades();
 
-                    var message = string.Format(L10N.GetText("AddTroopXpMessage"), selectedCharacter.Name);
+                var message = string.Format(L10N.GetText("AddTroopXpMessage"), selectedCharacter.Name);
 
-                    Message.Show(message);
-                }
+                Message.Show(message);
             }
             catch (Exception e)
             {

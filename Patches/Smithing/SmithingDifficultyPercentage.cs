@@ -12,18 +12,16 @@ namespace BannerlordCheats.Patches.Smithing
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetCraftingPartDifficulty(CraftingPiece craftingPiece, ref int __result)
+        public static void GetCraftingPartDifficulty(CraftingPiece craftingPiece, ref int result)
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.SmithingDifficultyPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.SmithingDifficultyPercentage / 100f;
+                if (!(BannerlordCheatsSettings.Instance?.SmithingDifficultyPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.SmithingDifficultyPercentage / 100f;
 
-                    var newValue = (int)Math.Round(factor * __result);
+                var newValue = (int)Math.Round(factor * result);
 
-                    __result = newValue;
-                }
+                result = newValue;
             }
             catch (Exception e)
             {

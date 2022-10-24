@@ -16,18 +16,16 @@ namespace BannerlordCheats.Patches.Kingdom
             ref DecisionOutcome popularOption,
             ref DecisionOutcome overridingOption,
             ref KingdomDecision decision,
-            ref int __result)
+            ref int result)
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.DecisionOverrideInfluenceCostPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.DecisionOverrideInfluenceCostPercentage / 100.0f;
+                if (!(BannerlordCheatsSettings.Instance?.DecisionOverrideInfluenceCostPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.DecisionOverrideInfluenceCostPercentage / 100.0f;
 
-                    var newValue = __result * factor;
+                var newValue = result * factor;
 
-                    __result = (int) Math.Round(newValue);
-                }
+                result = (int) Math.Round(newValue);
             }
             catch (Exception e)
             {

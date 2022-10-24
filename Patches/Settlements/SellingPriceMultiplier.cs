@@ -14,7 +14,7 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand, ref int __result)
+        public static void GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand, ref int result)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.Settlements
                     && isSelling
                     && BannerlordCheatsSettings.Instance?.SellingPriceMultiplier > 1f)
                 {
-                    __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.SellingPriceMultiplier);
+                    result = (int) Math.Round(result * BannerlordCheatsSettings.Instance.SellingPriceMultiplier);
                 }
             }
             catch (Exception e)

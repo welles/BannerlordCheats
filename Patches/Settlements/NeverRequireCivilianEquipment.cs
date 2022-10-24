@@ -11,13 +11,13 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void DoesMissionRequireCivilianEquipment(ref Mission __instance, ref bool __result)
+        public static void DoesMissionRequireCivilianEquipment(ref Mission instance, ref bool result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.NeverRequireCivilianEquipment == true)
                 {
-                    __result = false;
+                    result = false;
                 }
             }
             catch (Exception e)

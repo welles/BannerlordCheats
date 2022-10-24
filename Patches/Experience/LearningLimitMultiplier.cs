@@ -19,13 +19,13 @@ namespace BannerlordCheats.Patches.Experience
             ref int focusValue,
             ref TextObject attributeName,
             ref bool includeDescriptions,
-            ref ExplainedNumber __result)
+            ref ExplainedNumber result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.LearningLimitMultiplier > 1f)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.LearningLimitMultiplier);
+                    result.AddMultiplier(BannerlordCheatsSettings.Instance.LearningLimitMultiplier);
                 }
             }
             catch (Exception e)

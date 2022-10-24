@@ -11,16 +11,14 @@ namespace BannerlordCheats.Patches.Workshops
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetUpgradeCost(ref int currentLevel, ref int __result)
+        public static void GetUpgradeCost(ref int currentLevel, ref int result)
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.WorkshopUpgradeCostPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.WorkshopUpgradeCostPercentage / 100f;
+                if (!(BannerlordCheatsSettings.Instance?.WorkshopUpgradeCostPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.WorkshopUpgradeCostPercentage / 100f;
 
-                    __result = (int) (__result * factor);
-                }
+                result = (int) (result * factor);
             }
             catch (Exception e)
             {

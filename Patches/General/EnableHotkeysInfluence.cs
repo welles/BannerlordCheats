@@ -22,14 +22,12 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is GauntletClanScreen
-                    && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
-                {
-                    Hero.MainHero.AddInfluenceWithKingdom(1000);
+                if (!(ScreenManager.TopScreen is GauntletClanScreen)
+                    || !Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
+                    || BannerlordCheatsSettings.Instance?.EnableHotkeys != true) return;
+                Hero.MainHero.AddInfluenceWithKingdom(1000);
 
-                    Message.Show(L10N.GetText("AddInfluenceMessage"));
-                }
+                Message.Show(L10N.GetText("AddInfluenceMessage"));
             }
             catch (Exception e)
             {

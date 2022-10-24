@@ -13,14 +13,14 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CrossbowReloadSpeed(ref Agent agent, ref float __result)
+        public static void CrossbowReloadSpeed(ref Agent agent, ref float result)
         {
             try
             {
                 if (agent.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.CombatZoomMultiplier > 1f)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.CombatZoomMultiplier;
+                    result *= BannerlordCheatsSettings.Instance.CombatZoomMultiplier;
                 }
             }
             catch (Exception e)

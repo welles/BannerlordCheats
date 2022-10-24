@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float result)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace BannerlordCheats.Patches.Combat
                     && attackInformation.IsFriendlyFire
                     && BannerlordCheatsSettings.Instance?.NoFriendlyFire == true)
                 {
-                    __result = 0;
+                    result = 0;
                 }
             }
             catch (Exception e)

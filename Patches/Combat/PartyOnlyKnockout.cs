@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
+        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float result)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace BannerlordCheats.Patches.Combat
                     && !effectedAgent.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.PartyOnlyKnockout == true)
                 {
-                    __result = 0f;
+                    result = 0f;
                 }
             }
             catch (Exception e)

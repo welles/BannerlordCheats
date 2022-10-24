@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Combat
         public static void CalculateMoraleChangeToCharacter(
             ref Agent agent,
             ref float maxMoraleChange,
-            ref float __result)
+            ref float result)
         {
             try
             {
@@ -24,7 +24,7 @@ namespace BannerlordCheats.Patches.Combat
                     && party.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.NoRunningAway == true)
                 {
-                    __result = 0.0f;
+                    result = 0.0f;
                 }
             }
             catch (Exception e)

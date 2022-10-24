@@ -12,33 +12,33 @@ namespace BannerlordCheats.Patches.Smithing
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetModifierChanges(int modifierTier, ref OverrideData __result)
+        public static void GetModifierChanges(int modifierTier, ref OverrideData result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.CraftedWeaponHandlingBonus > 0)
                 {
-                    __result.Handling += BannerlordCheatsSettings.Instance.CraftedWeaponHandlingBonus;
+                    result.Handling += BannerlordCheatsSettings.Instance.CraftedWeaponHandlingBonus;
                 }
 
                 if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingDamageBonus > 0)
                 {
-                    __result.SwingDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingDamageBonus;
+                    result.SwingDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingDamageBonus;
                 }
 
                 if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingSpeedBonus > 0)
                 {
-                    __result.SwingSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingSpeedBonus;
+                    result.SwingSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingSpeedBonus;
                 }
 
                 if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustDamageBonus > 0)
                 {
-                    __result.ThrustDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustDamageBonus;
+                    result.ThrustDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustDamageBonus;
                 }
 
                 if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustSpeedBonus > 0)
                 {
-                    __result.ThrustSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustSpeedBonus;
+                    result.ThrustSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustSpeedBonus;
                 }
             }
             catch (Exception e)

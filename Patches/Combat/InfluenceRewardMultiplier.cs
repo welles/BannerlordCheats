@@ -18,14 +18,14 @@ namespace BannerlordCheats.Patches.Combat
             ref PartyBase party,
             ref float influenceValueOfBattle,
             ref float contributionShare,
-            ref ExplainedNumber __result)
+            ref ExplainedNumber result)
         {
             try
             {
                 if (party.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.InfluenceRewardMultiplier > 1f)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.InfluenceRewardMultiplier);
+                    result.AddMultiplier(BannerlordCheatsSettings.Instance.InfluenceRewardMultiplier);
                 }
             }
             catch (Exception e)

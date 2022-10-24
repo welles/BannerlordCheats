@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Sieges
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
+        public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float result)
         {
             try
             {
                 if (side.IsPlayerSide()
                     && BannerlordCheatsSettings.Instance?.SiegeBuildingSpeedMultiplier > 1f)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier;
+                    result *= BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier;
                 }
             }
             catch (Exception e)

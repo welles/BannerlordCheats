@@ -7,35 +7,36 @@ namespace BannerlordCheats.Localization
 {
     public static class L10N
     {
-        private static Dictionary<string, string> Values;
+        private static readonly Dictionary<string, string> Values;
 
         static L10N()
         {
-            L10N.Values = new Dictionary<string, string>();
+            Values = new Dictionary<string, string>();
 
-            var xmlLocation = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "L10N.resx");
+            var xmlLocation = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location)!, "L10N.resx");
 
             var document = XDocument.Load(xmlLocation);
 
             var root = document.Element("root");
 
+            if (root == null) return;
             var entries = root.Descendants("data");
 
             foreach (var entry in entries)
             {
-                var key = entry.Attribute("name").Value;
-                var value = entry.Element("value").Value;
+                var key = entry.Attribute("name")?.Value;
+                var value = entry.Element("value")?.Value;
 
                 if (!string.IsNullOrEmpty(key) && !string.IsNullOrEmpty(value))
                 {
-                    L10N.Values.Add(key, value);
+                    Values.Add(key, value);
                 }
             }
         }
 
         public static string GetText(string key)
         {
-            return L10N.Values[key];
+            return Values[key];
         }
 
         public static string GetTextFormat(string key, params object[] formatValues)

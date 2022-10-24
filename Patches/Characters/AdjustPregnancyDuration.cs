@@ -11,13 +11,13 @@ namespace BannerlordCheats.Patches.Characters
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void PregnancyDurationInDays(ref float __result)
+        public static void PregnancyDurationInDays(ref float result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.AdjustPregnancyDuration < 36)
                 {
-                    __result = BannerlordCheatsSettings.Instance.AdjustPregnancyDuration;
+                    result = BannerlordCheatsSettings.Instance.AdjustPregnancyDuration;
                 }
             }
             catch (Exception e)

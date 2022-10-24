@@ -31,7 +31,7 @@ namespace BannerlordCheats.Settings
 
         public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}";
 
-        public override string FolderName { get; } = "Cheats";
+        public override string FolderName => "Cheats";
 
         public override string DisplayName { get; }
 
@@ -41,14 +41,14 @@ namespace BannerlordCheats.Settings
         {
             string modName;
 
-            try { modName = L10N.GetText(BannerlordCheatsSettings.ModName); }
+            try { modName = L10N.GetText(ModName); }
             catch { modName = "Cheats"; }
 
             var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             version = Regex.Replace(version, @"\.0", string.Empty);
             if (!version.Contains(".")) {  version += ".0"; }
 
-            this.DisplayName = $"{modName} {version}";
+            DisplayName = $"{modName} {version}";
         }
 
         #region General

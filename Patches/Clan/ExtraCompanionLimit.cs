@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Clan
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetCompanionLimit(ref TaleWorlds.CampaignSystem.Clan clan, ref int __result)
+        public static void GetCompanionLimit(ref TaleWorlds.CampaignSystem.Clan clan, ref int result)
         {
             try
             {
                 if (clan.IsPlayerClan()
                     && BannerlordCheatsSettings.Instance?.ExtraCompanionLimit > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.ExtraCompanionLimit;
+                    result += BannerlordCheatsSettings.Instance.ExtraCompanionLimit;
                 }
             }
             catch (Exception e)

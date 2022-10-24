@@ -12,13 +12,13 @@ namespace BannerlordCheats.Patches.Characters
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CanPlayerBarterWithHero(Hero hero, ref bool __result)
+        public static void CanPlayerBarterWithHero(Hero hero, ref bool result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.NoBarterCooldown == true)
                 {
-                    __result = true;
+                    result = true;
                 }
             }
             catch (Exception e)

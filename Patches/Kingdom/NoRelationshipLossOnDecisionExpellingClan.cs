@@ -11,13 +11,13 @@ namespace BannerlordCheats.Patches.Kingdom
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetRelationCostOfExpellingClanFromKingdom(ref int __result)
+        public static void GetRelationCostOfExpellingClanFromKingdom(ref int result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.NoRelationshipLossOnDecision == true)
                 {
-                    __result = 0;
+                    result = 0;
                 }
             }
             catch (Exception e)

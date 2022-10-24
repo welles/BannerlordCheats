@@ -23,17 +23,15 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is GauntletInventoryScreen
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                if (!(ScreenManager.TopScreen is GauntletInventoryScreen)
+                    || BannerlordCheatsSettings.Instance?.EnableHotkeys != true) return;
+                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
                 {
-                    if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
-                    {
-                        EnableHotkeysAddItems.AddItems(100);
-                    }
-                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
-                    {
-                        EnableHotkeysAddItems.AddItems(1);
-                    }
+                    AddItems(100);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
+                {
+                    AddItems(1);
                 }
             }
             catch (Exception e)
@@ -46,9 +44,9 @@ namespace BannerlordCheats.Patches.General
         {
             var inventoryScreen = ScreenManager.TopScreen as GauntletInventoryScreen;
 
-            var inventoryVM = inventoryScreen.GetViewModel<SPInventoryVM>();
+            var inventoryVm = inventoryScreen.GetViewModel<SPInventoryVM>();
 
-            var selectedItem = inventoryVM.GetSelectedItem();
+            var selectedItem = inventoryVm.GetSelectedItem();
 
             if (selectedItem == null) { return; }
 

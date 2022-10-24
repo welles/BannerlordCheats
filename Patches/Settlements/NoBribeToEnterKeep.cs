@@ -12,13 +12,13 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void IsBribeNotNeededToEnterKeep(Settlement settlement, ref bool __result)
+        public static void IsBribeNotNeededToEnterKeep(Settlement settlement, ref bool result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.NoBribeToEnterKeep == true)
                 {
-                    __result = true;
+                    result = true;
                 }
             }
             catch (Exception e)

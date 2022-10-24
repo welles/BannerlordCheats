@@ -24,13 +24,11 @@ namespace BannerlordCheats.Patches.Combat
         {
             try
             {
-                if (victimAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.NeverKnockedBackByAttacks == true)
-                {
-                    blow.BlowFlag &= ~BlowFlags.KnockDown;
-                    blow.BlowFlag &= ~BlowFlags.KnockBack;
-                    blow.BlowFlag |= BlowFlags.ShrugOff;
-                }
+                if (!victimAgent.IsPlayer()
+                    || BannerlordCheatsSettings.Instance?.NeverKnockedBackByAttacks != true) return;
+                blow.BlowFlag &= ~BlowFlags.KnockDown;
+                blow.BlowFlag &= ~BlowFlags.KnockBack;
+                blow.BlowFlag |= BlowFlags.ShrugOff;
             }
             catch (Exception e)
             {

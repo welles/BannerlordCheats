@@ -6,10 +6,10 @@ namespace BannerlordCheats.Localization
     {
         public LocalizedSettingPropertyPercent(string settingName) : base(settingName) { }
 
-        public string ValueFormat { get; } = "0.00\\%";
+        public string ValueFormat => "0.00\\%";
 
-        public decimal MinValue { get; } = 0;
+        public decimal MinValue => 0;
 
-        public decimal MaxValue { get; } = 100;
+        public decimal MaxValue => 100;
     }
 }

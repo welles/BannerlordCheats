@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void HearthChange(ref Village __instance, ref float __result)
+        public static void HearthChange(ref Village instance, ref float result)
         {
             try
             {
-                if (__instance.IsPlayerVillage()
+                if (instance.IsPlayerVillage()
                     && BannerlordCheatsSettings.Instance?.DailyHearthsBonus > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyHearthsBonus;
+                    result += BannerlordCheatsSettings.Instance.DailyHearthsBonus;
                 }
             }
             catch (Exception e)

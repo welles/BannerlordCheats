@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void FoodChange(ref Town __instance, ref float __result)
+        public static void FoodChange(ref Town instance, ref float result)
         {
             try
             {
-                if (__instance.IsPlayerTown()
+                if (instance.IsPlayerTown()
                     && BannerlordCheatsSettings.Instance?.DailyFoodBonus > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyFoodBonus;
+                    result += BannerlordCheatsSettings.Instance.DailyFoodBonus;
                 }
             }
             catch (Exception e)

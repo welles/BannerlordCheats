@@ -22,37 +22,35 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                if (!(ScreenManager.TopScreen is GauntletCharacterDeveloperScreen)
+                    || BannerlordCheatsSettings.Instance?.EnableHotkeys != true) return;
+                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.F))
                 {
-                    if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.F))
-                    {
-                        var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+                    var charVm = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
 
-                        var currentHero = charVM.CurrentCharacter.Hero;
+                    var currentHero = charVm.CurrentCharacter.Hero;
 
-                        currentHero.HeroDeveloper.UnspentFocusPoints++;
+                    currentHero.HeroDeveloper.UnspentFocusPoints++;
 
-                        charVM.CurrentCharacter.UnspentCharacterPoints++;
+                    charVm.CurrentCharacter.UnspentCharacterPoints++;
 
-                        var message = string.Format(L10N.GetText("AddUnspentFocusPointMessage"), currentHero.Name);
+                    var message = string.Format(L10N.GetText("AddUnspentFocusPointMessage"), currentHero.Name);
 
-                        Message.Show(message);
-                    }
-                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.G))
-                    {
-                        var charVM = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
+                    Message.Show(message);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.G))
+                {
+                    var charVm = ScreenManager.TopScreen.GetViewModel<CharacterDeveloperVM>();
 
-                        var currentHero = charVM.CurrentCharacter.Hero;
+                    var currentHero = charVm.CurrentCharacter.Hero;
 
-                        currentHero.HeroDeveloper.UnspentAttributePoints++;
+                    currentHero.HeroDeveloper.UnspentAttributePoints++;
 
-                        charVM.CurrentCharacter.UnspentAttributePoints++;
+                    charVm.CurrentCharacter.UnspentAttributePoints++;
 
-                        var message = string.Format(L10N.GetText("AddUnspentAttributePointMessage"), currentHero.Name);
+                    var message = string.Format(L10N.GetText("AddUnspentAttributePointMessage"), currentHero.Name);
 
-                        Message.Show(message);
-                    }
+                    Message.Show(message);
                 }
             }
             catch (Exception e)

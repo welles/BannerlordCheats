@@ -12,13 +12,13 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CalculateDisguiseDetectionProbability(Settlement settlement, ref float __result)
+        public static void CalculateDisguiseDetectionProbability(Settlement settlement, ref float result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.DisguiseAlwaysWorks == true)
                 {
-                    __result = 1;
+                    result = 1;
                 }
             }
             catch (Exception e)

@@ -24,12 +24,9 @@ namespace BannerlordCheats.Patches.Combat
         {
             try
             {
-                if (attackerAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.AlwaysKnockDown == true)
-                {
-                    blow.BlowFlag &= ~BlowFlags.ShrugOff;
-                    blow.BlowFlag |= BlowFlags.KnockDown;
-                }
+                if (!attackerAgent.IsPlayer() || BannerlordCheatsSettings.Instance?.AlwaysKnockDown != true) return;
+                blow.BlowFlag &= ~BlowFlags.ShrugOff;
+                blow.BlowFlag |= BlowFlags.KnockDown;
             }
             catch (Exception e)
             {

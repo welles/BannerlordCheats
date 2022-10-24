@@ -22,21 +22,19 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is GauntletInventoryScreen
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                if (!(ScreenManager.TopScreen is GauntletInventoryScreen)
+                    || BannerlordCheatsSettings.Instance?.EnableHotkeys != true) return;
+                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.X))
                 {
-                    if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.X))
-                    {
-                        Hero.MainHero.ChangeHeroGold(100000);
+                    Hero.MainHero.ChangeHeroGold(100000);
 
-                        Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 100000));
-                    }
-                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
-                    {
-                        Hero.MainHero.ChangeHeroGold(1000);
+                    Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 100000));
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X))
+                {
+                    Hero.MainHero.ChangeHeroGold(1000);
 
-                        Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 1000));
-                    }
+                    Message.Show(string.Format(L10N.GetText("AddGoldMessage"), 1000));
                 }
             }
             catch (Exception e)

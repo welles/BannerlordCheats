@@ -18,14 +18,14 @@ namespace BannerlordCheats.Patches.Characters
         public static void IsCoupleSuitableForMarriage(
             ref Hero firstHero,
             ref Hero secondHero,
-            ref bool __result)
+            ref bool result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.AllowSameSexMarriage == true
                     && (firstHero.IsPlayer() || secondHero.IsPlayer()))
                 {
-                    __result = (firstHero.Clan?.Leader != firstHero || secondHero.Clan?.Leader != secondHero)
+                    result = (firstHero.Clan?.Leader != firstHero || secondHero.Clan?.Leader != secondHero)
                                // && firstHero.IsFemale != secondHero.IsFemale
                                && !DiscoverAncestors(firstHero, 3).Intersect(DiscoverAncestors(secondHero, 3)).Any()
                                && firstHero.CanMarry()
@@ -40,17 +40,13 @@ namespace BannerlordCheats.Patches.Characters
 
         private static IEnumerable<Hero> DiscoverAncestors(Hero hero, int n)
         {
-            if (hero != null)
-            {
-                yield return hero;
-                if (n > 0)
-                {
-                    foreach (Hero discoverAncestor in DiscoverAncestors(hero.Mother, n - 1))
-                        yield return discoverAncestor;
-                    foreach (Hero discoverAncestor in DiscoverAncestors(hero.Father, n - 1))
-                        yield return discoverAncestor;
-                }
-            }
+            if (hero == null) yield break;
+            yield return hero;
+            if (n <= 0) yield break;
+            foreach (Hero discoverAncestor in DiscoverAncestors(hero.Mother, n - 1))
+                yield return discoverAncestor;
+            foreach (Hero discoverAncestor in DiscoverAncestors(hero.Father, n - 1))
+                yield return discoverAncestor;
         }
     }
 }

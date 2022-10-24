@@ -13,13 +13,13 @@ namespace BannerlordCheats.Patches.Characters
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void IsOfferAcceptable(BarterData args, Hero hero, PartyBase party, ref BarterManager __instance, ref bool __result)
+        public static void IsOfferAcceptable(BarterData args, Hero hero, PartyBase party, ref BarterManager instance, ref bool result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.BarterOfferAlwaysAccepted == true)
                 {
-                    __result = true;
+                    result = true;
                 }
             }
             catch (Exception e)

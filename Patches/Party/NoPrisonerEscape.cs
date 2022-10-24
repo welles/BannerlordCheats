@@ -14,15 +14,10 @@ namespace BannerlordCheats.Patches.Party
         {
             try
             {
-                if (character.IsPrisoner
-                    && character.PartyBelongedToAsPrisoner != null
-                    && character.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction
-                    && BannerlordCheatsSettings.Instance?.NoPrisonerEscape == true)
-                {
-                    return false;
-                }
-
-                return true;
+                return !character.IsPrisoner 
+                       || character.PartyBelongedToAsPrisoner == null 
+                       || character.PartyBelongedToAsPrisoner.MapFaction != Hero.MainHero.MapFaction 
+                       || BannerlordCheatsSettings.Instance?.NoPrisonerEscape != true;
             }
             catch (Exception e)
             {

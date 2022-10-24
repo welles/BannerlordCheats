@@ -11,16 +11,14 @@ namespace BannerlordCheats.Patches.Workshops
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetDailyExpense(ref int level, ref int __result)
+        public static void GetDailyExpense(ref int level, ref int result)
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.WorkshopDailyExpensePercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.WorkshopDailyExpensePercentage / 100f;
+                if (!(BannerlordCheatsSettings.Instance?.WorkshopDailyExpensePercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.WorkshopDailyExpensePercentage / 100f;
 
-                    __result = (int) (__result * factor);
-                }
+                result = (int) (result * factor);
             }
             catch (Exception e)
             {

@@ -12,18 +12,15 @@ namespace BannerlordCheats.Patches.Army
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CohesionChange(ref ArmyObj __instance, ref float __result)
+        public static void CohesionChange(ref ArmyObj instance, ref float result)
         {
             try
             {
-                if (__instance.IsOfPlayerKingdom()
-                    && !__instance.IsPlayerArmy()
-                    && BannerlordCheatsSettings.Instance?.FactionArmyCohesionLossPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.FactionArmyCohesionLossPercentage / 100f;
+                if (!instance.IsOfPlayerKingdom() || instance.IsPlayerArmy() ||
+                    !(BannerlordCheatsSettings.Instance?.FactionArmyCohesionLossPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.FactionArmyCohesionLossPercentage / 100f;
 
-                    __result *= factor;
-                }
+                result *= factor;
             }
             catch (Exception e)
             {

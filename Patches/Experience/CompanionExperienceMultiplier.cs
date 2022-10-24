@@ -13,7 +13,7 @@ namespace BannerlordCheats.Patches.Experience
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetXpMultiplier(ref Hero hero, ref float __result)
+        public static void GetXpMultiplier(ref Hero hero, ref float result)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace BannerlordCheats.Patches.Experience
                     && hero.IsPlayerCompanion()
                     && BannerlordCheatsSettings.Instance?.CompanionExperienceMultiplier > 1f)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.CompanionExperienceMultiplier;
+                    result *= BannerlordCheatsSettings.Instance.CompanionExperienceMultiplier;
                 }
             }
             catch (Exception e)

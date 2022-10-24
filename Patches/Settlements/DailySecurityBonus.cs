@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void SecurityChange(ref Town __instance, ref float __result)
+        public static void SecurityChange(ref Town instance, ref float result)
         {
             try
             {
-                if (__instance.IsPlayerTown()
+                if (instance.IsPlayerTown()
                     && BannerlordCheatsSettings.Instance?.DailySecurityBonus > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailySecurityBonus;
+                    result += BannerlordCheatsSettings.Instance.DailySecurityBonus;
                 }
             }
             catch (Exception e)

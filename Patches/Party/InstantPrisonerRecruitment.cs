@@ -14,7 +14,7 @@ namespace BannerlordCheats.Patches.Party
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void  CalculateRecruitableNumber(ref PartyBase party, ref CharacterObject character, ref int __result)
+        public static void  CalculateRecruitableNumber(ref PartyBase party, ref CharacterObject character, ref int result)
         {
             try
             {
@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.Party
                     && !character.IsHero()
                     && BannerlordCheatsSettings.Instance?.InstantPrisonerRecruitment == true)
                 {
-                    __result = party.PrisonRoster.GetTroopCount(character);
+                    result = party.PrisonRoster.GetTroopCount(character);
                 }
             }
             catch (Exception e)

@@ -17,14 +17,14 @@ namespace BannerlordCheats.Patches.Party
         public static void CalculateDailyFoodConsumptionf(
             ref MobileParty party,
             ref ExplainedNumber baseConsumption,
-            ref ExplainedNumber __result)
+            ref ExplainedNumber result)
         {
             try
             {
                 if (party.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.FoodConsumptionPercentage < 100f)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.FoodConsumptionPercentage);
+                    result.AddPercentage(BannerlordCheatsSettings.Instance.FoodConsumptionPercentage);
                 }
             }
             catch (Exception e)

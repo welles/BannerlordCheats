@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, ref int __result)
+        public static void GetLostTroopCountForBreakingOutOfBesiegedSettlement(MobileParty party, SiegeEvent siegeEvent, ref int result)
         {
             try
             {
                 if (party.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
                 {
-                    __result = 0;
+                    result = 0;
                 }
             }
             catch (Exception e)

@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Inventory
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CalculateInventoryCapacity(ref MobileParty mobileParty, ref bool includeDescriptions, ref int additionalTroops, ref int additionalSpareMounts, ref int additionalPackAnimals, ref bool includeFollowers, ref ExplainedNumber __result)
+        public static void CalculateInventoryCapacity(ref MobileParty mobileParty, ref bool includeDescriptions, ref int additionalTroops, ref int additionalSpareMounts, ref int additionalPackAnimals, ref bool includeFollowers, ref ExplainedNumber result)
         {
             try
             {
                 if (mobileParty.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.ExtraInventoryCapacity > 0)
                 {
-                    __result.Add(BannerlordCheatsSettings.Instance.ExtraInventoryCapacity);
+                    result.Add(BannerlordCheatsSettings.Instance.ExtraInventoryCapacity);
                 }
             }
             catch (Exception e)

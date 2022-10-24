@@ -12,20 +12,18 @@ namespace BannerlordCheats.Patches.Smithing
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetSmithingCostsForWeaponDesign(WeaponDesign weaponDesign, ref int[] __result)
+        public static void GetSmithingCostsForWeaponDesign(WeaponDesign weaponDesign, ref int[] result)
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.SmithingCostPercentage < 100f)
+                if (!(BannerlordCheatsSettings.Instance?.SmithingCostPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.SmithingCostPercentage / 100f;
+
+                for (var i = 0; i < result.Length; i++)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.SmithingCostPercentage / 100f;
+                    var newValue = (int)Math.Round(factor * result[i]);
 
-                    for (var i = 0; i < __result.Length; i++)
-                    {
-                        var newValue = (int)Math.Round(factor * __result[i]);
-
-                        __result[i] = newValue;
-                    }
+                    result[i] = newValue;
                 }
             }
             catch (Exception e)

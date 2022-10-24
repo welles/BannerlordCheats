@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
+        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float result)
         {
             try
             {
@@ -25,7 +25,7 @@ namespace BannerlordCheats.Patches.Combat
                     && effectedAgent.IsPlayerEnemy()
                     && BannerlordCheatsSettings.Instance?.EnemyLordCombatDeathChanceMultiplier > 1.0f)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.EnemyLordCombatDeathChanceMultiplier;
+                    result *= BannerlordCheatsSettings.Instance.EnemyLordCombatDeathChanceMultiplier;
                 }
             }
             catch (Exception e)

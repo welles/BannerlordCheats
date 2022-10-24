@@ -26,18 +26,16 @@ namespace BannerlordCheats.Patches.Combat
         {
             try
             {
-                if (shooterAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.InfiniteAmmo == true)
+                if (!shooterAgent.IsPlayer()
+                    || BannerlordCheatsSettings.Instance?.InfiniteAmmo != true) return;
+                for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
                 {
-                    for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
-                    {
-                        var missionWeapon = shooterAgent.Equipment[index];
+                    var missionWeapon = shooterAgent.Equipment[index];
 
-                        if (missionWeapon.IsAnyConsumable()
-                            && missionWeapon.Amount <= missionWeapon.ModifiedMaxAmount)
-                        {
-                            shooterAgent.SetWeaponAmountInSlot(index, missionWeapon.ModifiedMaxAmount, true);
-                        }
+                    if (missionWeapon.IsAnyConsumable()
+                        && missionWeapon.Amount <= missionWeapon.ModifiedMaxAmount)
+                    {
+                        shooterAgent.SetWeaponAmountInSlot(index, missionWeapon.ModifiedMaxAmount, true);
                     }
                 }
             }

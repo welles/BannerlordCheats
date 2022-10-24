@@ -7,11 +7,11 @@ namespace BannerlordCheats.Localization
     {
         public LocalizedSettingPropertyFloatingInteger(string settingName, float minValue, float maxValue) : base(settingName)
         {
-            this.MinValue = Convert.ToDecimal(minValue);
-            this.MaxValue = Convert.ToDecimal(maxValue);
+            MinValue = Convert.ToDecimal(minValue);
+            MaxValue = Convert.ToDecimal(maxValue);
         }
 
-        public string ValueFormat { get; } = "0.00";
+        public string ValueFormat => "0.00";
 
         public decimal MinValue { get; }
 

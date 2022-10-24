@@ -11,13 +11,13 @@ namespace BannerlordCheats.Patches.Kingdom
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetRelationChangeWithSponsor(Supporter.SupportWeights supportWeight, bool isOpposingSides, ref int __result)
+        public static void GetRelationChangeWithSponsor(Supporter.SupportWeights supportWeight, bool isOpposingSides, ref int result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.NoRelationshipLossOnDecision == true)
                 {
-                    __result = Math.Max(__result, 0);
+                    result = Math.Max(result, 0);
                 }
             }
             catch (Exception e)

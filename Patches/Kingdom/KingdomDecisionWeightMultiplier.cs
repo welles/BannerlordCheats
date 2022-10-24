@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Kingdom
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void Getter(ref DecisionOutcome __instance, ref float __result)
+        public static void Getter(ref DecisionOutcome instance, ref float result)
         {
             try
             {
-                if (__instance.SupporterList.Any(x => x.IsPlayer)
+                if (instance.SupporterList.Any(x => x.IsPlayer)
                     && BannerlordCheatsSettings.Instance?.KingdomDecisionWeightMultiplier > 1f)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.KingdomDecisionWeightMultiplier;
+                    result *= BannerlordCheatsSettings.Instance.KingdomDecisionWeightMultiplier;
                 }
             }
             catch (Exception e)

@@ -13,7 +13,7 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum battleSide, MapEvent mapEvent, ref int __result)
+        public static void GetNumberOfTroopsSacrificedForTryingToGetAway(BattleSideEnum battleSide, MapEvent mapEvent, ref int result)
         {
             try
             {
@@ -21,7 +21,7 @@ namespace BannerlordCheats.Patches.Combat
                     && battleSide == mapEvent.PlayerSide
                     && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
                 {
-                    __result = 0;
+                    result = 0;
                 }
             }
             catch (Exception e)

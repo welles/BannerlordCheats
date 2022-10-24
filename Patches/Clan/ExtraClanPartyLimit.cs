@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Clan
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetPartyLimitForTier(TaleWorlds.CampaignSystem.Clan clan, int clanTierToCheck, ref int __result)
+        public static void GetPartyLimitForTier(TaleWorlds.CampaignSystem.Clan clan, int clanTierToCheck, ref int result)
         {
             try
             {
                 if (clan.IsPlayerClan()
                     && BannerlordCheatsSettings.Instance?.ExtraClanPartyLimit > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.ExtraClanPartyLimit;
+                    result += BannerlordCheatsSettings.Instance.ExtraClanPartyLimit;
                 }
             }
             catch (Exception e)

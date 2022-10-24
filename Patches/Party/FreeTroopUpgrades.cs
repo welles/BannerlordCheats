@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Party
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetGoldCostForUpgrade(ref PartyBase party, ref CharacterObject characterObject, ref CharacterObject upgradeTarget, ref int __result)
+        public static void GetGoldCostForUpgrade(ref PartyBase party, ref CharacterObject characterObject, ref CharacterObject upgradeTarget, ref int result)
         {
             try
             {
                 if (party.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.FreeTroopUpgrades == true)
                 {
-                    __result = 0;
+                    result = 0;
                 }
             }
             catch (Exception e)

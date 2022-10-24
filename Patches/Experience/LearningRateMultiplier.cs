@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Experience
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CalculateLearningRate(ref Hero hero, SkillObject skill, ref float __result)
+        public static void CalculateLearningRate(ref Hero hero, SkillObject skill, ref float result)
         {
             try
             {
                 if (hero.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.LearningRateMultiplier > 1f)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.LearningRateMultiplier;
+                    result *= BannerlordCheatsSettings.Instance.LearningRateMultiplier;
                 }
             }
             catch (Exception e)

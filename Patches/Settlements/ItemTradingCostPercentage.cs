@@ -14,20 +14,18 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand, ref int __result)
+        public static void GetPrice(EquipmentElement itemRosterElement, MobileParty clientParty, PartyBase merchant, bool isSelling, float inStoreValue, float supply, float demand, ref int result)
         {
             try
             {
-                if (clientParty.IsPlayerParty()
-                    && !isSelling
-                    && BannerlordCheatsSettings.Instance?.ItemTradingCostPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.ItemTradingCostPercentage / 100f;
+                if (!clientParty.IsPlayerParty()
+                    || isSelling
+                    || !(BannerlordCheatsSettings.Instance?.ItemTradingCostPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.ItemTradingCostPercentage / 100f;
 
-                    var newValue = (int)Math.Round(factor * __result);
+                var newValue = (int)Math.Round(factor * result);
 
-                    __result = newValue;
-                }
+                result = newValue;
             }
             catch (Exception e)
             {

@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void MilitiaChange(ref Village __instance, ref float __result)
+        public static void MilitiaChange(ref Village instance, ref float result)
         {
             try
             {
-                if (__instance.IsPlayerVillage()
+                if (instance.IsPlayerVillage()
                     && BannerlordCheatsSettings.Instance?.DailyMilitiaBonus > 0)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyMilitiaBonus;
+                    result += BannerlordCheatsSettings.Instance.DailyMilitiaBonus;
                 }
             }
             catch (Exception e)

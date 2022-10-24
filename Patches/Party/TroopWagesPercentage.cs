@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Party
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber __result)
+        public static void GetTotalWage(ref MobileParty mobileParty, ref bool includeDescriptions, ref ExplainedNumber result)
         {
             try
             {
                 if (mobileParty.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.TroopWagesPercentage < 100f)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.TroopWagesPercentage);
+                    result.AddPercentage(BannerlordCheatsSettings.Instance.TroopWagesPercentage);
                 }
             }
             catch (Exception e)

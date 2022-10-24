@@ -17,18 +17,16 @@ namespace BannerlordCheats.Patches.Combat
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
+        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float result)
         {
             try
             {
-                if (effectedAgent.IsHero()
-                    &&effectedAgent.IsPlayerAlly()
-                    && BannerlordCheatsSettings.Instance?.FriendlyLordCombatDeathPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.FriendlyLordCombatDeathPercentage / 100f;
+                if (!effectedAgent.IsHero()
+                    || !effectedAgent.IsPlayerAlly()
+                    || !(BannerlordCheatsSettings.Instance?.FriendlyLordCombatDeathPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.FriendlyLordCombatDeathPercentage / 100f;
 
-                    __result *= factor;
-                }
+                result *= factor;
             }
             catch (Exception e)
             {

@@ -6,7 +6,7 @@ namespace BannerlordCheats.Extensions
 {
     public static class KingdomExtensions
     {
-        public static bool IsPlayerKingdom(this Clan clan)
+        private static bool IsPlayerKingdom(this Clan clan)
         {
             return clan?.Kingdom?.IsPlayerKingdom() ?? false;
         }

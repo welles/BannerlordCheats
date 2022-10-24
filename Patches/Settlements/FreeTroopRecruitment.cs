@@ -13,14 +13,14 @@ namespace BannerlordCheats.Patches.Settlements
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost, ref int __result)
+        public static void GetTroopRecruitmentCost(CharacterObject troop, Hero buyerHero, bool withoutItemCost, ref int result)
         {
             try
             {
                 if (buyerHero.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.FreeTroopRecruitment == true)
                 {
-                    __result = 1;
+                    result = 1;
                 }
             }
             catch (Exception e)

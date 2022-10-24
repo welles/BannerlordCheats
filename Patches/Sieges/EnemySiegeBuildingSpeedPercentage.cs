@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches.Sieges
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float __result)
+        public static void GetConstructionProgressPerHour(ref SiegeEngineType type, ref SiegeEvent siegeEvent, ref ISiegeEventSide side, ref float result)
         {
             try
             {
@@ -28,19 +28,20 @@ namespace BannerlordCheats.Patches.Sieges
                     case BattleSideEnum.Defender:
                         otherSide = BattleSideEnum.Attacker;
                         break;
+                    case BattleSideEnum.None:
+                    case BattleSideEnum.NumSides:
                     default:
                         return;
                 }
 
-                if ((siegeEvent.GetSiegeEventSide(otherSide)?.GetInvolvedPartiesForEventType().Any(x => x.IsPlayerParty()) ?? false)
-                    && BannerlordCheatsSettings.Instance?.EnemySiegeBuildingSpeedPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage / 100f;
+                if ((!(siegeEvent.GetSiegeEventSide(otherSide)?.GetInvolvedPartiesForEventType()
+                        .Any(x => x.IsPlayerParty()) ?? false))
+                    || !(BannerlordCheatsSettings.Instance?.EnemySiegeBuildingSpeedPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage / 100f;
 
-                    var newValue = factor * __result;
+                var newValue = factor * result;
 
-                    __result = newValue;
-                }
+                result = newValue;
             }
             catch (Exception e)
             {

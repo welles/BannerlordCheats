@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Map
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber __result)
+        public static void CalculateFinalSpeed(ref MobileParty mobileParty, ref ExplainedNumber finalSpeed, ref ExplainedNumber result)
         {
             try
             {
                 if (!mobileParty.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.NpcMapSpeedPercentage > 100f)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage);
+                    result.AddPercentage(BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage);
                 }
             }
             catch (Exception e)

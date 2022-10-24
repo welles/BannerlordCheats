@@ -13,14 +13,14 @@ namespace BannerlordCheats.Patches.Experience
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetXpMultiplier(Hero hero, ref float __result)
+        public static void GetXpMultiplier(Hero hero, ref float result)
         {
             try
             {
                 if (hero.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.ExperienceMultiplier > 1f)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.ExperienceMultiplier;
+                    result *= BannerlordCheatsSettings.Instance.ExperienceMultiplier;
                 }
             }
             catch (Exception e)

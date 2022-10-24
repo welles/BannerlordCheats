@@ -12,13 +12,13 @@ namespace BannerlordCheats.Patches.Party
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetCompanionHiringPrice(Hero companion, ref int __result)
+        public static void GetCompanionHiringPrice(Hero companion, ref int result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.FreeCompanionHiring == true)
                 {
-                    __result = 0;
+                    result = 0;
                 }
             }
             catch (Exception e)

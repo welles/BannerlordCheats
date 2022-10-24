@@ -18,14 +18,14 @@ namespace BannerlordCheats.Patches.Combat
             ref Agent attacker,
             ref Agent defender,
             ref bool isFatalHit,
-            ref MeleeCollisionReaction __result)
+            ref MeleeCollisionReaction result)
         {
             try
             {
                 if (attacker.IsPlayer()
                     && BannerlordCheatsSettings.Instance?.SliceThroughEveryone == true)
                 {
-                    __result = MeleeCollisionReaction.SlicedThrough;
+                    result = MeleeCollisionReaction.SlicedThrough;
                 }
             }
             catch (Exception e)

@@ -16,22 +16,20 @@ namespace BannerlordCheats.Patches.General
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void OnTick(ref EncyclopediaPageVM __instance)
+        public static void OnTick(ref EncyclopediaPageVM instance)
         {
             try
             {
-                if (__instance is EncyclopediaUnitPageVM
-                    && __instance.Obj is CharacterObject characterObject
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                if (!(instance is EncyclopediaUnitPageVM)
+                    || !(instance.Obj is CharacterObject characterObject)
+                    || BannerlordCheatsSettings.Instance?.EnableHotkeys != true) return;
+                if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))
                 {
-                    if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))
-                    {
-                        EnableHotkeysAddEncyclopediaTroops.AddTroops(characterObject, 10);
-                    }
-                    else if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftControl))
-                    {
-                        EnableHotkeysAddEncyclopediaTroops.AddTroops(characterObject, 1);
-                    }
+                    AddTroops(characterObject, 10);
+                }
+                else if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftControl))
+                {
+                    AddTroops(characterObject, 1);
                 }
             }
             catch (Exception e)

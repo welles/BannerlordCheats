@@ -14,19 +14,17 @@ namespace BannerlordCheats.Patches.Smithing
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero, ref int __result)
+        public static void GetEnergyCostForRefining(ref Crafting.RefiningFormula refineFormula, Hero hero, ref int result)
         {
             try
             {
-                if (hero.PartyBelongedTo.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.SmithingEnergyCostPercentage < 100f)
-                {
-                    var factor = BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage / 100f;
+                if (!hero.PartyBelongedTo.IsPlayerParty()
+                    || !(BannerlordCheatsSettings.Instance?.SmithingEnergyCostPercentage < 100f)) return;
+                var factor = BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage / 100f;
 
-                    var newValue = (int)Math.Round(factor * __result);
+                var newValue = (int)Math.Round(factor * result);
 
-                    __result = newValue;
-                }
+                result = newValue;
             }
             catch (Exception e)
             {

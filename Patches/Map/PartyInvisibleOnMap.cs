@@ -12,14 +12,14 @@ namespace BannerlordCheats.Patches.Map
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void ShouldBeIgnored(ref MobileParty __instance, ref bool __result)
+        public static void ShouldBeIgnored(ref MobileParty instance, ref bool result)
         {
             try
             {
-                if (__instance.IsPlayerParty()
+                if (instance.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.PartyInvisibleOnMap == true)
                 {
-                    __result = true;
+                    result = true;
                 }
             }
             catch (Exception e)

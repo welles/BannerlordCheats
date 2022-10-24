@@ -16,14 +16,14 @@ namespace BannerlordCheats.Patches.Characters
         public static void GetAttractionValuePercentage(
             ref Hero potentiallyInterestedCharacter,
             ref Hero heroOfInterest,
-            ref int __result)
+            ref int result)
         {
             try
             {
                 if (BannerlordCheatsSettings.Instance?.PerfectAttraction == true
                     && heroOfInterest.IsPlayer())
                 {
-                    __result = 100;
+                    result = 100;
                 }
             }
             catch (Exception e)

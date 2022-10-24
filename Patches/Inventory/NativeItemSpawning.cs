@@ -31,17 +31,15 @@ namespace BannerlordCheats.Patches.Inventory
         {
             try
             {
-                if (party.IsPlayerParty()
-                    && !isTrading
-                    && !Game.Current.CheatMode
-                    && BannerlordCheatsSettings.Instance?.NativeItemSpawning == true)
+                if (!party.IsPlayerParty()
+                    || isTrading
+                    || Game.Current.CheatMode
+                    || BannerlordCheatsSettings.Instance?.NativeItemSpawning != true) return;
+                var objectTypeList = Game.Current.ObjectManager.GetObjectTypeList<ItemObject>();
+                for (var index = 0; index != objectTypeList.Count; ++index)
                 {
-                    var objectTypeList = Game.Current.ObjectManager.GetObjectTypeList<ItemObject>();
-                    for (var index = 0; index != objectTypeList.Count; ++index)
-                    {
-                        var itemObject = objectTypeList[index];
-                        leftItemRoster.AddToCounts(itemObject, 10);
-                    }
+                    var itemObject = objectTypeList[index];
+                    leftItemRoster.AddToCounts(itemObject, 10);
                 }
             }
             catch (Exception e)

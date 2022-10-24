@@ -6,11 +6,11 @@ namespace BannerlordCheats.Localization
     {
         public LocalizedSettingPropertyInteger(string settingName, int minValue, int maxValue) : base(settingName)
         {
-            this.MinValue = minValue;
-            this.MaxValue = maxValue;
+            MinValue = minValue;
+            MaxValue = maxValue;
         }
 
-        public string ValueFormat { get; } = "0";
+        public string ValueFormat => "0";
 
         public decimal MinValue { get; }
 

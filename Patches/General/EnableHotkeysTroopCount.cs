@@ -23,17 +23,15 @@ namespace BannerlordCheats.Patches.General
         {
             try
             {
-                if (ScreenManager.TopScreen is GauntletPartyScreen
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                if (!(ScreenManager.TopScreen is GauntletPartyScreen)
+                    || BannerlordCheatsSettings.Instance?.EnableHotkeys != true) return;
+                if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
                 {
-                    if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.LeftShift, InputKey.H))
-                    {
-                        EnableHotkeysTroopCount.AddTroops(10);
-                    }
-                    else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
-                    {
-                        EnableHotkeysTroopCount.AddTroops(1);
-                    }
+                    AddTroops(10);
+                }
+                else if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.H))
+                {
+                    AddTroops(1);
                 }
             }
             catch (Exception e)
@@ -46,9 +44,9 @@ namespace BannerlordCheats.Patches.General
         {
             var partyScreen = ScreenManager.TopScreen as GauntletPartyScreen;
 
-            var partyVM = partyScreen.GetViewModel<PartyVM>();
+            var partyVm = partyScreen.GetViewModel<PartyVM>();
 
-            var selectedCharacter = partyVM.CurrentCharacter;
+            var selectedCharacter = partyVm.CurrentCharacter;
 
             if (selectedCharacter.IsHero) { return; }
 

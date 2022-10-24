@@ -14,14 +14,14 @@ namespace BannerlordCheats.Patches.Party
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetPartyMemberSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber __result)
+        public static void GetPartyMemberSizeLimit(ref PartyBase party, ref bool includeDescriptions, ref ExplainedNumber result)
         {
             try
             {
                 if (party.IsPlayerParty()
                     && BannerlordCheatsSettings.Instance?.ExtraPartyMemberSize > 0)
                 {
-                    __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMemberSize);
+                    result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMemberSize);
                 }
             }
             catch (Exception e)
