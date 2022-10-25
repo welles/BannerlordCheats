@@ -13,5 +13,10 @@ namespace BannerlordCheats.Extensions
         {
             return village?.Owner?.Owner?.IsHumanPlayerCharacter ?? false;
         }
+
+        public static bool IsPlayerSettlement(this Settlement settlement)
+        {
+            return settlement?.Owner?.IsHumanPlayerCharacter ?? false;
+        }
     }
 }

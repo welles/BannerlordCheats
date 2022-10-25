@@ -505,6 +505,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(NoBribeToEnterKeep))]
         public bool NoBribeToEnterKeep { get; set; } = false;
 
+        [LocalizedSettingPropertyGroup(SettlementsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(SettlementsNeverRebel))]
+        public bool SettlementsNeverRebel { get; set; } = false;
+
         #endregion Settlements
 
         #region Smithing

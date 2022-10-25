@@ -901,4 +901,10 @@ Thank you!</value>
   <data name="ModExceptionTitle" xml:space="preserve">
     <value>Bannerlord Cheats encountered an error!</value>
   </data>
+  <data name="SettlementsNeverRebel_Name" xml:space="preserve">
+    <value>Settlements Never Rebel</value>
+  </data>
+  <data name="SettlementsNeverRebel_Desc" xml:space="preserve">
+    <value>If enabled, player owned settlements will never start a rebellion.</value>
+  </data>
 </root>
