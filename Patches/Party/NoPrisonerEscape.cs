@@ -1,6 +1,7 @@
 ﻿using System;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.Actions;
 
@@ -9,6 +10,7 @@ namespace BannerlordCheats.Patches.Party
     [HarmonyPatch(typeof(EndCaptivityAction), nameof(EndCaptivityAction.ApplyByEscape))]
     public static class NoPrisonerEscape
     {
+        [UsedImplicitly]
         [HarmonyPrefix]
         public static bool ApplyByEscape(Hero character, Hero facilitator)
         {

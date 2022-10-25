@@ -13,7 +13,9 @@ using TaleWorlds.Localization;
 
 namespace BannerlordCheats.Patches.Inventory
 {
-    [HarmonyPatch(typeof(InventoryLogic), nameof(InventoryLogic.Initialize), typeof(ItemRoster), typeof(MobileParty), typeof(bool), typeof(bool), typeof(CharacterObject), typeof(InventoryManager.InventoryCategoryType), typeof(IMarketData), typeof(bool), typeof(TextObject))]
+    [HarmonyPatch(typeof(InventoryLogic), nameof(InventoryLogic.Initialize), typeof(ItemRoster), typeof(MobileParty),
+        typeof(bool), typeof(bool), typeof(CharacterObject), typeof(InventoryManager.InventoryCategoryType),
+        typeof(IMarketData), typeof(bool), typeof(TextObject), typeof(TroopRoster))]
     public static class NativeItemSpawning
     {
         [UsedImplicitly]
@@ -27,7 +29,8 @@ namespace BannerlordCheats.Patches.Inventory
             ref InventoryManager.InventoryCategoryType merchantItemType,
             ref IMarketData marketData,
             ref bool useBasePrices,
-            ref TextObject leftRosterName)
+            ref TextObject leftRosterName,
+            ref TroopRoster leftMemberRoster)
         {
             try
             {

@@ -22,7 +22,7 @@ jobs:
           Write-Host "::set-output name=mod_version::$ModVersion"
           Write-Host "ModVersion: ""$ModVersion"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>(e[\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
+          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>(v[\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
           Write-Host "::set-output name=game_version::$GameVersion"
           Write-Host "GameVersion: ""$GameVersion"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -80,7 +80,7 @@ jobs:
       - name: Download Game Binaries
         run: >-
           foreach ($depot in @(261551, 261552)) {
-            dotnet depotdownloader/DepotDownloader.dll -app 261550 -depot $depot -beta ${{steps.versions.outputs.game_version}} -username ${{secrets.STEAM_USERNAME}} -password ${{secrets.STEAM_PASSWORD}} -os windows -osarch 64 -filelist ./.github/resources/depotdownloader.txt -dir bannerlord;
+            dotnet depotdownloader/DepotDownloader.dll -app 261550 -depot $depot -beta public -username ${{secrets.STEAM_USERNAME}} -password ${{secrets.STEAM_PASSWORD}} -os windows -osarch 64 -filelist ./.github/resources/depotdownloader.txt -dir bannerlord;
           }
         shell: pwsh
 
