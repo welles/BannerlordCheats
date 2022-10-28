@@ -1,4 +1,4 @@
-﻿using MCM.Abstractions.Settings.Definitions;
+﻿using MCM.Abstractions;
 
 namespace BannerlordCheats.Localization
 {

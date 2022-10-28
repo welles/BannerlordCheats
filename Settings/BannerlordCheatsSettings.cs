@@ -1,7 +1,7 @@
 ﻿using BannerlordCheats.Localization;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using MCM.Abstractions.Settings.Base.PerSave;
+using MCM.Abstractions.Base.PerSave;
 
 namespace BannerlordCheats.Settings
 {
