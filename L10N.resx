@@ -925,4 +925,13 @@ Thank you!</value>
   <data name="KillCharacterConfirm" xml:space="preserve">
     <value>Kill!</value>
   </data>
+  <data name="TransferSettlementMessageTitle" xml:space="preserve">
+    <value>Transfer {0}?</value>
+  </data>
+  <data name="TransferSettlementMessage" xml:space="preserve">
+    <value>Should the ownership of this settlement be transfered to you?</value>
+  </data>
+  <data name="TransferSettlementConfirm" xml:space="preserve">
+    <value>Transfer!</value>
+  </data>
 </root>
