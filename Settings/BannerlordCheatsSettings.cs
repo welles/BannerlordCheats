@@ -330,6 +330,10 @@ namespace BannerlordCheats.Settings
         public bool PerfectRelationships { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NeverDieOfOldAge))]
+        public bool NeverDieOfOldAge { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(BarterOfferAlwaysAccepted))]
         public bool BarterOfferAlwaysAccepted { get; set; } = false;
 
