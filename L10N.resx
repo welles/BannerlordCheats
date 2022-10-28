@@ -913,4 +913,16 @@ Thank you!</value>
   <data name="NeverDieOfOldAge_Desc" xml:space="preserve">
     <value>If enabled, your main character will still get sick and old, but will never actually die from old age or sickness.</value>
   </data>
+  <data name="KillCharacterMessageTitle" xml:space="preserve">
+    <value>Kill {0}?</value>
+  </data>
+  <data name="KillCharacterMessage" xml:space="preserve">
+    <value>Should this character die?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="KillCharacterConfirm" xml:space="preserve">
+    <value>Kill!</value>
+  </data>
 </root>
