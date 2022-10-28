@@ -35,12 +35,17 @@ namespace BannerlordCheats.Localization
 
         public static string GetText(string key)
         {
-            return L10N.Values[key];
+            return L10N.Values.TryGetValue(key, out var text) ? text : key;
         }
 
         public static string GetTextFormat(string key, params object[] formatValues)
         {
-            var text = Values[key];
+            var found = L10N.Values.TryGetValue(key, out var text);
+
+            if (!found)
+            {
+                return key;
+            }
 
             for (int i = 0; i < formatValues.Length; i++)
             {

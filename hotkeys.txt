@@ -5,6 +5,8 @@ CTRL + SHIFT + X │ Inventory                         │ Add 100.000 gold to y
 CTRL + X         │ Clan                              │ Add 1.000 influence to your clan
 CTRL + H         │ Encyclopedia page of a troop type │ Add 1 soldiers of the troop type to your party
 CTRL + SHIFT + H │ Encyclopedia page of a troop type │ Add 10 soldiers of the troop type to your party
+CTRL + X         │ Encyclopedia page of a character  │ Kill the character
+CTRL + H         │ Encyclopedia page of a settlement │ Transfer ownership of the settlement to you
 CTRL + H         │ Inventory (with item selected)    │ Add 1 of the selected item to your inventory
 CTRL + SHIFT + H │ Inventory (with item selected)    │ Add 100 of the selected item to your inventory
 CTRL + X         │ Party (with troop selected)       │ Add experience to the selected troop

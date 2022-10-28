@@ -22,6 +22,8 @@ namespace BannerlordCheats.Patches.General
                     Message.Show("Encyclopedia Screen Cheat Hotkeys:");
                     Message.Show("CTRL + H: Add 1 soldier of the selected troop type to the party.");
                     Message.Show("CTRL + SHIFT + H: Add 10 soldiers of the selected troop type to the party.");
+                    Message.Show("CTRL + X: Kill the selected character.");
+                    Message.Show("CTRL + H: Transfer ownership of settlement to you.");
                 }
             }
             catch (Exception e)

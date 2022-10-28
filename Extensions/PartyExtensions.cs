@@ -19,6 +19,12 @@ namespace BannerlordCheats.Extensions
                 return false;
             }
 
+            // Disable for caravans
+            if (party?.MobileParty?.IsCaravan == true)
+            {
+                return false;
+            }
+
             return owner?.IsHumanPlayerCharacter ?? false;
         }
 

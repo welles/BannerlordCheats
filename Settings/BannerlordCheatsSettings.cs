@@ -1,7 +1,7 @@
 ﻿using BannerlordCheats.Localization;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using MCM.Abstractions.Settings.Base.PerSave;
+using MCM.Abstractions.Base.PerSave;
 
 namespace BannerlordCheats.Settings
 {
@@ -328,6 +328,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(PerfectRelationships))]
         public bool PerfectRelationships { get; set; } = false;
+
+        [LocalizedSettingPropertyGroup(CharactersGroupName)]
+        [LocalizedSettingPropertyBool(nameof(NeverDieOfOldAge))]
+        public bool NeverDieOfOldAge { get; set; } = false;
 
         [LocalizedSettingPropertyGroup(CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(BarterOfferAlwaysAccepted))]
