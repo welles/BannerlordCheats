@@ -9,13 +9,9 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.CalculateDamage))]
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class DamageMultiplier
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, ref WeaponComponentData weapon, ref float __result)
         {
             try
             {
@@ -33,4 +29,21 @@ namespace BannerlordCheats.Patches.Combat
         }
     }
 
+    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.CalculateDamage))]
+    public static class DamageMultiplier_Default
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, ref WeaponComponentData weapon, ref float __result)
+            => DamageMultiplier.CalculateDamage(ref attackInformation, ref collisionData, ref weapon, ref __result);
+    }
+
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
+    public static class DamageMultiplier_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, ref WeaponComponentData weapon, ref float __result)
+            => DamageMultiplier.CalculateDamage(ref attackInformation, ref collisionData, ref weapon, ref __result);
+    }
 }
