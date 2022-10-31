@@ -24,3 +24,9 @@ jobs:
         env:
           DOTNET_NOLOGO: 1
           DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: BannerlordCheats
+          path: ${{github.workspace}}\bannerlord
