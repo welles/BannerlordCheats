@@ -10,14 +10,14 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(DefaultAgentDecideKilledOrUnconsciousModel), nameof(DefaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
-    [HarmonyPatch(typeof(SandboxAgentDecideKilledOrUnconsciousModel), nameof(SandboxAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
-    [HarmonyPatch(typeof(StoryModeAgentDecideKilledOrUnconsciousModel), nameof(StoryModeAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
     public static class FriendlyLordCombatDeathPercentageBattle
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
+        public static void GetAgentStateProbability(
+            ref Agent affectorAgent,
+            ref Agent effectedAgent,
+            ref DamageTypes damageType,
+            ref float useSurgeryProbability,
+            ref float __result)
         {
             try
             {
@@ -35,5 +35,62 @@ namespace BannerlordCheats.Patches.Combat
                 SubModule.LogError(e, typeof(FriendlyLordCombatDeathPercentageBattle));
             }
         }
+    }
+
+    [HarmonyPatch(typeof(DefaultAgentDecideKilledOrUnconsciousModel), nameof(DefaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
+    public static class FriendlyLordCombatDeathPercentageBattle_Default
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void GetAgentStateProbability(
+            ref Agent affectorAgent,
+            ref Agent effectedAgent,
+            ref DamageTypes damageType,
+            ref float useSurgeryProbability,
+            ref float __result)
+            => FriendlyLordCombatDeathPercentageBattle.GetAgentStateProbability(
+                ref affectorAgent,
+                ref effectedAgent,
+                ref damageType,
+                ref useSurgeryProbability,
+                ref __result);
+    }
+
+    [HarmonyPatch(typeof(SandboxAgentDecideKilledOrUnconsciousModel), nameof(SandboxAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
+    public static class FriendlyLordCombatDeathPercentageBattle_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void GetAgentStateProbability(
+            ref Agent affectorAgent,
+            ref Agent effectedAgent,
+            ref DamageTypes damageType,
+            ref float useSurgeryProbability,
+            ref float __result)
+            => FriendlyLordCombatDeathPercentageBattle.GetAgentStateProbability(
+                ref affectorAgent,
+                ref effectedAgent,
+                ref damageType,
+                ref useSurgeryProbability,
+                ref __result);
+    }
+
+    [HarmonyPatch(typeof(StoryModeAgentDecideKilledOrUnconsciousModel), nameof(StoryModeAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
+    public static class FriendlyLordCombatDeathPercentageBattle_StoryMode
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void GetAgentStateProbability(
+            ref Agent affectorAgent,
+            ref Agent effectedAgent,
+            ref DamageTypes damageType,
+            ref float useSurgeryProbability,
+            ref float __result)
+            => FriendlyLordCombatDeathPercentageBattle.GetAgentStateProbability(
+                ref affectorAgent,
+                ref effectedAgent,
+                ref damageType,
+                ref useSurgeryProbability,
+                ref __result);
     }
 }
