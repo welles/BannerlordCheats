@@ -10,13 +10,8 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(DefaultAgentDecideKilledOrUnconsciousModel), nameof(DefaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
-    [HarmonyPatch(typeof(SandboxAgentDecideKilledOrUnconsciousModel), nameof(SandboxAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
-    [HarmonyPatch(typeof(StoryModeAgentDecideKilledOrUnconsciousModel), nameof(StoryModeAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
     public static class EnemyOnlyKnockout
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
         {
             try
@@ -32,5 +27,32 @@ namespace BannerlordCheats.Patches.Combat
                 SubModule.LogError(e, typeof(EnemyOnlyKnockout));
             }
         }
+    }
+
+    [HarmonyPatch(typeof(DefaultAgentDecideKilledOrUnconsciousModel), nameof(DefaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
+    public static class EnemyOnlyKnockout_Default
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
+            => EnemyOnlyKnockout.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, useSurgeryProbability, ref __result);
+    }
+
+    [HarmonyPatch(typeof(SandboxAgentDecideKilledOrUnconsciousModel), nameof(SandboxAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
+    public static class EnemyOnlyKnockout_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
+            => EnemyOnlyKnockout.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, useSurgeryProbability, ref __result);
+    }
+
+    [HarmonyPatch(typeof(StoryModeAgentDecideKilledOrUnconsciousModel), nameof(StoryModeAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
+    public static class EnemyOnlyKnockout_StoryMode
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
+            => EnemyOnlyKnockout.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, useSurgeryProbability, ref __result);
     }
 }
