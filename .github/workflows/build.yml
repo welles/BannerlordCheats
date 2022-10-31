@@ -15,6 +15,12 @@ jobs:
 
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3
+        env:
+          DOTNET_NOLOGO: 1
+          DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
       - name: Build Bannerlord Cheats
         run: dotnet build BannerlordCheats.csproj --configuration Release -p:GameFolder="${{github.workspace}}\bannerlord" -p:UseNuGetAssemblies="True"
+        env:
+          DOTNET_NOLOGO: 1
+          DOTNET_CLI_TELEMETRY_OPTOUT: 1
