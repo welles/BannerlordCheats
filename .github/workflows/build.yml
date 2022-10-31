@@ -1,0 +1,20 @@
+﻿name: Build & Release
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs_on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
+
+      - name: Build Bannerlord Cheats
+        run: dotnet build
