@@ -17,4 +17,4 @@ jobs:
         uses: actions/setup-dotnet@v3
 
       - name: Build Bannerlord Cheats
-        run: dotnet build
+        run: dotnet build BannerlordCheats.csproj --configuration Release -p:GameFolder="${{github.workspace}}\bannerlord" -p:UseNuGetAssemblies="False"
