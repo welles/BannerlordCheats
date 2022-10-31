@@ -19,6 +19,13 @@ jobs:
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3
 
+      - name: Check versions and parameters
+        run: |
+          $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
+          $ModVersion = $ModVersion -replace "\.0",""
+          If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
+          Write-Host "mod_version=$ModVersion" >> $GITHUB_ENV
+          Write-Host "ModVersion: ""${{ env.mod_version }}"""
 
       - name: Build Bannerlord Cheats
         run: dotnet build BannerlordCheats.csproj --configuration Release -p:GameFolder="${{github.workspace}}\Bannerlord" -p:UseNuGetAssemblies="True"
