@@ -7,7 +7,7 @@ on:
 jobs:
   build:
     name: Build
-    runs_on: windows-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout repository
