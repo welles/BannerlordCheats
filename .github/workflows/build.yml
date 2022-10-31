@@ -8,6 +8,9 @@ jobs:
   build:
     name: Build
     runs-on: windows-latest
+    env:
+      DOTNET_NOLOGO: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
     steps:
       - name: Checkout repository
@@ -15,15 +18,10 @@ jobs:
 
       - name: Setup dotnet
         uses: actions/setup-dotnet@v3
-        env:
-          DOTNET_NOLOGO: 1
-          DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
 
       - name: Build Bannerlord Cheats
         run: dotnet build BannerlordCheats.csproj --configuration Release -p:GameFolder="${{github.workspace}}\Bannerlord" -p:UseNuGetAssemblies="True"
-        env:
-          DOTNET_NOLOGO: 1
-          DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
