@@ -20,17 +20,18 @@ jobs:
         uses: actions/setup-dotnet@v3
 
       - name: Check versions and parameters
-        id: versions
+        shell: pwsh
         run: |
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
           $ModVersion = $ModVersion -replace "\.0",""
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
-          Write-Output "mod_version=$ModVersion" >> $GITHUB_OUTPUT
+          "mod_version=$ModVersion" >> $GITHUB_ENV
           Write-Output "ModVersion: ""$ModVersion"""
 
       - name: Check if versions work
+        shell: pwsh
         run: |
-          Write-Output "ModVersion: ""${{steps.versions.outputs.mod_version}}"""
+          Write-Output "ModVersion: ""${{env.mod_version}}"""
 
       - name: Build Bannerlord Cheats
         run: dotnet build BannerlordCheats.csproj --configuration Release -p:GameFolder="${{github.workspace}}\Bannerlord" -p:UseNuGetAssemblies="True"
