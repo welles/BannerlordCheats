@@ -25,6 +25,10 @@ jobs:
           $ModVersion = $ModVersion -replace "\.0",""
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
           Write-Output "mod_version=$ModVersion" >> $GITHUB_ENV
+          Write-Output "ModVersion: ""$ModVersion"""
+
+      - name: Check if versions work
+        run: |
           Write-Output "ModVersion: ""${{ env.mod_version }}"""
 
       - name: Build Bannerlord Cheats
