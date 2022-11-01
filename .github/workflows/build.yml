@@ -69,3 +69,17 @@ jobs:
         with:
           name: ${{env.zip_name}}
           path: ${{github.workspace}}\Bannerlord\Modules
+
+  test:
+    name: Test
+    runs-on: windows-latest
+    needs: build
+    env:
+      DOTNET_NOLOGO: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
+
+    steps:
+      - name: Test variables
+        shell: pwsh
+        run: |
+          Write-Output "ModVersion: ""${{env.mod_version}}"""
