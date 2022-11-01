@@ -28,7 +28,7 @@ jobs:
           "mod_version=$ModVersion" >> $env:GITHUB_ENV
           Write-Output "ModVersion: ""$ModVersion"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>(v[\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
+          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
           "game_version=$GameVersion" >> $env:GITHUB_ENV
           Write-Output "GameVersion: ""$GameVersion"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
