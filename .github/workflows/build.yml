@@ -49,7 +49,7 @@ jobs:
           "prerelease=$Prerelease" >> $env:GITHUB_ENV
           Write-Output "Prerelease: ""$Prerelease"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ZipName = "BannerlordCheats_v$($ModVersion)_for_$($GameBranch)_$($GameVersion)"
+          $ZipName = "BannerlordCheats_v$($ModVersion)_for_v$($GameVersion)"
           "zip_name=$ZipName" >> $env:GITHUB_ENV
           Write-Output "ZipName: ""$ZipName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ jobs:
           "tag_name=$TagName" >> $env:GITHUB_ENV
           Write-Output "TagName: ""$TagName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ReleaseTitle = "Release v$($ModVersion) for $($GameBranch) $($GameVersion)"
+          $ReleaseTitle = "Release v$($ModVersion) for v$($GameVersion)"
           "release_title=$ReleaseTitle" >> $env:GITHUB_ENV
           Write-Output "ReleaseTitle: ""$ReleaseTitle"""
 
