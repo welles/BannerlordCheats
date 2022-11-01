@@ -26,12 +26,40 @@ jobs:
           $ModVersion = $ModVersion -replace "\.0",""
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
           "mod_version=$ModVersion" >> $env:GITHUB_ENV
-          Write-Output "ModVersion: $ModVersion"
-
-      - name: Check if versions work
-        shell: pwsh
-        run: |
-          Write-Output "ModVersion: ${{env.mod_version}}"
+          Write-Output "ModVersion: ""$ModVersion"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>(v[\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
+          "game_version=$GameVersion" >> $env:GITHUB_ENV
+          Write-Output "GameVersion: ""$GameVersion"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>(.+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
+          "game_branch=$GameBranch" >> $env:GITHUB_ENV
+          Write-Output "GameBranch: ""$GameBranch"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $RepoBranch = "${{github.ref}}"
+          $RepoBranch = $RepoBranch.Split("/")[-1]
+          If ($RepoBranch -eq "stable") { $RepoBranch = "" }
+          If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
+          "repo_branch=$RepoBranch" >> $env:GITHUB_ENV
+          Write-Output "RepoBranch: ""$RepoBranch"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $Prerelease = "${{github.ref}}"
+          $Prerelease = $Prerelease.Split("/")[-1]
+          If ($Prerelease -eq "stable") { $Prerelease = "false" } Else { $Prerelease = "true" }
+          "prerelease=$Prerelease" >> $env:GITHUB_ENV
+          Write-Output "Prerelease: ""$Prerelease"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $ZipName = "BannerlordCheats_v$($ModVersion)_for_$($GameBranch)_$($GameVersion)"
+          "zip_name=$ZipName" >> $env:GITHUB_ENV
+          Write-Output "ZipName: ""$ZipName"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $TagName = "v$ModVersion$RepoBranch"
+          "tag_name=$TagName" >> $env:GITHUB_ENV
+          Write-Output "TagName: ""$TagName"""
+          #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+          $ReleaseTitle = "Release v$($ModVersion) for $($GameBranch) $($GameVersion)"
+          "release_title=$ReleaseTitle" >> $env:GITHUB_ENV
+          Write-Output "ReleaseTitle: ""$ReleaseTitle"""
 
       - name: Build Bannerlord Cheats
         run: dotnet build BannerlordCheats.csproj --configuration Release -p:GameFolder="${{github.workspace}}\Bannerlord" -p:UseNuGetAssemblies="True"
