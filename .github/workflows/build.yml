@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build & Release
     runs-on: windows-latest
     env:
       DOTNET_NOLOGO: 1
