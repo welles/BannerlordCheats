@@ -72,4 +72,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{env.zip_name}}
-          path: ${{github.workspace}}\${{env.zip_name}}.zip
+          path: ${{github.workspace}}\Bannerlord\Modules
