@@ -64,8 +64,12 @@ jobs:
       - name: Build Bannerlord Cheats
         run: dotnet build BannerlordCheats.csproj --configuration Release -p:GameFolder="${{github.workspace}}\Bannerlord" -p:UseNuGetAssemblies="True"
 
+      - name: Package Mod Files
+        run: 7z a -tzip ${{env.zip_name}}.zip ${{github.workspace}}\Bannerlord\Modules\*
+        working-directory: ${{github.workspace}}
+
       - name: Upload Artifacts
         uses: actions/upload-artifact@v3
         with:
           name: ${{env.zip_name}}
-          path: ${{github.workspace}}\Bannerlord\Modules
+          path: ${{github.workspace}}\${{env.zip_name}}.zip
