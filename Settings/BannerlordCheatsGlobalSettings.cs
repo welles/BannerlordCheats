@@ -14,7 +14,7 @@ namespace BannerlordCheats.Settings
         private const string ModName = "ModName";
         private const string Understood = "Understood";
 
-        public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}";
+        public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}_Global";
 
         public override string DisplayName { get; }
 
