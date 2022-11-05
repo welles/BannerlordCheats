@@ -21,7 +21,7 @@ namespace BannerlordCheats.Patches.Combat
             {
                 if (attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
                     && party.IsPlayerParty()
-                    && !attackInformation.AttackerAgentCharacter.IsPlayer()
+                    && !attackInformation.IsAttackerPlayer
                     && !attackInformation.IsFriendlyFire
                     && BannerlordCheatsSettings.Instance?.PartyOneHitKill == true)
                 {

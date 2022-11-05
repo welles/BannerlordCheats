@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches.Combat
         {
             try
             {
-                if (attackInformation.AttackerAgentCharacter.IsPlayer()
+                if (attackInformation.IsAttackerPlayer
                     && !attackInformation.IsFriendlyFire
                     && BannerlordCheatsSettings.Instance?.DamageMultiplier > 1f)
                 {
