@@ -149,8 +149,8 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(PartyHeroesInvincible))]
         public bool PartyHeroesInvincible { get; set; } = false;
 
-        [LocalizedSettingPropertyGroup(CombatPartyGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(PartyDamageTakenPercentage))]
+        //[LocalizedSettingPropertyGroup(CombatPartyGroupName)]
+        //[LocalizedSettingPropertyPercent(nameof(PartyDamageTakenPercentage))]
         public float PartyDamageTakenPercentage { get; set; } = 100.0f;
 
         [LocalizedSettingPropertyGroup(CombatPartyGroupName)]

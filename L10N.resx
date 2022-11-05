@@ -934,4 +934,13 @@ Thank you!</value>
   <data name="TransferSettlementConfirm" xml:space="preserve">
     <value>Transfer!</value>
   </data>
+  <data name="ChangePlayerMessageTitle" xml:space="preserve">
+    <value>Change to {0}?</value>
+  </data>
+  <data name="ChangePlayerMessage" xml:space="preserve">
+    <value>Play as this character from now on? This might have unexpected consequences! Use at your own risk and save your game before you do this!</value>
+  </data>
+  <data name="ChangePlayerConfirm" xml:space="preserve">
+    <value>Change!</value>
+  </data>
 </root>

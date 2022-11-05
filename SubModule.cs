@@ -35,7 +35,9 @@ namespace BannerlordCheats
                     L10N.GetText("ModWarningMessageConfirm"),
                     null,
                     SubModule.CreateConfirmFile,
-                    null));
+                    null,
+                    expireTime: 60,
+                    timeoutAction: SubModule.CreateConfirmFile));
             }
         }
 
