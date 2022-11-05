@@ -38,7 +38,7 @@ namespace BannerlordCheats.Patches.Combat
         }
     }
 
-    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.CalculateDamage))]
+    //[HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.CalculateDamage))]
     public static class PartyDamageTakenPercentage_Default
     {
         [UsedImplicitly]
@@ -55,7 +55,7 @@ namespace BannerlordCheats.Patches.Combat
                 ref __result);
     }
 
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
+    //[HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class PartyDamageTakenPercentage_Sandbox
     {
         [UsedImplicitly]
