@@ -13,6 +13,7 @@ namespace BannerlordCheats.Settings
     {
         private const string ModName = "ModName";
         private const string Understood = "Understood";
+        private const string Global = "Global";
 
         public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}_Global";
 
@@ -21,15 +22,19 @@ namespace BannerlordCheats.Settings
         public BannerlordCheatsGlobalSettings()
         {
             string modName;
+            string global;
 
             try { modName = L10N.GetText(BannerlordCheatsGlobalSettings.ModName); }
             catch { modName = "Cheats"; }
+
+            try { global = L10N.GetText(BannerlordCheatsGlobalSettings.Global); }
+            catch { global = "Global"; }
 
             var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             version = Regex.Replace(version, @"\.0", string.Empty);
             if (!version.Contains(".")) {  version += ".0"; }
 
-            this.DisplayName = $"{modName} {version}";
+            this.DisplayName = $"{modName} {version} ({global})";
         }
 
         [UsedImplicitly]

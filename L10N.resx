@@ -955,4 +955,7 @@ Thank you!</value>
   <data name="ThanksForReadingMessage" xml:space="preserve">
     <value>Thanks for reading and understanding!</value>
   </data>
+  <data name="Global" xml:space="preserve">
+    <value>Global</value>
+  </data>
 </root>

@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Text.RegularExpressions;
 using MCM.Abstractions.Base.PerSave;
+using TaleWorlds.CampaignSystem;
 
 namespace BannerlordCheats.Settings
 {
@@ -33,7 +34,19 @@ namespace BannerlordCheats.Settings
 
         public override string FolderName { get; } = "Cheats";
 
-        public override string DisplayName { get; }
+        private string DisplayNameCore { get; }
+        public override string DisplayName {
+            get
+            {
+                var name = Hero.MainHero?.FirstName.ToString();
+                if (Hero.MainHero?.Clan?.Name != null)
+                {
+                    name += $" {Hero.MainHero?.Clan?.Name}";
+                }
+
+                return string.Format(this.DisplayNameCore, name);
+            }
+        }
 
         #endregion Base
 
@@ -48,7 +61,7 @@ namespace BannerlordCheats.Settings
             version = Regex.Replace(version, @"\.0", string.Empty);
             if (!version.Contains(".")) {  version += ".0"; }
 
-            this.DisplayName = $"{modName} {version}";
+            this.DisplayNameCore = $"{modName} {version} ({{0}})";
         }
 
         #region General
