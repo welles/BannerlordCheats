@@ -943,4 +943,16 @@ Thank you!</value>
   <data name="ChangePlayerConfirm" xml:space="preserve">
     <value>Change!</value>
   </data>
+  <data name="IUnderstand_Name" xml:space="preserve">
+    <value>Load a campaign to see cheats!</value>
+  </data>
+  <data name="IUnderstand_Desc" xml:space="preserve">
+    <value>Cheats are saved per character! They only show up when you are in a campaign. Press ESC, then go to Options → Mod Options → Cheats while in a campaign.</value>
+  </data>
+  <data name="Understood" xml:space="preserve">
+    <value>Understood!</value>
+  </data>
+  <data name="ThanksForReadingMessage" xml:space="preserve">
+    <value>Thanks for reading and understanding!</value>
+  </data>
 </root>
