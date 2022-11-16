@@ -20,9 +20,9 @@ namespace BannerlordCheats.Patches.Kingdom
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.DecisionOverrideInfluenceCostPercentage < 100f)
+                if (SettingsManager.DecisionOverrideInfluenceCostPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.DecisionOverrideInfluenceCostPercentage / 100.0f;
+                    var factor = SettingsManager.DecisionOverrideInfluenceCostPercentage.Value / 100.0f;
 
                     var newValue = __result * factor;
 

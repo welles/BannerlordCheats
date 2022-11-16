@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Characters
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.NoBarterCooldown == true)
+                if (SettingsManager.NoBarterCooldown.IsChanged)
                 {
                     __result = true;
                 }

@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Sieges
             try
             {
                 if (side.IsPlayerSide()
-                    && BannerlordCheatsSettings.Instance?.SiegeBuildingSpeedMultiplier > 1f)
+                    && SettingsManager.SiegeBuildingSpeedMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.SiegeBuildingSpeedMultiplier;
+                    __result *= SettingsManager.SiegeBuildingSpeedMultiplier.Value;
                 }
             }
             catch (Exception e)

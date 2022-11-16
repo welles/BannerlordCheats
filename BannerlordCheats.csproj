@@ -248,4 +248,13 @@
       </Reference>
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Update="Settings\Default.cs">
+        <DependentUpon>SettingsManager.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Settings\CheatValue.cs">
+        <DependentUpon>SettingsManager.cs</DependentUpon>
+      </Compile>
+    </ItemGroup>
+
 </Project>

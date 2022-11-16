@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.Combat
                 if (Mission.Current != null
                     && Agent.Main != null
                     && MBCommon.IsPaused != true
-                    && BannerlordCheatsSettings.Instance?.HealthRegeneration > 0f)
+                    && SettingsManager.HealthRegeneration.IsChanged)
                 {
                     var now = DateTime.Now.Second;
 
@@ -35,7 +35,7 @@ namespace BannerlordCheats.Patches.Combat
 
                         if (health < maxHealth)
                         {
-                            float regen = (BannerlordCheatsSettings.Instance.HealthRegeneration / maxHealth) * 100;
+                            float regen = (SettingsManager.HealthRegeneration.Value / maxHealth) * 100;
                             float newHealth = (float) Math.Round(health + regen);
 
                             Agent.Main.Health = Math.Min(maxHealth, newHealth);

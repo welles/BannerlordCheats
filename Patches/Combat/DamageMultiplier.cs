@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Combat
             {
                 if (attackInformation.IsAttackerPlayer
                     && !attackInformation.IsFriendlyFire
-                    && BannerlordCheatsSettings.Instance?.DamageMultiplier > 1f)
+                    && SettingsManager.DamageMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.DamageMultiplier;
+                    __result *= SettingsManager.DamageMultiplier.Value;
                 }
             }
             catch (Exception e)

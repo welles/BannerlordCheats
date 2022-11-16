@@ -10,9 +10,9 @@
         {
             if (struckTroop.IsHero()
                 && struckParty.IsPlayerKingdom()
-                && BannerlordCheatsSettings.Instance?.FriendlyLordCombatDeathPercentage < 100f)
+                && SettingsManager.FriendlyLordCombatDeathPercentage.IsChanged)
             {
-                var factor = BannerlordCheatsSettings.Instance.FriendlyLordCombatDeathPercentage / 100f;
+                var factor = SettingsManager.FriendlyLordCombatDeathPercentage.Value / 100f;
 
                 __result = (int) Math.Round(__result / factor);
             }

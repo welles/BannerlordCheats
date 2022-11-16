@@ -23,9 +23,9 @@ namespace BannerlordCheats.Patches.Combat
             {
                 if (effectedAgent.IsHero()
                     && effectedAgent.IsPlayerEnemy()
-                    && BannerlordCheatsSettings.Instance?.EnemyLordCombatDeathChanceMultiplier > 1.0f)
+                    && SettingsManager.EnemyLordCombatDeathChanceMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.EnemyLordCombatDeathChanceMultiplier;
+                    __result *= SettingsManager.EnemyLordCombatDeathChanceMultiplier.Value;
                 }
             }
             catch (Exception e)

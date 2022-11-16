@@ -19,10 +19,10 @@ namespace BannerlordCheats.Patches.Characters
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.PregnancyChanceMultiplier > 1.0f
+                if (SettingsManager.PregnancyChanceMultiplier.IsChanged
                     && (hero.IsPlayer() || hero.Spouse.IsPlayer()))
                 {
-                    __result *= BannerlordCheatsSettings.Instance.PregnancyChanceMultiplier;
+                    __result *= SettingsManager.PregnancyChanceMultiplier.Value;
                 }
             }
             catch (Exception e)

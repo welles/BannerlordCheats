@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Kingdom
             try
             {
                 if (__instance.SupporterList.Any(x => x.IsPlayer)
-                    && BannerlordCheatsSettings.Instance?.KingdomDecisionWeightMultiplier > 1f)
+                    && SettingsManager.KingdomDecisionWeightMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.KingdomDecisionWeightMultiplier;
+                    __result *= SettingsManager.KingdomDecisionWeightMultiplier.Value;
                 }
             }
             catch (Exception e)

@@ -21,7 +21,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (victimAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.NeverKnockedBackByAttacks == true)
+                    && SettingsManager.NeverKnockedBackByAttacks.IsChanged)
                 {
                     blow.BlowFlag &= ~BlowFlags.KnockDown;
                     blow.BlowFlag &= ~BlowFlags.KnockBack;

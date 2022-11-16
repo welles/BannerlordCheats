@@ -19,7 +19,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (attacker.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.SliceThroughEveryone == true)
+                    && SettingsManager.SliceThroughEveryone.IsChanged)
                 {
                     __result = MeleeCollisionReaction.SlicedThrough;
                 }

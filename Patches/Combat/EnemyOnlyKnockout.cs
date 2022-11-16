@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (effectedAgent.IsPlayerEnemy()
-                    && BannerlordCheatsSettings.Instance?.EnemyOnlyKnockout == true)
+                    && SettingsManager.EnemyOnlyKnockout.IsChanged)
                 {
                     __result = 0f;
                 }

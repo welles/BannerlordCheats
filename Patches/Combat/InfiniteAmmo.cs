@@ -27,7 +27,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (shooterAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.InfiniteAmmo == true)
+                    && SettingsManager.InfiniteAmmo.IsChanged)
                 {
                     for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
                     {

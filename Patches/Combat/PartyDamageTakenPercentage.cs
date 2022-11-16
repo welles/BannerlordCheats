@@ -22,9 +22,9 @@ namespace BannerlordCheats.Patches.Combat
                 if ( attackInformation.VictimAgentOrigin.TryGetParty(out var party)
                      && party.IsPlayerParty()
                      && !attackInformation.IsVictimPlayer
-                     && BannerlordCheatsSettings.Instance?.PartyDamageTakenPercentage < 100f)
+                     && SettingsManager.PartyDamageTakenPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.PartyDamageTakenPercentage / 100f;
+                    var factor = SettingsManager.PartyDamageTakenPercentage.Value / 100f;
 
                     var newValue = (int)Math.Round(factor * __result);
 

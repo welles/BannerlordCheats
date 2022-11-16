@@ -18,7 +18,7 @@ namespace BannerlordCheats.Patches.Settlements
             try
             {
                 if (buyerHero.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.FreeTroopRecruitment == true)
+                    && SettingsManager.FreeTroopRecruitment.IsChanged)
                 {
                     __result = 1;
                 }

@@ -10,9 +10,9 @@
         {
             if (struckTroop.IsHero()
                 && !struckParty.IsPlayerKingdom()
-                && BannerlordCheatsSettings.Instance?.EnemyLordCombatDeathPercentage < 100f)
+                && SettingsManager.EnemyLordCombatDeathPercentage.IsChanged)
             {
-                var factor = BannerlordCheatsSettings.Instance.EnemyLordCombatDeathPercentage / 100f;
+                var factor = SettingsManager.EnemyLordCombatDeathPercentage.Value / 100f;
 
                 __result = (int) Math.Round(__result / factor);
             }

@@ -16,9 +16,9 @@ namespace BannerlordCheats.Patches.Workshops
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.WorkshopBuyingCostPercentage < 100f)
+                if (SettingsManager.WorkshopBuyingCostPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.WorkshopBuyingCostPercentage / 100f;
+                    var factor = SettingsManager.WorkshopBuyingCostPercentage.Value / 100f;
 
                     __result = (int) (__result * factor);
                 }

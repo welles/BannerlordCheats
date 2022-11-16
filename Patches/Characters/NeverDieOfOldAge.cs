@@ -20,7 +20,7 @@ namespace BannerlordCheats.Patches.Characters
             try
             {
                 if (victim.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.NeverDieOfOldAge == true)
+                    && SettingsManager.NeverDieOfOldAge.IsChanged)
                 {
                     return false;
                 }

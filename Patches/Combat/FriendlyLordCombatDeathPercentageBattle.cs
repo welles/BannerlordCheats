@@ -23,9 +23,9 @@ namespace BannerlordCheats.Patches.Combat
             {
                 if (effectedAgent.IsHero()
                     &&effectedAgent.IsPlayerAlly()
-                    && BannerlordCheatsSettings.Instance?.FriendlyLordCombatDeathPercentage < 100f)
+                    && SettingsManager.FriendlyLordCombatDeathPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.FriendlyLordCombatDeathPercentage / 100f;
+                    var factor = SettingsManager.FriendlyLordCombatDeathPercentage.Value / 100f;
 
                     __result *= factor;
                 }

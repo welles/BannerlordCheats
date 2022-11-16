@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Experience
             {
                 if (!hero.IsPlayer()
                     && hero.IsPlayerCompanion()
-                    && BannerlordCheatsSettings.Instance?.CompanionExperienceMultiplier > 1f)
+                    && SettingsManager.CompanionExperienceMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.CompanionExperienceMultiplier;
+                    __result *= SettingsManager.CompanionExperienceMultiplier.Value;
                 }
             }
             catch (Exception e)

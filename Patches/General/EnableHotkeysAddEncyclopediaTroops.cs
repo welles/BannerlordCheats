@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.General
             {
                 if (__instance is EncyclopediaUnitPageVM
                     && __instance.Obj is CharacterObject characterObject
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                    && SettingsManager.EnableHotkeys.Value)
                 {
                     if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftShift, InputKey.LeftControl))
                     {

@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Map
             try
             {
                 if (party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.MapVisibilityMultiplier > 1f)
+                    && SettingsManager.MapVisibilityMultiplier.IsChanged)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapVisibilityMultiplier);
+                    __result.AddMultiplier(SettingsManager.MapVisibilityMultiplier.Value);
                 }
             }
             catch (Exception e)

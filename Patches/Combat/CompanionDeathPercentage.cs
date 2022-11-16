@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (effectedAgent.IsPlayerCompanion()
-                    && BannerlordCheatsSettings.Instance?.CompanionDeathPercentage < 100f)
+                    && SettingsManager.CompanionDeathPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.CompanionDeathPercentage / 100f;
+                    var factor = SettingsManager.CompanionDeathPercentage.Value / 100f;
 
                     __result *= factor;
                 }

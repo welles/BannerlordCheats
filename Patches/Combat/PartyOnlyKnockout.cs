@@ -19,7 +19,7 @@ namespace BannerlordCheats.Patches.Combat
                 if (effectedAgent.Origin.TryGetParty(out var party)
                     && party.IsPlayerParty()
                     && !effectedAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.PartyOnlyKnockout == true)
+                    && SettingsManager.PartyOnlyKnockout.IsChanged)
                 {
                     __result = 0f;
                 }

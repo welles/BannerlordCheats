@@ -21,7 +21,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (attackerAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.AlwaysKnockDown == true)
+                    && SettingsManager.AlwaysKnockDown.IsChanged)
                 {
                     blow.BlowFlag &= ~BlowFlags.ShrugOff;
                     blow.BlowFlag |= BlowFlags.KnockDown;

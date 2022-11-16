@@ -25,7 +25,7 @@ namespace BannerlordCheats.Patches.General
                 if (__instance is EncyclopediaSettlementPageVM
                     && __instance.Obj is Settlement settlement
                     && (settlement.IsCastle || settlement.IsTown)
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                    && SettingsManager.EnableHotkeys.Value)
                 {
                     if (Keys.IsKeyPressed(InputKey.H, InputKey.LeftControl))
                     {

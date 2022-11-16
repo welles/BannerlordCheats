@@ -23,9 +23,9 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.InfluenceRewardMultiplier > 1f)
+                    && SettingsManager.InfluenceRewardMultiplier.IsChanged)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.InfluenceRewardMultiplier);
+                    __result.AddMultiplier(SettingsManager.InfluenceRewardMultiplier.Value);
                 }
             }
             catch (Exception e)

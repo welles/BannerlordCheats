@@ -1,34 +1,47 @@
-﻿using System.Reflection;
+﻿using BannerlordCheats.Localization;
+using System.Reflection;
 using System.Text.RegularExpressions;
-using BannerlordCheats.Localization;
-using JetBrains.Annotations;
-using MCM.Abstractions.Base.Global;
+using MCM.Abstractions.Base.PerSave;
+using TaleWorlds.CampaignSystem;
 
 namespace BannerlordCheats.Settings
 {
-    [UsedImplicitly]
-    public class BannerlordCheatsGlobalSettings : AttributeGlobalSettings<BannerlordCheatsGlobalSettings>
+    public class BannerlordCheatsPerSaveSettings : AttributePerSaveSettings<BannerlordCheatsPerSaveSettings>
     {
-        public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}_Global";
+        #region Base
 
-        public override string DisplayName { get; }
+        public override string Id { get; } = $"BannerlordCheats_v{Assembly.GetExecutingAssembly().GetName().Version.Major}";
 
-        public BannerlordCheatsGlobalSettings()
+        public override string FolderName { get; } = "Cheats";
+
+        private string DisplayNameCore { get; }
+        public override string DisplayName {
+            get
+            {
+                var name = Hero.MainHero?.FirstName.ToString();
+                if (Hero.MainHero?.Clan?.Name != null)
+                {
+                    name += $" {Hero.MainHero?.Clan?.Name}";
+                }
+
+                return string.Format(this.DisplayNameCore, name);
+            }
+        }
+
+        #endregion Base
+
+        public BannerlordCheatsPerSaveSettings()
         {
             string modName;
-            string global;
 
             try { modName = L10N.GetText(L10N.Keys.ModName); }
             catch { modName = "Cheats"; }
-
-            try { global = L10N.GetText(L10N.Keys.Global); }
-            catch { global = "Global"; }
 
             var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             version = Regex.Replace(version, @"\.0", string.Empty);
             if (!version.Contains(".")) {  version += ".0"; }
 
-            this.DisplayName = $"{modName} {version} ({global})";
+            this.DisplayNameCore = $"{modName} {version} ({{0}})";
         }
 
         #region General

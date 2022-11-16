@@ -37,7 +37,7 @@ namespace BannerlordCheats.Patches.Inventory
                 if (party.IsPlayerParty()
                     && !isTrading
                     && !Game.Current.CheatMode
-                    && BannerlordCheatsSettings.Instance?.NativeItemSpawning == true)
+                    && SettingsManager.NativeItemSpawning.IsChanged)
                 {
                     var objectTypeList = Game.Current.ObjectManager.GetObjectTypeList<ItemObject>();
                     for (var index = 0; index != objectTypeList.Count; ++index)
