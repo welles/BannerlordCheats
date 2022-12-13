@@ -846,13 +846,6 @@
   <data name="AdjustPregnancyDuration_Desc" xml:space="preserve">
     <value>Adjust the length of pregnancies for all characters in the game. The default length of a pregnancy is 36 days.</value>
   </data>
-  <data name="ModWarningMessage" xml:space="preserve">
-    <value>Thank you for using the Cheats mod!
-Please remember that the cheats only show up when you have a campaign loaded.
-You can access them by pressing ESC, then going to Options → Mod Options → Cheats.
-Also please use the cheats responsibly and backup your save files. Some cheats might have unintended side effects or might break your game completely.
-Thank you!</value>
-  </data>
   <data name="ModWarningMessageConfirm" xml:space="preserve">
     <value>I Understand</value>
   </data>
@@ -860,10 +853,8 @@ Thank you!</value>
     <value>Bannerlord Cheats failed to load!</value>
   </data>
   <data name="ModFailedLoadWarningMessage" xml:space="preserve">
-    <value>This is most likely due to a version mismatch between the game and the mod. Please check if you have the correct mod version for your version of the game.
-If you do, please send the error information that has been generated in the file "{0}" to the mod author so that they can investigate this issue.
-You can still play the game, but most cheats will not work.
-Thank you!</value>
+    <value>Bannerlord Cheats could not load some cheats. Do you have the correct mod version for your game version? The following cheats failed to load:
+{0}</value>
   </data>
   <data name="EnemyLordCombatDeathChanceMultiplier_Name" xml:space="preserve">
     <value>Enemy Lord Combat Death Chance Multiplier</value>
