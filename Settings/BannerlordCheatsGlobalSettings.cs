@@ -13,6 +13,10 @@ namespace BannerlordCheats.Settings
 
         public override string DisplayName { get; }
 
+        public override string FolderName => "Cheats";
+
+        public override string FormatType => "json2";
+
         public BannerlordCheatsGlobalSettings()
         {
             string modName;
