@@ -138,10 +138,6 @@ namespace BannerlordCheats.Settings
         public bool PartyOneHitKill { get; set; } = SettingsManager.Default.PartyOneHitKill;
 
         [LocalizedSettingPropertyGroup(L10N.Keys.CombatPartyGroupName)]
-        [LocalizedSettingPropertyBool(nameof(PartyOnlyKnockout))]
-        public bool PartyOnlyKnockout { get; set; } = SettingsManager.Default.PartyOnlyKnockout;
-
-        [LocalizedSettingPropertyGroup(L10N.Keys.CombatPartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(NoRunningAway))]
         public bool NoRunningAway { get; set; } = SettingsManager.Default.NoRunningAway;
 
@@ -161,25 +157,15 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(NoFriendlyFire))]
         public bool NoFriendlyFire { get; set; } = SettingsManager.Default.NoFriendlyFire;
 
-        [LocalizedSettingPropertyGroup(L10N.Keys.CombatPartyGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(CompanionDeathPercentage))]
-        public float CompanionDeathPercentage { get; set; } = SettingsManager.Default.CompanionDeathPercentage;
-
         #endregion Combat - Party
 
         #region Combat - Allies
 
-        [LocalizedSettingPropertyGroup(L10N.Keys.CombatAlliesGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(FriendlyLordCombatDeathPercentage))]
-        public float FriendlyLordCombatDeathPercentage { get; set; } = SettingsManager.Default.FriendlyLordCombatDeathPercentage;
+
 
         #endregion Combat - Allies
 
         #region Combat - Enemies
-
-        [LocalizedSettingPropertyGroup(L10N.Keys.CombatEnemiesGroupName)]
-        [LocalizedSettingPropertyBool(nameof(EnemyOnlyKnockout))]
-        public bool EnemyOnlyKnockout { get; set; } = SettingsManager.Default.EnemyOnlyKnockout;
 
         [LocalizedSettingPropertyGroup(L10N.Keys.CombatEnemiesGroupName)]
         [LocalizedSettingPropertyBool(nameof(EnemiesNoRunningAway))]
@@ -188,14 +174,6 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyGroup(L10N.Keys.CombatEnemiesGroupName)]
         [LocalizedSettingPropertyPercent(nameof(EnemyDamagePercentage))]
         public float EnemyDamagePercentage { get; set; } = SettingsManager.Default.EnemyDamagePercentage;
-
-        [LocalizedSettingPropertyGroup(L10N.Keys.CombatEnemiesGroupName)]
-        [LocalizedSettingPropertyPercent(nameof(EnemyLordCombatDeathPercentage))]
-        public float EnemyLordCombatDeathPercentage { get; set; } = SettingsManager.Default.EnemyLordCombatDeathPercentage;
-
-        [LocalizedSettingPropertyGroup(L10N.Keys.CombatEnemiesGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(EnemyLordCombatDeathChanceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
-        public float EnemyLordCombatDeathChanceMultiplier { get; set; } = SettingsManager.Default.EnemyLordCombatDeathChanceMultiplier;
 
         #endregion Combat - Enemies
 

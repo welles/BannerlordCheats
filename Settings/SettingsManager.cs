@@ -202,14 +202,6 @@ namespace BannerlordCheats.Settings
                     ? new CheatValue<bool>(true, SettingsManager.GlobalInstance.PartyOneHitKill)
                     : new CheatValue<bool>(false, Default.PartyOneHitKill);
 
-        public static CheatValue<bool> PartyOnlyKnockout =>
-            SettingsManager.IsPerSaveInstanceLoaded &&
-            SettingsManager.PerSaveInstance.PartyOnlyKnockout != Default.PartyOnlyKnockout
-                ? new CheatValue<bool>(true, SettingsManager.PerSaveInstance.PartyOnlyKnockout)
-                : SettingsManager.GlobalInstance.PartyOnlyKnockout != Default.PartyOnlyKnockout
-                    ? new CheatValue<bool>(true, SettingsManager.GlobalInstance.PartyOnlyKnockout)
-                    : new CheatValue<bool>(false, Default.PartyOnlyKnockout);
-
         public static CheatValue<bool> NoRunningAway =>
             SettingsManager.IsPerSaveInstanceLoaded &&
             SettingsManager.PerSaveInstance.NoRunningAway != Default.NoRunningAway
@@ -248,36 +240,15 @@ namespace BannerlordCheats.Settings
                     ? new CheatValue<bool>(true, SettingsManager.GlobalInstance.NoFriendlyFire)
                     : new CheatValue<bool>(false, Default.NoFriendlyFire);
 
-        public static CheatValue<float> CompanionDeathPercentage =>
-            SettingsManager.IsPerSaveInstanceLoaded && SettingsManager.PerSaveInstance.CompanionDeathPercentage != Default.CompanionDeathPercentage
-                ? new CheatValue<float>(true, SettingsManager.PerSaveInstance.CompanionDeathPercentage)
-                : SettingsManager.GlobalInstance.CompanionDeathPercentage != Default.CompanionDeathPercentage
-                    ? new CheatValue<float>(true, SettingsManager.GlobalInstance.CompanionDeathPercentage)
-                    : new CheatValue<float>(false, Default.CompanionDeathPercentage);
-
         #endregion Combat - Party
 
         #region Combat - Allies
 
-        public static CheatValue<float> FriendlyLordCombatDeathPercentage =>
-            SettingsManager.IsPerSaveInstanceLoaded &&
-            SettingsManager.PerSaveInstance.FriendlyLordCombatDeathPercentage != Default.FriendlyLordCombatDeathPercentage
-                ? new CheatValue<float>(true, SettingsManager.PerSaveInstance.FriendlyLordCombatDeathPercentage)
-                : SettingsManager.GlobalInstance.FriendlyLordCombatDeathPercentage != Default.FriendlyLordCombatDeathPercentage
-                    ? new CheatValue<float>(true, SettingsManager.GlobalInstance.FriendlyLordCombatDeathPercentage)
-                    : new CheatValue<float>(false, Default.FriendlyLordCombatDeathPercentage);
+
 
         #endregion Combat - Allies
 
         #region Combat - Enemies
-
-        public static CheatValue<bool> EnemyOnlyKnockout =>
-            SettingsManager.IsPerSaveInstanceLoaded &&
-            SettingsManager.PerSaveInstance.EnemyOnlyKnockout != Default.EnemyOnlyKnockout
-                ? new CheatValue<bool>(true, SettingsManager.PerSaveInstance.EnemyOnlyKnockout)
-                : SettingsManager.GlobalInstance.EnemyOnlyKnockout != Default.EnemyOnlyKnockout
-                    ? new CheatValue<bool>(true, SettingsManager.GlobalInstance.EnemyOnlyKnockout)
-                    : new CheatValue<bool>(false, Default.EnemyOnlyKnockout);
 
         public static CheatValue<bool> EnemiesNoRunningAway =>
             SettingsManager.IsPerSaveInstanceLoaded &&
@@ -293,21 +264,6 @@ namespace BannerlordCheats.Settings
                 : SettingsManager.GlobalInstance.EnemyDamagePercentage != Default.EnemyDamagePercentage
                     ? new CheatValue<float>(true, SettingsManager.GlobalInstance.EnemyDamagePercentage)
                     : new CheatValue<float>(false, Default.EnemyDamagePercentage);
-
-        public static CheatValue<float> EnemyLordCombatDeathPercentage =>
-            SettingsManager.IsPerSaveInstanceLoaded && SettingsManager.PerSaveInstance.EnemyLordCombatDeathPercentage != Default.EnemyLordCombatDeathPercentage
-                ? new CheatValue<float>(true, SettingsManager.PerSaveInstance.EnemyLordCombatDeathPercentage)
-                : SettingsManager.GlobalInstance.EnemyLordCombatDeathPercentage != Default.EnemyLordCombatDeathPercentage
-                    ? new CheatValue<float>(true, SettingsManager.GlobalInstance.EnemyLordCombatDeathPercentage)
-                    : new CheatValue<float>(false, Default.EnemyLordCombatDeathPercentage);
-
-        public static CheatValue<float> EnemyLordCombatDeathChanceMultiplier =>
-            SettingsManager.IsPerSaveInstanceLoaded &&
-            SettingsManager.PerSaveInstance.EnemyLordCombatDeathChanceMultiplier != Default.EnemyLordCombatDeathChanceMultiplier
-                ? new CheatValue<float>(true, SettingsManager.PerSaveInstance.EnemyLordCombatDeathChanceMultiplier)
-                : SettingsManager.GlobalInstance.EnemyLordCombatDeathChanceMultiplier != Default.EnemyLordCombatDeathChanceMultiplier
-                    ? new CheatValue<float>(true, SettingsManager.GlobalInstance.EnemyLordCombatDeathChanceMultiplier)
-                    : new CheatValue<float>(false, Default.EnemyLordCombatDeathChanceMultiplier);
 
         #endregion Combat - Enemies
 
