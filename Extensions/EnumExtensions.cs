@@ -1,5 +1,7 @@
 ﻿using System;
+using BannerlordCheats.Localization;
 using BannerlordCheats.Settings;
+using MCM.Common;
 using TaleWorlds.Core;
 
 namespace BannerlordCheats.Extensions
@@ -22,6 +24,12 @@ namespace BannerlordCheats.Extensions
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
             }
+        }
+
+        public static T GetValue<T>(this Dropdown<LocalizedDropdownValue<T>> dropdown)
+            where T : Enum
+        {
+            return (T)(object)dropdown.SelectedIndex;
         }
     }
 }
