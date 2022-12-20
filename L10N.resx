@@ -917,7 +917,7 @@
     <value>Default</value>
   </data>
   <data name="Enum_KnockoutOrKilled_Knockout" xml:space="preserve">
-    <value>Knocket out</value>
+    <value>Knocked out</value>
   </data>
   <data name="Enum_KnockoutOrKilled_Killed" xml:space="preserve">
     <value>Killed</value>
