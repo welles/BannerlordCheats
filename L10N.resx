@@ -913,4 +913,13 @@
   <data name="Global" xml:space="preserve">
     <value>Global</value>
   </data>
+  <data name="Enum_KnockoutOrKilled_Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Enum_KnockoutOrKilled_Knockout" xml:space="preserve">
+    <value>Knocket out</value>
+  </data>
+  <data name="Enum_KnockoutOrKilled_Killed" xml:space="preserve">
+    <value>Killed</value>
+  </data>
 </root>
