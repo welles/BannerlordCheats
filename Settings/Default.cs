@@ -94,6 +94,8 @@
 
             #region Combat - Enemies
 
+            public const KnockoutOrKilled EnemyLordsKnockoutOrKilled = KnockoutOrKilled.Default;
+
             public const bool EnemyOnlyKnockout = false;
 
             public const bool EnemiesNoRunningAway = false;

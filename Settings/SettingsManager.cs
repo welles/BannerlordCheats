@@ -274,6 +274,14 @@ namespace BannerlordCheats.Settings
 
         #region Combat - Enemies
 
+        public static CheatValue<KnockoutOrKilled> EnemyLordsKnockoutOrKilled =>
+            SettingsManager.IsPerSaveInstanceLoaded &&
+            SettingsManager.PerSaveInstance.EnemyLordsKnockoutOrKilled.GetValue() != Default.EnemyLordsKnockoutOrKilled
+                ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.PerSaveInstance.EnemyLordsKnockoutOrKilled.GetValue())
+                : SettingsManager.GlobalInstance.EnemyLordsKnockoutOrKilled.GetValue() != Default.EnemyLordsKnockoutOrKilled
+                    ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.GlobalInstance.EnemyLordsKnockoutOrKilled.GetValue())
+                    : new CheatValue<KnockoutOrKilled>(false, Default.EnemyLordsKnockoutOrKilled);
+
         public static CheatValue<bool> EnemiesNoRunningAway =>
             SettingsManager.IsPerSaveInstanceLoaded &&
             SettingsManager.PerSaveInstance.EnemiesNoRunningAway != Default.EnemiesNoRunningAway

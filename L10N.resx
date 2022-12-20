@@ -940,4 +940,10 @@
   <data name="FriendlyLordsKnockoutOrKilled_Desc" xml:space="preserve">
     <value>When this is set, allied lords are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
   </data>
+  <data name="EnemyLordsKnockoutOrKilled_Name" xml:space="preserve">
+    <value>Enemy Lords Knocked Out or Killed</value>
+  </data>
+  <data name="EnemyLordsKnockoutOrKilled_Desc" xml:space="preserve">
+    <value>When this is set, enemy lords are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
+  </data>
 </root>
