@@ -216,12 +216,6 @@
   <data name="PartyOneHitKill_Desc" xml:space="preserve">
     <value>Party members kill enemies with one hit.</value>
   </data>
-  <data name="PartyOnlyKnockout_Name" xml:space="preserve">
-    <value>Party Only Knockout</value>
-  </data>
-  <data name="PartyOnlyKnockout_Desc" xml:space="preserve">
-    <value>Party members are never killed, only knocked unconcious.</value>
-  </data>
   <data name="RenownRewardMultiplier_Name" xml:space="preserve">
     <value>Renown Reward Multiplier</value>
   </data>
@@ -543,12 +537,6 @@
   <data name="DamageMultiplier_Name" xml:space="preserve">
     <value>Damage Multiplier</value>
   </data>
-  <data name="EnemyOnlyKnockout_Desc" xml:space="preserve">
-    <value>Enemies are never killed, only knocked unconcious.</value>
-  </data>
-  <data name="EnemyOnlyKnockout_Name" xml:space="preserve">
-    <value>Enemy Only Knockout</value>
-  </data>
   <data name="NoFriendlyFire_Desc" xml:space="preserve">
     <value>Completely disable friendly fire for the player party.</value>
   </data>
@@ -762,18 +750,6 @@
   <data name="PlayerHorseInvincible_Desc" xml:space="preserve">
     <value>Disables all damage to the horse the player is currently riding.</value>
   </data>
-  <data name="FriendlyLordCombatDeathPercentage_Name" xml:space="preserve">
-    <value>Friendly Lord Combat Death Percentage</value>
-  </data>
-  <data name="FriendlyLordCombatDeathPercentage_Desc" xml:space="preserve">
-    <value>Percentage of chance of allied lords dying during combat. 100% means default chance, 0% means lords never die.</value>
-  </data>
-  <data name="EnemyLordCombatDeathPercentage_Name" xml:space="preserve">
-    <value>Enemy Lord Combat Death Percentage</value>
-  </data>
-  <data name="EnemyLordCombatDeathPercentage_Desc" xml:space="preserve">
-    <value>Percentage of chance of enemy lords dying during combat. 100% means default chance, 0% means lords never die.</value>
-  </data>
   <data name="AlwaysKnockDown_Name" xml:space="preserve">
     <value>Always Knock Down</value>
   </data>
@@ -791,12 +767,6 @@
   </data>
   <data name="EnableHotkeyTips_Desc" xml:space="preserve">
     <value>Enable to see a list of available cheat hotkeys in every screen that has any.</value>
-  </data>
-  <data name="CompanionDeathPercentage_Name" xml:space="preserve">
-    <value>Player Companion Death Percentage</value>
-  </data>
-  <data name="CompanionDeathPercentage_Desc" xml:space="preserve">
-    <value>Percentage of chance of player companions dying during combat. 100% means default chance, 0% means companions never die.</value>
   </data>
   <data name="NativeItemSpawning_Name" xml:space="preserve">
     <value>Spawn Items</value>
@@ -855,12 +825,6 @@
   <data name="ModFailedLoadWarningMessage" xml:space="preserve">
     <value>Bannerlord Cheats could not load some cheats. Do you have the correct mod version for your game version? The following cheats failed to load:
 {0}</value>
-  </data>
-  <data name="EnemyLordCombatDeathChanceMultiplier_Name" xml:space="preserve">
-    <value>Enemy Lord Combat Death Chance Multiplier</value>
-  </data>
-  <data name="EnemyLordCombatDeathChanceMultiplier_Desc" xml:space="preserve">
-    <value>Factor by which the chance of enemy lords dying in combat is multiplied. 1 means default death chance.</value>
   </data>
   <data name="NeverKnockedBackByAttacks_Desc" xml:space="preserve">
     <value>If enabled the player character is never knocked back or stunned by enemy attacks.</value>
