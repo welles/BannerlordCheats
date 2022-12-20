@@ -56,6 +56,8 @@
 
             #region Combat - Party
 
+            public const KnockoutOrKilled PartyKnockoutOrKilled = KnockoutOrKilled.Default;
+
             public const bool PartyInvincible = false;
 
             public const bool PartyHeroesInvincible = false;

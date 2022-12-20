@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using BannerlordCheats.Localization;
 using JetBrains.Annotations;
 using MCM.Abstractions.Base.Global;
+using MCM.Common;
 
 namespace BannerlordCheats.Settings
 {
@@ -124,6 +125,10 @@ namespace BannerlordCheats.Settings
         #endregion Combat - Player
 
         #region Combat - Party
+
+        [LocalizedSettingPropertyGroup(L10N.Keys.CombatPartyGroupName)]
+        [LocalizedSettingPropertyDropdown(nameof(PartyKnockoutOrKilled), SettingsManager.Default.PartyKnockoutOrKilled)]
+        public Dropdown<LocalizedDropdownValue<KnockoutOrKilled>> PartyKnockoutOrKilled { get; set; } = LocalizedDropdownValue<KnockoutOrKilled>.GenerateDropdown(SettingsManager.Default.PartyKnockoutOrKilled);
 
         [LocalizedSettingPropertyGroup(L10N.Keys.CombatPartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvincible))]

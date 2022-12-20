@@ -922,4 +922,10 @@
   <data name="Enum_KnockoutOrKilled_Killed" xml:space="preserve">
     <value>Killed</value>
   </data>
+  <data name="PartyKnockoutOrKilled_Name" xml:space="preserve">
+    <value>Party Knocked Out or Killed</value>
+  </data>
+  <data name="PartyKnockoutOrKilled_Desc" xml:space="preserve">
+    <value>When this is set, troops in your party are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
+  </data>
 </root>

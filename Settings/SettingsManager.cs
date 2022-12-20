@@ -1,4 +1,6 @@
 ﻿using System;
+using BannerlordCheats.Extensions;
+
 // ReSharper disable CompareOfFloatsByEqualityOperator
 
 namespace BannerlordCheats.Settings
@@ -171,6 +173,14 @@ namespace BannerlordCheats.Settings
         #endregion Combat - Player
 
         #region Combat - Party
+
+        public static CheatValue<KnockoutOrKilled> PartyKnockoutOrKilled =>
+            SettingsManager.IsPerSaveInstanceLoaded &&
+            SettingsManager.PerSaveInstance.PartyKnockoutOrKilled.GetValue() != Default.PartyKnockoutOrKilled
+                ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.PerSaveInstance.PartyKnockoutOrKilled.GetValue())
+                : SettingsManager.GlobalInstance.PartyKnockoutOrKilled.GetValue() != Default.PartyKnockoutOrKilled
+                    ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.GlobalInstance.PartyKnockoutOrKilled.GetValue())
+                    : new CheatValue<KnockoutOrKilled>(false, Default.PartyKnockoutOrKilled);
 
         public static CheatValue<bool> PartyInvincible =>
             SettingsManager.IsPerSaveInstanceLoaded &&
