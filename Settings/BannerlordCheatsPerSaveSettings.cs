@@ -140,6 +140,10 @@ namespace BannerlordCheats.Settings
         public Dropdown<LocalizedDropdownValue<KnockoutOrKilled>> PartyKnockoutOrKilled { get; set; } = LocalizedDropdownValue<KnockoutOrKilled>.GenerateDropdown(SettingsManager.Default.PartyKnockoutOrKilled);
 
         [LocalizedSettingPropertyGroup(L10N.Keys.CombatPartyGroupName)]
+        [LocalizedSettingPropertyDropdown(nameof(CompanionsKnockoutOrKilled), SettingsManager.Default.CompanionsKnockoutOrKilled)]
+        public Dropdown<LocalizedDropdownValue<KnockoutOrKilled>> CompanionsKnockoutOrKilled { get; set; } = LocalizedDropdownValue<KnockoutOrKilled>.GenerateDropdown(SettingsManager.Default.CompanionsKnockoutOrKilled);
+
+        [LocalizedSettingPropertyGroup(L10N.Keys.CombatPartyGroupName)]
         [LocalizedSettingPropertyBool(nameof(PartyInvincible))]
         public bool PartyInvincible { get; set; } = SettingsManager.Default.PartyInvincible;
 

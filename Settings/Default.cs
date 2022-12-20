@@ -58,6 +58,8 @@
 
             public const KnockoutOrKilled PartyKnockoutOrKilled = KnockoutOrKilled.Default;
 
+            public const KnockoutOrKilled CompanionsKnockoutOrKilled = KnockoutOrKilled.Default;
+
             public const bool PartyInvincible = false;
 
             public const bool PartyHeroesInvincible = false;

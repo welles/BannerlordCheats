@@ -182,6 +182,14 @@ namespace BannerlordCheats.Settings
                     ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.GlobalInstance.PartyKnockoutOrKilled.GetValue())
                     : new CheatValue<KnockoutOrKilled>(false, Default.PartyKnockoutOrKilled);
 
+        public static CheatValue<KnockoutOrKilled> CompanionsKnockoutOrKilled =>
+            SettingsManager.IsPerSaveInstanceLoaded &&
+            SettingsManager.PerSaveInstance.CompanionsKnockoutOrKilled.GetValue() != Default.CompanionsKnockoutOrKilled
+                ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.PerSaveInstance.CompanionsKnockoutOrKilled.GetValue())
+                : SettingsManager.GlobalInstance.CompanionsKnockoutOrKilled.GetValue() != Default.CompanionsKnockoutOrKilled
+                    ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.GlobalInstance.CompanionsKnockoutOrKilled.GetValue())
+                    : new CheatValue<KnockoutOrKilled>(false, Default.CompanionsKnockoutOrKilled);
+
         public static CheatValue<bool> PartyInvincible =>
             SettingsManager.IsPerSaveInstanceLoaded &&
             SettingsManager.PerSaveInstance.PartyInvincible != Default.PartyInvincible
