@@ -282,6 +282,14 @@ namespace BannerlordCheats.Settings
                     ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.GlobalInstance.EnemyLordsKnockoutOrKilled.GetValue())
                     : new CheatValue<KnockoutOrKilled>(false, Default.EnemyLordsKnockoutOrKilled);
 
+        public static CheatValue<KnockoutOrKilled> EnemyTroopsKnockoutOrKilled =>
+            SettingsManager.IsPerSaveInstanceLoaded &&
+            SettingsManager.PerSaveInstance.EnemyTroopsKnockoutOrKilled.GetValue() != Default.EnemyTroopsKnockoutOrKilled
+                ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.PerSaveInstance.EnemyTroopsKnockoutOrKilled.GetValue())
+                : SettingsManager.GlobalInstance.EnemyTroopsKnockoutOrKilled.GetValue() != Default.EnemyTroopsKnockoutOrKilled
+                    ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.GlobalInstance.EnemyTroopsKnockoutOrKilled.GetValue())
+                    : new CheatValue<KnockoutOrKilled>(false, Default.EnemyTroopsKnockoutOrKilled);
+
         public static CheatValue<bool> EnemiesNoRunningAway =>
             SettingsManager.IsPerSaveInstanceLoaded &&
             SettingsManager.PerSaveInstance.EnemiesNoRunningAway != Default.EnemiesNoRunningAway

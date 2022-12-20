@@ -946,4 +946,10 @@
   <data name="EnemyLordsKnockoutOrKilled_Desc" xml:space="preserve">
     <value>When this is set, enemy lords are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
   </data>
+  <data name="EnemyTroopsKnockoutOrKilled_Name" xml:space="preserve">
+    <value>Enemy Troops Knocked Out or Killed</value>
+  </data>
+  <data name="EnemyTroopsKnockoutOrKilled_Desc" xml:space="preserve">
+    <value>When this is set, enemy troops are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
+  </data>
 </root>

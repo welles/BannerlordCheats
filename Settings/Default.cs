@@ -96,6 +96,8 @@
 
             public const KnockoutOrKilled EnemyLordsKnockoutOrKilled = KnockoutOrKilled.Default;
 
+            public const KnockoutOrKilled EnemyTroopsKnockoutOrKilled = KnockoutOrKilled.Default;
+
             public const bool EnemyOnlyKnockout = false;
 
             public const bool EnemiesNoRunningAway = false;

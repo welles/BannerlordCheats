@@ -196,6 +196,10 @@ namespace BannerlordCheats.Settings
         public Dropdown<LocalizedDropdownValue<KnockoutOrKilled>> EnemyLordsKnockoutOrKilled { get; set; } = LocalizedDropdownValue<KnockoutOrKilled>.GenerateDropdown(SettingsManager.Default.EnemyLordsKnockoutOrKilled);
 
         [LocalizedSettingPropertyGroup(L10N.Keys.CombatEnemiesGroupName)]
+        [LocalizedSettingPropertyDropdown(nameof(EnemyTroopsKnockoutOrKilled), SettingsManager.Default.EnemyTroopsKnockoutOrKilled)]
+        public Dropdown<LocalizedDropdownValue<KnockoutOrKilled>> EnemyTroopsKnockoutOrKilled { get; set; } = LocalizedDropdownValue<KnockoutOrKilled>.GenerateDropdown(SettingsManager.Default.EnemyTroopsKnockoutOrKilled);
+
+        [LocalizedSettingPropertyGroup(L10N.Keys.CombatEnemiesGroupName)]
         [LocalizedSettingPropertyBool(nameof(EnemiesNoRunningAway))]
         public bool EnemiesNoRunningAway { get; set; } = SettingsManager.Default.EnemiesNoRunningAway;
 
