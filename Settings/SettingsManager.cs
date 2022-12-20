@@ -262,7 +262,13 @@ namespace BannerlordCheats.Settings
 
         #region Combat - Allies
 
-
+        public static CheatValue<KnockoutOrKilled> FriendlyLordsKnockoutOrKilled =>
+            SettingsManager.IsPerSaveInstanceLoaded &&
+            SettingsManager.PerSaveInstance.FriendlyLordsKnockoutOrKilled.GetValue() != Default.FriendlyLordsKnockoutOrKilled
+                ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.PerSaveInstance.FriendlyLordsKnockoutOrKilled.GetValue())
+                : SettingsManager.GlobalInstance.FriendlyLordsKnockoutOrKilled.GetValue() != Default.FriendlyLordsKnockoutOrKilled
+                    ? new CheatValue<KnockoutOrKilled>(true, SettingsManager.GlobalInstance.FriendlyLordsKnockoutOrKilled.GetValue())
+                    : new CheatValue<KnockoutOrKilled>(false, Default.FriendlyLordsKnockoutOrKilled);
 
         #endregion Combat - Allies
 

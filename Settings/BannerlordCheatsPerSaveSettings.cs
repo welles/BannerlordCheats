@@ -183,7 +183,9 @@ namespace BannerlordCheats.Settings
 
         #region Combat - Allies
 
-
+        [LocalizedSettingPropertyGroup(L10N.Keys.CombatAlliesGroupName)]
+        [LocalizedSettingPropertyDropdown(nameof(FriendlyLordsKnockoutOrKilled), SettingsManager.Default.FriendlyLordsKnockoutOrKilled)]
+        public Dropdown<LocalizedDropdownValue<KnockoutOrKilled>> FriendlyLordsKnockoutOrKilled { get; set; } = LocalizedDropdownValue<KnockoutOrKilled>.GenerateDropdown(SettingsManager.Default.FriendlyLordsKnockoutOrKilled);
 
         #endregion Combat - Allies
 

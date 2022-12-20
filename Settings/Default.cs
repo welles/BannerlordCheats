@@ -86,6 +86,8 @@
 
             #region Combat - Allies
 
+            public const KnockoutOrKilled FriendlyLordsKnockoutOrKilled = KnockoutOrKilled.Default;
+
             public const float FriendlyLordCombatDeathPercentage = 100.0f;
 
             #endregion Combat - Allies
