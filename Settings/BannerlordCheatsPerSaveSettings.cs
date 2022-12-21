@@ -75,6 +75,10 @@ namespace BannerlordCheats.Settings
         [LocalizedSettingPropertyBool(nameof(PartyInvisibleOnMap))]
         public bool PartyInvisibleOnMap { get; set; } = SettingsManager.Default.PartyInvisibleOnMap;
 
+        [LocalizedSettingPropertyGroup(L10N.Keys.MapGroupName)]
+        [LocalizedSettingPropertyBool(nameof(CaravansInvisibleOnMap))]
+        public bool CaravansInvisibleOnMap { get; set; } = SettingsManager.Default.CaravansInvisibleOnMap;
+
         #endregion Map
 
         #region Combat - Player

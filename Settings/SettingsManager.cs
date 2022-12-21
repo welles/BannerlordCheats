@@ -67,6 +67,14 @@ namespace BannerlordCheats.Settings
                     ? new CheatValue<bool>(true, SettingsManager.GlobalInstance.PartyInvisibleOnMap)
                     : new CheatValue<bool>(false, Default.PartyInvisibleOnMap);
 
+        public static CheatValue<bool> CaravansInvisibleOnMap =>
+            SettingsManager.IsPerSaveInstanceLoaded &&
+            SettingsManager.PerSaveInstance.CaravansInvisibleOnMap != Default.CaravansInvisibleOnMap
+                ? new CheatValue<bool>(true, SettingsManager.PerSaveInstance.CaravansInvisibleOnMap)
+                : SettingsManager.GlobalInstance.CaravansInvisibleOnMap != Default.CaravansInvisibleOnMap
+                    ? new CheatValue<bool>(true, SettingsManager.GlobalInstance.CaravansInvisibleOnMap)
+                    : new CheatValue<bool>(false, Default.CaravansInvisibleOnMap);
+
         #endregion Map
 
         #region Combat - Player

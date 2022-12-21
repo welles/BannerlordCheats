@@ -952,4 +952,10 @@
   <data name="EnemyTroopsKnockoutOrKilled_Desc" xml:space="preserve">
     <value>When this is set, enemy troops are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
   </data>
+  <data name="CaravansInvisibleOnMap_Name" xml:space="preserve">
+    <value>Caravans Invisible On Map</value>
+  </data>
+  <data name="CaravansInvisibleOnMap_Desc" xml:space="preserve">
+    <value>Hostile parties will not track or attack player owned caravans on the map.</value>
+  </data>
 </root>

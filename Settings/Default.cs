@@ -22,6 +22,8 @@
 
             public const bool PartyInvisibleOnMap = false;
 
+            public const bool CaravansInvisibleOnMap = false;
+
             #endregion Map
 
             #region Combat - Player
