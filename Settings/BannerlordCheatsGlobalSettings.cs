@@ -371,11 +371,11 @@ namespace BannerlordCheats.Settings
         #region Experience
 
         [LocalizedSettingPropertyGroup(L10N.Keys.ExperienceGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(ExperienceMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(ExperienceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float ExperienceMultiplier { get; set; } = SettingsManager.Default.ExperienceMultiplier;
 
         [LocalizedSettingPropertyGroup(L10N.Keys.ExperienceGroupName)]
-        [LocalizedSettingPropertyFloatingInteger(nameof(CompanionExperienceMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(CompanionExperienceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
         public float CompanionExperienceMultiplier { get; set; } = SettingsManager.Default.CompanionExperienceMultiplier;
 
         [LocalizedSettingPropertyGroup(L10N.Keys.ExperienceGroupName)]
