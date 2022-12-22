@@ -5,52 +5,29 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using StoryMode.GameComponents;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.CampaignSystem.CharacterDevelopment;
 using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.Core;
 
 namespace BannerlordCheats.Patches.Experience
 {
+    [HarmonyPatch(typeof(HeroDeveloper), nameof(HeroDeveloper.AddSkillXp))]
     public static class ExperienceMultiplier
     {
-        public static void GetXpMultiplier(
-            ref Hero hero,
-            ref float __result)
+        [UsedImplicitly]
+        [HarmonyPrefix]
+        public static void AddSkillXp(
+            ref SkillObject skill,
+            ref float rawXp,
+            ref bool isAffectedByFocusFactor,
+            ref bool shouldNotify,
+            ref HeroDeveloper __instance)
         {
-            try
+            if (__instance.Hero.IsPlayer()
+                && SettingsManager.ExperienceMultiplier.IsChanged)
             {
-                if (hero.IsPlayer()
-                    && SettingsManager.ExperienceMultiplier.IsChanged)
-                {
-                    __result *= SettingsManager.ExperienceMultiplier.Value;
-                }
-            }
-            catch (Exception e)
-            {
-                SubModule.LogError(e, typeof(ExperienceMultiplier));
+                rawXp *= SettingsManager.ExperienceMultiplier.Value;
             }
         }
-    }
-
-    [HarmonyPatch(typeof(DefaultGenericXpModel), nameof(DefaultGenericXpModel.GetXpMultiplier))]
-    public static class ExperienceMultiplier_Default
-    {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void GetXpMultiplier(
-            ref Hero hero,
-            ref float __result)
-            => ExperienceMultiplier.GetXpMultiplier(ref hero, ref __result);
-    }
-
-
-
-    [HarmonyPatch(typeof(StoryModeGenericXpModel), nameof(StoryModeGenericXpModel.GetXpMultiplier))]
-    public static class ExperienceMultiplier_StoryMode
-    {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void GetXpMultiplier(
-            ref Hero hero,
-            ref float __result)
-            => ExperienceMultiplier.GetXpMultiplier(ref hero, ref __result);
     }
 }
