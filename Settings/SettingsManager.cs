@@ -622,6 +622,13 @@ namespace BannerlordCheats.Settings
                     ? new CheatValue<float>(true, SettingsManager.GlobalInstance.CompanionExperienceMultiplier)
                     : new CheatValue<float>(false, Default.CompanionExperienceMultiplier);
 
+        public static CheatValue<float> ClanExperienceMultiplier =>
+            SettingsManager.IsPerSaveInstanceLoaded && SettingsManager.PerSaveInstance.ClanExperienceMultiplier != Default.ClanExperienceMultiplier
+                ? new CheatValue<float>(true, SettingsManager.PerSaveInstance.ClanExperienceMultiplier)
+                : SettingsManager.GlobalInstance.ClanExperienceMultiplier != Default.ClanExperienceMultiplier
+                    ? new CheatValue<float>(true, SettingsManager.GlobalInstance.ClanExperienceMultiplier)
+                    : new CheatValue<float>(false, Default.ClanExperienceMultiplier);
+
         public static CheatValue<float> LearningRateMultiplier =>
             SettingsManager.IsPerSaveInstanceLoaded && SettingsManager.PerSaveInstance.LearningRateMultiplier != Default.LearningRateMultiplier
                 ? new CheatValue<float>(true, SettingsManager.PerSaveInstance.LearningRateMultiplier)

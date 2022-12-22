@@ -958,4 +958,10 @@
   <data name="CaravansInvisibleOnMap_Desc" xml:space="preserve">
     <value>Hostile parties will not track or attack player owned caravans on the map.</value>
   </data>
+  <data name="ClanExperienceMultiplier_Name" xml:space="preserve">
+    <value>Clan Member Experience Multiplier</value>
+  </data>
+  <data name="ClanExperienceMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the experience gain of other player clan members is multiplied. A factor of 1 means default experience.</value>
+  </data>
 </root>

@@ -388,6 +388,10 @@ namespace BannerlordCheats.Settings
         public float CompanionExperienceMultiplier { get; set; } = SettingsManager.Default.CompanionExperienceMultiplier;
 
         [LocalizedSettingPropertyGroup(L10N.Keys.ExperienceGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(ClanExperienceMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float ClanExperienceMultiplier { get; set; } = SettingsManager.Default.ClanExperienceMultiplier;
+
+        [LocalizedSettingPropertyGroup(L10N.Keys.ExperienceGroupName)]
         [LocalizedSettingPropertyFloatingInteger(nameof(LearningRateMultiplier), minValue: 1.0f, maxValue: 1000.0f)]
         public float LearningRateMultiplier { get; set; } = SettingsManager.Default.LearningRateMultiplier;
 

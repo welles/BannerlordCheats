@@ -212,6 +212,8 @@
 
             public const float CompanionExperienceMultiplier = 1.0f;
 
+            public const float ClanExperienceMultiplier = 1.0f;
+
             public const float LearningRateMultiplier = 1.0f;
 
             public const float CompanionLearningRateMultiplier = 1.0f;
