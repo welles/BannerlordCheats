@@ -44,7 +44,7 @@ namespace BannerlordCheats
                 {
                     new PatchClassProcessor(harmony, type).Patch();
                 }
-                catch (HarmonyException e)
+                catch (HarmonyException)
                 {
                     failedPatches.Add(type.Name);
                 }
