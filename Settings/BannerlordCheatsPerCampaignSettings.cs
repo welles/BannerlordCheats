@@ -1,13 +1,13 @@
 ﻿using BannerlordCheats.Localization;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using MCM.Abstractions.Base.PerSave;
+using MCM.Abstractions.Base.PerCampaign;
 using MCM.Common;
 using TaleWorlds.CampaignSystem;
 
 namespace BannerlordCheats.Settings
 {
-    public class BannerlordCheatsPerSaveSettings : AttributePerSaveSettings<BannerlordCheatsPerSaveSettings>
+    public class BannerlordCheatsPerCampaignSettings : AttributePerCampaignSettings<BannerlordCheatsPerCampaignSettings>
     {
         #region Base
 
@@ -31,7 +31,7 @@ namespace BannerlordCheats.Settings
 
         #endregion Base
 
-        public BannerlordCheatsPerSaveSettings()
+        public BannerlordCheatsPerCampaignSettings()
         {
             string modName;
 
