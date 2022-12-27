@@ -320,6 +320,10 @@ namespace BannerlordCheats.Settings
         #region Characters
 
         [LocalizedSettingPropertyGroup(L10N.Keys.CharactersGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(RelationGainAfterBattleMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float RelationGainAfterBattleMultiplier { get; set; } = SettingsManager.Default.RelationGainAfterBattleMultiplier;
+
+        [LocalizedSettingPropertyGroup(L10N.Keys.CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(PerfectRelationships))]
         public bool PerfectRelationships { get; set; } = SettingsManager.Default.PerfectRelationships;
 

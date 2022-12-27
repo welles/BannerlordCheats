@@ -174,6 +174,8 @@
 
             #region Characters
 
+            public const float RelationGainAfterBattleMultiplier = 1.0f;
+
             public const bool PerfectRelationships = false;
 
             public const bool NeverDieOfOldAge = false;

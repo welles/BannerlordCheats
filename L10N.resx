@@ -964,4 +964,10 @@
   <data name="ClanExperienceMultiplier_Desc" xml:space="preserve">
     <value>Factor by which the experience gain of other player clan members is multiplied. A factor of 1 means default experience.</value>
   </data>
+  <data name="RelationGainAfterBattleMultiplier_Name" xml:space="preserve">
+    <value>Relation Gain After Battle Multiplier</value>
+  </data>
+  <data name="RelationGainAfterBattleMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the relationship increase with lords you've helped in battle is multiplied. A factor of 1 means default increase.</value>
+  </data>
 </root>

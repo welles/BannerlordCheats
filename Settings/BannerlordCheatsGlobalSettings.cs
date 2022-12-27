@@ -1,6 +1,7 @@
 ﻿using System.Reflection;
 using System.Text.RegularExpressions;
 using BannerlordCheats.Localization;
+using BannerlordCheats.Patches.Characters;
 using JetBrains.Annotations;
 using MCM.Abstractions.Base.Global;
 using MCM.Common;
@@ -309,6 +310,10 @@ namespace BannerlordCheats.Settings
         #endregion Clan
 
         #region Characters
+
+        [LocalizedSettingPropertyGroup(L10N.Keys.CharactersGroupName)]
+        [LocalizedSettingPropertyFloatingInteger(nameof(RelationGainAfterBattleMultiplier), minValue: 1.0f, maxValue: 100.0f)]
+        public float RelationGainAfterBattleMultiplier { get; set; } = SettingsManager.Default.RelationGainAfterBattleMultiplier;
 
         [LocalizedSettingPropertyGroup(L10N.Keys.CharactersGroupName)]
         [LocalizedSettingPropertyBool(nameof(PerfectRelationships))]

@@ -500,6 +500,14 @@ namespace BannerlordCheats.Settings
 
         #region Characters
 
+        public static CheatValue<float> RelationGainAfterBattleMultiplier =>
+            SettingsManager.IsPerSaveInstanceLoaded &&
+            SettingsManager.PerCampaignInstance.RelationGainAfterBattleMultiplier != Default.RelationGainAfterBattleMultiplier
+                ? new CheatValue<float>(true, SettingsManager.PerCampaignInstance.RelationGainAfterBattleMultiplier)
+                : SettingsManager.GlobalInstance.RelationGainAfterBattleMultiplier != Default.RelationGainAfterBattleMultiplier
+                    ? new CheatValue<float>(true, SettingsManager.GlobalInstance.RelationGainAfterBattleMultiplier)
+                    : new CheatValue<float>(false, Default.RelationGainAfterBattleMultiplier);
+
         public static CheatValue<bool> PerfectRelationships =>
             SettingsManager.IsPerSaveInstanceLoaded &&
             SettingsManager.PerCampaignInstance.PerfectRelationships != Default.PerfectRelationships
