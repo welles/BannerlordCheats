@@ -722,6 +722,14 @@ namespace BannerlordCheats.Settings
 
         #region Settlements
 
+        public static CheatValue<bool> VillagesNeverRaided =>
+            SettingsManager.IsPerCampaignInstanceLoaded &&
+            SettingsManager.PerCampaignInstance.VillagesNeverRaided != Default.VillagesNeverRaided
+                ? new CheatValue<bool>(true, SettingsManager.PerCampaignInstance.VillagesNeverRaided)
+                : SettingsManager.GlobalInstance.VillagesNeverRaided != Default.VillagesNeverRaided
+                    ? new CheatValue<bool>(true, SettingsManager.GlobalInstance.VillagesNeverRaided)
+                    : new CheatValue<bool>(false, Default.VillagesNeverRaided);
+
         public static CheatValue<bool> DisguiseAlwaysWorks =>
             SettingsManager.IsPerCampaignInstanceLoaded &&
             SettingsManager.PerCampaignInstance.DisguiseAlwaysWorks != Default.DisguiseAlwaysWorks

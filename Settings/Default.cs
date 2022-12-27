@@ -248,6 +248,8 @@
 
             #region Settlements
 
+            public const bool VillagesNeverRaided = false;
+
             public const bool DisguiseAlwaysWorks = false;
 
             public const bool FreeTroopRecruitment = false;

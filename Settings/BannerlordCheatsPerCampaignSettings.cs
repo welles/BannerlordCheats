@@ -448,6 +448,10 @@ namespace BannerlordCheats.Settings
         #region Settlements
 
         [LocalizedSettingPropertyGroup(L10N.Keys.SettlementsGroupName)]
+        [LocalizedSettingPropertyBool(nameof(VillagesNeverRaided))]
+        public bool VillagesNeverRaided { get; set; } = SettingsManager.Default.VillagesNeverRaided;
+
+        [LocalizedSettingPropertyGroup(L10N.Keys.SettlementsGroupName)]
         [LocalizedSettingPropertyBool(nameof(DisguiseAlwaysWorks))]
         public bool DisguiseAlwaysWorks { get; set; } = SettingsManager.Default.DisguiseAlwaysWorks;
 
