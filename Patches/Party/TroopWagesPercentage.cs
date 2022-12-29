@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Party
             try
             {
                 if (mobileParty.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.TroopWagesPercentage < 100f)
+                    && SettingsManager.TroopWagesPercentage.IsChanged)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.TroopWagesPercentage);
+                    __result.AddPercentage(SettingsManager.TroopWagesPercentage.Value);
                 }
             }
             catch (Exception e)

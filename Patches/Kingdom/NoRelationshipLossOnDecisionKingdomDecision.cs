@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches.Kingdom
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.NoRelationshipLossOnDecision == true)
+                if (SettingsManager.NoRelationshipLossOnDecision.IsChanged)
                 {
                     __result = Math.Max(__result, 0);
                 }

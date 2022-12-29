@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.Combat
             {
                 if (agent.Origin.TryGetParty(out var party)
                     && party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.NoRunningAway == true)
+                    && SettingsManager.NoRunningAway.IsChanged)
                 {
                     __result = 0.0f;
                 }

@@ -23,9 +23,9 @@ namespace BannerlordCheats.Patches.Combat
                     && party.IsPlayerParty()
                     && !attackInformation.IsAttackerPlayer
                     && !attackInformation.IsFriendlyFire
-                    && BannerlordCheatsSettings.Instance?.PartyDamageMultiplier > 1f)
+                    && SettingsManager.PartyDamageMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.PartyDamageMultiplier;
+                    __result *= SettingsManager.PartyDamageMultiplier.Value;
                 }
             }
             catch (Exception e)

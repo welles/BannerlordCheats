@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Characters
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.BarterOfferAlwaysAccepted == true)
+                if (SettingsManager.BarterOfferAlwaysAccepted.IsChanged)
                 {
                     __result = true;
                 }

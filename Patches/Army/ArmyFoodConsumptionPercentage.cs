@@ -22,9 +22,9 @@ namespace BannerlordCheats.Patches.Army
             try
             {
                 if (party.IsPlayerArmy()
-                    && BannerlordCheatsSettings.Instance?.ArmyFoodConsumptionPercentage < 100f)
+                    && SettingsManager.ArmyFoodConsumptionPercentage.IsChanged)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.ArmyFoodConsumptionPercentage);
+                    __result.AddPercentage(SettingsManager.ArmyFoodConsumptionPercentage.Value);
                 }
             }
             catch (Exception e)

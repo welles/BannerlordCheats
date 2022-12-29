@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Settlements
             try
             {
                 if (__instance.IsPlayerTown()
-                    && BannerlordCheatsSettings.Instance?.DailyFoodBonus > 0)
+                    && SettingsManager.DailyFoodBonus.IsChanged)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyFoodBonus;
+                    __result += SettingsManager.DailyFoodBonus.Value;
                 }
             }
             catch (Exception e)

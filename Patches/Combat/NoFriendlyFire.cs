@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.Combat
                 if (attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
                     && party.IsPlayerParty()
                     && attackInformation.IsFriendlyFire
-                    && BannerlordCheatsSettings.Instance?.NoFriendlyFire == true)
+                    && SettingsManager.NoFriendlyFire.IsChanged)
                 {
                     __result = 0;
                 }

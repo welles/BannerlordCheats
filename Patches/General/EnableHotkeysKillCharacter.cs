@@ -24,7 +24,7 @@ namespace BannerlordCheats.Patches.General
             {
                 if (__instance is EncyclopediaHeroPageVM
                     && __instance.Obj is Hero hero
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                    && SettingsManager.EnableHotkeys.Value)
                 {
                     if (Keys.IsKeyPressed(InputKey.X, InputKey.LeftControl))
                     {

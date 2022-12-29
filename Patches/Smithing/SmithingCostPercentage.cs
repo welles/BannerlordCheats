@@ -16,9 +16,9 @@ namespace BannerlordCheats.Patches.Smithing
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.SmithingCostPercentage < 100f)
+                if (SettingsManager.SmithingCostPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.SmithingCostPercentage / 100f;
+                    var factor = SettingsManager.SmithingCostPercentage.Value / 100f;
 
                     for (var i = 0; i < __result.Length; i++)
                     {

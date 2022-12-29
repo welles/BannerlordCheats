@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Settlements
             try
             {
                 if (__instance.IsPlayerTown()
-                    && BannerlordCheatsSettings.Instance?.DailySecurityBonus > 0)
+                    && SettingsManager.DailySecurityBonus.IsChanged)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailySecurityBonus;
+                    __result += SettingsManager.DailySecurityBonus.Value;
                 }
             }
             catch (Exception e)

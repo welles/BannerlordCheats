@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Settlements
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.DisguiseAlwaysWorks == true)
+                if (SettingsManager.DisguiseAlwaysWorks.IsChanged)
                 {
                     __result = 1;
                 }

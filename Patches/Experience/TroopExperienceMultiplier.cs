@@ -29,9 +29,9 @@ namespace BannerlordCheats.Patches.Experience
             {
                 if (party.IsPlayerParty()
                     && !attackerTroop.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.TroopExperienceMultiplier > 1f)
+                    && SettingsManager.TroopExperienceMultiplier.IsChanged)
                 {
-                    xpAmount = (int) Math.Round(xpAmount * BannerlordCheatsSettings.Instance.TroopExperienceMultiplier);
+                    xpAmount = (int) Math.Round(xpAmount * SettingsManager.TroopExperienceMultiplier.Value);
                 }
             }
             catch (Exception e)

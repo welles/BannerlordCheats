@@ -23,9 +23,9 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.RenownRewardMultiplier > 1f)
+                    && SettingsManager.RenownRewardMultiplier.IsChanged)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.RenownRewardMultiplier);
+                    __result.AddMultiplier(SettingsManager.RenownRewardMultiplier.Value);
                 }
             }
             catch (Exception e)

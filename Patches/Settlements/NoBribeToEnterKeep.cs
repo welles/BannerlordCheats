@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Settlements
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.NoBribeToEnterKeep == true)
+                if (SettingsManager.NoBribeToEnterKeep.IsChanged)
                 {
                     __result = true;
                 }

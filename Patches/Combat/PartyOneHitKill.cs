@@ -23,7 +23,7 @@ namespace BannerlordCheats.Patches.Combat
                     && party.IsPlayerParty()
                     && !attackInformation.IsAttackerPlayer
                     && !attackInformation.IsFriendlyFire
-                    && BannerlordCheatsSettings.Instance?.PartyOneHitKill == true)
+                    && SettingsManager.PartyOneHitKill.IsChanged)
                 {
                     __result = 10000;
                 }

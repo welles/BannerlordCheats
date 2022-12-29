@@ -20,9 +20,9 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (attackInformation.AttackerAgentOrigin.IsOnPlayerEnemySide()
-                    && BannerlordCheatsSettings.Instance?.EnemyDamagePercentage < 100f)
+                    && SettingsManager.EnemyDamagePercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.EnemyDamagePercentage / 100f;
+                    var factor = SettingsManager.EnemyDamagePercentage.Value / 100f;
 
                     var newValue = (int)Math.Round(factor * __result);
 

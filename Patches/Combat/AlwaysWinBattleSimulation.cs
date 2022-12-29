@@ -20,7 +20,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (struckParty.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.AlwaysWinBattleSimulation == true)
+                    && SettingsManager.AlwaysWinBattleSimulation.IsChanged)
                 {
                     __result = 0;
                 }

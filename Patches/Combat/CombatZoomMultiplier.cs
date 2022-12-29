@@ -18,9 +18,9 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (agent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.CombatZoomMultiplier > 1f)
+                    && SettingsManager.CombatZoomMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.CombatZoomMultiplier;
+                    __result *= SettingsManager.CombatZoomMultiplier.Value;
                 }
             }
             catch (Exception e)

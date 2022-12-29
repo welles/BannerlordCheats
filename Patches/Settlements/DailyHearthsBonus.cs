@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Settlements
             try
             {
                 if (__instance.IsPlayerVillage()
-                    && BannerlordCheatsSettings.Instance?.DailyHearthsBonus > 0)
+                    && SettingsManager.DailyHearthsBonus.IsChanged)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyHearthsBonus;
+                    __result += SettingsManager.DailyHearthsBonus.Value;
                 }
             }
             catch (Exception e)

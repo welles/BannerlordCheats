@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Party
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.InstantEscape == true)
+                if (SettingsManager.InstantEscape.IsChanged)
                 {
                     PlayerCaptivity.EndCaptivity();
                 }

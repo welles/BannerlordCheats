@@ -24,7 +24,7 @@ namespace BannerlordCheats.Patches.General
             {
                 if (ScreenManager.TopScreen is GauntletClanScreen
                     && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                    && SettingsManager.EnableHotkeys.Value)
                 {
                     Hero.MainHero.AddInfluenceWithKingdom(1000);
 

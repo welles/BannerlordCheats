@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Workshops
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.WorkshopDailyExpensePercentage < 100f)
+                if (SettingsManager.WorkshopDailyExpensePercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.WorkshopDailyExpensePercentage / 100f;
+                    var factor = SettingsManager.WorkshopDailyExpensePercentage.Value / 100f;
 
                     __result = (int) (__result * factor);
                 }

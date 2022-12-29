@@ -10,49 +10,61 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    public static class EnemyOnlyKnockout
+    public static class CompanionsKnockoutOrKilled
     {
-        public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
+        public static void GetAgentStateProbability(
+            ref Agent affectorAgent,
+            ref Agent effectedAgent,
+            ref DamageTypes damageType,
+            ref float useSurgeryProbability,
+            ref float __result)
         {
             try
             {
-                if (effectedAgent.IsPlayerEnemy()
-                    && BannerlordCheatsSettings.Instance?.EnemyOnlyKnockout == true)
+                if (effectedAgent.IsPlayerCompanion()
+                    && SettingsManager.CompanionsKnockoutOrKilled.IsChanged)
                 {
-                    __result = 0f;
+                    if (SettingsManager.CompanionsKnockoutOrKilled.Value == KnockoutOrKilled.Killed)
+                    {
+                        __result = 1.0f;
+                    }
+                    else if (SettingsManager.CompanionsKnockoutOrKilled.Value == KnockoutOrKilled.Knockout)
+                    {
+                        __result = 0.0f;
+                    }
                 }
             }
             catch (Exception e)
             {
-                SubModule.LogError(e, typeof(EnemyOnlyKnockout));
+                SubModule.LogError(e, typeof(CompanionsKnockoutOrKilled));
             }
         }
     }
 
     [HarmonyPatch(typeof(DefaultAgentDecideKilledOrUnconsciousModel), nameof(DefaultAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
-    public static class EnemyOnlyKnockout_Default
+    public static class CompanionsKnockoutOrKilled_Default
     {
         [UsedImplicitly]
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
-            => EnemyOnlyKnockout.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, useSurgeryProbability, ref __result);
+            => CompanionsKnockoutOrKilled.GetAgentStateProbability(ref affectorAgent, ref effectedAgent, ref damageType, ref useSurgeryProbability, ref __result);
     }
 
     [HarmonyPatch(typeof(SandboxAgentDecideKilledOrUnconsciousModel), nameof(SandboxAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
-    public static class EnemyOnlyKnockout_Sandbox
+    public static class CompanionsKnockoutOrKilled_Sandbox
     {
         [UsedImplicitly]
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
-            => EnemyOnlyKnockout.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, useSurgeryProbability, ref __result);
+            => CompanionsKnockoutOrKilled.GetAgentStateProbability(ref affectorAgent, ref effectedAgent, ref damageType, ref useSurgeryProbability, ref __result);
     }
 
     [HarmonyPatch(typeof(StoryModeAgentDecideKilledOrUnconsciousModel), nameof(StoryModeAgentDecideKilledOrUnconsciousModel.GetAgentStateProbability))]
-    public static class EnemyOnlyKnockout_StoryMode
+    public static class CompanionsKnockoutOrKilled_StoryMode
     {
         [UsedImplicitly]
         [HarmonyPostfix]
         public static void GetAgentStateProbability(Agent affectorAgent, Agent effectedAgent, DamageTypes damageType, float useSurgeryProbability, ref float __result)
-            => EnemyOnlyKnockout.GetAgentStateProbability(affectorAgent, effectedAgent, damageType, useSurgeryProbability, ref __result);
+            => CompanionsKnockoutOrKilled.GetAgentStateProbability(ref affectorAgent, ref effectedAgent, ref damageType, ref useSurgeryProbability, ref __result);
     }
 }

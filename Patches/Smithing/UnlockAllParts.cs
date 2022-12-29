@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Smithing
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.UnlockAllParts == true)
+                if (SettingsManager.UnlockAllParts.IsChanged)
                 {
                     __result = true;
                 }

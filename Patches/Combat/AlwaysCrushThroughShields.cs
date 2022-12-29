@@ -24,7 +24,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (attackerAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.AlwaysCrushThroughShields == true)
+                    && SettingsManager.AlwaysCrushThroughShields.IsChanged)
                 {
                     __result = true;
                 }

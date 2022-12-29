@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Party
             try
             {
                 if (mobileParty.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.ExtraPartyMorale > 0)
+                    && SettingsManager.ExtraPartyMorale.IsChanged)
                 {
-                    __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyMorale);
+                    __result.Add(SettingsManager.ExtraPartyMorale.Value);
                 }
             }
             catch (Exception e)

@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Inventory
             try
             {
                 if (mobileParty.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.ExtraInventoryCapacity > 0)
+                    && SettingsManager.ExtraInventoryCapacity.IsChanged)
                 {
-                    __result.Add(BannerlordCheatsSettings.Instance.ExtraInventoryCapacity);
+                    __result.Add(SettingsManager.ExtraInventoryCapacity.Value);
                 }
             }
             catch (Exception e)

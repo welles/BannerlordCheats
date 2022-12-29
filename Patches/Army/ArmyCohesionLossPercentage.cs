@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Army
             try
             {
                 if (__instance.IsPlayerArmy()
-                    && BannerlordCheatsSettings.Instance?.ArmyCohesionLossPercentage < 100f)
+                    && SettingsManager.ArmyCohesionLossPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.ArmyCohesionLossPercentage / 100f;
+                    var factor = SettingsManager.ArmyCohesionLossPercentage.Value / 100f;
 
                     __result *= factor;
                 }

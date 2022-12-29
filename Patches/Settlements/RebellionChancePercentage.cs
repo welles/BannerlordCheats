@@ -20,7 +20,7 @@ namespace BannerlordCheats.Patches.Settlements
             try
             {
                 if (settlement.IsPlayerSettlement()
-                    && BannerlordCheatsSettings.Instance?.SettlementsNeverRebel == true)
+                    && SettingsManager.SettlementsNeverRebel.IsChanged)
                 {
                     __result = false;
                 }

@@ -22,9 +22,9 @@ namespace BannerlordCheats.Patches.Settlements
             try
             {
                 if (town.IsPlayerTown()
-                    && BannerlordCheatsSettings.Instance?.ConstructionPowerMultiplier > 1f)
+                    && SettingsManager.ConstructionPowerMultiplier.IsChanged)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.ConstructionPowerMultiplier);
+                    __result.AddMultiplier(SettingsManager.ConstructionPowerMultiplier.Value);
                 }
             }
             catch (Exception e)

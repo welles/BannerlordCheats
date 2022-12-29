@@ -20,9 +20,9 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (attackInformation.IsVictimPlayer
-                    && BannerlordCheatsSettings.Instance?.DamageTakenPercentage < 100f)
+                    && SettingsManager.DamageTakenPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.DamageTakenPercentage / 100f;
+                    var factor = SettingsManager.DamageTakenPercentage.Value / 100f;
 
                     var newValue = (int)Math.Round(factor * __result);
 
