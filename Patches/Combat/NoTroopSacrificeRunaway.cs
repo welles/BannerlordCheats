@@ -19,7 +19,7 @@ namespace BannerlordCheats.Patches.Combat
             {
                 if (mapEvent.IsPlayerMapEvent
                     && battleSide == mapEvent.PlayerSide
-                    && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
+                    && SettingsManager.NoTroopSacrifice.IsChanged)
                 {
                     __result = 0;
                 }

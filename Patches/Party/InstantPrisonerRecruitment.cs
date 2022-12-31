@@ -20,7 +20,7 @@ namespace BannerlordCheats.Patches.Party
             {
                 if (party.IsPlayerParty()
                     && !character.IsHero()
-                    && BannerlordCheatsSettings.Instance?.InstantPrisonerRecruitment == true)
+                    && SettingsManager.InstantPrisonerRecruitment.IsChanged)
                 {
                     __result = party.PrisonRoster.GetTroopCount(character);
                 }

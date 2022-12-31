@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Party
             try
             {
                 if (party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.PartyHealingMultiplier > 1f)
+                    && SettingsManager.PartyHealingMultiplier.IsChanged)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.PartyHealingMultiplier);
+                    __result.AddMultiplier(SettingsManager.PartyHealingMultiplier.Value);
                 }
             }
             catch (Exception e)

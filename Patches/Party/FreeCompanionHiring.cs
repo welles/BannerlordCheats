@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Party
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.FreeCompanionHiring == true)
+                if (SettingsManager.FreeCompanionHiring.IsChanged)
                 {
                     __result = 0;
                 }

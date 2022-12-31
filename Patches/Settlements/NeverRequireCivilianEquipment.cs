@@ -15,7 +15,7 @@ namespace BannerlordCheats.Patches.Settlements
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.NeverRequireCivilianEquipment == true)
+                if (SettingsManager.NeverRequireCivilianEquipment.IsChanged)
                 {
                     __result = false;
                 }

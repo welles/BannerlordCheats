@@ -19,7 +19,7 @@ namespace BannerlordCheats.Patches.Kingdom
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.NoCrimeRatingForCrimes == true)
+                if (SettingsManager.NoCrimeRatingForCrimes.IsChanged)
                 {
                     deltaCrimeRating = 0f;
                 }

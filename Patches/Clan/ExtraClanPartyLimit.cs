@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Clan
             try
             {
                 if (clan.IsPlayerClan()
-                    && BannerlordCheatsSettings.Instance?.ExtraClanPartyLimit > 0)
+                    && SettingsManager.ExtraClanPartyLimit.IsChanged)
                 {
-                    __result += BannerlordCheatsSettings.Instance.ExtraClanPartyLimit;
+                    __result += SettingsManager.ExtraClanPartyLimit.Value;
                 }
             }
             catch (Exception e)

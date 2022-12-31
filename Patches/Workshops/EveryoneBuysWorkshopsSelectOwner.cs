@@ -23,7 +23,7 @@ namespace BannerlordCheats.Patches.Workshops
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.EveryoneBuysWorkshops == true
+                if (SettingsManager.EveryoneBuysWorkshops.IsChanged
                     && excludedHero.IsPlayer())
                 {
                     requiredGold = 0;

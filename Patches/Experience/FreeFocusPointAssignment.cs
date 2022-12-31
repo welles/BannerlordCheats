@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Experience
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.FreeFocusPointAssignment == true)
+                if (SettingsManager.FreeFocusPointAssignment.IsChanged)
                 {
                     __result = 0;
                 }

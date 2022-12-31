@@ -9,12 +9,8 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.DecideAgentKnockedBackByBlow))]
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecideAgentKnockedBackByBlow))]
     public static class NeverKnockedBackByAttacks
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
         public static void DecideAgentKnockedByBlow(
             ref Agent attackerAgent,
             ref Agent victimAgent,
@@ -25,7 +21,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (victimAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.NeverKnockedBackByAttacks == true)
+                    && SettingsManager.NeverKnockedBackByAttacks.IsChanged)
                 {
                     blow.BlowFlag &= ~BlowFlags.KnockDown;
                     blow.BlowFlag &= ~BlowFlags.KnockBack;
@@ -37,5 +33,43 @@ namespace BannerlordCheats.Patches.Combat
                 SubModule.LogError(e, typeof(NeverKnockedBackByAttacks));
             }
         }
+    }
+
+    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.DecideAgentKnockedBackByBlow))]
+    public static class NeverKnockedBackByAttacks_Default
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void DecideAgentKnockedByBlow(
+            ref Agent attackerAgent,
+            ref Agent victimAgent,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData attackerWeapon,
+            ref Blow blow)
+            => NeverKnockedBackByAttacks.DecideAgentKnockedByBlow(
+                ref attackerAgent,
+                ref victimAgent,
+                ref collisionData,
+                ref attackerWeapon,
+                ref blow);
+    }
+
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecideAgentKnockedBackByBlow))]
+    public static class NeverKnockedBackByAttacks_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void DecideAgentKnockedByBlow(
+            ref Agent attackerAgent,
+            ref Agent victimAgent,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData attackerWeapon,
+            ref Blow blow)
+            => NeverKnockedBackByAttacks.DecideAgentKnockedByBlow(
+                ref attackerAgent,
+                ref victimAgent,
+                ref collisionData,
+                ref attackerWeapon,
+                ref blow);
     }
 }

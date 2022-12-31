@@ -19,7 +19,7 @@ namespace BannerlordCheats.Patches.Party
                 if (character.IsPrisoner
                     && character.PartyBelongedToAsPrisoner != null
                     && character.PartyBelongedToAsPrisoner.MapFaction == Hero.MainHero.MapFaction
-                    && BannerlordCheatsSettings.Instance?.NoPrisonerEscape == true)
+                    && SettingsManager.NoPrisonerEscape.IsChanged)
                 {
                     return false;
                 }

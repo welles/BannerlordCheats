@@ -19,7 +19,7 @@ namespace BannerlordCheats.Patches.Party
             try
             {
                 if (party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.FreeTroopUpgrades == true)
+                    && SettingsManager.FreeTroopUpgrades.IsChanged)
                 {
                     __result = 0;
                 }

@@ -29,7 +29,7 @@ namespace BannerlordCheats.Patches.Combat
                 if (!shooterAgent.IsPlayer()
                     && shooterAgent.Origin.TryGetParty(out var party)
                     && party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.PartyInfiniteAmmo == true)
+                    && SettingsManager.PartyInfiniteAmmo.IsChanged)
                 {
                     for (var index = EquipmentIndex.WeaponItemBeginSlot; index < EquipmentIndex.NumAllWeaponSlots; ++index)
                     {

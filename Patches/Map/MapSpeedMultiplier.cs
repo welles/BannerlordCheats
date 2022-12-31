@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Map
             try
             {
                 if (mobileParty.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.MapSpeedMultiplier > 1f)
+                    && SettingsManager.MapSpeedMultiplier.IsChanged)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.MapSpeedMultiplier);
+                    __result.AddMultiplier(SettingsManager.MapSpeedMultiplier.Value);
                 }
             }
             catch (Exception e)

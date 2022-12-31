@@ -20,7 +20,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (agent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.InstantCrossbowReload == true)
+                    && SettingsManager.InstantCrossbowReload.IsChanged)
                 {
                     agentDrivenProperties.ReloadSpeed = 10f;
                 }

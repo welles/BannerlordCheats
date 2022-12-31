@@ -33,9 +33,9 @@ namespace BannerlordCheats.Patches.Sieges
                 }
 
                 if ((siegeEvent.GetSiegeEventSide(otherSide)?.GetInvolvedPartiesForEventType().Any(x => x.IsPlayerParty()) ?? false)
-                    && BannerlordCheatsSettings.Instance?.EnemySiegeBuildingSpeedPercentage < 100f)
+                    && SettingsManager.EnemySiegeBuildingSpeedPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.EnemySiegeBuildingSpeedPercentage / 100f;
+                    var factor = SettingsManager.EnemySiegeBuildingSpeedPercentage.Value / 100f;
 
                     var newValue = factor * __result;
 

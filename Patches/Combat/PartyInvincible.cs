@@ -20,7 +20,7 @@ namespace BannerlordCheats.Patches.Combat
                     && agent.Origin.TryGetParty(out var party)
                     && party.IsPlayerParty()
                     && !agent.IsHero()
-                    && BannerlordCheatsSettings.Instance?.PartyInvincible == true)
+                    && SettingsManager.PartyInvincible.IsChanged)
                 {
                     __result = Agent.MortalityState.Invulnerable;
                 }

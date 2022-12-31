@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Characters
             try
             {
                 if ((__instance.IsPlayer() || otherHero.IsPlayer())
-                    && BannerlordCheatsSettings.Instance?.PerfectRelationships == true)
+                    && SettingsManager.PerfectRelationships.IsChanged)
                 {
                     __result = 100;
                 }

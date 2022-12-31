@@ -20,9 +20,9 @@ namespace BannerlordCheats.Patches.Settlements
             {
                 if (mobileParty.IsGarrison
                     && mobileParty.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.GarrisonWagesPercentage < 100f)
+                    && SettingsManager.GarrisonWagesPercentage.IsChanged)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.GarrisonWagesPercentage);
+                    __result.AddPercentage(SettingsManager.GarrisonWagesPercentage.Value);
                 }
             }
             catch (Exception e)

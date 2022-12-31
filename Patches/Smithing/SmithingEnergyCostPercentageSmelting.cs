@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Smithing
             try
             {
                 if (hero.PartyBelongedTo.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.SmithingEnergyCostPercentage < 100f)
+                    && SettingsManager.SmithingEnergyCostPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.SmithingEnergyCostPercentage / 100f;
+                    var factor = SettingsManager.SmithingEnergyCostPercentage.Value / 100f;
 
                     var newValue = (int)Math.Round(factor * __result);
 

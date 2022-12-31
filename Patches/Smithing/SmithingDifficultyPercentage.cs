@@ -16,9 +16,9 @@ namespace BannerlordCheats.Patches.Smithing
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.SmithingDifficultyPercentage < 100f)
+                if (SettingsManager.SmithingDifficultyPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.SmithingDifficultyPercentage / 100f;
+                    var factor = SettingsManager.SmithingDifficultyPercentage.Value / 100f;
 
                     var newValue = (int)Math.Round(factor * __result);
 

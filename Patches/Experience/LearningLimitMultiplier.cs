@@ -23,9 +23,9 @@ namespace BannerlordCheats.Patches.Experience
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.LearningLimitMultiplier > 1f)
+                if (SettingsManager.LearningLimitMultiplier.IsChanged)
                 {
-                    __result.AddMultiplier(BannerlordCheatsSettings.Instance.LearningLimitMultiplier);
+                    __result.AddMultiplier(SettingsManager.LearningLimitMultiplier.Value);
                 }
             }
             catch (Exception e)

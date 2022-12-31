@@ -1,5 +1,5 @@
-﻿using MCM.Abstractions.Settings.Definitions;
-using System;
+﻿using System;
+using MCM.Abstractions;
 
 namespace BannerlordCheats.Localization
 {

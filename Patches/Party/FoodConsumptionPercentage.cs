@@ -22,9 +22,9 @@ namespace BannerlordCheats.Patches.Party
             try
             {
                 if (party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.FoodConsumptionPercentage < 100f)
+                    && SettingsManager.FoodConsumptionPercentage.IsChanged)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.FoodConsumptionPercentage);
+                    __result.AddPercentage(SettingsManager.FoodConsumptionPercentage.Value);
                 }
             }
             catch (Exception e)

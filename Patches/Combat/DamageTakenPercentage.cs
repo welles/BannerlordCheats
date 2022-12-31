@@ -9,20 +9,20 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.CalculateDamage))]
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class DamageTakenPercentage
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
+        public static void CalculateDamage(
+            ref AttackInformation attackInformation,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData weapon,
+            ref float __result)
         {
             try
             {
-                if (attackInformation.VictimAgentCharacter.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.DamageTakenPercentage < 100f)
+                if (attackInformation.IsVictimPlayer
+                    && SettingsManager.DamageTakenPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.DamageTakenPercentage / 100f;
+                    var factor = SettingsManager.DamageTakenPercentage.Value / 100f;
 
                     var newValue = (int)Math.Round(factor * __result);
 
@@ -34,5 +34,39 @@ namespace BannerlordCheats.Patches.Combat
                 SubModule.LogError(e, typeof(DamageTakenPercentage));
             }
         }
+    }
+
+    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.CalculateDamage))]
+    public static class DamageTakenPercentage_Default
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void CalculateDamage(
+            ref AttackInformation attackInformation,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData weapon,
+            ref float __result)
+            => DamageTakenPercentage.CalculateDamage(
+                ref attackInformation,
+                ref collisionData,
+                ref weapon,
+                ref __result);
+    }
+
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
+    public static class DamageTakenPercentage_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void CalculateDamage(
+            ref AttackInformation attackInformation,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData weapon,
+            ref float __result)
+            => DamageTakenPercentage.CalculateDamage(
+                ref attackInformation,
+                ref collisionData,
+                ref weapon,
+                ref __result);
     }
 }

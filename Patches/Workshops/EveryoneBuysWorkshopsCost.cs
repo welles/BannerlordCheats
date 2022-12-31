@@ -26,7 +26,7 @@ namespace BannerlordCheats.Patches.Workshops
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.EveryoneBuysWorkshops == true
+                if (SettingsManager.EveryoneBuysWorkshops.IsChanged
                     && workshop.Owner.IsPlayer()
                     && cost > newOwner.Gold)
                 {

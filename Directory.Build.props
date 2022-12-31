@@ -1,10 +1,10 @@
 <Project>
   <PropertyGroup>
-    <Version>2.11.0.0</Version>
-    <GameVersion>v1.0.0</GameVersion>
+    <Version>3.0.1.0</Version>
+    <GameVersion>1.0.3.8791</GameVersion>
     <GameBranch>Beta</GameBranch>
     <HarmonyVersion>2.2.2</HarmonyVersion>
-    <MCMVersion>4.7.11</MCMVersion>
+    <MCMVersion>5.5.4</MCMVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <GameFolder>C:\SteamCMD\apps\mb2b_beta</GameFolder>

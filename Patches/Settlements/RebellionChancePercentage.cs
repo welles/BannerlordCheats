@@ -1,4 +1,5 @@
-﻿using BannerlordCheats.Extensions;
+﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
@@ -16,10 +17,17 @@ namespace BannerlordCheats.Patches.Settlements
             ref Settlement settlement,
             ref bool __result)
         {
-            if (settlement.IsPlayerSettlement()
-                && BannerlordCheatsSettings.Instance?.SettlementsNeverRebel == true)
+            try
             {
-                __result = false;
+                if (settlement.IsPlayerSettlement()
+                    && SettingsManager.SettlementsNeverRebel.IsChanged)
+                {
+                    __result = false;
+                }
+            }
+            catch (Exception e)
+            {
+                SubModule.LogError(e, typeof(RebellionChancePercentage));
             }
         }
     }

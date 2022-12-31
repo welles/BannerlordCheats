@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Party
             try
             {
                 if (party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.ExtraPartyPrisonerSize > 0)
+                    && SettingsManager.ExtraPartyPrisonerSize.IsChanged)
                 {
-                    __result.Add(BannerlordCheatsSettings.Instance.ExtraPartyPrisonerSize);
+                    __result.Add(SettingsManager.ExtraPartyPrisonerSize.Value);
                 }
             }
             catch (Exception e)

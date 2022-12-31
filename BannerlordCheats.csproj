@@ -8,7 +8,7 @@
 
     <ItemGroup>
       <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion)" IncludeAssets="compile" />
-      <PackageReference Condition="$(UseNuGetAssemblies) == True" Include="Bannerlord.ReferenceAssemblies.EarlyAccess" Version="$(GameVersion)" />
+      <PackageReference Condition="$(UseNuGetAssemblies) == True" Include="Bannerlord.ReferenceAssemblies" Version="$(GameVersion)" />
       <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" IncludeAssets="compile" />
     </ItemGroup>
 
@@ -186,10 +186,6 @@
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.ScreenSystem.dll</HintPath>
         <Private>False</Private>
       </Reference>
-      <Reference Include="TaleWorlds.Starter.DotNetCore">
-        <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Starter.DotNetCore.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
       <Reference Include="TaleWorlds.Starter.Library">
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.Starter.Library.dll</HintPath>
         <Private>False</Private>
@@ -246,6 +242,15 @@
         <HintPath>$(GameFolder)\Modules\Native\bin\Win64_Shipping_Client\TaleWorlds.MountAndBlade.View.dll</HintPath>
         <Private>False</Private>
       </Reference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Settings\Default.cs">
+        <DependentUpon>SettingsManager.cs</DependentUpon>
+      </Compile>
+      <Compile Update="Settings\CheatValue.cs">
+        <DependentUpon>SettingsManager.cs</DependentUpon>
+      </Compile>
     </ItemGroup>
 
 </Project>
