@@ -8,6 +8,7 @@
 
     <ItemGroup>
       <PackageReference Include="Bannerlord.MCM" Version="$(MCMVersion)" IncludeAssets="compile" />
+      <PackageReference Include="Bannerlord.ButterLib" Version="$(ButterLibVersion)" IncludeAssets="compile" />
       <PackageReference Condition="$(UseNuGetAssemblies) == True" Include="Bannerlord.ReferenceAssemblies" Version="$(GameVersion)" />
       <PackageReference Include="Lib.Harmony" Version="$(HarmonyVersion)" IncludeAssets="compile" />
     </ItemGroup>
@@ -22,10 +23,6 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(UseNuGetAssemblies) == False">
-      <Reference Include="TaleWorlds.BattlEye.Client">
-        <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.BattlEye.Client.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
       <Reference Include="TaleWorlds.CampaignSystem">
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
         <Private>False</Private>

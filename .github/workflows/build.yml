@@ -23,7 +23,7 @@ jobs:
         shell: pwsh
         run: |
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
-          $ModVersion = $ModVersion -replace "\.0",""
+          $ModVersion = $ModVersion -replace "(?:\.0)+$",""
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
           "mod_version=$ModVersion" >> $env:GITHUB_ENV
           Write-Output "ModVersion: ""$ModVersion"""

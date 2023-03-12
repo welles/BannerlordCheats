@@ -36,31 +36,6 @@ namespace BannerlordCheats.Patches.Combat
         }
     }
 
-    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.DecideCrushedThrough))]
-    public static class AlwaysCrushThroughShields_Default
-    {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void DecideCrushedThrough(
-            ref Agent attackerAgent,
-            ref Agent defenderAgent,
-            ref float totalAttackEnergy,
-            ref Agent.UsageDirection attackDirection,
-            ref StrikeType strikeType,
-            ref WeaponComponentData defendItem,
-            ref bool isPassiveUsage,
-            ref bool __result)
-            => AlwaysCrushThroughShields.DecideCrushedThrough(
-                ref attackerAgent,
-                ref defenderAgent,
-                ref totalAttackEnergy,
-                ref attackDirection,
-                ref strikeType,
-                ref defendItem,
-                ref isPassiveUsage,
-                ref __result);
-    }
-
     [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecideCrushedThrough))]
     public static class AlwaysCrushThroughShields_Sandbox
     {

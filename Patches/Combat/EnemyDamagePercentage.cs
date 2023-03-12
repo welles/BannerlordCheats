@@ -36,23 +36,6 @@ namespace BannerlordCheats.Patches.Combat
         }
     }
 
-    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.CalculateDamage))]
-    public static class EnemyDamagePercentage_Default
-    {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void CalculateDamage(
-            ref AttackInformation attackInformation,
-            ref AttackCollisionData collisionData,
-            ref WeaponComponentData weapon,
-            ref float __result)
-            => EnemyDamagePercentage.CalculateDamage(
-                ref attackInformation,
-                ref collisionData,
-                ref weapon,
-                ref __result);
-    }
-
     [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class EnemyDamagePercentage_Sandbox
     {
