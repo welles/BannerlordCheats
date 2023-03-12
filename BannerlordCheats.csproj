@@ -23,10 +23,6 @@
     </ItemGroup>
 
     <ItemGroup Condition="$(UseNuGetAssemblies) == False">
-      <Reference Include="TaleWorlds.BattlEye.Client">
-        <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.BattlEye.Client.dll</HintPath>
-        <Private>False</Private>
-      </Reference>
       <Reference Include="TaleWorlds.CampaignSystem">
         <HintPath>$(GameFolder)\bin\Win64_Shipping_Client\TaleWorlds.CampaignSystem.dll</HintPath>
         <Private>False</Private>
