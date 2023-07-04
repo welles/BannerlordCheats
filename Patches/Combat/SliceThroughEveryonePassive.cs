@@ -31,23 +31,6 @@ namespace BannerlordCheats.Patches.Combat
         }
     }
 
-    [HarmonyPatch(typeof(DefaultAgentApplyDamageModel), nameof(DefaultAgentApplyDamageModel.DecidePassiveAttackCollisionReaction))]
-    public static class SliceThroughEveryonePassive_Default
-    {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void DecidePassiveAttackCollisionReaction(
-            ref Agent attacker,
-            ref Agent defender,
-            ref bool isFatalHit,
-            ref MeleeCollisionReaction __result)
-            => SliceThroughEveryonePassive.DecidePassiveAttackCollisionReaction(
-                ref attacker,
-                ref defender,
-                ref isFatalHit,
-                ref __result);
-    }
-
     [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecidePassiveAttackCollisionReaction))]
     public static class SliceThroughEveryonePassive_Sandbox
     {
