@@ -9,3 +9,12 @@ updates:
       - "stable"
     assignees:
       - "welles"
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    target-branch: "beta-develop"
+    labels:
+      - "beta"
+    assignees:
+      - "welles"
