@@ -7,12 +7,12 @@ using TaleWorlds.CampaignSystem.Settlements.Workshops;
 
 namespace BannerlordCheats.Patches.Workshops
 {
-    [HarmonyPatch(typeof(DefaultWorkshopModel), nameof(DefaultWorkshopModel.GetBuyingCostForPlayer))]
+    [HarmonyPatch(typeof(DefaultWorkshopModel), nameof(DefaultWorkshopModel.GetCostForPlayer))]
     public static class WorkshopBuyingCostPercentage
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetBuyingCostForPlayer(ref Workshop workshop, ref int __result)
+        public static void GetCostForPlayer(ref Workshop workshop, ref int __result)
         {
             try
             {
