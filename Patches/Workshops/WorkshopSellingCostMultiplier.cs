@@ -7,6 +7,7 @@ using TaleWorlds.CampaignSystem.Settlements.Workshops;
 
 namespace BannerlordCheats.Patches.Workshops
 {
+    /*
     [HarmonyPatch(typeof(DefaultWorkshopModel), nameof(DefaultWorkshopModel.GetSellingCost))]
     public static class WorkshopSellingCostMultiplier
     {
@@ -27,4 +28,5 @@ namespace BannerlordCheats.Patches.Workshops
             }
         }
     }
+    */
 }
