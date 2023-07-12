@@ -7,6 +7,7 @@ using static TaleWorlds.Core.Crafting;
 
 namespace BannerlordCheats.Patches.Smithing
 {
+    /*
     [HarmonyPatch(typeof(DefaultSmithingModel), nameof(DefaultSmithingModel.GetModifierChanges))]
     public static class CraftedWeaponModifierBonus
     {
@@ -47,4 +48,5 @@ namespace BannerlordCheats.Patches.Smithing
             }
         }
     }
+    */
 }

@@ -892,6 +892,7 @@ namespace BannerlordCheats.Settings
                     ? new CheatValue<float>(true, SettingsManager.GlobalInstance.SmithingCostPercentage)
                     : new CheatValue<float>(false, Default.SmithingCostPercentage);
 
+        /*
         public static CheatValue<int> CraftedWeaponHandlingBonus =>
             SettingsManager.IsPerCampaignInstanceLoaded && SettingsManager.PerCampaignInstance.CraftedWeaponHandlingBonus != Default.CraftedWeaponHandlingBonus
                 ? new CheatValue<int>(true, SettingsManager.PerCampaignInstance.CraftedWeaponHandlingBonus)
@@ -926,6 +927,7 @@ namespace BannerlordCheats.Settings
                 : SettingsManager.GlobalInstance.CraftedWeaponThrustSpeedBonus != Default.CraftedWeaponThrustSpeedBonus
                     ? new CheatValue<int>(true, SettingsManager.GlobalInstance.CraftedWeaponThrustSpeedBonus)
                     : new CheatValue<int>(false, Default.CraftedWeaponThrustSpeedBonus);
+        */
 
         #endregion Smithing
 
