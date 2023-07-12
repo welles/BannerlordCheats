@@ -41,9 +41,7 @@ jobs:
           "repo_branch=$RepoBranch" >> $env:GITHUB_ENV
           Write-Output "RepoBranch: ""$RepoBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $Prerelease = "${{github.ref}}"
-          $Prerelease = $Prerelease.Split("/")[-1]
-          If ($Prerelease -eq "stable") { $Prerelease = "false" } Else { $Prerelease = "true" }
+          If ($GameBranch -eq "Stable") { $Prerelease = "false" } Else { $Prerelease = "true" }
           "prerelease=$Prerelease" >> $env:GITHUB_ENV
           Write-Output "Prerelease: ""$Prerelease"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
