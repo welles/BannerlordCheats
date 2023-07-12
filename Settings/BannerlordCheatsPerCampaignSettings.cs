@@ -39,7 +39,7 @@ namespace BannerlordCheats.Settings
             catch { modName = "Cheats"; }
 
             var version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            version = Regex.Replace(version, @"\.0", string.Empty);
+            version = Regex.Replace(version, @"(?:\.0)+$", string.Empty);
             if (!version.Contains(".")) {  version += ".0"; }
 
             this.DisplayNameCore = $"{modName} {version} ({{0}})";
