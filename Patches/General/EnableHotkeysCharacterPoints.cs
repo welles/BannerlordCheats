@@ -6,23 +6,24 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
+using TaleWorlds.Core;
 using TaleWorlds.InputSystem;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Patches.General
 {
-    [HarmonyPatch(typeof(Module), "OnApplicationTick")]
+    [HarmonyPatch(typeof(GameManagerBase), nameof(GameManagerBase.OnTick))]
     public static class EnableHotkeysCharacterPoints
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void OnApplicationTick()
+        public static void OnTick(
+            ref float dt)
         {
             try
             {
                 if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                    && SettingsManager.EnableHotkeys.Value)
                 {
                     if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.F))
                     {

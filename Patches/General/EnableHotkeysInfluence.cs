@@ -6,24 +6,25 @@ using HarmonyLib;
 using JetBrains.Annotations;
 using SandBox.GauntletUI;
 using TaleWorlds.CampaignSystem;
+using TaleWorlds.Core;
 using TaleWorlds.InputSystem;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Patches.General
 {
-    [HarmonyPatch(typeof(Module), "OnApplicationTick")]
+    [HarmonyPatch(typeof(GameManagerBase), nameof(GameManagerBase.OnTick))]
     public static class EnableHotkeysInfluence
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void OnApplicationTick()
+        public static void OnTick(
+            ref float dt)
         {
             try
             {
                 if (ScreenManager.TopScreen is GauntletClanScreen
                     && Keys.IsKeyPressed(InputKey.LeftControl, InputKey.X)
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                    && SettingsManager.EnableHotkeys.Value)
                 {
                     Hero.MainHero.AddInfluenceWithKingdom(1000);
 

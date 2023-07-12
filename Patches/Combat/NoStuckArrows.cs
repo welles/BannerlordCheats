@@ -30,7 +30,7 @@ namespace BannerlordCheats.Patches.Combat
             {
                 if (attachedAgent.IsPlayer()
                     && collisionReaction == Mission.MissileCollisionReaction.Stick
-                    && BannerlordCheatsSettings.Instance?.NoStuckArrows == true)
+                    && SettingsManager.NoStuckArrows.IsChanged)
                 {
                     collisionReaction = Mission.MissileCollisionReaction.BecomeInvisible;
                 }

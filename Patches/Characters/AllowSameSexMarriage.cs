@@ -22,7 +22,7 @@ namespace BannerlordCheats.Patches.Characters
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.AllowSameSexMarriage == true
+                if (SettingsManager.AllowSameSexMarriage.IsChanged
                     && (firstHero.IsPlayer() || secondHero.IsPlayer()))
                 {
                     __result = (firstHero.Clan?.Leader != firstHero || secondHero.Clan?.Leader != secondHero)

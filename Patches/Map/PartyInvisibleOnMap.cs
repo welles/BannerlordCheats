@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Map
             try
             {
                 if (__instance.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.PartyInvisibleOnMap == true)
+                    && SettingsManager.PartyInvisibleOnMap.Value)
                 {
                     __result = true;
                 }

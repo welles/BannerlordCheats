@@ -16,7 +16,7 @@ namespace BannerlordCheats.Patches.Characters
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.ConversationAlwaysSuccessful == true)
+                if (SettingsManager.ConversationAlwaysSuccessful.IsChanged)
                 {
                     successChance = 1;
                     critSuccessChance = 1;

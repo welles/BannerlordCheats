@@ -1,11 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Text;
 using BannerlordCheats.Extensions;
 using BannerlordCheats.Localization;
-using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
 using TaleWorlds.CampaignSystem;
@@ -21,24 +21,6 @@ namespace BannerlordCheats
     {
         private static bool PatchesApplied = false;
 
-        public override void OnInitialState()
-        {
-            base.OnInitialState();
-
-            if (!SubModule.ConfirmFileExists())
-            {
-                InformationManager.ShowInquiry(new InquiryData(
-                    L10N.GetText("ModName"),
-                    L10N.GetText("ModWarningMessage"),
-                    true,
-                    false,
-                    L10N.GetText("ModWarningMessageConfirm"),
-                    null,
-                    SubModule.CreateConfirmFile,
-                    null));
-            }
-        }
-
         public override void OnGameInitializationFinished(Game game)
         {
             base.OnGameInitializationFinished(game);
@@ -48,36 +30,39 @@ namespace BannerlordCheats
                 return;
             }
 
-            try
+            var harmony = new Harmony("BannerlordCheats");
+
+            var assembly = typeof(SubModule).Assembly;
+
+            var types = AccessTools.GetTypesFromAssembly(assembly);
+
+            var failedPatches = new List<string>();
+
+            foreach (var type in types)
             {
-                var harmony = new Harmony("BannerlordCheats");
-
-                harmony.PatchAll();
-
-                SubModule.PatchesApplied = true;
-            }
-            catch (Exception e)
-            {
-                Debugger.Break();
-
                 try
                 {
-                    var errorFilePath = SubModule.CreateErrorFile(e);
-
-                    InformationManager.ShowInquiry(new InquiryData(
-                        L10N.GetText("ModFailedLoadWarningTitle"),
-                        L10N.GetTextFormat("ModFailedLoadWarningMessage", errorFilePath),
-                        true,
-                        false,
-                        L10N.GetText("ModWarningMessageConfirm"),
-                        null,
-                        null,
-                        null));
+                    new PatchClassProcessor(harmony, type).Patch();
                 }
-                catch
+                catch (HarmonyException)
                 {
-                    // Not worth crashing for
+                    failedPatches.Add(type.Name);
                 }
+            }
+
+            SubModule.PatchesApplied = true;
+
+            if (failedPatches.Any())
+            {
+                InformationManager.ShowInquiry(new InquiryData(
+                    L10N.GetText("ModFailedLoadWarningTitle"),
+                    L10N.GetTextFormat("ModFailedLoadWarningMessage", string.Join(Environment.NewLine, failedPatches)),
+                    true,
+                    false,
+                    L10N.GetText("ModWarningMessageConfirm"),
+                    null,
+                    null,
+                    null));
             }
         }
 
@@ -123,7 +108,7 @@ namespace BannerlordCheats
         {
             var errorFileName = $"Error-{DateTime.Now:yyyy-MM-dd-HH-mm-ss}.txt";
 
-            var assemblyLocation = Assembly.GetAssembly(typeof(BannerlordCheatsSettings)).Location;
+            var assemblyLocation = Assembly.GetAssembly(typeof(SubModule)).Location;
 
             var location = Path.GetDirectoryName(assemblyLocation);
 
@@ -162,46 +147,6 @@ namespace BannerlordCheats
             File.WriteAllText(errorFilePath, errorMessage.ToString());
 
             return errorFilePath;
-        }
-
-        private static string ConfirmFilePath
-        {
-            get
-            {
-                var confirmFileName = "I Understand How The Cheats Work.txt";
-
-                var assemblyLocation = Assembly.GetAssembly(typeof(BannerlordCheatsSettings)).Location;
-
-                var location = Path.GetDirectoryName(assemblyLocation);
-
-                var confirmFilePath = Path.Combine(location, confirmFileName);
-
-                return confirmFilePath;
-            }
-        }
-
-        private static void CreateConfirmFile()
-        {
-            try
-            {
-                File.Create(SubModule.ConfirmFilePath);
-            }
-            catch
-            {
-                // Not worth crashing for
-            }
-        }
-
-        private static bool ConfirmFileExists()
-        {
-            try
-            {
-                return File.Exists(SubModule.ConfirmFilePath);
-            }
-            catch
-            {
-                return false;
-            }
         }
     }
 }

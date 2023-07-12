@@ -9,17 +9,22 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecideCrushedThrough))]
-    public class AlwaysCrushThroughShields
+    public static class AlwaysCrushThroughShields
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void DecideCrushedThrough(Agent attackerAgent, Agent defenderAgent, float totalAttackEnergy, Agent.UsageDirection attackDirection, StrikeType strikeType, WeaponComponentData defendItem, bool isPassiveUsage, ref bool __result)
+        public static void DecideCrushedThrough(
+            ref Agent attackerAgent,
+            ref Agent defenderAgent,
+            ref float totalAttackEnergy,
+            ref Agent.UsageDirection attackDirection,
+            ref StrikeType strikeType,
+            ref WeaponComponentData defendItem,
+            ref bool isPassiveUsage,
+            ref bool __result)
         {
             try
             {
                 if (attackerAgent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.AlwaysCrushThroughShields == true)
+                    && SettingsManager.AlwaysCrushThroughShields.IsChanged)
                 {
                     __result = true;
                 }
@@ -29,5 +34,30 @@ namespace BannerlordCheats.Patches.Combat
                 SubModule.LogError(e, typeof(AlwaysCrushThroughShields));
             }
         }
+    }
+
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.DecideCrushedThrough))]
+    public static class AlwaysCrushThroughShields_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void DecideCrushedThrough(
+            ref Agent attackerAgent,
+            ref Agent defenderAgent,
+            ref float totalAttackEnergy,
+            ref Agent.UsageDirection attackDirection,
+            ref StrikeType strikeType,
+            ref WeaponComponentData defendItem,
+            ref bool isPassiveUsage,
+            ref bool __result)
+            => AlwaysCrushThroughShields.DecideCrushedThrough(
+                ref attackerAgent,
+                ref defenderAgent,
+                ref totalAttackEnergy,
+                ref attackDirection,
+                ref strikeType,
+                ref defendItem,
+                ref isPassiveUsage,
+                ref __result);
     }
 }

@@ -9,20 +9,17 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class DamageMultiplier
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, ref WeaponComponentData weapon, ref float __result)
         {
             try
             {
-                if (attackInformation.AttackerAgentCharacter.IsPlayer()
+                if (attackInformation.IsAttackerPlayer
                     && !attackInformation.IsFriendlyFire
-                    && BannerlordCheatsSettings.Instance?.DamageMultiplier > 1f)
+                    && SettingsManager.DamageMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.DamageMultiplier;
+                    __result *= SettingsManager.DamageMultiplier.Value;
                 }
             }
             catch (Exception e)
@@ -32,4 +29,12 @@ namespace BannerlordCheats.Patches.Combat
         }
     }
 
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
+    public static class DamageMultiplier_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, ref WeaponComponentData weapon, ref float __result)
+            => DamageMultiplier.CalculateDamage(ref attackInformation, ref collisionData, ref weapon, ref __result);
+    }
 }

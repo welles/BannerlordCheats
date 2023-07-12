@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Characters
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.AdjustPregnancyDuration < 36)
+                if (SettingsManager.AdjustPregnancyDuration.IsChanged)
                 {
-                    __result = BannerlordCheatsSettings.Instance.AdjustPregnancyDuration;
+                    __result = SettingsManager.AdjustPregnancyDuration.Value;
                 }
             }
             catch (Exception e)

@@ -20,9 +20,9 @@ namespace BannerlordCheats.Patches.Experience
             {
                 if (!hero.IsPlayer()
                     && hero.IsPlayerCompanion()
-                    && BannerlordCheatsSettings.Instance?.CompanionLearningRateMultiplier > 1f)
+                    && SettingsManager.CompanionLearningRateMultiplier.IsChanged)
                 {
-                    __result *= BannerlordCheatsSettings.Instance.CompanionLearningRateMultiplier;
+                    __result *= SettingsManager.CompanionLearningRateMultiplier.Value;
                 }
             }
             catch (Exception e)

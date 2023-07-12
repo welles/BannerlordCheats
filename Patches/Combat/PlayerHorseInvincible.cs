@@ -19,7 +19,7 @@ namespace BannerlordCheats.Patches.Combat
                 if (__instance.IsMount
                     && __instance.TryGetHuman(out var rider)
                     && rider.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.PlayerHorseInvincible == true)
+                    && SettingsManager.PlayerHorseInvincible.IsChanged)
                 {
                     __result = Agent.MortalityState.Invulnerable;
                 }

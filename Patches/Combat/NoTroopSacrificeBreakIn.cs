@@ -19,7 +19,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (party.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.NoTroopSacrifice == true)
+                    && SettingsManager.NoTroopSacrifice.IsChanged)
                 {
                     __result = 0;
                 }

@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Map
             try
             {
                 if (!mobileParty.IsPlayerParty()
-                    && BannerlordCheatsSettings.Instance?.NpcMapSpeedPercentage > 100f)
+                    && SettingsManager.NpcMapSpeedPercentage.IsChanged)
                 {
-                    __result.AddPercentage(BannerlordCheatsSettings.Instance.NpcMapSpeedPercentage);
+                    __result.AddPercentage(SettingsManager.NpcMapSpeedPercentage.Value);
                 }
             }
             catch (Exception e)

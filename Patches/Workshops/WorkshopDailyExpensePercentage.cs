@@ -1,23 +1,24 @@
 ﻿using System;
+using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
 using JetBrains.Annotations;
-using TaleWorlds.CampaignSystem.GameComponents;
+using TaleWorlds.CampaignSystem.Settlements.Workshops;
 
 namespace BannerlordCheats.Patches.Workshops
 {
-    [HarmonyPatch(typeof(DefaultWorkshopModel), nameof(DefaultWorkshopModel.GetDailyExpense))]
+    [HarmonyPatch(typeof(Workshop), nameof(Workshop.Expense), MethodType.Getter)]
     public static class WorkshopDailyExpensePercentage
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void GetDailyExpense(ref int level, ref int __result)
+        public static void Expense(ref Workshop __instance, ref int __result)
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.WorkshopDailyExpensePercentage < 100f)
+                if (SettingsManager.WorkshopDailyExpensePercentage.IsChanged && __instance.Owner.IsPlayer())
                 {
-                    var factor = BannerlordCheatsSettings.Instance.WorkshopDailyExpensePercentage / 100f;
+                    var factor = SettingsManager.WorkshopDailyExpensePercentage.Value / 100f;
 
                     __result = (int) (__result * factor);
                 }

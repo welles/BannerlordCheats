@@ -35,12 +35,17 @@ namespace BannerlordCheats.Localization
 
         public static string GetText(string key)
         {
-            return L10N.Values[key];
+            return L10N.Values.TryGetValue(key, out var text) ? text : key;
         }
 
         public static string GetTextFormat(string key, params object[] formatValues)
         {
-            var text = Values[key];
+            var found = L10N.Values.TryGetValue(key, out var text);
+
+            if (!found)
+            {
+                return key;
+            }
 
             for (int i = 0; i < formatValues.Length; i++)
             {
@@ -48,6 +53,30 @@ namespace BannerlordCheats.Localization
             }
 
             return text;
+        }
+
+        public static class Keys
+        {
+            public const string Global = "Global";
+            public const string ModName = "ModName";
+            public const string CombatPlayerGroupName = "Combat_Player";
+            public const string CombatPartyGroupName = "Combat_Party";
+            public const string CombatAlliesGroupName = "Combat_Allies";
+            public const string CombatEnemiesGroupName = "Combat_Enemies";
+            public const string CombatMiscGroupName = "Combat_Misc";
+            public const string GeneralGroupName = "General";
+            public const string MapGroupName = "Map";
+            public const string InventoryGroupName = "Inventory";
+            public const string PartyGroupName = "Party";
+            public const string ClanGroupName = "Clan";
+            public const string KingdomGroupName = "Kingdom";
+            public const string ExperienceGroupName = "Experience";
+            public const string SiegesGroupName = "Sieges";
+            public const string ArmyGroupName = "Army";
+            public const string SmithingGroupName = "Smithing";
+            public const string SettlementsGroupName = "Settlements";
+            public const string CharactersGroupName = "Characters";
+            public const string WorkshopsGroupName = "Workshops";
         }
     }
 }

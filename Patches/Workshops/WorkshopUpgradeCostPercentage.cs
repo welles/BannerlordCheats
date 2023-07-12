@@ -6,6 +6,7 @@ using TaleWorlds.CampaignSystem.GameComponents;
 
 namespace BannerlordCheats.Patches.Workshops
 {
+    /*
     [HarmonyPatch(typeof(DefaultWorkshopModel), nameof(DefaultWorkshopModel.GetUpgradeCost))]
     public static class WorkshopUpgradeCostPercentage
     {
@@ -15,9 +16,9 @@ namespace BannerlordCheats.Patches.Workshops
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.WorkshopUpgradeCostPercentage < 100f)
+                if (SettingsManager.WorkshopUpgradeCostPercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.WorkshopUpgradeCostPercentage / 100f;
+                    var factor = SettingsManager.WorkshopUpgradeCostPercentage.Value / 100f;
 
                     __result = (int) (__result * factor);
                 }
@@ -28,4 +29,5 @@ namespace BannerlordCheats.Patches.Workshops
             }
         }
     }
+    */
 }

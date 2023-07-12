@@ -9,19 +9,20 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class EnemyDamagePercentage
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
+        public static void CalculateDamage(
+            ref AttackInformation attackInformation,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData weapon,
+            ref float __result)
         {
             try
             {
                 if (attackInformation.AttackerAgentOrigin.IsOnPlayerEnemySide()
-                    && BannerlordCheatsSettings.Instance?.EnemyDamagePercentage < 100f)
+                    && SettingsManager.EnemyDamagePercentage.IsChanged)
                 {
-                    var factor = BannerlordCheatsSettings.Instance.EnemyDamagePercentage / 100f;
+                    var factor = SettingsManager.EnemyDamagePercentage.Value / 100f;
 
                     var newValue = (int)Math.Round(factor * __result);
 
@@ -33,5 +34,22 @@ namespace BannerlordCheats.Patches.Combat
                 SubModule.LogError(e, typeof(EnemyDamagePercentage));
             }
         }
+    }
+
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
+    public static class EnemyDamagePercentage_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void CalculateDamage(
+            ref AttackInformation attackInformation,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData weapon,
+            ref float __result)
+            => EnemyDamagePercentage.CalculateDamage(
+                ref attackInformation,
+                ref collisionData,
+                ref weapon,
+                ref __result);
     }
 }

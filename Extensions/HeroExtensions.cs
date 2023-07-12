@@ -13,5 +13,10 @@ namespace BannerlordCheats.Extensions
         {
             return hero?.IsPlayerCompanion ?? false;
         }
+
+        public static bool IsPlayerClan(this Hero hero)
+        {
+            return hero?.Clan?.IsPlayerClan() ?? false;
+        }
     }
 }

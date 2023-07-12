@@ -13,7 +13,18 @@ using TaleWorlds.Localization;
 
 namespace BannerlordCheats.Patches.Inventory
 {
-    [HarmonyPatch(typeof(InventoryLogic), nameof(InventoryLogic.Initialize), typeof(ItemRoster), typeof(MobileParty), typeof(bool), typeof(bool), typeof(CharacterObject), typeof(InventoryManager.InventoryCategoryType), typeof(IMarketData), typeof(bool), typeof(TextObject))]
+    [HarmonyPatch(typeof(InventoryLogic), nameof(InventoryLogic.Initialize),
+        typeof(ItemRoster),
+        typeof(MobileParty),
+        typeof(bool),
+        typeof(bool),
+        typeof(CharacterObject),
+        typeof(InventoryManager.InventoryCategoryType),
+        typeof(IMarketData),
+        typeof(bool),
+        typeof(TextObject),
+        typeof(TroopRoster),
+        typeof(InventoryLogic.CapacityData))]
     public static class NativeItemSpawning
     {
         [UsedImplicitly]
@@ -27,14 +38,16 @@ namespace BannerlordCheats.Patches.Inventory
             ref InventoryManager.InventoryCategoryType merchantItemType,
             ref IMarketData marketData,
             ref bool useBasePrices,
-            ref TextObject leftRosterName)
+            ref TextObject leftRosterName,
+            ref TroopRoster leftMemberRoster,
+            ref InventoryLogic.CapacityData otherSideCapacityData)
         {
             try
             {
                 if (party.IsPlayerParty()
                     && !isTrading
                     && !Game.Current.CheatMode
-                    && BannerlordCheatsSettings.Instance?.NativeItemSpawning == true)
+                    && SettingsManager.NativeItemSpawning.IsChanged)
                 {
                     var objectTypeList = Game.Current.ObjectManager.GetObjectTypeList<ItemObject>();
                     for (var index = 0; index != objectTypeList.Count; ++index)

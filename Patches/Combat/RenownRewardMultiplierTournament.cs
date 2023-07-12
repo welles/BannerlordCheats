@@ -19,9 +19,9 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (winner.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.RenownRewardMultiplier > 1f)
+                    && SettingsManager.RenownRewardMultiplier.IsChanged)
                 {
-                    __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.RenownRewardMultiplier);
+                    __result = (int) Math.Round(__result * SettingsManager.RenownRewardMultiplier.Value);
                 }
             }
             catch (Exception e)

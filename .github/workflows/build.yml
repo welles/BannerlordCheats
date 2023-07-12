@@ -1,105 +1,85 @@
-name: Build
+﻿name: Build & Release
 
 on:
-  #push:
+  push:
   workflow_dispatch:
 
 jobs:
   build:
     name: Build & Release
     runs-on: windows-latest
+    env:
+      DOTNET_NOLOGO: 1
+      DOTNET_CLI_TELEMETRY_OPTOUT: 1
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@master
-        with:
-          dotnet-version: 3.1.x
-          source-url: https://nuget.pkg.github.com/BUTR/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          DOTNET_NOLOGO: 1
-          DOTNET_CLI_TELEMETRY_OPTOUT: 1
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v3
 
-      - name: Build BannerlordCheats
-        run: dotnet build BannerlordCheats.csproj  --configuration Release -p:GameFolder="$PWD\game"
-        env:
-          DOTNET_NOLOGO: 1
-          DOTNET_CLI_TELEMETRY_OPTOUT: 1
-
-      - name: Get Versions
-        id: versions
+      - name: Check versions and parameters
+        shell: pwsh
         run: |
           $ModVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<Version>([\d.]+)<\/Version>" | % { $($_.Matches.Groups[1]).Value }
-          $ModVersion = $ModVersion -replace "\.0",""
+          $ModVersion = $ModVersion -replace "(?:\.0)+$",""
           If ($ModVersion -notmatch "\.") { $ModVersion = "$ModVersion.0" }
-          Write-Host "::set-output name=mod_version::$ModVersion"
-          Write-Host "ModVersion: ""$ModVersion"""
+          "mod_version=$ModVersion" >> $env:GITHUB_ENV
+          Write-Output "ModVersion: ""$ModVersion"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
-          Write-Host "::set-output name=game_version::$GameVersion"
-          Write-Host "GameVersion: ""$GameVersion"""
+          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)(?:-beta)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
+          "game_version=$GameVersion" >> $env:GITHUB_ENV
+          Write-Output "GameVersion: ""$GameVersion"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $GameBranch = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameBranch>(.+)<\/GameBranch>" | % { $($_.Matches.Groups[1]).Value }
-          Write-Host "::set-output name=game_branch::$GameBranch"
-          Write-Host "GameBranch: ""$GameBranch"""
+          "game_branch=$GameBranch" >> $env:GITHUB_ENV
+          Write-Output "GameBranch: ""$GameBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $RepoBranch = "${{github.ref}}"
           $RepoBranch = $RepoBranch.Split("/")[-1]
           If ($RepoBranch -eq "stable") { $RepoBranch = "" }
           If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
-          Write-Host "::set-output name=repo_branch::$RepoBranch"
-          Write-Host "RepoBranch: ""$RepoBranch"""
+          "repo_branch=$RepoBranch" >> $env:GITHUB_ENV
+          Write-Output "RepoBranch: ""$RepoBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $Prerelease = "${{github.ref}}"
           $Prerelease = $Prerelease.Split("/")[-1]
           If ($Prerelease -eq "stable") { $Prerelease = "false" } Else { $Prerelease = "true" }
-          Write-Host "::set-output name=prerelease::$Prerelease"
-          Write-Host "Prerelease: ""$Prerelease"""
+          "prerelease=$Prerelease" >> $env:GITHUB_ENV
+          Write-Output "Prerelease: ""$Prerelease"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ZipName = "BannerlordCheats_v$($ModVersion)_for_$($GameBranch)_e$($GameVersion)"
-          Write-Host "::set-output name=zip_name::$ZipName"
-          Write-Host "ZipName: ""$ZipName"""
+          $ZipName = "BannerlordCheats_v$($ModVersion)_for_v$($GameVersion)"
+          "zip_name=$ZipName" >> $env:GITHUB_ENV
+          Write-Output "ZipName: ""$ZipName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $TagName = "v$ModVersion$RepoBranch"
-          Write-Host "::set-output name=tag_name::$TagName"
-          Write-Host "TagName: ""$TagName"""
+          "tag_name=$TagName" >> $env:GITHUB_ENV
+          Write-Output "TagName: ""$TagName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ReleaseTitle = "Release v$($ModVersion) for $($GameBranch) e$($GameVersion)"
-          Write-Host "::set-output name=release_title::$ReleaseTitle"
-          Write-Host "ReleaseTitle: ""$ReleaseTitle"""
+          $ReleaseTitle = "Release v$($ModVersion) for v$($GameVersion)"
+          "release_title=$ReleaseTitle" >> $env:GITHUB_ENV
+          Write-Output "ReleaseTitle: ""$ReleaseTitle"""
+
+      - name: Build Bannerlord Cheats
+        run: dotnet build BannerlordCheats.csproj --configuration Release -p:GameFolder="${{github.workspace}}\Bannerlord" -p:UseNuGetAssemblies="True"
 
       - name: Package Mod Files
-        run: 7z a -tzip ${{steps.versions.outputs.zip_name}}.zip ./game/Modules/*
+        run: 7z a -tzip ${{env.zip_name}}.zip ${{github.workspace}}\Bannerlord\Modules\*
+        working-directory: ${{github.workspace}}
 
       - name: Upload Artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
-          name: ${{steps.versions.outputs.zip_name}}
-          path: ./game/Modules/*
+          name: ${{env.zip_name}}
+          path: ${{github.workspace}}\Bannerlord\Modules
 
       - name: Create Release
-        uses: actions/create-release@v1
-        id: create_release
+        uses: softprops/action-gh-release@v1
         if: ${{ github.ref_name == 'stable' || github.ref_name == 'beta' }}
         with:
-          tag_name: ${{steps.versions.outputs.tag_name}}
-          release_name: ${{steps.versions.outputs.release_title}}
+          tag_name: ${{env.tag_name}}
+          name: ${{env.release_title}}
           draft: false
-          prerelease: ${{steps.versions.outputs.prerelease}}
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        id: upload_release_asset
-        if: ${{ github.ref_name == 'stable' || github.ref_name == 'beta' }}
-        with:
-          upload_url: ${{steps.create_release.outputs.upload_url}}
-          asset_path: ./${{steps.versions.outputs.zip_name}}.zip
-          asset_name: ${{steps.versions.outputs.zip_name}}.zip
-          asset_content_type: application/zip
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          prerelease: ${{env.prerelease}}
+          files: ${{env.zip_name}}.zip

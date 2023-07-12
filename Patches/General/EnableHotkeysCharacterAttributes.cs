@@ -9,22 +9,22 @@ using TaleWorlds.CampaignSystem;
 using TaleWorlds.CampaignSystem.ViewModelCollection.CharacterDeveloper;
 using TaleWorlds.Core;
 using TaleWorlds.InputSystem;
-using TaleWorlds.MountAndBlade;
 using TaleWorlds.ScreenSystem;
 
 namespace BannerlordCheats.Patches.General
 {
-    [HarmonyPatch(typeof(Module), "OnApplicationTick")]
+    [HarmonyPatch(typeof(GameManagerBase), nameof(GameManagerBase.OnTick))]
     public static class EnableHotkeysCharacterAttributes
     {
         [UsedImplicitly]
         [HarmonyPostfix]
-        public static void OnApplicationTick()
+        public static void OnTick(
+            ref float dt)
         {
             try
             {
                 if (ScreenManager.TopScreen is GauntletCharacterDeveloperScreen
-                    && BannerlordCheatsSettings.Instance?.EnableHotkeys == true)
+                    && SettingsManager.EnableHotkeys.Value)
                 {
                     if (Keys.IsKeyPressed(InputKey.LeftControl, InputKey.A))
                     {
@@ -79,7 +79,7 @@ namespace BannerlordCheats.Patches.General
 
         private static void SetMaximum(Hero hero, CharacterAttribute attribute)
         {
-            var changeAmount = 10 - hero.GetAttributeValue(attribute);
+            var changeAmount = Campaign.Current.Models.CharacterDevelopmentModel.MaxAttribute - hero.GetAttributeValue(attribute);
 
             hero.HeroDeveloper.AddAttribute(attribute, changeAmount, false);
         }
@@ -92,7 +92,7 @@ namespace BannerlordCheats.Patches.General
 
             var oldValue = currentHero.GetAttributeValue(attribute);
 
-            if (oldValue >= 10) { return; }
+            if (oldValue >= Campaign.Current.Models.CharacterDevelopmentModel.MaxAttribute) { return; }
 
             currentHero.HeroDeveloper.AddAttribute(attribute, 1, false);
 

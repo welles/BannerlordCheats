@@ -9,19 +9,20 @@ using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
     public static class NoFriendlyFire
     {
-        [UsedImplicitly]
-        [HarmonyPostfix]
-        public static void CalculateDamage(ref AttackInformation attackInformation, ref AttackCollisionData collisionData, WeaponComponentData weapon, ref float __result)
+        public static void CalculateDamage(
+            ref AttackInformation attackInformation,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData weapon,
+            ref float __result)
         {
             try
             {
                 if (attackInformation.AttackerAgentOrigin.TryGetParty(out var party)
                     && party.IsPlayerParty()
                     && attackInformation.IsFriendlyFire
-                    && BannerlordCheatsSettings.Instance?.NoFriendlyFire == true)
+                    && SettingsManager.NoFriendlyFire.IsChanged)
                 {
                     __result = 0;
                 }
@@ -31,5 +32,22 @@ namespace BannerlordCheats.Patches.Combat
                 SubModule.LogError(e, typeof(NoFriendlyFire));
             }
         }
+    }
+
+    [HarmonyPatch(typeof(SandboxAgentApplyDamageModel), nameof(SandboxAgentApplyDamageModel.CalculateDamage))]
+    public static class NoFriendlyFire_Sandbox
+    {
+        [UsedImplicitly]
+        [HarmonyPostfix]
+        public static void CalculateDamage(
+            ref AttackInformation attackInformation,
+            ref AttackCollisionData collisionData,
+            ref WeaponComponentData weapon,
+            ref float __result)
+            => NoFriendlyFire.CalculateDamage(
+                ref attackInformation,
+                ref collisionData,
+                ref weapon,
+                ref __result);
     }
 }

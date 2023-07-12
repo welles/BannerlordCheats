@@ -17,9 +17,9 @@ namespace BannerlordCheats.Patches.Settlements
             try
             {
                 if (__instance.IsPlayerTown()
-                    && BannerlordCheatsSettings.Instance?.DailyLoyaltyBonus > 0)
+                    && SettingsManager.DailyLoyaltyBonus.IsChanged)
                 {
-                    __result += BannerlordCheatsSettings.Instance.DailyLoyaltyBonus;
+                    __result += SettingsManager.DailyLoyaltyBonus.Value;
                 }
             }
             catch (Exception e)

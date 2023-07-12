@@ -7,6 +7,7 @@ using TaleWorlds.CampaignSystem.Settlements.Workshops;
 
 namespace BannerlordCheats.Patches.Workshops
 {
+    /*
     [HarmonyPatch(typeof(DefaultWorkshopModel), nameof(DefaultWorkshopModel.GetSellingCost))]
     public static class WorkshopSellingCostMultiplier
     {
@@ -16,9 +17,9 @@ namespace BannerlordCheats.Patches.Workshops
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.WorkshopSellingCostMultiplier > 1f)
+                if (SettingsManager.WorkshopSellingCostMultiplier.IsChanged)
                 {
-                    __result = (int) (__result * BannerlordCheatsSettings.Instance.WorkshopSellingCostMultiplier);
+                    __result = (int) (__result * SettingsManager.WorkshopSellingCostMultiplier.Value);
                 }
             }
             catch (Exception e)
@@ -27,4 +28,5 @@ namespace BannerlordCheats.Patches.Workshops
             }
         }
     }
+    */
 }

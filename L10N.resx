@@ -216,12 +216,6 @@
   <data name="PartyOneHitKill_Desc" xml:space="preserve">
     <value>Party members kill enemies with one hit.</value>
   </data>
-  <data name="PartyOnlyKnockout_Name" xml:space="preserve">
-    <value>Party Only Knockout</value>
-  </data>
-  <data name="PartyOnlyKnockout_Desc" xml:space="preserve">
-    <value>Party members are never killed, only knocked unconcious.</value>
-  </data>
   <data name="RenownRewardMultiplier_Name" xml:space="preserve">
     <value>Renown Reward Multiplier</value>
   </data>
@@ -543,12 +537,6 @@
   <data name="DamageMultiplier_Name" xml:space="preserve">
     <value>Damage Multiplier</value>
   </data>
-  <data name="EnemyOnlyKnockout_Desc" xml:space="preserve">
-    <value>Enemies are never killed, only knocked unconcious.</value>
-  </data>
-  <data name="EnemyOnlyKnockout_Name" xml:space="preserve">
-    <value>Enemy Only Knockout</value>
-  </data>
   <data name="NoFriendlyFire_Desc" xml:space="preserve">
     <value>Completely disable friendly fire for the player party.</value>
   </data>
@@ -762,18 +750,6 @@
   <data name="PlayerHorseInvincible_Desc" xml:space="preserve">
     <value>Disables all damage to the horse the player is currently riding.</value>
   </data>
-  <data name="FriendlyLordCombatDeathPercentage_Name" xml:space="preserve">
-    <value>Friendly Lord Combat Death Percentage</value>
-  </data>
-  <data name="FriendlyLordCombatDeathPercentage_Desc" xml:space="preserve">
-    <value>Percentage of chance of allied lords dying during combat. 100% means default chance, 0% means lords never die.</value>
-  </data>
-  <data name="EnemyLordCombatDeathPercentage_Name" xml:space="preserve">
-    <value>Enemy Lord Combat Death Percentage</value>
-  </data>
-  <data name="EnemyLordCombatDeathPercentage_Desc" xml:space="preserve">
-    <value>Percentage of chance of enemy lords dying during combat. 100% means default chance, 0% means lords never die.</value>
-  </data>
   <data name="AlwaysKnockDown_Name" xml:space="preserve">
     <value>Always Knock Down</value>
   </data>
@@ -791,12 +767,6 @@
   </data>
   <data name="EnableHotkeyTips_Desc" xml:space="preserve">
     <value>Enable to see a list of available cheat hotkeys in every screen that has any.</value>
-  </data>
-  <data name="CompanionDeathPercentage_Name" xml:space="preserve">
-    <value>Player Companion Death Percentage</value>
-  </data>
-  <data name="CompanionDeathPercentage_Desc" xml:space="preserve">
-    <value>Percentage of chance of player companions dying during combat. 100% means default chance, 0% means companions never die.</value>
   </data>
   <data name="NativeItemSpawning_Name" xml:space="preserve">
     <value>Spawn Items</value>
@@ -846,13 +816,6 @@
   <data name="AdjustPregnancyDuration_Desc" xml:space="preserve">
     <value>Adjust the length of pregnancies for all characters in the game. The default length of a pregnancy is 36 days.</value>
   </data>
-  <data name="ModWarningMessage" xml:space="preserve">
-    <value>Thank you for using the Cheats mod!
-Please remember that the cheats only show up when you have a campaign loaded.
-You can access them by pressing ESC, then going to Options → Mod Options → Cheats.
-Also please use the cheats responsibly and backup your save files. Some cheats might have unintended side effects or might break your game completely.
-Thank you!</value>
-  </data>
   <data name="ModWarningMessageConfirm" xml:space="preserve">
     <value>I Understand</value>
   </data>
@@ -860,16 +823,8 @@ Thank you!</value>
     <value>Bannerlord Cheats failed to load!</value>
   </data>
   <data name="ModFailedLoadWarningMessage" xml:space="preserve">
-    <value>This is most likely due to a version mismatch between the game and the mod. Please check if you have the correct mod version for your version of the game.
-If you do, please send the error information that has been generated in the file "{0}" to the mod author so that they can investigate this issue.
-You can still play the game, but most cheats will not work.
-Thank you!</value>
-  </data>
-  <data name="EnemyLordCombatDeathChanceMultiplier_Name" xml:space="preserve">
-    <value>Enemy Lord Combat Death Chance Multiplier</value>
-  </data>
-  <data name="EnemyLordCombatDeathChanceMultiplier_Desc" xml:space="preserve">
-    <value>Factor by which the chance of enemy lords dying in combat is multiplied. 1 means default death chance.</value>
+    <value>Bannerlord Cheats could not load some cheats. Do you have the correct mod version for your game version? The following cheats failed to load:
+{0}</value>
   </data>
   <data name="NeverKnockedBackByAttacks_Desc" xml:space="preserve">
     <value>If enabled the player character is never knocked back or stunned by enemy attacks.</value>
@@ -900,5 +855,125 @@ Thank you!</value>
   </data>
   <data name="ModExceptionTitle" xml:space="preserve">
     <value>Bannerlord Cheats encountered an error!</value>
+  </data>
+  <data name="SettlementsNeverRebel_Name" xml:space="preserve">
+    <value>Settlements Never Rebel</value>
+  </data>
+  <data name="SettlementsNeverRebel_Desc" xml:space="preserve">
+    <value>If enabled, player owned settlements will never start a rebellion.</value>
+  </data>
+  <data name="NeverDieOfOldAge_Name" xml:space="preserve">
+    <value>Never Die Of Old Age</value>
+  </data>
+  <data name="NeverDieOfOldAge_Desc" xml:space="preserve">
+    <value>If enabled, your main character will still get sick and old, but will never actually die from old age or sickness.</value>
+  </data>
+  <data name="KillCharacterMessageTitle" xml:space="preserve">
+    <value>Kill {0}?</value>
+  </data>
+  <data name="KillCharacterMessage" xml:space="preserve">
+    <value>Should this character die?</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="KillCharacterConfirm" xml:space="preserve">
+    <value>Kill!</value>
+  </data>
+  <data name="TransferSettlementMessageTitle" xml:space="preserve">
+    <value>Transfer {0}?</value>
+  </data>
+  <data name="TransferSettlementMessage" xml:space="preserve">
+    <value>Should the ownership of this settlement be transfered to you?</value>
+  </data>
+  <data name="TransferSettlementConfirm" xml:space="preserve">
+    <value>Transfer!</value>
+  </data>
+  <data name="ChangePlayerMessageTitle" xml:space="preserve">
+    <value>Change to {0}?</value>
+  </data>
+  <data name="ChangePlayerMessage" xml:space="preserve">
+    <value>Play as this character from now on? This might have unexpected consequences! Use at your own risk and save your game before you do this!</value>
+  </data>
+  <data name="ChangePlayerConfirm" xml:space="preserve">
+    <value>Change!</value>
+  </data>
+  <data name="IUnderstand_Name" xml:space="preserve">
+    <value>Load a campaign to see cheats!</value>
+  </data>
+  <data name="IUnderstand_Desc" xml:space="preserve">
+    <value>Cheats are saved per character! They only show up when you are in a campaign. Press ESC, then go to Options → Mod Options → Cheats while in a campaign.</value>
+  </data>
+  <data name="Understood" xml:space="preserve">
+    <value>Understood!</value>
+  </data>
+  <data name="ThanksForReadingMessage" xml:space="preserve">
+    <value>Thanks for reading and understanding!</value>
+  </data>
+  <data name="Global" xml:space="preserve">
+    <value>Global</value>
+  </data>
+  <data name="Enum_KnockoutOrKilled_Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Enum_KnockoutOrKilled_Knockout" xml:space="preserve">
+    <value>Knocked out</value>
+  </data>
+  <data name="Enum_KnockoutOrKilled_Killed" xml:space="preserve">
+    <value>Killed</value>
+  </data>
+  <data name="PartyKnockoutOrKilled_Name" xml:space="preserve">
+    <value>Party Knocked Out or Killed</value>
+  </data>
+  <data name="PartyKnockoutOrKilled_Desc" xml:space="preserve">
+    <value>When this is set, troops in your party are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
+  </data>
+  <data name="CompanionsKnockoutOrKilled_Name" xml:space="preserve">
+    <value>Companions Knocked Out or Killed</value>
+  </data>
+  <data name="CompanionsKnockoutOrKilled_Desc" xml:space="preserve">
+    <value>When this is set, heroes in your party are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
+  </data>
+  <data name="FriendlyLordsKnockoutOrKilled_Name" xml:space="preserve">
+    <value>Friendly Lords Knocked Out or Killed</value>
+  </data>
+  <data name="FriendlyLordsKnockoutOrKilled_Desc" xml:space="preserve">
+    <value>When this is set, allied lords are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
+  </data>
+  <data name="EnemyLordsKnockoutOrKilled_Name" xml:space="preserve">
+    <value>Enemy Lords Knocked Out or Killed</value>
+  </data>
+  <data name="EnemyLordsKnockoutOrKilled_Desc" xml:space="preserve">
+    <value>When this is set, enemy lords are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
+  </data>
+  <data name="EnemyTroopsKnockoutOrKilled_Name" xml:space="preserve">
+    <value>Enemy Troops Knocked Out or Killed</value>
+  </data>
+  <data name="EnemyTroopsKnockoutOrKilled_Desc" xml:space="preserve">
+    <value>When this is set, enemy troops are either always knocked out or always killed when defeated, depending on the setting. Default means the default chance of a knockout.</value>
+  </data>
+  <data name="CaravansInvisibleOnMap_Name" xml:space="preserve">
+    <value>Caravans Invisible On Map</value>
+  </data>
+  <data name="CaravansInvisibleOnMap_Desc" xml:space="preserve">
+    <value>Hostile parties will not track or attack player owned caravans on the map.</value>
+  </data>
+  <data name="ClanExperienceMultiplier_Name" xml:space="preserve">
+    <value>Clan Member Experience Multiplier</value>
+  </data>
+  <data name="ClanExperienceMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the experience gain of other player clan members is multiplied. A factor of 1 means default experience.</value>
+  </data>
+  <data name="RelationGainAfterBattleMultiplier_Name" xml:space="preserve">
+    <value>Relation Gain After Battle Multiplier</value>
+  </data>
+  <data name="RelationGainAfterBattleMultiplier_Desc" xml:space="preserve">
+    <value>Factor by which the relationship increase with lords you've helped in battle is multiplied. A factor of 1 means default increase.</value>
+  </data>
+  <data name="VillagesNeverRaided_Name" xml:space="preserve">
+    <value>Player Villages Never Raided</value>
+  </data>
+  <data name="VillagesNeverRaided_Desc" xml:space="preserve">
+    <value>When enabled, player owned villages can never be raided.</value>
   </data>
 </root>

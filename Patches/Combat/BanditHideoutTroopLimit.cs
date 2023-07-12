@@ -16,9 +16,9 @@ namespace BannerlordCheats.Patches.Combat
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.BanditHideoutTroopLimit > 0)
+                if (SettingsManager.BanditHideoutTroopLimit.IsChanged)
                 {
-                    __result += BannerlordCheatsSettings.Instance.BanditHideoutTroopLimit;
+                    __result += SettingsManager.BanditHideoutTroopLimit.Value;
                 }
             }
             catch (Exception e)

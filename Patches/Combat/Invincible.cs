@@ -17,7 +17,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (__instance.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.Invincible == true)
+                    && SettingsManager.Invincible.IsChanged)
                 {
                     __result = Agent.MortalityState.Invulnerable;
                 }

@@ -20,7 +20,7 @@ namespace BannerlordCheats.Patches.Characters
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.PerfectAttraction == true
+                if (SettingsManager.PerfectAttraction.IsChanged
                     && heroOfInterest.IsPlayer())
                 {
                     __result = 100;

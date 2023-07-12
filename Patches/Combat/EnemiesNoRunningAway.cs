@@ -21,7 +21,7 @@ namespace BannerlordCheats.Patches.Combat
             try
             {
                 if (agent.IsPlayerEnemy()
-                    && BannerlordCheatsSettings.Instance?.EnemiesNoRunningAway == true)
+                    && SettingsManager.EnemiesNoRunningAway.IsChanged)
                 {
                     __result = 0.0f;
                 }

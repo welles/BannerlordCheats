@@ -7,6 +7,7 @@ using static TaleWorlds.Core.Crafting;
 
 namespace BannerlordCheats.Patches.Smithing
 {
+    /*
     [HarmonyPatch(typeof(DefaultSmithingModel), nameof(DefaultSmithingModel.GetModifierChanges))]
     public static class CraftedWeaponModifierBonus
     {
@@ -16,29 +17,29 @@ namespace BannerlordCheats.Patches.Smithing
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.CraftedWeaponHandlingBonus > 0)
+                if (SettingsManager.CraftedWeaponHandlingBonus.IsChanged)
                 {
-                    __result.Handling += BannerlordCheatsSettings.Instance.CraftedWeaponHandlingBonus;
+                    __result.Handling += SettingsManager.CraftedWeaponHandlingBonus.Value;
                 }
 
-                if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingDamageBonus > 0)
+                if (SettingsManager.CraftedWeaponSwingDamageBonus.IsChanged)
                 {
-                    __result.SwingDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingDamageBonus;
+                    __result.SwingDamageOverriden += SettingsManager.CraftedWeaponSwingDamageBonus.Value;
                 }
 
-                if (BannerlordCheatsSettings.Instance?.CraftedWeaponSwingSpeedBonus > 0)
+                if (SettingsManager.CraftedWeaponSwingSpeedBonus.IsChanged)
                 {
-                    __result.SwingSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponSwingSpeedBonus;
+                    __result.SwingSpeedOverriden += SettingsManager.CraftedWeaponSwingSpeedBonus.Value;
                 }
 
-                if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustDamageBonus > 0)
+                if (SettingsManager.CraftedWeaponThrustDamageBonus.IsChanged)
                 {
-                    __result.ThrustDamageOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustDamageBonus;
+                    __result.ThrustDamageOverriden += SettingsManager.CraftedWeaponThrustDamageBonus.Value;
                 }
 
-                if (BannerlordCheatsSettings.Instance?.CraftedWeaponThrustSpeedBonus > 0)
+                if (SettingsManager.CraftedWeaponThrustSpeedBonus.IsChanged)
                 {
-                    __result.ThrustSpeedOverriden += BannerlordCheatsSettings.Instance.CraftedWeaponThrustSpeedBonus;
+                    __result.ThrustSpeedOverriden += SettingsManager.CraftedWeaponThrustSpeedBonus.Value;
                 }
             }
             catch (Exception e)
@@ -47,4 +48,5 @@ namespace BannerlordCheats.Patches.Smithing
             }
         }
     }
+    */
 }

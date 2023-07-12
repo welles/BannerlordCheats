@@ -20,9 +20,9 @@ namespace BannerlordCheats.Patches.Settlements
             {
                 if (clientParty.IsPlayerParty()
                     && isSelling
-                    && BannerlordCheatsSettings.Instance?.SellingPriceMultiplier > 1f)
+                    && SettingsManager.SellingPriceMultiplier.IsChanged)
                 {
-                    __result = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.SellingPriceMultiplier);
+                    __result = (int) Math.Round(__result * SettingsManager.SellingPriceMultiplier.Value);
                 }
             }
             catch (Exception e)

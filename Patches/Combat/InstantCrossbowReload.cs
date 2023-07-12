@@ -2,22 +2,25 @@
 using BannerlordCheats.Extensions;
 using BannerlordCheats.Settings;
 using HarmonyLib;
+using JetBrains.Annotations;
 using SandBox.GameComponents;
-using TaleWorlds.Core;
 using TaleWorlds.MountAndBlade;
 
 namespace BannerlordCheats.Patches.Combat
 {
-    [HarmonyPatch(typeof(SandboxAgentStatCalculateModel), "GetPerkEffectsOnAgent")]
+    [HarmonyPatch(typeof(SandboxAgentStatCalculateModel), nameof(SandboxAgentStatCalculateModel.UpdateAgentStats))]
     public static class InstantCrossbowReload
     {
+        [UsedImplicitly]
         [HarmonyPrefix]
-        public static void GetPerkEffectsOnAgent(ref Agent agent, ref AgentDrivenProperties agentDrivenProperties, ref WeaponComponentData rightHandEquippedItem)
+        public static void UpdateAgentStats(
+            ref Agent agent,
+            ref AgentDrivenProperties agentDrivenProperties)
         {
             try
             {
                 if (agent.IsPlayer()
-                    && BannerlordCheatsSettings.Instance?.InstantCrossbowReload == true)
+                    && SettingsManager.InstantCrossbowReload.IsChanged)
                 {
                     agentDrivenProperties.ReloadSpeed = 10f;
                 }

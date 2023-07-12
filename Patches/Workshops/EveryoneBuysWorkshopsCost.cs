@@ -10,6 +10,7 @@ using TaleWorlds.Localization;
 
 namespace BannerlordCheats.Patches.Workshops
 {
+    /*
     [HarmonyPatch(typeof(ChangeOwnerOfWorkshopAction), nameof(ChangeOwnerOfWorkshopAction.ApplyByTrade))]
     public static class EveryoneBuysWorkshopsCost
     {
@@ -26,7 +27,7 @@ namespace BannerlordCheats.Patches.Workshops
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.EveryoneBuysWorkshops == true
+                if (SettingsManager.EveryoneBuysWorkshops.IsChanged
                     && workshop.Owner.IsPlayer()
                     && cost > newOwner.Gold)
                 {
@@ -39,4 +40,5 @@ namespace BannerlordCheats.Patches.Workshops
             }
         }
     }
+    */
 }

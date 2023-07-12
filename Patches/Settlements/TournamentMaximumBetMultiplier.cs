@@ -15,9 +15,9 @@ namespace BannerlordCheats.Patches.Settlements
         {
             try
             {
-                if (BannerlordCheatsSettings.Instance?.TournamentMaximumBetMultiplier > 1)
+                if (SettingsManager.TournamentMaximumBetMultiplier.IsChanged)
                 {
-                    var newValue = (int) Math.Round(__result * BannerlordCheatsSettings.Instance.TournamentMaximumBetMultiplier);
+                    var newValue = (int) Math.Round(__result * SettingsManager.TournamentMaximumBetMultiplier.Value);
 
                     __result = newValue;
                 }
