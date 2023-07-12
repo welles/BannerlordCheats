@@ -28,7 +28,7 @@ jobs:
           "mod_version=$ModVersion" >> $env:GITHUB_ENV
           Write-Output "ModVersion: ""$ModVersion"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)(?:-beta)<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
+          $GameVersion = Get-Content .\Directory.Build.props | Select-String -Pattern "<GameVersion>([\d.]+)(?:-beta)?<\/GameVersion>" | % { $($_.Matches.Groups[1]).Value }
           "game_version=$GameVersion" >> $env:GITHUB_ENV
           Write-Output "GameVersion: ""$GameVersion"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -41,22 +41,20 @@ jobs:
           "repo_branch=$RepoBranch" >> $env:GITHUB_ENV
           Write-Output "RepoBranch: ""$RepoBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $Prerelease = "${{github.ref}}"
-          $Prerelease = $Prerelease.Split("/")[-1]
-          If ($Prerelease -eq "stable") { $Prerelease = "false" } Else { $Prerelease = "true" }
+          If ($GameBranch -eq "Beta") { $Prerelease = "true" } Else { $Prerelease = "false" }
           "prerelease=$Prerelease" >> $env:GITHUB_ENV
           Write-Output "Prerelease: ""$Prerelease"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ZipName = "BannerlordCheats_v$($ModVersion)_for_v$($GameVersion)"
+          $ZipName = "BannerlordCheats_v$($ModVersion)_for_$($GameBranch)_v$($GameVersion)"
           "zip_name=$ZipName" >> $env:GITHUB_ENV
           Write-Output "ZipName: ""$ZipName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          If ($RepoBranch -ne "stable") { $RepoBranchAddition = "-$RepoBranch" }
+          If ($Prerelease -eq "true") { $RepoBranchAddition = "-$RepoBranch" }
           $TagName = "v$ModVersion$RepoBranchAddition"
           "tag_name=$TagName" >> $env:GITHUB_ENV
           Write-Output "TagName: ""$TagName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $ReleaseTitle = "Release v$($ModVersion) for v$($GameVersion)"
+          $ReleaseTitle = "Release v$($ModVersion) for $($GameBranch) v$($GameVersion)"
           "release_title=$ReleaseTitle" >> $env:GITHUB_ENV
           Write-Output "ReleaseTitle: ""$ReleaseTitle"""
 
