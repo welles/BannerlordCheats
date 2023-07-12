@@ -38,8 +38,6 @@ jobs:
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
           $RepoBranch = "${{github.ref}}"
           $RepoBranch = $RepoBranch.Split("/")[-1]
-          If ($RepoBranch -eq "stable") { $RepoBranch = "" }
-          If ($RepoBranch) { $RepoBranch = "-$RepoBranch" }
           "repo_branch=$RepoBranch" >> $env:GITHUB_ENV
           Write-Output "RepoBranch: ""$RepoBranch"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -53,7 +51,8 @@ jobs:
           "zip_name=$ZipName" >> $env:GITHUB_ENV
           Write-Output "ZipName: ""$ZipName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-          $TagName = "v$ModVersion$RepoBranch"
+          If ($RepoBranch -ne "stable") { $RepoBranchAddition = "-$RepoBranch" }
+          $TagName = "v$ModVersion$RepoBranchAddition"
           "tag_name=$TagName" >> $env:GITHUB_ENV
           Write-Output "TagName: ""$TagName"""
           #---------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -80,6 +79,7 @@ jobs:
         with:
           tag_name: ${{env.tag_name}}
           name: ${{env.release_title}}
+          target_commitish: ${{env.repo_branch}}
           draft: false
           prerelease: ${{env.prerelease}}
           files: ${{env.zip_name}}.zip
