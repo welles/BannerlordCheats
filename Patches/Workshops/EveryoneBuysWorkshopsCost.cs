@@ -10,6 +10,7 @@ using TaleWorlds.Localization;
 
 namespace BannerlordCheats.Patches.Workshops
 {
+    /*
     [HarmonyPatch(typeof(ChangeOwnerOfWorkshopAction), nameof(ChangeOwnerOfWorkshopAction.ApplyByTrade))]
     public static class EveryoneBuysWorkshopsCost
     {
@@ -39,4 +40,5 @@ namespace BannerlordCheats.Patches.Workshops
             }
         }
     }
+    */
 }

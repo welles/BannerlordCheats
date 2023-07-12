@@ -959,12 +959,14 @@ namespace BannerlordCheats.Settings
                     ? new CheatValue<float>(true, SettingsManager.GlobalInstance.WorkshopSellingCostMultiplier)
                     : new CheatValue<float>(false, Default.WorkshopSellingCostMultiplier);
 
+        /*
         public static CheatValue<bool> EveryoneBuysWorkshops =>
             SettingsManager.IsPerCampaignInstanceLoaded && SettingsManager.PerCampaignInstance.EveryoneBuysWorkshops != Default.EveryoneBuysWorkshops
                 ? new CheatValue<bool>(true, SettingsManager.PerCampaignInstance.EveryoneBuysWorkshops)
                 : SettingsManager.GlobalInstance.EveryoneBuysWorkshops != Default.EveryoneBuysWorkshops
                     ? new CheatValue<bool>(true, SettingsManager.GlobalInstance.EveryoneBuysWorkshops)
                     : new CheatValue<bool>(false, Default.EveryoneBuysWorkshops);
+        */
 
         #endregion Workshops
     }

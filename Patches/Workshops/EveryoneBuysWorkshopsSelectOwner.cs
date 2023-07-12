@@ -10,6 +10,7 @@ using TaleWorlds.CampaignSystem.Settlements.Workshops;
 
 namespace BannerlordCheats.Patches.Workshops
 {
+    /*
     [HarmonyPatch(typeof(DefaultWorkshopModel), nameof(DefaultWorkshopModel.SelectNextOwnerForWorkshop))]
     public static class EveryoneBuysWorkshopsSelectOwner
     {
@@ -35,4 +36,5 @@ namespace BannerlordCheats.Patches.Workshops
             }
         }
     }
+    */
 }
