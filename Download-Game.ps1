@@ -5,13 +5,20 @@ Param(
     $Branch = "stable"
 )
 
-$CurrentBeta = "1.2.0"
+$DepotVersion = Get-Content $PWD\Directory.Build.props | Select-String -Pattern "<DepotName>([\w.-]+)<\/DepotName>" | ForEach-Object { $($_.Matches.Groups[1]).Value }
+
+$GameDirectory = If ($Branch -eq "stable") { "bannerlord-stable" } ElseIf ($Branch -eq "beta") { "bannerlord-beta" } Else { throw "Invalid branch name!" }
 
 $SteamCmdUrl = "https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip";
 
-Write-Host "Downloading / updating game for branch [$Branch]" -ForegroundColor Cyan
+Write-Host "Downloading game for branch [$Branch ($DepotVersion)] into [$GameDirectory]" -ForegroundColor Cyan
 
 Write-Host "Checking if SteamCMD is installed... " -NoNewline
+
+If (!(Test-Path "$PWD\bin"))
+{
+    New-Item -Path "$PWD\bin" -Type Directory | Out-Null
+}
 
 If (Test-Path "$PWD\bin\steamcmd\steamcmd.exe")
 {
@@ -49,8 +56,4 @@ Else
     Return
 }
 
-$GameDirectory = If ($Branch -eq "stable") { "bannerlord-stable" } ElseIf ($Branch -eq "beta") { "bannerlord-beta" } Else { throw "Invalid branch name!" }
-
-$GameBranch = If ($Branch -eq "stable") { "public" } ElseIf ($Branch -eq "beta") { $CurrentBeta } Else { throw "Invalid branch name!" }
-
-&"$PWD\bin\steamcmd\steamcmd.exe" +force_install_dir "$PWD\bin\$GameDirectory" +login $Credentials[0] $Credentials[1] "+app_update 261550 -beta $GameBranch validate" +quit
+&"$PWD\bin\steamcmd\steamcmd.exe" +force_install_dir "$PWD\bin\$GameDirectory" +login $Credentials[0] $Credentials[1] "+app_update 261550 -beta $DepotVersion validate" +quit
