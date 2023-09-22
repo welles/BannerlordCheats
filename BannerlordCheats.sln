@@ -14,7 +14,6 @@ Global
 		{208114A1-295B-45FC-9EA3-B1D8326CF4E9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(RiderSharedRunConfigurations) = postSolution
-		File = Launch.run.xml
 		File = SubModule.xml
 	EndGlobalSection
 EndGlobal
