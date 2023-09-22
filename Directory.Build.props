@@ -3,6 +3,7 @@
     <Version>3.0.3.0</Version>
     <GameVersion>1.1.6.26219</GameVersion>
     <GameBranch>Stable</GameBranch>
+    <DepotName>public</DepotName>
     <HarmonyVersion>2.2.2</HarmonyVersion>
     <MCMVersion>5.9.1</MCMVersion>
     <ButterLibVersion>2.8.13</ButterLibVersion>
