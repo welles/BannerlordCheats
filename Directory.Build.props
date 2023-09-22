@@ -8,7 +8,7 @@
     <ButterLibVersion>2.8.13</ButterLibVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
-    <GameFolder>C:\SteamCMD\apps\mb2b_beta</GameFolder>
+    <GameFolder>$(SolutionDir)\bin\bannerlord-$(GameBranch)</GameFolder>
     <UseNuGetAssemblies>False</UseNuGetAssemblies>
   </PropertyGroup>
 </Project>
