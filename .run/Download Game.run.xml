@@ -1,5 +1,5 @@
 ﻿<component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Download Game" type="PowerShellRunType" factoryName="PowerShell" scriptUrl=".\Download-Game.ps1" scriptParameters="-Branch stable" workingDirectory="$SolutionDir$" executablePath="powershell.exe">
+  <configuration default="false" name="Download Game" type="PowerShellRunType" factoryName="PowerShell" scriptUrl=".\Download-Game.ps1" scriptParameters="-Branch beta" workingDirectory="$SolutionDir$" executablePath="powershell.exe">
     <envs />
     <method v="2" />
   </configuration>
