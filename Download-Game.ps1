@@ -53,4 +53,4 @@ $GameDirectory = If ($Branch -eq "stable") { "bannerlord-stable" } ElseIf ($Bran
 
 $GameBranch = If ($Branch -eq "stable") { "public" } ElseIf ($Branch -eq "beta") { $CurrentBeta } Else { throw "Invalid branch name!" }
 
-Write-Host "$PWD\bin\steamcmd\steamcmd.exe" +force_install_dir "$PWD\bin\$GameDirectory" +login $Credentials[0] $Credentials[1] "+app_update 261550 -beta $GameBranch" +quit
+"$PWD\bin\steamcmd\steamcmd.exe" +force_install_dir "$PWD\bin\$GameDirectory" +login $Credentials[0] $Credentials[1] "+app_update 261550 -beta $GameBranch validate" +quit
