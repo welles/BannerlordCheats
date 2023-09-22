@@ -13,6 +13,11 @@ Write-Host "Downloading / updating game for branch [$Branch]" -ForegroundColor C
 
 Write-Host "Checking if SteamCMD is installed... " -NoNewline
 
+If (!(Test-Path "$PWD\bin"))
+{
+    New-Item -Path "$PWD\bin" -Type Directory | Out-Null
+}
+
 If (Test-Path "$PWD\bin\steamcmd\steamcmd.exe")
 {
     Write-Host "[OK]" -ForegroundColor Green
