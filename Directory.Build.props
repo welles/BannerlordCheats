@@ -6,7 +6,7 @@
     <DepotName>v1.2.0</DepotName>
     <HarmonyVersion>2.2.2</HarmonyVersion>
     <MCMVersion>5.9.1</MCMVersion>
-    <ButterLibVersion>2.8.13</ButterLibVersion>
+    <ButterLibVersion>2.8.15</ButterLibVersion>
     <TargetFramework>net472</TargetFramework>
     <LangVersion>8.0</LangVersion>
     <GameFolder>$(SolutionDir)\bin\bannerlord-$(GameBranch)</GameFolder>
